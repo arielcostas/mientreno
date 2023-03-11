@@ -1,0 +1,70 @@
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using Server.Models;
+
+namespace Server.Models;
+
+/// <summary>
+/// Un usuario genérico, con su ID, datos básicos y credenciales.
+/// </summary>
+public class Usuario
+{
+    [Key] public Guid Id { get; set; }
+    public string Login { get; set; }
+    public string Nombre { get; set; }
+    public string Apellidos { get; set; }
+    
+    public DateTime FechaCreacion { get; set; }
+    public DateTime? FechaEliminacion { get; set; }
+
+    public Credenciales Credenciales { get; set; }
+}
+
+/// <summary>
+/// Un alumno es un usuario que recibe entrenamiento de un entrenador.
+/// </summary>
+public class Alumno : Usuario
+{
+    public List<Contrato> Asignaciones { get; set; }
+
+    public Contrato? AsignacionActual => Asignaciones
+        .OrderByDescending(ae => ae.FechaAsignacion)
+        .FirstOrDefault(a => a.FechaDesasignacion == null);
+}
+
+/// <summary>
+/// Un entrenador es un usuario que tiene alumnos a los que les asigna rutinas, objetivos, etc.
+/// </summary>
+public class Entrenador : Usuario
+{
+    public List<Contrato> Asignaciones { get; set; }
+}
+
+/// <summary>
+/// La relación entre un entrenador y un alumno en un momento dado.
+/// </summary>
+public class Contrato
+{
+    [Key] public Guid Id { get; set; }
+    public Entrenador Entrenador { get; set; }
+    public Alumno Alumno { get; set; }
+    public DateTime FechaAsignacion { get; set; }
+    public DateTime? FechaDesasignacion { get; set; }
+    public List<Cuestionario> Cuestionarios { get; set; }
+}
+
+/// <summary>
+/// Credenciales para un usuario o entrenador.
+/// </summary>
+public class Credenciales
+{
+    public string Email { get; set; }
+    public string? CodigoVerificacionEmail { get; set; }
+    public bool EmailVerificado { get; set; } = false;
+
+    public string Contraseña { get; set; }
+    public bool RequiereCambioContraseña { get; set; } = false;
+    public string SemillaMfa { get; set; }
+    public bool MfaHabilitado { get; set; } = false;
+    public bool MfaVerificado { get; set; } = false;
+}
