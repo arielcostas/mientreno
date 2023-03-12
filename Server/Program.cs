@@ -21,6 +21,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.Audience = "Server";
     });
 
+builder.Services.AddSingleton<TokenGenerator>();
+
 var app = builder.Build();
 
 app.UseHsts();
