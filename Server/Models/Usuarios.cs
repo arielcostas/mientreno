@@ -13,7 +13,7 @@ public class Usuario
     public string Login { get; set; }
     public string Nombre { get; set; }
     public string Apellidos { get; set; }
-    
+
     public DateTime FechaCreacion { get; set; }
     public DateTime? FechaEliminacion { get; set; }
 
@@ -30,6 +30,18 @@ public class Alumno : Usuario
     public Contrato? AsignacionActual => Asignaciones
         .OrderByDescending(ae => ae.FechaAsignacion)
         .FirstOrDefault(a => a.FechaDesasignacion == null);
+    
+    public Alumno(Usuario u)
+    {
+        Id = u.Id;
+        Login = u.Login;
+        Nombre = u.Nombre;
+        Apellidos = u.Apellidos;
+        FechaCreacion = u.FechaCreacion;
+        FechaEliminacion = u.FechaEliminacion;
+        Credenciales = u.Credenciales;
+        Asignaciones = new List<Contrato>();
+    }
 }
 
 /// <summary>
@@ -38,6 +50,18 @@ public class Alumno : Usuario
 public class Entrenador : Usuario
 {
     public List<Contrato> Asignaciones { get; set; }
+
+    public Entrenador(Usuario u)
+    {
+        Id = u.Id;
+        Login = u.Login;
+        Nombre = u.Nombre;
+        Apellidos = u.Apellidos;
+        FechaCreacion = u.FechaCreacion;
+        FechaEliminacion = u.FechaEliminacion;
+        Credenciales = u.Credenciales;
+        Asignaciones = new List<Contrato>();
+    }
 }
 
 /// <summary>
@@ -58,13 +82,14 @@ public class Contrato
 /// </summary>
 public class Credenciales
 {
-    public string Email { get; set; }
+    [EmailAddress] public string Email { get; set; }
     public string? CodigoVerificacionEmail { get; set; }
     public bool EmailVerificado { get; set; } = false;
 
     public string Contraseña { get; set; }
     public bool RequiereCambioContraseña { get; set; } = false;
-    public string SemillaMfa { get; set; }
+
+    public string? SemillaMfa { get; set; }
     public bool MfaHabilitado { get; set; } = false;
     public bool MfaVerificado { get; set; } = false;
 }

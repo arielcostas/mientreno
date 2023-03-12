@@ -275,7 +275,6 @@ namespace Server.Migrations
                                 .HasColumnType("bit");
 
                             b1.Property<string>("SemillaMfa")
-                                .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("UsuarioId");

@@ -31,3 +31,16 @@ public class LoginOutput
     public string? TokenAcceso { get; set; }
     public string? TokenRefresco { get; set; }
 }
+
+/// <summary>
+/// Datos de registro de un usuario.
+/// </summary>
+public class RegistroInput
+{
+    public string Login { get; set; }
+    public string Nombre { get; set; }
+    public string Apellido { get; set; }
+    public string Correo { get; set; }
+    public string Password { get; set; }
+    public bool EsEntrenador { get; set; } = false;
+}

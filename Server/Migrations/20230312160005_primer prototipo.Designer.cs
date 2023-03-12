@@ -12,8 +12,8 @@ using Server;
 namespace Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230311195138_usuarios y cuestionarios")]
-    partial class usuariosycuestionarios
+    [Migration("20230312160005_primer prototipo")]
+    partial class primerprototipo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -278,7 +278,6 @@ namespace Server.Migrations
                                 .HasColumnType("bit");
 
                             b1.Property<string>("SemillaMfa")
-                                .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("UsuarioId");

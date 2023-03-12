@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Server.Migrations
 {
     /// <inheritdoc />
-    public partial class usuariosycuestionarios : Migration
+    public partial class primerprototipo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,7 +26,7 @@ namespace Server.Migrations
                     Credenciales_EmailVerificado = table.Column<bool>(type: "bit", nullable: false),
                     Credenciales_Contraseña = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Credenciales_RequiereCambioContraseña = table.Column<bool>(type: "bit", nullable: false),
-                    Credenciales_SemillaMfa = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Credenciales_SemillaMfa = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Credenciales_MfaHabilitado = table.Column<bool>(type: "bit", nullable: false),
                     Credenciales_MfaVerificado = table.Column<bool>(type: "bit", nullable: false),
                     Tipo = table.Column<string>(type: "nvarchar(max)", nullable: false)

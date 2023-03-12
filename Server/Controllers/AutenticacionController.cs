@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.Security.Authentication;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Server.Models;
@@ -8,7 +9,7 @@ using Server.Services;
 namespace Server;
 
 [Controller]
-[Route("api/[controller]/[action]")]
+[Route("[controller]/[action]")]
 public class AutenticacionController : ControllerBase
 {
     private readonly AppDbContext _context;
@@ -27,20 +28,39 @@ public class AutenticacionController : ControllerBase
         _passwordHasher = new PasswordHasher<Usuario>();
     }
 
-    [HttpPost("Iniciar")]
-    public async Task<ActionResult<LoginOutput>> Login([FromBody] LoginInput loginInput)
+    [HttpPost]
+    public async Task<ActionResult<LoginOutput>> Iniciar([FromBody] LoginInput loginInput)
     {
         _logger.LogInformation("Iniciando sesión con {Identificador}", loginInput.Identificador);
-        
-        var loginOutput = await _autenticacionService.Login(loginInput);
-        
-        if (loginOutput == null)
+
+        try
         {
-            _logger.LogInformation("No se pudo iniciar sesión con {Identificador}", loginInput.Identificador);
-            return BadRequest("No se pudo iniciar sesión");
+            return await _autenticacionService.Login(loginInput) ?? throw new InvalidCredentialException();
         }
-        
-        _logger.LogInformation("Sesión iniciada con {Identificador}", loginInput.Identificador);
-        return loginOutput;
+        catch (InvalidCredentialsException)
+        {
+            _logger.LogWarning("Credenciales inválidas para {Identificador}", loginInput.Identificador);
+            return Unauthorized("Credenciales inválidas");
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+            _logger.LogError(e, "Error al iniciar sesión con {Identificador}", loginInput.Identificador);
+            return StatusCode(500);
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Registrar([FromBody] RegistroInput registroInput)
+    {
+        _logger.LogInformation("Registrando usuario con login {Login}", registroInput.Login);
+        try
+        {
+            await _autenticacionService.Registrar(registroInput);
+            return NoContent();
+        }
+        catch (ArgumentException e)
+        {
+            return Conflict(e.ParamName);
+        }
     }
 }

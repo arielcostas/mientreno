@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Server;
+using Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.Audience = "Server";
     });
 
+builder.Services.AddScoped<AutenticacionService>();
 builder.Services.AddSingleton<TokenGenerator>();
 
 var app = builder.Build();
