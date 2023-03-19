@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Server;
+namespace Server.Helpers;
 
 public class TokenGenerator
 {

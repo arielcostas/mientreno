@@ -1,14 +1,16 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Server;
+using Server.Helpers;
 using Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -20,6 +22,29 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         options.Authority = "https://localhost:5001";
         options.Audience = "Server";
+
+        // Custom validation of the token's `nonce` claim against the database, to check if it was invalidated.
+        options.Events = new()
+        {
+            OnTokenValidated = async context =>
+            {
+                var token = context.SecurityToken as JwtSecurityToken;
+                if (token == null)
+                {
+                    context.Fail("Token was not a JWT");
+                    return;
+                }
+
+                var sessid = token.Claims.First(c => c.Type == "nonce").Value;
+                var service = context.HttpContext.RequestServices.GetRequiredService<AutenticacionService>();
+                var userId = token.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+                if (await service.IsSessionValid(sessid, userId))
+                {
+                    context.Fail("Nonce was invalidated");
+                }
+            }
+        };
     });
 
 builder.Services.AddScoped<AutenticacionService>();
@@ -29,14 +54,24 @@ var app = builder.Build();
 
 app.UseHsts();
 
-app.UseHttpsRedirection();
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-app.UseStaticFiles();
+app.UseAuthentication();
+app.UseAuthorization();
 
-app.UseSwagger();
-app.UseSwaggerUI();
+app.UseCors(options =>
+{
+    options.WithOrigins(builder.Configuration.GetSection("Cors").Get<string[]>() ?? Array.Empty<string>());
 
-app.UseRouting();
+    options.AllowAnyHeader();
+    options.AllowAnyMethod();
+});
+
 app.MapControllers();
 
 app.Run();

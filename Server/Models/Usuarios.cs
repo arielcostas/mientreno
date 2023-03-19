@@ -10,6 +10,7 @@ namespace Server.Models;
 public class Usuario
 {
     [Key] public Guid Id { get; set; }
+    [RegularExpression("[A-Za-z0-9]{3,20}")]
     public string Login { get; set; }
     public string Nombre { get; set; }
     public string Apellidos { get; set; }
@@ -92,4 +93,15 @@ public class Credenciales
     public string? SemillaMfa { get; set; }
     public bool MfaHabilitado { get; set; } = false;
     public bool MfaVerificado { get; set; } = false;
+}
+
+public class Sesion
+{
+    public string SessionId { get; set; }
+    public Usuario Usuario { get; set; }
+    public DateTime FechaCreacion { get; set; }
+    public DateTime? FechaExpiracion { get; set; }
+    public bool Invalidada { get; set; }
+    
+    public bool EsInvalida => FechaExpiracion < DateTime.Now || Invalidada;
 }

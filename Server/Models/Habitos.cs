@@ -12,26 +12,26 @@ public class Habitos
 
 public enum Fumador
 {
-    NO,
-    SOCIAL,
-    OCASIONAL,
-    DEJANDO,
-    SI
+    No,
+    Social,
+    Ocasional,
+    Dejando,
+    Si
 }
 
 public enum Bebedor
 {
-    NO,
-    SOCIAL,
-    OCASIONAL,
-    DEJANDO,
-    SI
+    No,
+    Social,
+    Ocasional,
+    Dejando,
+    Si
 }
 
 public enum Deporte
 {
-    NO,
-    OCASIONAL,
-    SEMANAL,
-    DIARIO
+    No,
+    Ocasional,
+    Semanal,
+    Diario
 }

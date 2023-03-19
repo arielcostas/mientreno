@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Server.Helpers;
 using Server.Models;
 using Server.RestParams;
 
@@ -7,7 +9,7 @@ namespace Server.Services;
 public class AutenticacionService
 {
     private readonly AppDbContext _context;
-    private readonly PasswordHasher<Usuario> _passwordHasher;
+    private readonly IPasswordHasher<Usuario> _passwordHasher;
     private readonly TokenGenerator _tokenGenerator;
     private readonly ILogger<AutenticacionService> _logger;
 
@@ -15,7 +17,7 @@ public class AutenticacionService
         ILogger<AutenticacionService> logger)
     {
         _context = context;
-        _passwordHasher = new PasswordHasher<Usuario>();
+        _passwordHasher = new Argon2PasswordHasher<Usuario>();
         _tokenGenerator = tokenGenerator;
         _logger = logger;
     }
@@ -156,6 +158,17 @@ public class AutenticacionService
         await _context.SaveChangesAsync();
     }
 
+    public async Task<Boolean> IsSessionValid(string sessid, string userId)
+    {
+        var userGuid = Guid.Parse(userId);
+        var s = _context.Sesiones
+            .Include(s => s.Usuario)
+            .Where(s => s.Usuario.Id == userGuid)
+            .FirstOrDefault(s => s.SessionId == sessid);
+
+        return s != null;
+    }
+    
     private string GenerarCodigoVerificacionEmail()
     {
         var buffer = new byte[32];
