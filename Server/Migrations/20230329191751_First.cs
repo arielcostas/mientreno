@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Server.Migrations
 {
     /// <inheritdoc />
-    public partial class primerprototipo : Migration
+    public partial class First : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -62,6 +62,27 @@ namespace Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Sesiones",
+                columns: table => new
+                {
+                    SessionId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaExpiracion = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Invalidada = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sesiones", x => x.SessionId);
+                    table.ForeignKey(
+                        name: "FK_Sesiones_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cuestionarios",
                 columns: table => new
                 {
@@ -113,6 +134,11 @@ namespace Server.Migrations
                 name: "IX_Cuestionarios_ContratoId",
                 table: "Cuestionarios",
                 column: "ContratoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sesiones_UsuarioId",
+                table: "Sesiones",
+                column: "UsuarioId");
         }
 
         /// <inheritdoc />
@@ -120,6 +146,9 @@ namespace Server.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Cuestionarios");
+
+            migrationBuilder.DropTable(
+                name: "Sesiones");
 
             migrationBuilder.DropTable(
                 name: "Asignaciones");

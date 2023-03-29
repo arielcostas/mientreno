@@ -19,6 +19,16 @@ public class Usuario
     public DateTime? FechaEliminacion { get; set; }
 
     public Credenciales Credenciales { get; set; }
+
+    public Usuario()
+    {
+        Id = Guid.NewGuid();
+        FechaCreacion = DateTime.Now;
+        Login = string.Empty;
+        Nombre = string.Empty;
+        Apellidos = string.Empty;
+        Credenciales = new Credenciales();
+    }
 }
 
 /// <summary>
@@ -31,7 +41,12 @@ public class Alumno : Usuario
     public Contrato? AsignacionActual => Asignaciones
         .OrderByDescending(ae => ae.FechaAsignacion)
         .FirstOrDefault(a => a.FechaDesasignacion == null);
-    
+
+    public Alumno() : base()
+    {
+        Asignaciones = new List<Contrato>();
+    }
+
     public Alumno(Usuario u)
     {
         Id = u.Id;
@@ -51,6 +66,11 @@ public class Alumno : Usuario
 public class Entrenador : Usuario
 {
     public List<Contrato> Asignaciones { get; set; }
+
+    public Entrenador() : base()
+    {
+        Asignaciones = new List<Contrato>();
+    }
 
     public Entrenador(Usuario u)
     {
@@ -97,11 +117,27 @@ public class Credenciales
 
 public class Sesion
 {
+    [Key]
     public string SessionId { get; set; }
     public Usuario Usuario { get; set; }
     public DateTime FechaCreacion { get; set; }
-    public DateTime? FechaExpiracion { get; set; }
+    public DateTime FechaExpiracion { get; set; }
     public bool Invalidada { get; set; }
-    
+
     public bool EsInvalida => FechaExpiracion < DateTime.Now || Invalidada;
+
+    public Sesion()
+    {
+        byte[] b = new byte[32];
+        Random.Shared.NextBytes(b);
+
+        SessionId = Convert.ToHexString(b);
+        FechaCreacion = DateTime.Now;
+    }
+
+    public Sesion(Usuario u, DateTime fechaExpiracion) : this()
+    {
+        FechaExpiracion = fechaExpiracion;
+        Usuario = u;
+    }
 }

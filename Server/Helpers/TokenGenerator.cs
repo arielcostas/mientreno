@@ -8,36 +8,14 @@ using Microsoft.IdentityModel.Tokens;
 namespace Server.Helpers;
 
 public class TokenGenerator
-{
-    private readonly byte[] _tokenSigningKey = "abc"u8.ToArray();
-
-    public string GenerarTokenAcceso(DateTime expiraEn, string id, string login, string rol)
-    {
-        return GenerarJsonWebToken(expiraEn, id, login, rol);
-    }
-    
-    public string? VerificarTokenAcceso(string token)
-    {
-        return VerificarJsonWebToken(token);
-    }
-
-    public string GenerarTokenRefresco(DateTime expiraEn, string id, string login, string rol)
-    {
-        throw new NotImplementedException();
-    }
-    
-    public string? VerificarTokenRefresco(string token)
-    {
-        throw new NotImplementedException();
-    }
-    
+{    
     /// <summary>
     /// El token de desafio es un hash HMAC-SHA256 de los datos del usuario y la fecha de expiración.
     /// Los datos se concatenan con dos exclamaciones (!!), y se calcula un HMAC-SHA256 con la clave privada.
     /// Se devuelve el conjunto de datos y el hash; concatenado y como base64.
     /// </summary>
     /// <returns></returns>
-    public string GenerarTokenDesafio(DateTime expiraEn, IDictionary<string, string> datos)
+    public string GenerarTokenMac(DateTime expiraEn, IDictionary<string, string> datos)
     {
         var payload = string.Empty;
         foreach (var (key, value) in datos)
@@ -50,7 +28,7 @@ public class TokenGenerator
         payload += $"!!exp={expiraEn.Ticks}";
 
         // Generate a hash from the parts with HMAC-SHA256
-        using var hmac = new HMACSHA256(_tokenSigningKey);
+        using var hmac = new HMACSHA256(SigningKeyHolder.GetToken());
 
         byte[] hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(payload));
         
@@ -62,18 +40,18 @@ public class TokenGenerator
     /// Descodifica y verifica la integridad del token de desafio generado por GenerarTokenDesafio.
     /// </summary>
     /// <returns>El ID de usuario</returns>
-    public IDictionary<string, string> VerificarTokenDesafio(string token)
+    public IDictionary<string, string> VerificarTokenMac(string token)
     {
         // Decode the token
         var parts = Encoding.UTF8.GetString(Convert.FromBase64String(token)).Split("..");
         
         // Verify the hash
-        using var hmac = new HMACSHA256(_tokenSigningKey);
+        using var hmac = new HMACSHA256(SigningKeyHolder.GetToken());
         
         var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(parts[0]));
         
         if (Convert.ToBase64String(hash) != parts[1])
-            throw new SecurityTokenException("Token de desafío inválido");
+            throw new SecurityTokenException("Token inválido");
         
         // Parse the payload
         var payload = parts[0].Split("!!");
@@ -87,13 +65,14 @@ public class TokenGenerator
         return datos;
     }
 
-    private string GenerarJsonWebToken(DateTime expiraEn, string id, string login, string rol)
+    public string GenerarTokenAcceso(DateTime expiraEn, string id, string login, string rol, string nonce)
     {
         Claim[] claims =
         {
             new(ClaimTypes.NameIdentifier, id),
             new(ClaimTypes.Name, login),
-            new(ClaimTypes.Role, rol)
+            new(ClaimTypes.Role, rol),
+            new("nonce", nonce)
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
@@ -103,7 +82,7 @@ public class TokenGenerator
             Subject = claimsIdentity,
             Expires = expiraEn,
             SigningCredentials = new SigningCredentials(
-                new SymmetricSecurityKey(_tokenSigningKey),
+                new SymmetricSecurityKey(SigningKeyHolder.GetToken()),
                 SecurityAlgorithms.HmacSha256Signature
             )
         };
@@ -113,10 +92,10 @@ public class TokenGenerator
         return new JwtSecurityTokenHandler().WriteToken(securityToken);
     }
     
-    private string? VerificarJsonWebToken(string token)
+    public string? VerificarTokenAcceso(string token)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = _tokenSigningKey;
+        var key = SigningKeyHolder.GetToken();
 
         tokenHandler.ValidateToken(token, new TokenValidationParameters
         {

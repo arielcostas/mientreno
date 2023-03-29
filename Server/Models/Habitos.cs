@@ -8,6 +8,13 @@ public class Habitos
     public string OtrasDrogas { get; set; }
     public Deporte Deporte { get; set; }
     public string Sueño { get; set; }
+
+    public Habitos()
+    {
+        Profesion = string.Empty;
+        OtrasDrogas = string.Empty;
+        Sueño = string.Empty;
+    }
 }
 
 public enum Fumador

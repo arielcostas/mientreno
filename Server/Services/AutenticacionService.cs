@@ -36,12 +36,7 @@ public class AutenticacionService
     {
         var usuarioEncontrado = _context.Usuarios
             .FirstOrDefault(
-                u => u.Login == loginInput.Identificador || u.Credenciales.Email == loginInput.Identificador);
-
-        if (usuarioEncontrado == null)
-        {
-            throw new InvalidCredentialsException();
-        }
+                u => u.Login == loginInput.Identificador || u.Credenciales.Email == loginInput.Identificador) ?? throw new InvalidCredentialsException();
 
         var resultado = _passwordHasher.VerifyHashedPassword(usuarioEncontrado,
             usuarioEncontrado.Credenciales.Contraseña, loginInput.Credencial);
@@ -66,13 +61,13 @@ public class AutenticacionService
             _ => throw new ArgumentOutOfRangeException(
                 "userType",
                 usuarioEncontrado.GetType(),
-                $"Usuario con {usuarioEncontrado.Id.ToString()} no es  alumno ni entrenador"
+                $"Usuario con {usuarioEncontrado.Id} no es  alumno ni entrenador"
             )
         };
 
         if (usuarioEncontrado.Credenciales.MfaHabilitado)
         {
-            var codigo = _tokenGenerator.GenerarTokenDesafio(
+            var codigo = _tokenGenerator.GenerarTokenMac(
                 DateTime.Now.AddMinutes(10),
                 new Dictionary<string, string>()
                 {
@@ -87,18 +82,25 @@ public class AutenticacionService
             };
         }
 
+        var sess = new Sesion(usuarioEncontrado, DateTime.Now.AddMinutes(120));
+
         var tokenAcceso = _tokenGenerator.GenerarTokenAcceso(
-            DateTime.Now.AddMinutes(120),
+            sess.FechaExpiracion,
             usuarioEncontrado.Id.ToString(),
             usuarioEncontrado.Login,
-            rol
+            rol,
+            sess.SessionId
         );
 
-        var tokenRefresco = _tokenGenerator.GenerarTokenRefresco(
+        _context.Sesiones.Add(sess);
+        await _context.SaveChangesAsync();
+
+        var tokenRefresco = _tokenGenerator.GenerarTokenMac(
             DateTime.Now.AddDays(14),
-            usuarioEncontrado.Id.ToString(),
-            usuarioEncontrado.Login,
-            rol
+            new Dictionary<string, string>()
+            {
+                {"id", usuarioEncontrado.Id.ToString() }
+            }
         );
 
         return new LoginOutput
@@ -111,8 +113,19 @@ public class AutenticacionService
 
     private async Task<LoginOutput> LoginConTotp(LoginInput loginInput)
     {
-        _logger.LogInformation("Iniciando sesión con TOTP");
-        throw new NotImplementedException();
+        var tokenData = _tokenGenerator.VerificarTokenMac(loginInput.Identificador[2..]);
+
+        foreach (var (k, v) in tokenData)
+        {
+            await Console.Out.WriteLineAsync($"{k} => {v}");
+        }
+
+        return new LoginOutput
+        {
+            RequiereDesafio = true,
+            TokenAcceso = string.Empty,
+            TokenRefresco = string.Empty
+        };
     }
 
     public async Task Registrar(RegistroInput registroInput)
@@ -158,7 +171,7 @@ public class AutenticacionService
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Boolean> IsSessionValid(string sessid, string userId)
+    public bool IsSessionValid(string sessid, string userId)
     {
         var userGuid = Guid.Parse(userId);
         var s = _context.Sesiones
@@ -168,7 +181,7 @@ public class AutenticacionService
 
         return s != null;
     }
-    
+
     private string GenerarCodigoVerificacionEmail()
     {
         var buffer = new byte[32];

@@ -20,6 +20,12 @@ public class Cuestionario
     
     public Habitos Habitos { get; set; }
     public Perimetros Perimetros { get; set; }
+
+    public Cuestionario()
+    {
+        Id = Guid.NewGuid();
+        FechaCreacion = DateTime.Now;
+    }
 }
 
 public class Perimetros

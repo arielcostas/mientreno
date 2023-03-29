@@ -1,4 +1,5 @@
 ﻿using System.Security.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Server.Helpers;
@@ -62,5 +63,20 @@ public class AutenticacionController : ControllerBase
         {
             return Conflict(e.ParamName);
         }
+    }
+
+    [HttpGet]
+    [Authorize]
+    public ActionResult Info()
+    {
+        var claims = User.Claims.ToList();
+        string body = string.Empty;
+
+        for (int i = 0; i < claims.Count; i++)
+        {
+            System.Security.Claims.Claim? claim = claims[i];
+            body += $"{claim.Type} => {claim.Value}\r\n";
+        }
+        return Ok(body);
     }
 }

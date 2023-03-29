@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Server;
 using Server.Helpers;
 
 #nullable disable
@@ -13,8 +12,8 @@ using Server.Helpers;
 namespace Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230312160005_primer prototipo")]
-    partial class primerprototipo
+    [Migration("20230329191751_First")]
+    partial class First
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,6 +84,30 @@ namespace Server.Migrations
                     b.HasIndex("ContratoId");
 
                     b.ToTable("Cuestionarios");
+                });
+
+            modelBuilder.Entity("Server.Models.Sesion", b =>
+                {
+                    b.Property<string>("SessionId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaExpiracion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Invalidada")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("SessionId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Sesiones");
                 });
 
             modelBuilder.Entity("Server.Models.Usuario", b =>
@@ -246,6 +269,17 @@ namespace Server.Migrations
 
                     b.Navigation("Perimetros")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Server.Models.Sesion", b =>
+                {
+                    b.HasOne("Server.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Server.Models.Usuario", b =>

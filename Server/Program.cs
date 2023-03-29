@@ -1,7 +1,10 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Server;
 using Server.Helpers;
 using Server.Services;
@@ -14,38 +17,26 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.Authority = "https://localhost:5001";
-        options.Audience = "Server";
-
-        // Custom validation of the token's `nonce` claim against the database, to check if it was invalidated.
-        options.Events = new()
-        {
-            OnTokenValidated = async context =>
-            {
-                var token = context.SecurityToken as JwtSecurityToken;
-                if (token == null)
-                {
-                    context.Fail("Token was not a JWT");
-                    return;
-                }
-
-                var sessid = token.Claims.First(c => c.Type == "nonce").Value;
-                var service = context.HttpContext.RequestServices.GetRequiredService<AutenticacionService>();
-                var userId = token.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
-
-                if (await service.IsSessionValid(sessid, userId))
-                {
-                    context.Fail("Nonce was invalidated");
-                }
-            }
-        };
+        options.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(SigningKeyHolder.GetToken());
+        options.TokenValidationParameters.ValidateAudience = false;
+        options.TokenValidationParameters.ValidateIssuer = false;
+        options.TokenValidationParameters.ValidateLifetime = true;
     });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ValidSessionKey", policy => policy.Requirements.Add(new ValidSessionKeyRequirement()));
+
+    options.DefaultPolicy = options.GetPolicy("ValidSessionKey")!;
+});
+
+builder.Services.AddScoped<IAuthorizationHandler, ValidSessionKeyAuthorizationHandler>();
 
 builder.Services.AddScoped<AutenticacionService>();
 builder.Services.AddSingleton<TokenGenerator>();
