@@ -33,6 +33,9 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ValidSessionKey", policy => policy.Requirements.Add(new ValidSessionKeyRequirement()));
 
+    options.AddPolicy("EsAlumno", policy => policy.RequireClaim(ClaimTypes.Role, new string[] { "Alumno" }));
+    options.AddPolicy("EsEntrenador", policy => policy.RequireClaim(ClaimTypes.Role, new string[] { "Entrenador" }));
+
     options.DefaultPolicy = options.GetPolicy("ValidSessionKey")!;
 });
 
