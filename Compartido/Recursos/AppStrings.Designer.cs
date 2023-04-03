@@ -70,6 +70,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Registrarme.
+        /// </summary>
+        public static string dontHaveAccountRegister {
+            get {
+                return ResourceManager.GetString("dontHaveAccountRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Debes introducir usuario y contraseña.
         /// </summary>
         public static string enterUsernameOrPassword {
