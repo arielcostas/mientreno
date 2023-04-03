@@ -120,6 +120,10 @@
   <data name="doLogin" xml:space="preserve">
     <value>Conectar</value>
   </data>
+  <data name="dontHaveAccountRegister" xml:space="preserve">
+    <value>Registrarme</value>
+    <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
+  </data>
   <data name="enterUsernameOrPassword" xml:space="preserve">
     <value>Debes introducir usuario e contrasinal</value>
   </data>
