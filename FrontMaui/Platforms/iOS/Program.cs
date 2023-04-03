@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace FrontMaui
+namespace Mientreno.Mobile.Platforms.iOS
 {
     public class Program
     {

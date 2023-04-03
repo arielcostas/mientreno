@@ -5,10 +5,10 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Server.Helpers;
+namespace Mientreno.Server.Helpers;
 
 public class TokenGenerator
-{    
+{
     /// <summary>
     /// El token de desafio es un hash HMAC-SHA256 de los datos del usuario y la fecha de expiración.
     /// Los datos se concatenan con dos exclamaciones (!!), y se calcula un HMAC-SHA256 con la clave privada.
@@ -24,14 +24,14 @@ public class TokenGenerator
                 payload += "!!";
             payload += $"{key}={value}";
         }
-        
+
         payload += $"!!exp={expiraEn.Ticks}";
 
         // Generate a hash from the parts with HMAC-SHA256
         using var hmac = new HMACSHA256(SigningKeyHolder.GetToken());
 
         byte[] hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(payload));
-        
+
         // Concatenate the parts and the hash, and return as base64
         return Convert.ToBase64String(Encoding.UTF8.GetBytes($"{payload}..{Convert.ToBase64String(hash)}"));
     }
@@ -44,15 +44,15 @@ public class TokenGenerator
     {
         // Decode the token
         var parts = Encoding.UTF8.GetString(Convert.FromBase64String(token)).Split("..");
-        
+
         // Verify the hash
         using var hmac = new HMACSHA256(SigningKeyHolder.GetToken());
-        
+
         var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(parts[0]));
-        
+
         if (Convert.ToBase64String(hash) != parts[1])
             throw new SecurityTokenException("Token inválido");
-        
+
         // Parse the payload
         var payload = parts[0].Split("!!");
         var datos = new Dictionary<string, string>();
@@ -61,7 +61,7 @@ public class TokenGenerator
             var kv = part.Split("=");
             datos.Add(kv[0], kv[1]);
         }
-        
+
         return datos;
     }
 
@@ -91,7 +91,7 @@ public class TokenGenerator
 
         return new JwtSecurityTokenHandler().WriteToken(securityToken);
     }
-    
+
     public string? VerificarTokenAcceso(string token)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -106,7 +106,7 @@ public class TokenGenerator
             ValidateLifetime = true
         }, out var validatedToken);
 
-        var jwtToken = (JwtSecurityToken) validatedToken;
+        var jwtToken = (JwtSecurityToken)validatedToken;
 
         return jwtToken.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
     }

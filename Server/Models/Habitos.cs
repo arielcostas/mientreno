@@ -1,4 +1,4 @@
-namespace Server.Models;
+namespace Mientreno.Server.Models;
 
 public class Habitos
 {

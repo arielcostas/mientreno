@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Server.Models;
+using Mientreno.Server.Models;
 
-namespace Server.Helpers;
+namespace Mientreno.Server.Helpers;
 
 public class AppDbContext : DbContext
 {

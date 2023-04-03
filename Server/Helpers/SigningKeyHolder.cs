@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Server.Helpers;
+namespace Mientreno.Server.Helpers;
 
 public static class SigningKeyHolder
 {
@@ -25,7 +25,7 @@ public static class SigningKeyHolder
 
     public static string GetTokenString()
     {
-        if ( _token == null )
+        if (_token == null)
         {
             Initialize();
         }

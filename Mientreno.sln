@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontMaui", "FrontMaui\FrontMaui.csproj", "{11FAED06-24C0-4075-B8A7-D996FF698A49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compartido", "Compartido\Compartido.csproj", "{D46A0C6D-9047-4B35-AD48-5881DF4144B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{11FAED06-24C0-4075-B8A7-D996FF698A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11FAED06-24C0-4075-B8A7-D996FF698A49}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11FAED06-24C0-4075-B8A7-D996FF698A49}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D46A0C6D-9047-4B35-AD48-5881DF4144B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D46A0C6D-9047-4B35-AD48-5881DF4144B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D46A0C6D-9047-4B35-AD48-5881DF4144B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D46A0C6D-9047-4B35-AD48-5881DF4144B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

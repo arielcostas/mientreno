@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
 
-namespace FrontMaui.Models;
+namespace Mientreno.Mobile.Models;
 
 public class Tarea : INotifyPropertyChanged
 {

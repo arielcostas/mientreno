@@ -1,7 +1,8 @@
 ﻿using Android.App;
 using Android.Runtime;
+using Mientreno.Mobile;
 
-namespace FrontMaui
+namespace Mientreno.Mobile.Platforms.Android
 {
     [Application]
     public class MainApplication : MauiApplication

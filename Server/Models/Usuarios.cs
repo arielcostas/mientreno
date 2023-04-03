@@ -1,8 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
-using Server.Models;
 
-namespace Server.Models;
+namespace Mientreno.Server.Models;
 
 /// <summary>
 /// Un usuario genérico, con su ID, datos básicos y credenciales.

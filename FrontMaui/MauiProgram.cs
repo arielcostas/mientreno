@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace FrontMaui;
+namespace Mientreno.Mobile;
 
 public static class MauiProgram
 {

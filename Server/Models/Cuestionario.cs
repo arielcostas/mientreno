@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-
-namespace Server.Models;
+namespace Mientreno.Server.Models;
 
 /// <summary>
 /// Un cuestionario se realiza entre un entrenador y un alumno. Realizándose periódicamente, permiten
@@ -17,7 +15,7 @@ public class Cuestionario
     public byte AlturaCm { get; set; }
     public float MasaKilogramos { get; set; }
     public byte FrecuenciaCardiacaReposo { get; set; }
-    
+
     public Habitos Habitos { get; set; }
     public Perimetros Perimetros { get; set; }
 

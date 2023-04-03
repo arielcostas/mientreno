@@ -1,13 +1,11 @@
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Server;
-using Server.Helpers;
-using Server.Services;
+using Mientreno.Server;
+using Mientreno.Server.Helpers;
+using Mientreno.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

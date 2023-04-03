@@ -1,4 +1,4 @@
-﻿namespace FrontMaui
+﻿namespace Mientreno.Mobile
 {
     public partial class App : Application
     {

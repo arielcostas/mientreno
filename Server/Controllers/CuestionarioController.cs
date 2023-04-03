@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Server.Helpers;
-using Server.Models;
+using Mientreno.Server.Helpers;
+using Mientreno.Server.Models;
 using System.Security.Claims;
 
-namespace Server.Controllers;
+namespace Mientreno.Server.Controllers;
 
 [ApiController]
 [Authorize("EsAlumno")]
@@ -33,7 +33,7 @@ public class CuestionarioController : ControllerBase
             return NotFound();
         }
         var q = me.AsignacionActual.Cuestionarios;
-        
+
         return Ok(q);
     }
 

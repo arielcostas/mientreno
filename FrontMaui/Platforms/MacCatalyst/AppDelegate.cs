@@ -1,6 +1,7 @@
 ﻿using Foundation;
+using Mientreno.Mobile;
 
-namespace FrontMaui
+namespace Mientreno.Mobile.Platforms.MacCatalyst
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Server.Helpers;
+using Mientreno.Server.Helpers;
 
-namespace Server;
+namespace Mientreno.Server;
 
 internal class ValidSessionKeyAuthorizationHandler : AuthorizationHandler<ValidSessionKeyRequirement>
 {
@@ -22,7 +22,8 @@ internal class ValidSessionKeyAuthorizationHandler : AuthorizationHandler<ValidS
         if (found == null)
         {
             context.Fail();
-        } else
+        }
+        else
         {
             context.Succeed(requirement);
         }

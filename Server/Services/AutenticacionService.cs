@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Server.Helpers;
-using Server.Models;
-using Server.RestParams;
+using Mientreno.Compartido.Peticiones;
+using Mientreno.Server.Helpers;
+using Mientreno.Server.Models;
 
-namespace Server.Services;
+namespace Mientreno.Server.Services;
 
 public class AutenticacionService
 {

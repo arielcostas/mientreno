@@ -1,4 +1,4 @@
-namespace WebApp.Data
+namespace Mientreno.Web.Data
 {
     public class WeatherForecast
     {

@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Server.Helpers;
-using Server.Models;
-using Server.RestParams;
-using Server.Services;
+using Mientreno.Compartido.Peticiones;
+using Mientreno.Server.Helpers;
+using Mientreno.Server.Models;
+using Mientreno.Server.Services;
 
-namespace Server.Controllers;
+namespace Mientreno.Server.Controllers;
 
 [Controller]
 [Route("[controller]/[action]")]
@@ -28,7 +28,7 @@ public class AutenticacionController : ControllerBase
         _logger = logger;
         _passwordHasher = new PasswordHasher<Usuario>();
     }
-    
+
     [HttpPost]
     public async Task<ActionResult<LoginOutput>> Iniciar([FromBody] LoginInput loginInput)
     {

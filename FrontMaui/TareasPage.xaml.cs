@@ -1,9 +1,10 @@
-using FrontMaui.Models;
+using Mientreno.Mobile;
+using Mientreno.Mobile.Models;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
-namespace FrontMaui;
+namespace Mientreno.Mobile;
 
 public partial class TareasPage : ContentPage
 {

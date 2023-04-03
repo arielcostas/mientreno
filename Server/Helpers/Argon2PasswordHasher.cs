@@ -3,7 +3,7 @@ using System.Text;
 using Konscious.Security.Cryptography;
 using Microsoft.AspNetCore.Identity;
 
-namespace Server.Helpers;
+namespace Mientreno.Server.Helpers;
 
 public class Argon2PasswordHasher<TUser> : IPasswordHasher<TUser> where TUser : class
 {
@@ -28,7 +28,7 @@ public class Argon2PasswordHasher<TUser> : IPasswordHasher<TUser> where TUser : 
         {
             return PasswordVerificationResult.Failed;
         }
-        
+
         var salt = new byte[16];
         var providedHash = new byte[32];
         Buffer.BlockCopy(bytes, 32, salt, 0, 16);
@@ -39,7 +39,7 @@ public class Argon2PasswordHasher<TUser> : IPasswordHasher<TUser> where TUser : 
             Encoding.UTF8.GetBytes(providedPassword),
             salt
         );
-        
+
         return CryptographicOperations.FixedTimeEquals(hash, providedHash)
             ? PasswordVerificationResult.Success
             : PasswordVerificationResult.Failed;
