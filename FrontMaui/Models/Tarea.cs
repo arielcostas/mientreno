@@ -65,7 +65,7 @@ public class Tarea : INotifyPropertyChanged
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
             HttpClient cli = new();
-            cli.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Sesion.Token);
+            cli.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Global.Token);
 
             var tareas = await cli.PatchAsJsonAsync($"http://199.9.9.20:5072/Tareas/{TareaId}", new
             {

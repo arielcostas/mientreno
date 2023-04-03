@@ -1,10 +1,14 @@
-﻿using System.Net;
+﻿using Mientreno.Compartido.Peticiones;
+using Mientreno.Compartido.Recursos;
+using System.Net;
 using System.Net.Http.Json;
 
 namespace Mientreno.Mobile;
 
 public partial class LoginPage : ContentPage
 {
+    public bool IsLoading { get; set; }
+
     public LoginPage()
     {
         InitializeComponent();
@@ -15,31 +19,30 @@ public partial class LoginPage : ContentPage
 
     private async void DoLogin(object sender, EventArgs e)
     {
-        errorDisplay.Text = string.Empty;
-        ActivityIndicator indicator = new()
-        {
-            Color = Colors.Orange,
-            IsRunning = true,
-            IsVisible = true,
-        };
+        errorDisplay.Text = " ";
+        IsLoading = true;
 
         if (
             usuarioEntry.Text.Trim() == string.Empty ||
             contraseñaEntry.Text.Trim() == string.Empty)
         {
-            errorDisplay.Text = "Debe ingresar usuario y contraseña";
+            errorDisplay.Text = AppStrings.enterUsernameOrPassword;
             return;
         }
 
         try
         {
-            HttpClient client = new HttpClient();
-            var resp = await client.PostAsync(
-                "http://199.9.9.20:5072/Auth/Login",
-                JsonContent.Create(new
+            HttpClient cli = new()
+            {
+                BaseAddress = new Uri(Global.BaseUrl)
+            };
+
+            var resp = await cli.PostAsync(
+                "/Autenticacion/Iniciar",
+                JsonContent.Create<LoginInput>(new()
                 {
-                    id = usuarioEntry.Text,
-                    contraseña = contraseñaEntry.Text
+                    Identificador = usuarioEntry.Text,
+                    Credencial = contraseñaEntry.Text
                 })
             );
 
@@ -50,13 +53,14 @@ public partial class LoginPage : ContentPage
 
             resp.EnsureSuccessStatusCode();
 
-            var token = await resp.Content.ReadFromJsonAsync<LoginResponse>();
-            if (token == null)
+            var body = await resp.Content.ReadFromJsonAsync<LoginOutput>();
+            if (body == null)
             {
                 throw new Exception("No se pudo iniciar sesión: respuesta inesperada");
             }
 
-            Sesion.Token = token.Token;
+            Preferences.Default.Set(SettingsKeys.Refresco, body.TokenRefresco);
+            Global.Token = body.TokenAcceso;
 
             await Shell.Current.GoToAsync("///TareasPage");
         }
@@ -66,9 +70,8 @@ public partial class LoginPage : ContentPage
             Console.WriteLine(ex.Message);
             Console.WriteLine(ex.StackTrace);
         }
-        
-        indicator.IsRunning = false;
-        indicator.IsVisible = false;
+
+        IsLoading = false;
     }
 }
 

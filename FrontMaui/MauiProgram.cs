@@ -22,9 +22,3 @@ public static class MauiProgram
         return builder.Build();
     }
 }
-
-#nullable enable
-public static class Sesion
-{
-    public static string? Token { get; set; }
-}

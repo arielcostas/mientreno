@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Mientreno.Compartido.Errores;
 using Mientreno.Compartido.Peticiones;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Models;
@@ -41,7 +42,7 @@ public class AutenticacionController : ControllerBase
         catch (InvalidCredentialsException)
         {
             _logger.LogWarning("Credenciales inválidas para {Identificador}", loginInput.Identificador);
-            return Unauthorized("Credenciales inválidas");
+            return Unauthorized(MensajesError.CredencialesInvalidas);
         }
         catch (ArgumentOutOfRangeException e)
         {

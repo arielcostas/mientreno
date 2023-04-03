@@ -7,4 +7,20 @@
 		<RootNamespace>Mientreno.Compartido</RootNamespace>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Compile Update="Recursos\AppStrings.Designer.cs">
+	    <DependentUpon>AppStrings.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Recursos\AppStrings.resx">
+	    <LastGenOutput>AppStrings.Designer.cs</LastGenOutput>
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <CustomToolNamespace>Mientreno.Compartido.Recursos</CustomToolNamespace>
+	  </EmbeddedResource>
+	</ItemGroup>
+
 </Project>

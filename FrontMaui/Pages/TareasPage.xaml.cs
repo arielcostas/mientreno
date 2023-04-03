@@ -26,10 +26,13 @@ public partial class TareasPage : ContentPage
     {
         try
         {
-            HttpClient cli = new();
-            cli.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Sesion.Token);
+            HttpClient cli = new()
+            {
+                BaseAddress = new Uri(Global.BaseUrl)
+            };
+            cli.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Global.Token);
 
-            var tareas = await cli.GetFromJsonAsync<Tarea[]>("http://199.9.9.20:5072/Tareas");
+            var tareas = await cli.GetFromJsonAsync<Tarea[]>("/Tareas");
             Tareas.Clear();
             foreach (var tarea in tareas)
             {
@@ -47,7 +50,7 @@ public partial class TareasPage : ContentPage
         try
         {
             HttpClient cli = new();
-            cli.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Sesion.Token);
+            cli.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Global.Token);
 
             var tareas = await cli.PostAsJsonAsync(
                 "http://199.9.9.20:5072/Tareas",

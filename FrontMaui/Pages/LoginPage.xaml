@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:res="clr-namespace:Mientreno.Compartido.Recursos;assembly=Compartido"
+             x:Class="Mientreno.Mobile.LoginPage"
+             Title="Inicio de sesión">
+    <VerticalStackLayout
+        MaximumWidthRequest="340"
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Start"
+        Margin="15,80,15,0">
+
+        <Label
+                Text="{x:Static res:AppStrings.loginToContinue}"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center"
+                IsEnabled="{Binding !IsLoading}"
+            />
+
+        <Label x:Name="errorDisplay" TextColor="Red" HorizontalOptions="Center" Text=" " IsVisible="True" />
+
+        <Entry x:Name="usuarioEntry" Placeholder="{x:Static res:AppStrings.username}" MaximumWidthRequest="250" IsEnabled="{Binding !IsLoading}" />
+        <Entry x:Name="contraseñaEntry" Placeholder="{x:Static res:AppStrings.password}" IsPassword="True" MaximumWidthRequest="250" IsEnabled="{Binding !IsLoading}" />
+
+        <Button
+                x:Name="LoginBtn"
+                Text="{x:Static res:AppStrings.doLogin}"
+                SemanticProperties.Hint="Para iniciar sesión"
+                Clicked="DoLogin"
+                HorizontalOptions="Center"
+            IsEnabled="{Binding !IsLoading}"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -5,9 +5,9 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{031710B2-7D38-4FA2-9B10-2792EFF19ABB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{ADE8056A-E513-4363-AE1D-21D3E4308DD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "WebApp\Web.csproj", "{ADE8056A-E513-4363-AE1D-21D3E4308DD9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontMaui", "FrontMaui\FrontMaui.csproj", "{11FAED06-24C0-4075-B8A7-D996FF698A49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mobile", "FrontMaui\Mobile.csproj", "{11FAED06-24C0-4075-B8A7-D996FF698A49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compartido", "Compartido\Compartido.csproj", "{D46A0C6D-9047-4B35-AD48-5881DF4144B8}"
 EndProject

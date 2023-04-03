@@ -17,7 +17,7 @@
                 window.MinimumWidth = 350;
                 window.MinimumHeight = 300;
 
-                window.Title = "Cosa de tareas";
+                window.Title = "MiEntreno";
 
             }
             return window;
