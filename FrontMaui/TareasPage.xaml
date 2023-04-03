@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontMaui.TareasPage"
+             Title="Mis tareas">
+    <VerticalStackLayout Margin="10,15,10,0" Spacing="15">
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Entry Placeholder="Nueva tarea" x:Name="txtNuevaTarea" HorizontalOptions="Fill" WidthRequest="240" />
+            <Button x:Name="btnAgregarTarea" Text=" + " />
+        </HorizontalStackLayout>
+        <ListView ItemsSource="{Binding Tareas}" HorizontalOptions="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Switch IsToggled="{Binding Completada}" />
+                            <Label Text="{Binding Titulo}" VerticalOptions="Center" WidthRequest="240" />
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
