@@ -1,0 +1,3 @@
+files:
+  - source: /Compartido/Recursos/AppStrings.resx
+    translation: /Compartido/Recursos/AppStrings.%two_letters_code%.resx
