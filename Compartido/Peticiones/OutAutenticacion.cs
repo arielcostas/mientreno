@@ -20,3 +20,12 @@ public class LoginOutput
     public string? TokenAcceso { get; set; }
     public string? TokenRefresco { get; set; }
 }
+
+/// <summary>
+/// Parámetros de salida para obtener un token de acceso y token de refresco a partir de un token de refresco.
+/// </summary>
+public class RefrescarOutput
+{
+    public string TokenAcceso { get; set; }
+    public string TokenRefresco { get; set; }
+}

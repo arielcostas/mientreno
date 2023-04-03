@@ -14,20 +14,13 @@ namespace Mientreno.Server.Controllers;
 [Route("[controller]/[action]")]
 public class AutenticacionController : ControllerBase
 {
-    private readonly AppDbContext _context;
-    private readonly PasswordHasher<Usuario> _passwordHasher;
-    private readonly TokenGenerator _tokenGenerator;
     private readonly AutenticacionService _autenticacionService;
     private readonly ILogger<AutenticacionController> _logger;
 
-    public AutenticacionController(AppDbContext context, TokenGenerator tokenGenerator,
-        AutenticacionService autenticacionService, ILogger<AutenticacionController> logger)
+    public AutenticacionController(AutenticacionService autenticacionService, ILogger<AutenticacionController> logger)
     {
-        _context = context;
-        _tokenGenerator = tokenGenerator;
         _autenticacionService = autenticacionService;
         _logger = logger;
-        _passwordHasher = new PasswordHasher<Usuario>();
     }
 
     [HttpPost]
@@ -63,6 +56,20 @@ public class AutenticacionController : ControllerBase
         catch (ArgumentException e)
         {
             return Conflict(e.ParamName);
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Refrescar([FromBody] RefrescarInput refreshInput)
+    {
+        _logger.LogInformation("Refrescando token");
+        try
+        {
+            return Ok(await _autenticacionService.Refrescar(refreshInput));
+        }
+        catch (Exception)
+        {
+            return Unauthorized(MensajesError.CredencialesInvalidas);
         }
     }
 

@@ -37,3 +37,11 @@ public class LoginInput
     /// </summary>
     public string Credencial { get; set; }
 }
+
+/// <summary>
+/// Parámetros de entrada para obtener un token de acceso a partir de un token de refresco.
+/// </summary>
+public class RefrescarInput
+{
+    public string TokenRefresco { get; set; }
+}

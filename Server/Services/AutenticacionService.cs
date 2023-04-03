@@ -3,11 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Mientreno.Compartido.Peticiones;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Models;
+using System.Security.Claims;
 
 namespace Mientreno.Server.Services;
 
 public class AutenticacionService
 {
+    const string TOTP_PREFIX = "__";
+
     private readonly AppDbContext _context;
     private readonly IPasswordHasher<Usuario> _passwordHasher;
     private readonly TokenGenerator _tokenGenerator;
@@ -24,7 +27,7 @@ public class AutenticacionService
 
     public async Task<LoginOutput?> Login(LoginInput loginInput)
     {
-        if (loginInput.Identificador.StartsWith("__"))
+        if (loginInput.Identificador.StartsWith(TOTP_PREFIX))
         {
             return await LoginConTotp(loginInput);
         }
@@ -78,28 +81,35 @@ public class AutenticacionService
             return new LoginOutput()
             {
                 RequiereDesafio = true,
-                Codigo = "__" + codigo // TODO: Hacer el '__' una constante
+                Codigo = TOTP_PREFIX + codigo
             };
         }
 
-        var sess = new Sesion(usuarioEncontrado, DateTime.Now.AddMinutes(120));
+        // TODO: Variar el tiempo de expiración del token de acceso
+        var now = DateTime.Now;
+        var sess = new Sesion(usuarioEncontrado, now.AddDays(14));
 
-        var tokenAcceso = _tokenGenerator.GenerarTokenAcceso(
-            sess.FechaExpiracion,
-            usuarioEncontrado.Id.ToString(),
-            usuarioEncontrado.Login,
-            rol,
-            sess.SessionId
-        );
+        Dictionary<string, string> datos = new()
+        {
+            { ClaimTypes.NameIdentifier, usuarioEncontrado.Id.ToString() },
+            { ClaimTypes.Name, usuarioEncontrado.Login },
+            { ClaimTypes.GivenName, usuarioEncontrado.Nombre },
+            { ClaimTypes.Surname, usuarioEncontrado.Apellidos },
+            { ClaimTypes.Role, rol },
+            { "nonce", sess.SessionId }
+        };
+
+        var tokenAcceso = _tokenGenerator.GenerarTokenJWT(now.AddMinutes(120), datos);
 
         _context.Sesiones.Add(sess);
         await _context.SaveChangesAsync();
 
         var tokenRefresco = _tokenGenerator.GenerarTokenMac(
-            DateTime.Now.AddDays(14),
+            now.AddDays(14),
             new Dictionary<string, string>()
             {
-                {"id", usuarioEncontrado.Id.ToString() }
+                { ClaimTypes.NameIdentifier, usuarioEncontrado.Id.ToString() },
+                { ExtraClaims.Nonce, sess.SessionId }
             }
         );
 
@@ -188,6 +198,60 @@ public class AutenticacionService
         Random.Shared.NextBytes(buffer);
 
         return Convert.ToHexString(buffer);
+    }
+
+    public async Task<RefrescarOutput> Refrescar(RefrescarInput refreshInput)
+    {
+        var tokenActual = _tokenGenerator.VerificarTokenMac(refreshInput.TokenRefresco);
+        var sessionId = tokenActual[ExtraClaims.Nonce] ?? throw new InvalidCredentialsException();
+
+        var storedSession = await _context.Sesiones
+            .Include(s => s.Usuario)
+            .FirstOrDefaultAsync(s => s.SessionId == sessionId);
+
+        if (storedSession == null || storedSession.Invalidada)
+        {
+            throw new InvalidCredentialsException(); // TODO: Lanzar excepción de sesión expirada para diferenciar
+        }
+
+        var usuarioSesion = storedSession.Usuario;
+
+        var rol = usuarioSesion switch
+        {
+            Entrenador => "Entrenador",
+            Alumno => "Alumno",
+            _ => throw new ArgumentOutOfRangeException(
+                "userType",
+                usuarioSesion.GetType(),
+                $"Usuario con {usuarioSesion.Id} no es  alumno ni entrenador"
+            )
+        };
+
+        Dictionary<string, string> datos = new()
+        {
+            { ClaimTypes.NameIdentifier, usuarioSesion.Id.ToString() },
+            { ClaimTypes.Name, usuarioSesion.Login },
+            { ClaimTypes.GivenName, usuarioSesion.Nombre },
+            { ClaimTypes.Surname, usuarioSesion.Apellidos },
+            { ClaimTypes.Role, rol },
+            { "nonce", sessionId }
+        };
+
+        storedSession.FechaExpiracion = DateTime.Now.AddDays(14);
+        await _context.SaveChangesAsync();
+
+        var tokenAcceso = _tokenGenerator.GenerarTokenJWT(DateTime.Now.AddMinutes(120), datos);
+
+        var tokenRefresco = _tokenGenerator.GenerarTokenMac(
+            DateTime.Now.AddDays(14),
+            new Dictionary<string, string>()
+            {
+                { ClaimTypes.NameIdentifier, usuarioSesion.Id.ToString() },
+                { ExtraClaims.Nonce, storedSession.SessionId }
+            }
+        );
+
+        throw new NotImplementedException();
     }
 }
 

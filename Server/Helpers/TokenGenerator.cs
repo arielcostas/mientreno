@@ -65,15 +65,13 @@ public class TokenGenerator
         return datos;
     }
 
-    public string GenerarTokenAcceso(DateTime expiraEn, string id, string login, string rol, string nonce)
+    public string GenerarTokenJWT(DateTime expiraEn, IDictionary<string, string> datos)
     {
-        Claim[] claims =
+        var claims = new List<Claim>();
+        foreach (var (key, value) in datos)
         {
-            new(ClaimTypes.NameIdentifier, id),
-            new(ClaimTypes.Name, login),
-            new(ClaimTypes.Role, rol),
-            new("nonce", nonce)
-        };
+            claims.Add(new Claim(key, value));
+        }
 
         var claimsIdentity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
 
@@ -92,7 +90,7 @@ public class TokenGenerator
         return new JwtSecurityTokenHandler().WriteToken(securityToken);
     }
 
-    public string? VerificarTokenAcceso(string token)
+    public IDictionary<string, string>? VerificarTokenJWT(string token)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = SigningKeyHolder.GetToken();
@@ -108,6 +106,6 @@ public class TokenGenerator
 
         var jwtToken = (JwtSecurityToken)validatedToken;
 
-        return jwtToken.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+        return jwtToken.Claims.ToDictionary(x => x.Type, x => x.Value);
     }
 }
