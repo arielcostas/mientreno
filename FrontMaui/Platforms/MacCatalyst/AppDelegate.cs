@@ -1,5 +1,4 @@
 ﻿using Foundation;
-using Mientreno.Mobile;
 
 namespace Mientreno.Mobile.Platforms.MacCatalyst
 {

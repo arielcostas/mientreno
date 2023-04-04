@@ -19,7 +19,7 @@ public class Tarea : INotifyPropertyChanged
             if (_tareaId != value)
             {
                 _tareaId = value;
-                OnPropertyChangedAsync();
+                OnPropertyChangedAsync().RunSynchronously();
             }
         }
     }
@@ -32,7 +32,7 @@ public class Tarea : INotifyPropertyChanged
             if (_titulo != value)
             {
                 _titulo = value;
-                OnPropertyChangedAsync();
+                OnPropertyChangedAsync().RunSynchronously();
             }
         }
     }
@@ -45,7 +45,7 @@ public class Tarea : INotifyPropertyChanged
             if (_completada != value)
             {
                 _completada = value;
-                OnPropertyChangedAsync();
+                OnPropertyChangedAsync().RunSynchronously();
             }
         }
     }
@@ -53,7 +53,7 @@ public class Tarea : INotifyPropertyChanged
     public void CompletarTarea(object sender, EventArgs args)
     {
         Completada = true;
-        OnPropertyChangedAsync(nameof(Completada));
+        OnPropertyChangedAsync(nameof(Completada)).RunSynchronously();
     }
 
     protected virtual async Task OnPropertyChangedAsync([CallerMemberName] string propertyName = null)

@@ -48,7 +48,7 @@ public partial class LoginPage : ContentPage
 
             if (resp.StatusCode == HttpStatusCode.Unauthorized)
             {
-                throw new Exception("Credenciales incorrectas");
+                throw new Exception(AppStrings.errorCredencialesInvalidas);
             }
 
             resp.EnsureSuccessStatusCode();
@@ -56,7 +56,7 @@ public partial class LoginPage : ContentPage
             var body = await resp.Content.ReadFromJsonAsync<LoginOutput>();
             if (body == null)
             {
-                throw new Exception("No se pudo iniciar sesión: respuesta inesperada");
+                throw new Exception(AppStrings.errorUnexpected);
             }
 
             Preferences.Default.Set(SettingsKeys.Refresco, body.TokenRefresco);
@@ -73,10 +73,6 @@ public partial class LoginPage : ContentPage
 
         IsLoading = false;
     }
-}
 
-internal class LoginResponse
-{
-    public string Token { get; set; }
+    private async void GoToRegister(object sender, EventArgs e) => await Shell.Current.GoToAsync("///RegistroPage");
 }
-

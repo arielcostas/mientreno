@@ -9,12 +9,13 @@
         Spacing="25"
         Padding="30,0"
         VerticalOptions="Start"
-        Margin="15,80,15,0">
+        Margin="15,50,15,0">
 
         <Label
                 Text="{x:Static res:AppStrings.loginToContinue}"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
+                FontAttributes="Bold"
                 HorizontalOptions="Center"
                 IsEnabled="{Binding !IsLoading}"
             />
@@ -27,9 +28,15 @@
         <Button
                 x:Name="LoginBtn"
                 Text="{x:Static res:AppStrings.doLogin}"
-                SemanticProperties.Hint="Para iniciar sesión"
                 Clicked="DoLogin"
                 HorizontalOptions="Center"
             IsEnabled="{Binding !IsLoading}"/>
+
+        <Border BackgroundColor="Transparent">
+            <Border.Stroke>
+                <SolidColorBrush Color="{StaticResource Primary}" />
+            </Border.Stroke>
+            <Button Text="{x:Static res:AppStrings.newHereRegister}" BackgroundColor="Transparent" TextColor="{StaticResource Primary}" Clicked="GoToRegister" />
+        </Border>
     </VerticalStackLayout>
 </ContentPage>

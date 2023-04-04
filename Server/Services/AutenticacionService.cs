@@ -162,7 +162,7 @@ public class AutenticacionService
             {
                 Email = registroInput.Correo,
                 CodigoVerificacionEmail = GenerarCodigoVerificacionEmail(),
-                Contraseña = _passwordHasher.HashPassword(null!, registroInput.Password),
+                Contraseña = _passwordHasher.HashPassword(null!, registroInput.Contraseña),
                 MfaHabilitado = false,
             }
         };

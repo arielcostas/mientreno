@@ -61,6 +61,24 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¿Ya tienes cuenta? Inicia sesión..
+        /// </summary>
+        public static string alreadyHaveAccountLogin {
+            get {
+                return ResourceManager.GetString("alreadyHaveAccountLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirmar contraseña.
+        /// </summary>
+        public static string confirmPassword {
+            get {
+                return ResourceManager.GetString("confirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Iniciar sesión.
         /// </summary>
         public static string doLogin {
@@ -70,11 +88,20 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Registrarme.
+        ///   Busca una cadena traducida similar a Registrarse.
         /// </summary>
-        public static string dontHaveAccountRegister {
+        public static string doRegister {
             get {
-                return ResourceManager.GetString("dontHaveAccountRegister", resourceCulture);
+                return ResourceManager.GetString("doRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Correo electrónico.
+        /// </summary>
+        public static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
             }
         }
         
@@ -97,11 +124,38 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Hubo un error inesperado. Inténtalo de nuevo más tarde..
+        /// </summary>
+        public static string errorUnexpected {
+            get {
+                return ResourceManager.GetString("errorUnexpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Inicia sesión para continuar.
         /// </summary>
         public static string loginToContinue {
             get {
                 return ResourceManager.GetString("loginToContinue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        public static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Nuevo por aquí? Regístrate..
+        /// </summary>
+        public static string newHereRegister {
+            get {
+                return ResourceManager.GetString("newHereRegister", resourceCulture);
             }
         }
         
@@ -115,11 +169,65 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Las contraseñas no coinciden.
+        /// </summary>
+        public static string passwordsDoNotMatch {
+            get {
+                return ResourceManager.GetString("passwordsDoNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña es demasiado débil. Debe contener al menos 8 caracteres, con mayúsculas y minúsculas, números y/o símbolos..
+        /// </summary>
+        public static string passwordTooWeak {
+            get {
+                return ResourceManager.GetString("passwordTooWeak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registro.
+        /// </summary>
+        public static string register {
+            get {
+                return ResourceManager.GetString("register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Apellidos.
+        /// </summary>
+        public static string surname {
+            get {
+                return ResourceManager.GetString("surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nombre de usuario.
         /// </summary>
         public static string username {
             get {
                 return ResourceManager.GetString("username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de usuario o dirección de correo ya están registrados..
+        /// </summary>
+        public static string usernameOrEmailAlreadyInUse {
+            get {
+                return ResourceManager.GetString("usernameOrEmailAlreadyInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Al registrarte, estás aceptando nuestros términos de uso y nuestra política de privacidad..
+        /// </summary>
+        public static string youAcceptTermsAndConditions {
+            get {
+                return ResourceManager.GetString("youAcceptTermsAndConditions", resourceCulture);
             }
         }
     }
