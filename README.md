@@ -2,6 +2,31 @@
 
 Controla fácilmente tus entrenamientos.
 
+## Configuración
+
+### Base de datos
+
+En la configuración del programa, añadir una Connection String con nombre `Database`. Por ejemplo, en un `secrets.json` sería:
+
+```json
+{
+	/* ... */
+	"ConnectionStrings:Database": "Data Source=EJEMPLO;Initial Catalog=Mientreno;Integrated Security=True; Trust Server Certificate=True"
+}
+```
+
+### Correo electrónico
+
+Por ahora, solo se puede configurar Azure Email Communication Services como sistema de envío de correo. Por tanto, hay que configurar la cadena de conexión `AzureEmailCS` con la ConnectionString que proporciona Azure; y el valor `EmailFrom` con el correo electrónico que se usará como remitente. Por ejemplo, en un `secrets.json`, sería tal que:
+
+```json
+{
+	/* ... */
+	"ConnectionStrings:AzureEmailCS": "CADENA QUE TE PROPORCIONA AZURE",
+	"EmailFrom": "ladireccionqueconfigureenazure@midominioconfigurado.com"
+}
+```
+
 ## Desarrollo
 
 ### Base de datos de desarrollo
