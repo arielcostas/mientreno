@@ -117,12 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="alreadyHaveAccountLogin" xml:space="preserve">
+    <value>¿Ya tienes cuenta? Inicia sesión.</value>
+  </data>
+  <data name="confirmPassword" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
   <data name="doLogin" xml:space="preserve">
     <value>Conectar</value>
   </data>
-  <data name="dontHaveAccountRegister" xml:space="preserve">
-    <value>Registrarme</value>
-    <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
+  <data name="doRegister" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Correo electrónico</value>
   </data>
   <data name="enterUsernameOrPassword" xml:space="preserve">
     <value>Debes introducir usuario e contrasinal</value>
@@ -131,13 +139,44 @@
     <value>Usuario ou contrasinal incorrectos</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
+  <data name="errorUnexpected" xml:space="preserve">
+    <value>Hubo un error inesperado. Inténtalo de nuevo más tarde.</value>
+  </data>
   <data name="loginToContinue" xml:space="preserve">
     <value>Inicia sesión para continuar</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Nombre</value>
+    <comment>Nombre real de una persona (no confundir con username)</comment>
+  </data>
+  <data name="newHereRegister" xml:space="preserve">
+    <value>¿Nuevo por aquí? Regístrate.</value>
+    <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
   </data>
   <data name="password" xml:space="preserve">
     <value>Contrasinal</value>
   </data>
+  <data name="passwordsDoNotMatch" xml:space="preserve">
+    <value>Las contraseñas no coinciden</value>
+  </data>
+  <data name="passwordTooWeak" xml:space="preserve">
+    <value>La contraseña es demasiado débil. Debe contener al menos 8 caracteres, con mayúsculas y minúsculas, números y/o símbolos.</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>Registro</value>
+    <comment>Título de la página de registro</comment>
+  </data>
+  <data name="surname" xml:space="preserve">
+    <value>Apellidos</value>
+    <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
+  </data>
   <data name="username" xml:space="preserve">
     <value>Nome de usuario</value>
+  </data>
+  <data name="usernameOrEmailAlreadyInUse" xml:space="preserve">
+    <value>El nombre de usuario o dirección de correo ya están registrados.</value>
+  </data>
+  <data name="youAcceptTermsAndConditions" xml:space="preserve">
+    <value>Al registrarte, estás aceptando nuestros términos de uso y nuestra política de privacidad.</value>
   </data>
 </root>
