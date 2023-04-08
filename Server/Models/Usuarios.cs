@@ -65,9 +65,14 @@ public class Entrenador : Usuario
 {
     public List<Contrato> Asignaciones { get; set; }
 
+    public List<Ejercicio> Ejercicios { get; set; }
+    public List<Categoria> Categorias { get; set; }
+
     public Entrenador() : base()
     {
         Asignaciones = new List<Contrato>();
+        Ejercicios = new List<Ejercicio>();
+        Categorias = new List<Categoria>();
     }
 
     public Entrenador(Usuario u)
@@ -79,7 +84,10 @@ public class Entrenador : Usuario
         FechaCreacion = u.FechaCreacion;
         FechaEliminacion = u.FechaEliminacion;
         Credenciales = u.Credenciales;
+
         Asignaciones = new List<Contrato>();
+        Ejercicios = new List<Ejercicio>();
+        Categorias = new List<Categoria>();
     }
 }
 

@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Mientreno.Server;
 using Mientreno.Server.Helpers;
+using Mientreno.Server.Helpers.Crypto;
 using Mientreno.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,28 +18,10 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<IMailSender>((sp) =>
-{
-    ILogger<AzureCSMailSender> logger = sp.GetService<ILoggerFactory>().CreateLogger<AzureCSMailSender>();
-    var conn = builder.Configuration.GetConnectionString("AzureEmailCS");
-    var from = builder.Configuration.GetValue<string>("EmailFrom");
-
-    if (string.IsNullOrEmpty(conn))
-    {
-        throw new Exception("`EmailService` connection string cannot be null.");
-    }
-
-    if (string.IsNullOrEmpty(from))
-    {
-        throw new Exception("`EmailFrom` settings value cannot be null.");
-    }
-
-    return new AzureCSMailSender(logger, conn, from);
-});
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

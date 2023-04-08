@@ -3,7 +3,7 @@ using System.Text;
 using Konscious.Security.Cryptography;
 using Microsoft.AspNetCore.Identity;
 
-namespace Mientreno.Server.Helpers;
+namespace Mientreno.Server.Helpers.Crypto;
 
 public class Argon2PasswordHasher<TUser> : IPasswordHasher<TUser> where TUser : class
 {

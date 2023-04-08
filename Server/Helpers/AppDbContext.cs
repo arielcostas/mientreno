@@ -13,8 +13,18 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // Tabla común de usuarios con dos tipos de usuarios: Alumnos y Entrenadores.
+        // Tablas
         var usuario = modelBuilder.Entity<Usuario>();
+        var contrato = modelBuilder.Entity<Contrato>();
+
+        var entrenador = modelBuilder.Entity<Entrenador>();
+
+        var cuestionario = modelBuilder.Entity<Cuestionario>();
+
+        var ejercicio = modelBuilder.Entity<Ejercicio>();
+        var categoria = modelBuilder.Entity<Categoria>();
+
+        // Tabla común de usuarios con dos tipos de usuarios: Alumnos y Entrenadores.
         usuario.HasDiscriminator<string>("Tipo")
             .HasValue<Entrenador>("Entrenador")
             .HasValue<Alumno>("Alumno");
@@ -27,7 +37,6 @@ public class AppDbContext : DbContext
         usuario.OwnsOne(u => u.Credenciales);
 
         // Asignacion a entrenador.
-        var contrato = modelBuilder.Entity<Contrato>();
         contrato.HasOne(a => a.Entrenador)
             .WithMany(e => e.Asignaciones)
             .OnDelete(DeleteBehavior.NoAction)
@@ -41,7 +50,6 @@ public class AppDbContext : DbContext
             .IsRequired();
 
         // Cuestionario tiene hábitos y perímetros.
-        var cuestionario = modelBuilder.Entity<Cuestionario>();
         cuestionario.OwnsOne(c => c.Habitos);
         cuestionario.OwnsOne(c => c.Perimetros);
 
@@ -50,12 +58,25 @@ public class AppDbContext : DbContext
             .WithMany(a => a.Cuestionarios)
             .OnDelete(DeleteBehavior.NoAction)
             .IsRequired();
+
+        // Ejercicios tienen categoría.
+        ejercicio.HasOne(e => e.Categoria)
+            .WithMany(c => c.Ejercicios)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        // Un entrenador tiene ejercicios y categorías
+        entrenador.OwnsMany(en => en.Ejercicios)
+            .WithOwner(ej => ej.Owner);
+
+        entrenador.OwnsMany(en => en.Categorias)
+            .WithOwner(c => c.Owner);
     }
 
     public DbSet<Usuario> Usuarios { get; set; }
-    public DbSet<Sesion> Sesiones { get; set; }
     public DbSet<Entrenador> Entrenadores { get; set; }
     public DbSet<Alumno> Alumnos { get; set; }
+    public DbSet<Sesion> Sesiones { get; set; }
+
     public DbSet<Contrato> Asignaciones { get; set; }
     public DbSet<Cuestionario> Cuestionarios { get; set; }
 }

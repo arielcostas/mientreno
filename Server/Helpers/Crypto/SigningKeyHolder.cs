@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Mientreno.Server.Helpers;
+namespace Mientreno.Server.Helpers.Crypto;
 
 public static class SigningKeyHolder
 {
