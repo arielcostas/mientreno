@@ -1,11 +1,8 @@
 ﻿using System.Security.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Mientreno.Compartido.Errores;
 using Mientreno.Compartido.Peticiones;
-using Mientreno.Server.Helpers;
-using Mientreno.Server.Models;
 using Mientreno.Server.Services;
 
 namespace Mientreno.Server.Controllers;
@@ -70,6 +67,21 @@ public class AutenticacionController : ControllerBase
         catch (Exception)
         {
             return Unauthorized(MensajesError.CredencialesInvalidas);
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Confirmar([FromBody] ConfirmarInput input)
+    {
+        _logger.LogInformation($"Confirmando usuario con email {input.DireccionEmail}");
+        try
+        {
+            await _autenticacionService.Confirmar(input);
+            return NoContent();
+        }
+        catch (UserNotFoundException)
+        {
+            return BadRequest();
         }
     }
 

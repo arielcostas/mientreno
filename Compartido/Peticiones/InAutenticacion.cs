@@ -45,3 +45,12 @@ public class RefrescarInput
 {
     public string TokenRefresco { get; set; }
 }
+
+/// <summary>
+/// 
+/// </summary>
+public class ConfirmarInput
+{
+    public string DireccionEmail;
+    public string CodigoVerificacion;
+}

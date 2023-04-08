@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Mientreno.Compartido.Errores;
 using Mientreno.Compartido.Peticiones;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Models;
@@ -14,15 +15,17 @@ public class AutenticacionService
     private readonly AppDbContext _context;
     private readonly IPasswordHasher<Usuario> _passwordHasher;
     private readonly TokenGenerator _tokenGenerator;
+    private readonly IMailSender _mailSender;
     private readonly ILogger<AutenticacionService> _logger;
 
     public AutenticacionService(AppDbContext context, TokenGenerator tokenGenerator,
-        ILogger<AutenticacionService> logger)
+        ILogger<AutenticacionService> logger, IMailSender mailSender)
     {
         _context = context;
         _passwordHasher = new Argon2PasswordHasher<Usuario>();
         _tokenGenerator = tokenGenerator;
         _logger = logger;
+        _mailSender = mailSender;
     }
 
     public async Task<LoginOutput?> Login(LoginInput loginInput)
@@ -179,6 +182,16 @@ public class AutenticacionService
         }
 
         await _context.SaveChangesAsync();
+
+        _logger.LogInformation("Usuario {Login} registrado. Enviando correo de verificación", user.Login);
+        await _mailSender.SendMailAsync(
+            user.Credenciales.Email,
+            "Verifica tu cuenta",
+            // TODO: Usar una plantilla en condiciones y no una URL hard-coded
+            $"Para verificar tu cuenta, visita https://mientreno.app/confirmar?code={user.Credenciales.CodigoVerificacionEmail}"
+        );
+
+        _logger.LogInformation("Correo de verificación enviado a {Email}", user.Credenciales.Email);
     }
 
     public bool IsSessionValid(string sessid, string userId)
@@ -192,7 +205,7 @@ public class AutenticacionService
         return s != null;
     }
 
-    private string GenerarCodigoVerificacionEmail()
+    private static string GenerarCodigoVerificacionEmail()
     {
         var buffer = new byte[32];
         Random.Shared.NextBytes(buffer);
@@ -220,9 +233,7 @@ public class AutenticacionService
         {
             Entrenador => "Entrenador",
             Alumno => "Alumno",
-            _ => throw new ArgumentOutOfRangeException(
-                "userType",
-                usuarioSesion.GetType(),
+            _ => throw new InvalidCastException(
                 $"Usuario con {usuarioSesion.Id} no es  alumno ni entrenador"
             )
         };
@@ -253,11 +264,27 @@ public class AutenticacionService
 
         throw new NotImplementedException();
     }
-}
 
-public class InvalidCredentialsException : Exception
-{
-    public InvalidCredentialsException() : base("Credenciales inválidas")
+    internal async Task Confirmar(ConfirmarInput input)
     {
+        var u = _context.Usuarios
+            .Where(u => u.Credenciales.Email == input.DireccionEmail)
+            .Where(u => u.Credenciales.EmailVerificado == false)
+            .FirstOrDefault(u => u.Credenciales.CodigoVerificacionEmail == input.CodigoVerificacion)
+                ?? throw new UserNotFoundException();
+
+        u.Credenciales.EmailVerificado = true;
+        u.Credenciales.CodigoVerificacionEmail = null;
+
+        await _context.SaveChangesAsync();
+
+        _logger.LogInformation("Cuenta de {DireccionEmail} confirmada", input.DireccionEmail);
+
+        await _mailSender.SendMailAsync(
+            input.DireccionEmail,
+            "Bienvenido a MiEntreno",
+            // TODO: Mejorar mensaje
+            $"Hola {u.Nombre}, se ha confirmado tu cuenta de MiEntreno, y ya puedes iniciar sesión y empezar a planificar los entrenamientos de tus alumnos; o ver los tuyos."
+        );
     }
 }
