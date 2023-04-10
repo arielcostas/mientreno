@@ -6,6 +6,7 @@ using Mientreno.Server;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Helpers.Crypto;
 using Mientreno.Server.Helpers.Mailing;
+using Mientreno.Server.Helpers.Services;
 using Mientreno.Server.Services;
 using System.Reflection;
 using System.Security.Claims;
@@ -72,6 +73,13 @@ builder.Services.AddSingleton<IMailSender>((sp) =>
         ?? throw new Exception("Se debe especificar un EmailFrom en la configuración.");
 
     return new AzureCSMailSender(logger, connectionString, emailFrom);
+});
+
+builder.Services.AddHostedService<MailWorkerService>();
+builder.Services.AddSingleton<MailWorkerService>(sp =>
+{
+    var sender = sp.GetRequiredService<IMailSender>();
+    return new(sender);
 });
 
 var app = builder.Build();

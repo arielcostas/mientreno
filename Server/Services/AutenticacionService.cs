@@ -6,6 +6,7 @@ using Mientreno.Compartido.Peticiones;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Helpers.Crypto;
 using Mientreno.Server.Helpers.Mailing;
+using Mientreno.Server.Helpers.Services;
 using Mientreno.Server.Models;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
@@ -19,17 +20,17 @@ public class AutenticacionService
     private readonly AppDbContext _context;
     private readonly IPasswordHasher<Usuario> _passwordHasher;
     private readonly TokenGenerator _tokenGenerator;
-    private readonly IMailSender _mailSender;
+    private readonly MailWorkerService _mailWorker;
     private readonly ILogger<AutenticacionService> _logger;
 
     public AutenticacionService(AppDbContext context, TokenGenerator tokenGenerator,
-        ILogger<AutenticacionService> logger, IMailSender mailSender)
+        ILogger<AutenticacionService> logger, MailWorkerService mailWorkerService)
     {
         _context = context;
         _passwordHasher = new Argon2PasswordHasher<Usuario>();
         _tokenGenerator = tokenGenerator;
         _logger = logger;
-        _mailSender = mailSender;
+        _mailWorker = mailWorkerService;
     }
 
     public async Task<LoginOutput?> Login(LoginInput loginInput)
@@ -194,14 +195,15 @@ public class AutenticacionService
         await _context.SaveChangesAsync();
 
         _logger.LogInformation("Usuario {Login} registrado. Enviando correo de verificación", user.Login);
-        await _mailSender.SendMailAsync(
-            user.Credenciales.Email,
+
+        Email email = new(user.Credenciales.Email,
             "Verifica tu cuenta",
             // TODO: Usar una plantilla en condiciones y no una URL hard-coded
-            $"Para verificar tu cuenta, visita https://mientreno.app/confirmar?code={user.Credenciales.CodigoVerificacionEmail}&email={UrlEncoder.Default.Encode(user.Credenciales.Email)}"
-        );
+            $"Para verificar tu cuenta, visita https://mientreno.app/confirmar?code={user.Credenciales.CodigoVerificacionEmail}&email={UrlEncoder.Default.Encode(user.Credenciales.Email)}");
 
-        _logger.LogInformation("Correo de verificación enviado a {Email}", user.Credenciales.Email);
+        _mailWorker.AddEmailToQueue(email);
+
+        _logger.LogInformation("Correo de verificación programado para enviar a {Email}", user.Credenciales.Email);
     }
 
     public bool IsSessionValid(string sessid, string userId)

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "WebApp\Web.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mobile", "FrontMaui\Mobile.csproj", "{11FAED06-24C0-4075-B8A7-D996FF698A49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compartido", "Compartido\Compartido.csproj", "{D46A0C6D-9047-4B35-AD48-5881DF4144B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Compartido", "Compartido\Compartido.csproj", "{D46A0C6D-9047-4B35-AD48-5881DF4144B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
