@@ -8,6 +8,7 @@ using Mientreno.Server.Helpers.Crypto;
 using Mientreno.Server.Helpers.Mailing;
 using Mientreno.Server.Models;
 using System.Security.Claims;
+using System.Text.Encodings.Web;
 
 namespace Mientreno.Server.Services;
 
@@ -197,7 +198,7 @@ public class AutenticacionService
             user.Credenciales.Email,
             "Verifica tu cuenta",
             // TODO: Usar una plantilla en condiciones y no una URL hard-coded
-            $"Para verificar tu cuenta, visita https://mientreno.app/confirmar?code={user.Credenciales.CodigoVerificacionEmail}"
+            $"Para verificar tu cuenta, visita https://mientreno.app/confirmar?code={user.Credenciales.CodigoVerificacionEmail}&email={UrlEncoder.Default.Encode(user.Credenciales.Email)}"
         );
 
         _logger.LogInformation("Correo de verificación enviado a {Email}", user.Credenciales.Email);

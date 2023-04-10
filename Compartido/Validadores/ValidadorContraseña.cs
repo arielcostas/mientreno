@@ -8,31 +8,31 @@ public class ValidadorContraseña
         byte totalPoints = 0;
 
         totalPoints += 2;
-        if (password.Length < 8)
+        if (password.Length > 8)
         {
             points += 2;
         }
 
         totalPoints++;
-        if (!password.Any(char.IsUpper))
+        if (password.Any(char.IsUpper))
         {
             points++;
         }
 
         totalPoints++;
-        if (!password.Any(char.IsLower))
+        if (password.Any(char.IsLower))
         {
             points++;
         }
 
         totalPoints++;
-        if (!password.Any(char.IsDigit))
+        if (password.Any(char.IsDigit))
         {
             points++;
         }
 
         totalPoints++;
-        if (!password.Any(IsPasswordSymbol))
+        if (password.Any(IsPasswordSymbol))
         {
             points++;
         }
