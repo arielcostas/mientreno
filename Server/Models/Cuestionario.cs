@@ -1,5 +1,7 @@
 namespace Mientreno.Server.Models;
 
+#pragma warning disable CS8618
+
 /// <summary>
 /// Un cuestionario se realiza entre un entrenador y un alumno. Realizándose periódicamente, permiten
 /// comprobar la evolución de los alumnos y la eficacia de los entrenamientos.

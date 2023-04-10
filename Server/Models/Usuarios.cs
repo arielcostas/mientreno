@@ -2,6 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mientreno.Server.Models;
 
+#pragma warning disable CS8618 // Initialized by EF Core
+
 /// <summary>
 /// Un usuario genérico, con su ID, datos básicos y credenciales.
 /// </summary>
@@ -17,6 +19,7 @@ public class Usuario
     public DateTime? FechaEliminacion { get; set; }
 
     public Credenciales Credenciales { get; set; }
+    public List<Sesion> Sesiones { get; set; }
 
     public Usuario()
     {

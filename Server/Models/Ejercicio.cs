@@ -2,6 +2,8 @@
 
 namespace Mientreno.Server.Models;
 
+#pragma warning disable CS8618 // Initialized by EF Core
+
 /// <summary>
 /// Un ejercicio es una actividad física que se realiza en un entrenamiento. Los ejercicios están guardados
 /// bajo el "perfil" del entrenador, pudiendo usarse para varios entrenamientos de distintos alumnos. Cada 

@@ -1,6 +1,3 @@
-using System.Security.Claims;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -8,20 +5,31 @@ using Microsoft.IdentityModel.Tokens;
 using Mientreno.Server;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Helpers.Crypto;
+using Mientreno.Server.Helpers.Mailing;
 using Mientreno.Server.Services;
+using System.Reflection;
+using System.Security.Claims;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddProblemDetails();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
 });
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+});
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -48,8 +56,22 @@ builder.Services.AddScoped<IAuthorizationHandler, ValidSessionKeyAuthorizationHa
 builder.Services.AddScoped<AutenticacionService>();
 builder.Services.AddSingleton<TokenGenerator>();
 
+builder.Services.AddSingleton<IMailSender>((sp) =>
+{
+    var logger = sp.GetRequiredService<ILogger<AzureCSMailSender>>();
+    string connectionString =
+        builder.Configuration.GetConnectionString("AzureCS") ??
+        throw new Exception("Se debe especificar una connectionString para el envío de correo por Azure Communication Services");
+    string emailFrom =
+        builder.Configuration.GetValue<string>("EmailFrom")
+        ?? throw new Exception("Se debe especificar un EmailFrom en la configuración.");
+
+    return new AzureCSMailSender(logger, connectionString, emailFrom);
+});
+
 var app = builder.Build();
 
+app.UseExceptionHandler();
 app.UseHsts();
 
 if (app.Environment.IsDevelopment())

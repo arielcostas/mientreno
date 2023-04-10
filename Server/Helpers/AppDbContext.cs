@@ -29,7 +29,7 @@ public class AppDbContext : DbContext
             .HasValue<Entrenador>("Entrenador")
             .HasValue<Alumno>("Alumno");
 
-        usuario.HasMany<Sesion>()
+        usuario.HasMany(u => u.Sesiones)
             .WithOne(s => s.Usuario)
             .OnDelete(DeleteBehavior.Cascade);
 
@@ -65,11 +65,13 @@ public class AppDbContext : DbContext
             .OnDelete(DeleteBehavior.NoAction);
 
         // Un entrenador tiene ejercicios y categorías
-        entrenador.OwnsMany(en => en.Ejercicios)
-            .WithOwner(ej => ej.Owner);
+        entrenador.HasMany(en => en.Ejercicios)
+            .WithOne(ej => ej.Owner)
+            .OnDelete(DeleteBehavior.Cascade);
 
-        entrenador.OwnsMany(en => en.Categorias)
-            .WithOwner(c => c.Owner);
+        entrenador.HasMany(en => en.Categorias)
+            .WithOne(c => c.Owner)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 
     public DbSet<Usuario> Usuarios { get; set; }

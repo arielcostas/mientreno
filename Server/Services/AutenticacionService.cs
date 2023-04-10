@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido.Errores;
 using Mientreno.Compartido.Peticiones;
 using Mientreno.Server.Helpers;
@@ -43,8 +44,14 @@ public class AutenticacionService
     private async Task<LoginOutput?> LoginConContraseña(LoginInput loginInput)
     {
         var usuarioEncontrado = _context.Usuarios
+            .Include(u => u.Sesiones)
             .FirstOrDefault(
                 u => u.Login == loginInput.Identificador || u.Credenciales.Email == loginInput.Identificador) ?? throw new InvalidCredentialsException();
+
+        if (!usuarioEncontrado.Credenciales.EmailVerificado)
+        {
+            throw new EmailNoConfirmadoException();
+        }
 
         var resultado = _passwordHasher.VerifyHashedPassword(usuarioEncontrado,
             usuarioEncontrado.Credenciales.Contraseña, loginInput.Credencial);
@@ -60,7 +67,6 @@ public class AutenticacionService
                 await _context.SaveChangesAsync();
                 break;
         }
-
 
         var rol = usuarioEncontrado switch
         {
@@ -106,7 +112,8 @@ public class AutenticacionService
 
         var tokenAcceso = _tokenGenerator.GenerarTokenJWT(now.AddMinutes(120), datos);
 
-        _context.Sesiones.Add(sess);
+        usuarioEncontrado.Sesiones.Add(sess);
+
         await _context.SaveChangesAsync();
 
         var tokenRefresco = _tokenGenerator.GenerarTokenMac(
@@ -226,7 +233,7 @@ public class AutenticacionService
 
         if (storedSession == null || storedSession.Invalidada)
         {
-            throw new InvalidCredentialsException(); // TODO: Lanzar excepción de sesión expirada para diferenciar
+            throw new SecurityTokenExpiredException();
         }
 
         var usuarioSesion = storedSession.Usuario;
@@ -269,6 +276,8 @@ public class AutenticacionService
 
     internal async Task Confirmar(ConfirmarInput input)
     {
+        _logger.LogInformation("Confirmando cuenta de {DireccionEmail}", input.DireccionEmail);
+
         var u = _context.Usuarios
             .Where(u => u.Credenciales.Email == input.DireccionEmail)
             .Where(u => u.Credenciales.EmailVerificado == false)

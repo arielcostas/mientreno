@@ -13,3 +13,10 @@ public class UserNotFoundException : Exception
     {
     }
 }
+
+public class EmailNoConfirmadoException : Exception
+{
+    public EmailNoConfirmadoException() : base("El email no ha sido confirmado.")
+    {
+    }
+}

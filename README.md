@@ -22,7 +22,7 @@ Por ahora, solo se puede configurar Azure Email Communication Services como sist
 ```json
 {
 	/* ... */
-	"ConnectionStrings:AzureEmailCS": "CADENA QUE TE PROPORCIONA AZURE",
+	"ConnectionStrings:AzureCS": "CADENA QUE TE PROPORCIONA AZURE COMMUNICATION SERVICES",
 	"EmailFrom": "ladireccionqueconfigureenazure@midominioconfigurado.com"
 }
 ```

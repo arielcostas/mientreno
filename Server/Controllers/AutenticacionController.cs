@@ -1,13 +1,15 @@
-﻿using System.Security.Authentication;
+﻿using System.Net;
+using System.Security.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido.Errores;
 using Mientreno.Compartido.Peticiones;
 using Mientreno.Server.Services;
 
 namespace Mientreno.Server.Controllers;
 
-[Controller]
+[ApiController]
 [Route("[controller]/[action]")]
 public class AutenticacionController : ControllerBase
 {
@@ -20,7 +22,16 @@ public class AutenticacionController : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// Inicia sesión con un usuario existente.
+    /// </summary>
+    /// <param name="loginInput">El identificador (nombre de usuario, email o código de desafío) y la credencial (contraseña o código TOTP).</param>
+    /// <returns>Información sobre si el login fue exitoso, o si se require completar un desafío 2FA con TOTP.</returns>
+    /// <response code="200">Inicio de sesión correcto.</response>
+    /// <response code="401">Si las credenciales no coinciden.</response>
     [HttpPost]
+    [ProducesResponseType(typeof(LoginOutput), 200)]
+    [ProducesResponseType(401)]
     public async Task<ActionResult<LoginOutput>> Iniciar([FromBody] LoginInput loginInput)
     {
         _logger.LogInformation("Iniciando sesión con {Identificador}", loginInput.Identificador);
@@ -29,10 +40,15 @@ public class AutenticacionController : ControllerBase
         {
             return await _autenticacionService.Login(loginInput) ?? throw new InvalidCredentialException();
         }
-        catch (InvalidCredentialsException)
+        catch (EmailNoConfirmadoException e)
+        {
+            _logger.LogWarning("Email no confirmado para {Identificador}", loginInput.Identificador);
+            throw new HttpRequestException(MensajesError.EmailNoConfirmado, e, HttpStatusCode.Unauthorized);
+        }
+        catch (InvalidCredentialsException e)
         {
             _logger.LogWarning("Credenciales inválidas para {Identificador}", loginInput.Identificador);
-            return Unauthorized(MensajesError.CredencialesInvalidas);
+            throw new HttpRequestException(MensajesError.CredencialesInvalidas, e, HttpStatusCode.Unauthorized);
         }
         catch (ArgumentOutOfRangeException e)
         {
@@ -41,7 +57,15 @@ public class AutenticacionController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Da de alta un nuevo usuario.
+    /// </summary>
+    /// <param name="registroInput">Los datos básicos del nuevo usuario</param>
+    /// <response code="204">El usuario se registró correctamente</response>
+    /// <response code="409">Si hay algún dato duplicado. El `details` puede ser `LOGIN_EXISTS` o `EMAIL_EXISTS`</response>
     [HttpPost]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(409)]
     public async Task<ActionResult> Registrar([FromBody] RegistroInput registroInput)
     {
         _logger.LogInformation("Registrando usuario con login {Login}", registroInput.Login);
@@ -52,25 +76,56 @@ public class AutenticacionController : ControllerBase
         }
         catch (ArgumentException e)
         {
-            return Conflict(e.ParamName);
+            _logger.LogWarning($"Se intentó hacer un registro con un {e.ParamName} existente");
+            if (e.ParamName == "login")
+                throw new HttpRequestException(MensajesError.LoginExistente, e, HttpStatusCode.Conflict);
+            else if (e.ParamName == "email")
+                throw new HttpRequestException(MensajesError.EmailExistente, e, HttpStatusCode.Conflict);
+            else
+                return StatusCode(500);
         }
     }
 
+    /// <summary>
+    /// Obtiene un nuevo token de acceso a partir de un token de refresco.
+    /// </summary>
+    /// <param name="refreshInput">El token de refresco</param>
+    /// <returns>Un nuevo token de acceso, y un nuevo token de refresco extendido, para remplazar el actual.</returns>
+    /// <response code="200">Se ha emitido un token de acceso y de refresco nuevos.</response>
+    /// <response code="401">Si se ha enviado un token de refresco inválido.</response>
+    /// <response code="403">Si el token es válido, pero por algún motivo no se puede refrescar. Se debe hacer un nuevo inicio de sesión.</response>
     [HttpPost]
-    public async Task<ActionResult> Refrescar([FromBody] RefrescarInput refreshInput)
+    [ProducesResponseType(typeof(RefrescarOutput), 200)]
+    [ProducesResponseType(401)]
+    [ProducesResponseType(403)]
+    public async Task<ActionResult<RefrescarOutput>> Refrescar([FromBody] RefrescarInput refreshInput)
     {
         _logger.LogInformation("Refrescando token");
         try
         {
-            return Ok(await _autenticacionService.Refrescar(refreshInput));
+            return await _autenticacionService.Refrescar(refreshInput);
         }
-        catch (Exception)
+        catch (InvalidCredentialsException e)
         {
-            return Unauthorized(MensajesError.CredencialesInvalidas);
+            _logger.LogWarning("Token no usable para refrescar.");
+            throw new HttpRequestException(MensajesError.CredencialesInvalidas, e, HttpStatusCode.Unauthorized);
+        }
+        catch (SecurityTokenExpiredException e)
+        {
+            _logger.LogWarning("Token o sesión expirados.");
+            throw new HttpRequestException(MensajesError.CredencialesInvalidas, e, HttpStatusCode.Forbidden);
         }
     }
 
+    /// <summary>
+    /// Para confirmar una cuenta de correo electrónico.
+    /// </summary>
+    /// <param name="input">Valores necesarios para confirmar (código único y dirección de correo).</param>
+    /// <response code="204">Si se ha confirmado correctamente el correo.</response>
+    /// <response code="401">Si no se ha confirmado, o porque ya se hizo anteriormente o porque los parámetros son inválidos.</response>
     [HttpPost]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(401)]
     public async Task<ActionResult> Confirmar([FromBody] ConfirmarInput input)
     {
         _logger.LogInformation($"Confirmando usuario con email {input.DireccionEmail}");
@@ -81,22 +136,8 @@ public class AutenticacionController : ControllerBase
         }
         catch (UserNotFoundException)
         {
+            _logger.LogWarning($"Usuario pendiente de verificar no encontrado con email {input.DireccionEmail}");
             return BadRequest();
         }
-    }
-
-    [HttpGet]
-    [Authorize]
-    public ActionResult Info()
-    {
-        var claims = User.Claims.ToList();
-        string body = string.Empty;
-
-        for (int i = 0; i < claims.Count; i++)
-        {
-            System.Security.Claims.Claim? claim = claims[i];
-            body += $"{claim.Type} => {claim.Value}\r\n";
-        }
-        return Ok(body);
     }
 }

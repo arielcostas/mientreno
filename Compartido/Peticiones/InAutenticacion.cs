@@ -51,6 +51,6 @@ public class RefrescarInput
 /// </summary>
 public class ConfirmarInput
 {
-    public string DireccionEmail;
-    public string CodigoVerificacion;
+    public string DireccionEmail { get; set; }
+    public string CodigoVerificacion { get; set; }
 }
