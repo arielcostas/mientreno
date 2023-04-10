@@ -1,13 +1,13 @@
-Hola, {0}
+Ola {0}
 
-Alguien (esperemos que tú) ha intentado crear una cuenta en [MiEntreno](https://mientreno.app). MiEntreno es una aplicación donde tu entrenador personal puede crear tus planes de ejercicios, y tú puedes consultarlos y dar tu valoración.
+Alguén (esperemos que ti) tentou crear unha conta en [MiEntreno](https://mientreno.app). Mientreno é unha aplicación onde o teu adestrador persoal pode crear os teus plans de exercicios, e ti podes consultalos e dar a túa valoración.
 
-Si has sido tú quien creó la cuenta, puedes confirmarla pulsando [en este enlace](https://mientreno.app/ConfirmarCuenta?email={2}&token={1}). Alternativamente, puedes copiar y pegar este enlace en tu navegador:
+Se fuches ti quen creou a conta, podes confirmala premendo [nesta ligazón](https://mientreno.app/ConfirmarCuenta?email={2}&token={1}). Alternativamente, podes copiar e pegar esta ligazón no teu navegador:
 
 <https://mientreno.app/ConfirmarCuenta?email={2}&token={1}>
 
-Si **no has sido tú** quien creó la cuenta, puedes ignorar este correo. Pasadas 48 horas, la cuenta se eliminará. Haber recibido este correo no implica que tu cuenta de correo esté comprometida. Si tienes cualquier duda, puedes contactar con nosotros respondiendo a este mensaje.
+Se **non fuches ti** quen creou a conta, podes ignorar este correo. Pasadas 48 horas, a conta eliminarase. Ter recibido este correo non implica que a túa conta de correo estea comprometida. Se tes calquera dúbida, podes contactar connosco respondendo a esta mensaxe.
 
-Un saludo,
+Un saúdo,
 
--- El equipo de MiEntreno https://mientreno.app
+-- O equipo de MiEntreno https://mientreno.app
