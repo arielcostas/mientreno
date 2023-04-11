@@ -1,13 +1,17 @@
-# Te damos la bienvenida a MiEntreno
+# Dámosche a benvida a MiEntreno
 
 Ola {0}
 
-Gracias por registrarte en MiEntreno!
+¡Gracias por registrarte en MiEntreno!
 
-Ahora que hemos confirmado tu dirección de correo electrónico, puedes comenzar a usar la aplicación y la web, y disfrutar te todas sus funciones.
+Ahora que hemos confirmado tu dirección de correo electrónico, puedes comenzar a usar la aplicación y la web, y disfrutar de todas sus funciones.
 
-Recuerda que si tienes alguna duda, puedes contactar con nosotros en cualquier momento respondiendo a este correo electrónico. ¡Estaremos encantados de ayudarte!
+Lembra que se tés algunha dúbida, podes contactar con nos en calquera momento respondendo a este correo electrónico. Estaremos encantados de axudarte!
 
-¡Un saludo!
+Un saúdo!
 
--- O equipo de MiEntreno https://mientreno.app
+--
+
+El equipo de MiEntreno
+
+<https://mientreno.app>
