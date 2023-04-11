@@ -1,3 +1,5 @@
+# Confirma tu cuenta de MiEntreno
+
 Hola, {0}
 
 Alguien (esperemos que tú) ha intentado crear una cuenta en [MiEntreno](https://mientreno.app). MiEntreno es una aplicación donde tu entrenador personal puede crear tus planes de ejercicios, y tú puedes consultarlos y dar tu valoración.
