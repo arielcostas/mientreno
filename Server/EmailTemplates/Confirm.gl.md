@@ -1,3 +1,5 @@
+# Confirma tu cuenta de MiEntreno
+
 Ola {0}
 
 Alguén (esperemos que ti) tentou crear unha conta en [MiEntreno](https://mientreno.app). Mientreno é unha aplicación onde o teu adestrador persoal pode crear os teus plans de exercicios, e ti podes consultalos e dar a túa valoración.
