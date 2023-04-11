@@ -1,12 +1,12 @@
 # Mientreno
 
-Controla fácilmente tus entrenamientos.
+Controla fÃ¡cilmente tus entrenamientos.
 
-## Configuración
+## ConfiguraciÃ³n
 
 ### Base de datos
 
-En la configuración del programa, añadir una Connection String con nombre `Database`. Por ejemplo, en un `secrets.json` sería:
+En la configuraciÃ³n del programa, aÃ±adir una Connection String con nombre `Database`. Por ejemplo, en un `secrets.json` serÃ­a:
 
 ```json
 {
@@ -15,9 +15,9 @@ En la configuración del programa, añadir una Connection String con nombre `Datab
 }
 ```
 
-### Correo electrónico
+### Correo electrÃ³nico
 
-Por ahora, solo se puede configurar Azure Email Communication Services como sistema de envío de correo. Por tanto, hay que configurar la cadena de conexión `AzureEmailCS` con la ConnectionString que proporciona Azure; y el valor `EmailFrom` con el correo electrónico que se usará como remitente. Por ejemplo, en un `secrets.json`, sería tal que:
+Por ahora, solo se puede configurar Azure Email Communication Services como sistema de envÃ­o de correo. Por tanto, hay que configurar la cadena de conexiÃ³n `AzureEmailCS` con la ConnectionString que proporciona Azure; y el valor `EmailFrom` con el correo electrÃ³nico que se usarÃ¡ como remitente. Por ejemplo, en un `secrets.json`, serÃ­a tal que:
 
 ```json
 {
@@ -37,7 +37,7 @@ Ejecutar con:
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=abc1234." -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
-### Cadena de conexión
+### Cadena de conexiÃ³n
 ```bash
 Server=localhost;Database=Mientreno;User Id=sa;Password=abc1234.;Trust Server Certificate=True;
 ```

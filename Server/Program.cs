@@ -75,12 +75,7 @@ builder.Services.AddSingleton<IMailSender>((sp) =>
     return new AzureCSMailSender(logger, connectionString, emailFrom);
 });
 
-builder.Services.AddHostedService<MailWorkerService>();
-builder.Services.AddSingleton<MailWorkerService>(sp =>
-{
-    var sender = sp.GetRequiredService<IMailSender>();
-    return new(sender);
-});
+builder.Services.AddSingleton<Cartero>();
 
 var app = builder.Build();
 
@@ -106,5 +101,10 @@ app.UseCors(options =>
 });
 
 app.MapControllers();
+
+var cartero = app.Services.GetRequiredService<Cartero>();
+
+Thread carteroThread = new(new ThreadStart(cartero.Run));
+carteroThread.Start();
 
 app.Run();

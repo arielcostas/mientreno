@@ -20,11 +20,11 @@ public class AutenticacionService
     private readonly AppDbContext _context;
     private readonly IPasswordHasher<Usuario> _passwordHasher;
     private readonly TokenGenerator _tokenGenerator;
-    private readonly MailWorkerService _mailWorker;
+    private readonly Cartero _mailWorker;
     private readonly ILogger<AutenticacionService> _logger;
 
     public AutenticacionService(AppDbContext context, TokenGenerator tokenGenerator,
-        ILogger<AutenticacionService> logger, MailWorkerService mailWorkerService)
+        ILogger<AutenticacionService> logger, Cartero mailWorkerService)
     {
         _context = context;
         _passwordHasher = new Argon2PasswordHasher<Usuario>();
@@ -155,14 +155,22 @@ public class AutenticacionService
     public async Task Registrar(RegistroInput registroInput)
     {
         // Comprueba que el login y el correo no estén en uso
-        if (_context.Usuarios.Any(u => u.Login == registroInput.Login))
-        {
-            throw new ArgumentException("Login ya en uso", registroInput.Login);
-        }
+        var conflict = _context.Usuarios
+            .Where(u => u.Login == registroInput.Login)
+            .Where(u => u.Credenciales.Email == registroInput.Correo)
+            .FirstOrDefault();
 
-        if (_context.Usuarios.Any(u => u.Credenciales.Email == registroInput.Correo))
+        if (conflict != null)
         {
-            throw new ArgumentException("Correo ya en uso", registroInput.Correo);
+            if (conflict.Login == registroInput.Login)
+            {
+                throw new ArgumentException("Login ya en uso", registroInput.Login);
+            }
+
+            if (conflict.Credenciales.Email == registroInput.Correo)
+            {
+                throw new ArgumentException("Correo ya en uso", registroInput.Correo);
+            }
         }
 
         var user = new Usuario()
@@ -196,10 +204,7 @@ public class AutenticacionService
 
         _logger.LogInformation("Usuario {Login} registrado. Enviando correo de verificación", user.Login);
 
-        Email email = new(user.Credenciales.Email,
-            "Verifica tu cuenta",
-            // TODO: Usar una plantilla en condiciones y no una URL hard-coded
-            $"Para verificar tu cuenta, visita https://mientreno.app/confirmar?code={user.Credenciales.CodigoVerificacionEmail}&email={UrlEncoder.Default.Encode(user.Credenciales.Email)}");
+        Email email = EmailTemplate.ConfirmAddressEmail(ref user);
 
         _mailWorker.AddEmailToQueue(email);
 
@@ -274,7 +279,11 @@ public class AutenticacionService
             }
         );
 
-        throw new NotImplementedException();
+        return new RefrescarOutput
+        {
+            TokenAcceso = tokenAcceso,
+            TokenRefresco = tokenRefresco
+        };
     }
 
     internal async Task Confirmar(ConfirmarInput input)
@@ -294,11 +303,8 @@ public class AutenticacionService
 
         _logger.LogInformation("Cuenta de {DireccionEmail} confirmada", input.DireccionEmail);
 
-        await _mailSender.SendMailAsync(
-            input.DireccionEmail,
-            "Bienvenido a MiEntreno",
-            // TODO: Mejorar mensaje
-            $"Hola {u.Nombre}, se ha confirmado tu cuenta de MiEntreno, y ya puedes iniciar sesión y empezar a planificar los entrenamientos de tus alumnos; o ver los tuyos."
-        );
+        Email email = EmailTemplate.AfterConfirmWelcomeEmail(ref u);
+
+        _mailWorker.AddEmailToQueue(email);
     }
 }

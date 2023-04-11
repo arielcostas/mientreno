@@ -16,30 +16,47 @@ public sealed class AzureCSMailSender : IMailSender
         From = from;
     }
 
-    public void SendMail(string to, string subject, string body)
+    public void SendMail(
+        string toAddress,
+        string toName,
+        string subject,
+        string plainBody,
+        string htmlBody
+    )
     {
-        SendMailAsync(to, subject, body).RunSynchronously();
+        SendMailAsync(toAddress, toName, subject, plainBody, htmlBody).Wait();
     }
 
-    public async Task SendMailAsync(string to, string subject, string body)
+    public async Task SendMailAsync(
+        string toAddress,
+        string toName,
+        string subject,
+        string plainBody,
+        string htmlBody
+    )
     {
+        var recipientAddress = new EmailAddress(toAddress, toName);
+        EmailRecipients recipients = new EmailRecipients();
+        recipients.To.Add(recipientAddress);
+
         EmailMessage options = new(
             From,
-            to,
+            recipients,
             new(subject)
             {
-                PlainText = body
+                PlainText = plainBody,
+                Html = htmlBody
             }
         );
 
         try
         {
             var operation = await Client.SendAsync(WaitUntil.Completed, options);
-            Logger.LogInformation($"Successfully sent email to {to}: messageId{operation.Id}");
+            Logger.LogInformation("Successfully sent email to {}: messageId{}", toAddress, operation.Id);
         }
         catch (RequestFailedException ex)
         {
-            Logger.LogError($"Failed to send email to {to}: {ex.ErrorCode} - {ex.Message}");
+            Logger.LogError("Failed to send email to {}: {} - {}", toAddress, ex.ErrorCode, ex.Message);
         }
     }
 }

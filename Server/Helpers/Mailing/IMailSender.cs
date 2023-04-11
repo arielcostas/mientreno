@@ -2,6 +2,6 @@
 
 public interface IMailSender
 {
-    void SendMail(string to, string subject, string body);
-    Task SendMailAsync(string to, string subject, string body);
+    void SendMail(string to, string name, string subject, string plainTextBody, string htmlBody);
+    Task SendMailAsync(string to, string name, string subject, string plainTextBody, string htmlBody);
 }
