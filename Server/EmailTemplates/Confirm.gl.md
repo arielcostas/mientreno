@@ -1,4 +1,4 @@
-# Confirma tu cuenta de MiEntreno
+# Confirma a túa conta de MiEntreno
 
 Ola {0}
 
