@@ -12,4 +12,8 @@ Si **no has sido tú** quien creó la cuenta, puedes ignorar este correo. Pasada
 
 Un saludo,
 
--- El equipo de MiEntreno https://mientreno.app
+--
+
+El equipo de MiEntreno
+
+<https://mientreno.app>
