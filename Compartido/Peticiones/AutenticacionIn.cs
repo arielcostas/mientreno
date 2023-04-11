@@ -1,12 +1,5 @@
 ﻿namespace Mientreno.Compartido.Peticiones;
 
-/*
-    Desactiva avisos de que las string son nulas después del constructor.
-    El aviso no aplica porque las propiedades son inicializadas mediante
-    reflection por el serializador JSON.
-*/
-#pragma warning disable CS8618
-
 /// <summary>
 /// Datos de registro de un usuario.
 /// </summary>

@@ -23,11 +23,10 @@ public class AutenticacionService
     private readonly Cartero _mailWorker;
     private readonly ILogger<AutenticacionService> _logger;
 
-    public AutenticacionService(AppDbContext context, TokenGenerator tokenGenerator,
-        ILogger<AutenticacionService> logger, Cartero mailWorkerService)
+    public AutenticacionService(AppDbContext context, TokenGenerator tokenGenerator, ILogger<AutenticacionService> logger, Cartero mailWorkerService, IPasswordHasher<Usuario> hasher)
     {
         _context = context;
-        _passwordHasher = new Argon2PasswordHasher<Usuario>();
+        _passwordHasher = hasher;
         _tokenGenerator = tokenGenerator;
         _logger = logger;
         _mailWorker = mailWorkerService;

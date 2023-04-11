@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Mientreno.Server;
@@ -7,6 +8,7 @@ using Mientreno.Server.Helpers;
 using Mientreno.Server.Helpers.Crypto;
 using Mientreno.Server.Helpers.Mailing;
 using Mientreno.Server.Helpers.Services;
+using Mientreno.Server.Models;
 using Mientreno.Server.Services;
 using System.Reflection;
 using System.Security.Claims;
@@ -51,8 +53,8 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ValidSessionKey", policy => policy.Requirements.Add(new ValidSessionKeyRequirement()));
 
-    options.AddPolicy("EsAlumno", policy => policy.RequireClaim(ClaimTypes.Role, new string[] { "Alumno" }));
-    options.AddPolicy("EsEntrenador", policy => policy.RequireClaim(ClaimTypes.Role, new string[] { "Entrenador" }));
+    options.AddPolicy(Constantes.PolicyEsAlumno, policy => policy.RequireClaim(ClaimTypes.Role, new string[] { "Alumno" }));
+    options.AddPolicy(Constantes.PolicyEsEntrenador, policy => policy.RequireClaim(ClaimTypes.Role, new string[] { "Entrenador" }));
 
     options.DefaultPolicy = options.GetPolicy("ValidSessionKey")!;
 });
@@ -61,6 +63,10 @@ builder.Services.AddScoped<IAuthorizationHandler, ValidSessionKeyAuthorizationHa
 
 builder.Services.AddScoped<AutenticacionService>();
 builder.Services.AddSingleton<TokenGenerator>();
+builder.Services.AddTransient<IPasswordHasher<Usuario>>(sp =>
+{
+    return new PasswordHasher<Usuario>();
+});
 
 builder.Services.AddSingleton<IMailSender>((sp) =>
 {

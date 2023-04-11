@@ -8,10 +8,10 @@ using System.Security.Claims;
 namespace Mientreno.Server.Controllers;
 
 [ApiController]
-[Authorize("EsAlumno")]
+[Authorize(Constantes.PolicyEsAlumno)]
 public class CuestionarioController : ControllerBase
 {
-    private AppDbContext _context;
+    private readonly AppDbContext _context;
 
     public CuestionarioController(AppDbContext context)
     {
