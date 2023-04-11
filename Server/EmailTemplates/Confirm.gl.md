@@ -12,4 +12,8 @@ Se **non fuches ti** quen creou a conta, podes ignorar este correo. Pasadas 48 h
 
 Un saúdo,
 
--- O equipo de MiEntreno https://mientreno.app
+--
+
+El equipo de MiEntreno
+
+<https://mientreno.app>
