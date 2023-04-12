@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="alreadyHaveAccountLogin" xml:space="preserve">
+    <value>¿Xa tes conta? Inicia sesión.</value>
+  </data>
+  <data name="confirmPassword" xml:space="preserve">
+    <value>Confirmar contrasinal</value>
+  </data>
   <data name="doLogin" xml:space="preserve">
     <value>Conectar</value>
+  </data>
+  <data name="doRegister" xml:space="preserve">
+    <value>Inscribirse</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Correo electrónico</value>
   </data>
   <data name="enterUsernameOrPassword" xml:space="preserve">
     <value>Debes introducir usuario e contrasinal</value>
@@ -127,13 +139,44 @@
     <value>Usuario ou contrasinal incorrectos</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
+  <data name="errorUnexpected" xml:space="preserve">
+    <value>Houbo un erro inesperado. Inténtao de novo máis tarde.</value>
+  </data>
   <data name="loginToContinue" xml:space="preserve">
     <value>Inicia sesión para continuar</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Nome</value>
+    <comment>Nombre real de una persona (no confundir con username)</comment>
+  </data>
+  <data name="newHereRegister" xml:space="preserve">
+    <value>¿Novo por aquí? Rexístrate.</value>
+    <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
   </data>
   <data name="password" xml:space="preserve">
     <value>Contrasinal</value>
   </data>
+  <data name="passwordsDoNotMatch" xml:space="preserve">
+    <value>Os contrasinais non coinciden</value>
+  </data>
+  <data name="passwordTooWeak" xml:space="preserve">
+    <value>O contrasinal é demasiado débil. Debe conter polo menos 8 caracteres, con maiúsculas e minúsculas, números e/ou símbolos.</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>Rexistro</value>
+    <comment>Título de la página de registro</comment>
+  </data>
+  <data name="surname" xml:space="preserve">
+    <value>Apelidos</value>
+    <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
+  </data>
   <data name="username" xml:space="preserve">
     <value>Nome de usuario</value>
+  </data>
+  <data name="usernameOrEmailAlreadyInUse" xml:space="preserve">
+    <value>O nome de usuario ou dirección de correo xa están rexistrados.</value>
+  </data>
+  <data name="youAcceptTermsAndConditions" xml:space="preserve">
+    <value>Ó rexistrarte, estás aceptando os nosos termos de uso e a nosa política de privacidade.</value>
   </data>
 </root>
