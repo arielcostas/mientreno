@@ -1,19 +1,19 @@
-# Confirma tu cuenta de MiEntreno
+# Confirm your MiEntreno account
 
-Hola, {0}
+Hello {0}
 
-Alguien (esperemos que tú) ha intentado crear una cuenta en [MiEntreno](https://mientreno.app). MiEntreno es una aplicación donde tu entrenador personal puede crear tus planes de ejercicios, y tú puedes consultarlos y dar tu valoración.
+Someone (hopefully you) has tried to create an account at [MiEntreno](https://mientreno.app). MiEntreno is an application where your personal trainer can create your exercise plans, and you can consult them and give your assessment.
 
-Si has sido tú quien creó la cuenta, puedes confirmarla pulsando [en este enlace](https://mientreno.app/ConfirmarCuenta?email={2}&token={1}). Alternativamente, puedes copiar y pegar este enlace en tu navegador:
+If it was you who created the account, you can confirm it by tapping [in this link](https://mientreno.app/ConfirmarCuenta?email={2}&token={1}). Alternatively, you can copy and paste this link into your browser:
 
 <https://mientreno.app/ConfirmarCuenta?email={2}&token={1}>
 
-Si **no has sido tú** quien creó la cuenta, puedes ignorar este correo. Pasadas 48 horas, la cuenta se eliminará. Haber recibido este correo no implica que tu cuenta de correo esté comprometida. Si tienes cualquier duda, puedes contactar con nosotros respondiendo a este mensaje.
+If **it wasn't you** the one who created the account, you can ignore this email. After 48 hours, the account will be deleted. Having received this email does not imply that your email account is compromised. If you have any questions, you can contact us by replying to this message.
 
-Un saludo,
+Yours
 
 --
 
-El equipo de MiEntreno
+The MiEntreno team
 
 <https://mientreno.app>
