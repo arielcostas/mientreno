@@ -23,7 +23,7 @@ public class AutenticacionController : ControllerBase
     }
 
     /// <summary>
-    /// Inicia sesión con un usuario existente.
+    /// Inicia sesión
     /// </summary>
     /// <param name="loginInput">El identificador (nombre de usuario, email o código de desafío) y la credencial (contraseña o código TOTP).</param>
     /// <returns>Información sobre si el login fue exitoso, o si se require completar un desafío 2FA con TOTP.</returns>
@@ -58,7 +58,7 @@ public class AutenticacionController : ControllerBase
     }
 
     /// <summary>
-    /// Da de alta un nuevo usuario.
+    /// Dar de alta nuevo usuario.
     /// </summary>
     /// <param name="registroInput">Los datos básicos del nuevo usuario</param>
     /// <response code="204">El usuario se registró correctamente</response>
@@ -87,7 +87,7 @@ public class AutenticacionController : ControllerBase
     }
 
     /// <summary>
-    /// Obtiene un nuevo token de acceso a partir de un token de refresco.
+    /// Refrescar sesión (obtener nuevo par de tokens)
     /// </summary>
     /// <param name="refreshInput">El token de refresco</param>
     /// <returns>Un nuevo token de acceso, y un nuevo token de refresco extendido, para remplazar el actual.</returns>
@@ -118,7 +118,7 @@ public class AutenticacionController : ControllerBase
     }
 
     /// <summary>
-    /// Para confirmar una cuenta de correo electrónico.
+    /// Confirmar correo electrónico.
     /// </summary>
     /// <param name="input">Valores necesarios para confirmar (código único y dirección de correo).</param>
     /// <response code="204">Si se ha confirmado correctamente el correo.</response>

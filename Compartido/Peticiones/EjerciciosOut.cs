@@ -15,3 +15,8 @@ public class MiEjercicio
         public string Nombre { get; set; }
     }
 }
+
+public class NuevoEjercicioOutput
+{
+    public int Id { get; set; }
+}
