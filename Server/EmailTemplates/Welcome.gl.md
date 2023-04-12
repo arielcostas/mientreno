@@ -2,9 +2,9 @@
 
 Ola {0}
 
-¡Gracias por registrarte en MiEntreno!
+Grazas por rexistrarte en MiEntreno!
 
-Ahora que hemos confirmado tu dirección de correo electrónico, puedes comenzar a usar la aplicación y la web, y disfrutar de todas sus funciones.
+Agora que confirmamos a túa dirección de correo electrónico, podes comezar a usar a aplicación e a web, e desfrutar de todas as súas funcionalidades.
 
 Lembra que se tés algunha dúbida, podes contactar con nos en calquera momento respondendo a este correo electrónico. Estaremos encantados de axudarte!
 
@@ -12,6 +12,6 @@ Un saúdo!
 
 --
 
-El equipo de MiEntreno
+O equipo de MiEntreno
 
 <https://mientreno.app>
