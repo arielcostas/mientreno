@@ -1,5 +1,5 @@
 files:
   - source: /Compartido/Recursos/AppStrings.resx
     translation: /Compartido/Recursos/AppStrings.%two_letters_code%.resx
-  - source: /Server/EmailTemplates/*.md
-    translation: /Server/EmailTemplates/%file_name%.%two_letters_code%.md
+  - source: /Server/EmailTemplates/**/default.md
+    translation: /Server/EmailTemplates/**/%two_letters_code%.md

@@ -1,5 +1,4 @@
 ﻿using Markdig;
-using Mientreno.Server.Helpers.Services;
 using Mientreno.Server.Models;
 using System.Reflection;
 using System.Text.Encodings.Web;
@@ -8,9 +7,9 @@ using System.Text.RegularExpressions;
 namespace Mientreno.Server.Helpers.Mailing;
 
 /// <summary>
-/// It generates an <see cref="Helpers.Services.Email">Email</see> with the email message to be sent according to the template and the language.
+/// It generates an <see cref="Email">Email</see> with the email message to be sent according to the template and the language.
 /// </summary>
-public class EmailTemplate
+public partial class EmailTemplate
 {
     private static readonly string _templatePath =
         Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"EmailTemplates");
@@ -78,11 +77,11 @@ public class EmailTemplate
         object[] parameters
     )
     {
-        var localizedFileExists = File.Exists(_templatePath + $"\\{template}.{twoLetterLanguage}.md");
+        var localizedFileExists = File.Exists(_templatePath + $"\\{template}\\{twoLetterLanguage}.md");
 
         var templateFile = localizedFileExists
-            ? $"{template}.{twoLetterLanguage}.md"
-            : $"{template}.md";
+            ? $"{template}\\{twoLetterLanguage}.md"
+            : $"{template}\\default.md";
 
         if (!File.Exists(_templatePath + $"\\{templateFile}"))
         {
@@ -94,7 +93,7 @@ public class EmailTemplate
         string appliedTemplate = string.Format(templateContent, parameters);
         var parts = appliedTemplate.Split(Environment.NewLine, 2);
 
-        string subject = Regex.Replace(parts[0], @"^#\s?", "");
+        string subject = MyRegex().Replace(parts[0], "");
         appliedTemplate = parts[1];
 
         string plain = Markdown.ToPlainText(appliedTemplate, pipeline);
@@ -103,5 +102,6 @@ public class EmailTemplate
         return (subject, plain, html);
     }
 
-    private static string EmailTo(string nombre, string apellido, string direccion) => $"{nombre} {apellido} <{direccion}>";
+    [GeneratedRegex("^#\\s?")]
+    private static partial Regex MyRegex();
 }

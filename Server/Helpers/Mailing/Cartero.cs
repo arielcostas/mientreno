@@ -1,6 +1,4 @@
-﻿using Mientreno.Server.Helpers.Mailing;
-
-namespace Mientreno.Server.Helpers.Services;
+﻿namespace Mientreno.Server.Helpers.Mailing;
 
 public class Cartero
 {
