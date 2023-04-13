@@ -118,46 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="alreadyHaveAccountLogin" xml:space="preserve">
-    <value>¿Ya tienes cuenta? Inicia sesión.</value>
+    <value>Ja tens compte? Inicia sessió.</value>
   </data>
   <data name="confirmPassword" xml:space="preserve">
-    <value>Confirmar contraseña</value>
+    <value>Confirmar contrasenya</value>
   </data>
   <data name="doLogin" xml:space="preserve">
-    <value>Iniciar sesión</value>
+    <value>Iniciar sessió</value>
   </data>
   <data name="doRegister" xml:space="preserve">
-    <value>Registrarse</value>
+    <value>Registrar-se</value>
   </data>
   <data name="email" xml:space="preserve">
-    <value>Correo electrónico</value>
+    <value>Correu electrònic</value>
   </data>
   <data name="enterUsernameOrPassword" xml:space="preserve">
-    <value>Debes introducir usuario y contraseña</value>
+    <value>Has d'introduir usuari i contrasenya</value>
   </data>
   <data name="errorCredencialesInvalidas" xml:space="preserve">
-    <value>Usuario o contraseña incorrectos</value>
+    <value>Usuari o contrasenya incorrectes</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
   <data name="errorUnexpected" xml:space="preserve">
-    <value>Hubo un error inesperado. Inténtalo de nuevo más tarde.</value>
+    <value>Hi va haver un error inesperat. Intem-ho de nou més tard.</value>
   </data>
   <data name="loginToContinue" xml:space="preserve">
-    <value>Inicia sesión para continuar</value>
+    <value>Inicia sessió per continuar</value>
   </data>
   <data name="name" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Nom</value>
     <comment>Nombre real de una persona (no confundir con username)</comment>
   </data>
   <data name="newHereRegister" xml:space="preserve">
-    <value>¿Nuevo por aquí? Regístrate.</value>
+    <value>Nou per aquí? Regístrate.</value>
     <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
   </data>
   <data name="password" xml:space="preserve">
-    <value>Contraseña</value>
+    <value>Contrasenya</value>
   </data>
   <data name="passwordsDoNotMatch" xml:space="preserve">
-    <value>Las contraseñas no coinciden</value>
+    <value>Les contrasenyes no coincideixen</value>
   </data>
   <data name="passwordTooWeak" xml:space="preserve">
     <value>La contraseña es demasiado débil. Debe contener al menos 8 caracteres, con mayúsculas y minúsculas, números y/o símbolos.</value>

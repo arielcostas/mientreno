@@ -14,6 +14,6 @@ Un saludo,
 
 --
 
-El equipo de MiEntreno
+-- El equipo de MiEntreno https://mientreno.app
 
 <https://mientreno.app>
