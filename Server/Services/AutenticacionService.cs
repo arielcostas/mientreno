@@ -8,7 +8,6 @@ using Mientreno.Server.Helpers.Crypto;
 using Mientreno.Server.Helpers.Mailing;
 using Mientreno.Server.Models;
 using System.Security.Claims;
-using System.Text.Encodings.Web;
 
 namespace Mientreno.Server.Services;
 
@@ -17,11 +16,10 @@ public class AutenticacionService
     const string TOTP_PREFIX = "__";
 
     private readonly AppDbContext _context;
+    private readonly ILogger<AutenticacionService> _logger;
+    private readonly Cartero _mailWorker;
     private readonly IPasswordHasher<Usuario> _passwordHasher;
     private readonly TokenGenerator _tokenGenerator;
-    private readonly Cartero _mailWorker;
-    private readonly ILogger<AutenticacionService> _logger;
-
     public AutenticacionService(AppDbContext context, TokenGenerator tokenGenerator, ILogger<AutenticacionService> logger, Cartero mailWorkerService, IPasswordHasher<Usuario> hasher)
     {
         _context = context;
@@ -41,112 +39,67 @@ public class AutenticacionService
         return await LoginConContraseña(loginInput);
     }
 
-    private async Task<LoginOutput?> LoginConContraseña(LoginInput loginInput)
+    public async Task<RefrescarOutput> Refrescar(RefrescarInput refreshInput)
     {
-        var usuarioEncontrado = _context.Usuarios
-            .Include(u => u.Sesiones)
-            .FirstOrDefault(
-                u => u.Login == loginInput.Identificador || u.Credenciales.Email == loginInput.Identificador) ?? throw new InvalidCredentialsException();
+        var tokenActual = _tokenGenerator.VerificarTokenMac(refreshInput.TokenRefresco);
 
-        if (!usuarioEncontrado.Credenciales.EmailVerificado)
+        var isRefresh = tokenActual[ExtraClaims.TokenType] == TokenTypes.Refresh;
+        if (!isRefresh)
         {
-            throw new EmailNoConfirmadoException();
+            throw new InvalidCredentialsException();
         }
 
-        var resultado = _passwordHasher.VerifyHashedPassword(usuarioEncontrado,
-            usuarioEncontrado.Credenciales.Contraseña, loginInput.Credencial);
+        var sessionId = tokenActual[ExtraClaims.Nonce] ?? throw new InvalidCredentialsException();
 
-        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-        switch (resultado)
+        var storedSession = await _context.Sesiones
+            .Include(s => s.Usuario)
+            .FirstOrDefaultAsync(s => s.SessionId == sessionId);
+
+        if (storedSession == null || storedSession.Invalidada)
         {
-            case PasswordVerificationResult.Failed:
-                throw new InvalidCredentialsException();
-            case PasswordVerificationResult.SuccessRehashNeeded:
-                usuarioEncontrado.Credenciales.Contraseña = _passwordHasher.HashPassword(usuarioEncontrado,
-                    loginInput.Credencial);
-                await _context.SaveChangesAsync();
-                break;
+            throw new SecurityTokenExpiredException();
         }
 
-        var rol = usuarioEncontrado switch
+        var usuarioSesion = storedSession.Usuario;
+
+        var rol = usuarioSesion switch
         {
             Entrenador => "Entrenador",
             Alumno => "Alumno",
-            _ => throw new ArgumentOutOfRangeException(
-                "userType",
-                usuarioEncontrado.GetType(),
-                $"Usuario con {usuarioEncontrado.Id} no es  alumno ni entrenador"
+            _ => throw new InvalidCastException(
+                $"Usuario con {usuarioSesion.Id} no es  alumno ni entrenador"
             )
         };
 
-        if (usuarioEncontrado.Credenciales.MfaHabilitado)
-        {
-            var codigo = _tokenGenerator.GenerarTokenMac(
-                DateTime.Now.AddMinutes(10),
-                new Dictionary<string, string>()
-                {
-                    { "id", usuarioEncontrado.Id.ToString() }
-                }
-            );
-
-            return new LoginOutput()
-            {
-                RequiereDesafio = true,
-                Codigo = TOTP_PREFIX + codigo
-            };
-        }
-
-        // TODO: Variar el tiempo de expiración del token de acceso
-        var now = DateTime.Now;
-        var sess = new Sesion(usuarioEncontrado, now.AddDays(14));
-
         Dictionary<string, string> datos = new()
         {
-            { ClaimTypes.NameIdentifier, usuarioEncontrado.Id.ToString() },
-            { ClaimTypes.Name, usuarioEncontrado.Login },
-            { ClaimTypes.GivenName, usuarioEncontrado.Nombre },
-            { ClaimTypes.Surname, usuarioEncontrado.Apellidos },
+            { ClaimTypes.NameIdentifier, usuarioSesion.Id.ToString() },
+            { ClaimTypes.Name, usuarioSesion.Login },
+            { ClaimTypes.GivenName, usuarioSesion.Nombre },
+            { ClaimTypes.Surname, usuarioSesion.Apellidos },
             { ClaimTypes.Role, rol },
-            { "nonce", sess.SessionId }
+            { "nonce", sessionId }
         };
 
-        var tokenAcceso = _tokenGenerator.GenerarTokenJWT(now.AddMinutes(120), datos);
-
-        usuarioEncontrado.Sesiones.Add(sess);
-
+        storedSession.FechaExpiracion = DateTime.Now.AddDays(14);
         await _context.SaveChangesAsync();
 
+        var tokenAcceso = _tokenGenerator.GenerarTokenJWT(DateTime.Now.AddMinutes(120), datos);
+
         var tokenRefresco = _tokenGenerator.GenerarTokenMac(
-            now.AddDays(14),
+            DateTime.Now.AddDays(14),
             new Dictionary<string, string>()
             {
-                { ClaimTypes.NameIdentifier, usuarioEncontrado.Id.ToString() },
-                { ExtraClaims.Nonce, sess.SessionId }
+                { ClaimTypes.NameIdentifier, usuarioSesion.Id.ToString() },
+                { ExtraClaims.Nonce, storedSession.SessionId },
+                { ExtraClaims.TokenType, TokenTypes.Refresh }
             }
         );
 
-        return new LoginOutput
+        return new RefrescarOutput
         {
-            RequiereDesafio = false,
             TokenAcceso = tokenAcceso,
-            TokenRefresco = tokenRefresco,
-        };
-    }
-
-    private async Task<LoginOutput> LoginConTotp(LoginInput loginInput)
-    {
-        var tokenData = _tokenGenerator.VerificarTokenMac(loginInput.Identificador[2..]);
-
-        foreach (var (k, v) in tokenData)
-        {
-            await Console.Out.WriteLineAsync($"{k} => {v}");
-        }
-
-        return new LoginOutput
-        {
-            RequiereDesafio = true,
-            TokenAcceso = string.Empty,
-            TokenRefresco = string.Empty
+            TokenRefresco = tokenRefresco
         };
     }
 
@@ -209,82 +162,7 @@ public class AutenticacionService
         _logger.LogInformation("Correo de verificación programado para enviar a {Email}", user.Credenciales.Email);
     }
 
-    public bool IsSessionValid(string sessid, string userId)
-    {
-        var userGuid = Guid.Parse(userId);
-        var s = _context.Sesiones
-            .Include(s => s.Usuario)
-            .Where(s => s.Usuario.Id == userGuid)
-            .FirstOrDefault(s => s.SessionId == sessid);
-
-        return s != null;
-    }
-
-    private static string GenerarCodigoVerificacionEmail()
-    {
-        var buffer = new byte[32];
-        Random.Shared.NextBytes(buffer);
-
-        return Convert.ToHexString(buffer);
-    }
-
-    public async Task<RefrescarOutput> Refrescar(RefrescarInput refreshInput)
-    {
-        var tokenActual = _tokenGenerator.VerificarTokenMac(refreshInput.TokenRefresco);
-        var sessionId = tokenActual[ExtraClaims.Nonce] ?? throw new InvalidCredentialsException();
-
-        var storedSession = await _context.Sesiones
-            .Include(s => s.Usuario)
-            .FirstOrDefaultAsync(s => s.SessionId == sessionId);
-
-        if (storedSession == null || storedSession.Invalidada)
-        {
-            throw new SecurityTokenExpiredException();
-        }
-
-        var usuarioSesion = storedSession.Usuario;
-
-        var rol = usuarioSesion switch
-        {
-            Entrenador => "Entrenador",
-            Alumno => "Alumno",
-            _ => throw new InvalidCastException(
-                $"Usuario con {usuarioSesion.Id} no es  alumno ni entrenador"
-            )
-        };
-
-        Dictionary<string, string> datos = new()
-        {
-            { ClaimTypes.NameIdentifier, usuarioSesion.Id.ToString() },
-            { ClaimTypes.Name, usuarioSesion.Login },
-            { ClaimTypes.GivenName, usuarioSesion.Nombre },
-            { ClaimTypes.Surname, usuarioSesion.Apellidos },
-            { ClaimTypes.Role, rol },
-            { "nonce", sessionId }
-        };
-
-        storedSession.FechaExpiracion = DateTime.Now.AddDays(14);
-        await _context.SaveChangesAsync();
-
-        var tokenAcceso = _tokenGenerator.GenerarTokenJWT(DateTime.Now.AddMinutes(120), datos);
-
-        var tokenRefresco = _tokenGenerator.GenerarTokenMac(
-            DateTime.Now.AddDays(14),
-            new Dictionary<string, string>()
-            {
-                { ClaimTypes.NameIdentifier, usuarioSesion.Id.ToString() },
-                { ExtraClaims.Nonce, storedSession.SessionId }
-            }
-        );
-
-        return new RefrescarOutput
-        {
-            TokenAcceso = tokenAcceso,
-            TokenRefresco = tokenRefresco
-        };
-    }
-
-    internal async Task Confirmar(ConfirmarInput input)
+    public async Task Confirmar(ConfirmarInput input)
     {
         _logger.LogInformation("Confirmando cuenta de {DireccionEmail}", input.DireccionEmail);
 
@@ -304,5 +182,123 @@ public class AutenticacionService
         Email email = EmailTemplate.AfterConfirmWelcomeEmail(ref u);
 
         _mailWorker.AddEmailToQueue(email);
+    }
+
+    private static string GenerarCodigoVerificacionEmail()
+    {
+        var buffer = new byte[32];
+        Random.Shared.NextBytes(buffer);
+
+        return Convert.ToHexString(buffer);
+    }
+
+    private async Task<LoginOutput?> LoginConContraseña(LoginInput loginInput)
+    {
+        var usuarioEncontrado = _context.Usuarios
+            .Include(u => u.Sesiones)
+            .FirstOrDefault(
+                u => u.Login == loginInput.Identificador || u.Credenciales.Email == loginInput.Identificador) ?? throw new InvalidCredentialsException();
+
+        if (!usuarioEncontrado.Credenciales.EmailVerificado)
+        {
+            throw new EmailNoConfirmadoException();
+        }
+
+        var resultado = _passwordHasher.VerifyHashedPassword(usuarioEncontrado,
+            usuarioEncontrado.Credenciales.Contraseña, loginInput.Credencial);
+
+        switch (resultado)
+        {
+            case PasswordVerificationResult.Failed:
+                throw new InvalidCredentialsException();
+            case PasswordVerificationResult.SuccessRehashNeeded:
+                usuarioEncontrado.Credenciales.Contraseña = _passwordHasher.HashPassword(usuarioEncontrado,
+                    loginInput.Credencial);
+                await _context.SaveChangesAsync();
+                break;
+        }
+
+        if (usuarioEncontrado.Credenciales.MfaHabilitado)
+        {
+            var codigo = _tokenGenerator.GenerarTokenMac(
+                DateTime.Now.AddMinutes(10),
+                new Dictionary<string, string>()
+                {
+                    { "id", usuarioEncontrado.Id.ToString() },
+                    { TokenTypes.Key, TokenTypes.Challange }
+                }
+            );
+
+            return new LoginOutput()
+            {
+                RequiereDesafio = true,
+                Codigo = TOTP_PREFIX + codigo
+            };
+        }
+
+        var rol = usuarioEncontrado switch
+        {
+            Entrenador => "Entrenador",
+            Alumno => "Alumno",
+            _ => throw new ArgumentOutOfRangeException(
+                "userType",
+                usuarioEncontrado.GetType(),
+                $"Usuario con {usuarioEncontrado.Id} no es  alumno ni entrenador"
+            )
+        };
+
+        var now = DateTime.Now;
+        var sess = new Sesion(usuarioEncontrado, now.AddDays(14));
+
+        Dictionary<string, string> datos = new()
+        {
+            { ClaimTypes.NameIdentifier, usuarioEncontrado.Id.ToString() },
+            { ClaimTypes.Name, usuarioEncontrado.Login },
+            { ClaimTypes.GivenName, usuarioEncontrado.Nombre },
+            { ClaimTypes.Surname, usuarioEncontrado.Apellidos },
+            { ClaimTypes.Role, rol },
+            { "nonce", sess.SessionId },
+            { ExtraClaims.TokenType, TokenTypes.Refresh }
+        };
+
+        var tokenAcceso = _tokenGenerator.GenerarTokenJWT(now.AddMinutes(120), datos);
+
+        usuarioEncontrado.Sesiones.Add(sess);
+
+        await _context.SaveChangesAsync();
+
+        var tokenRefresco = _tokenGenerator.GenerarTokenMac(
+            now.AddDays(14),
+            new Dictionary<string, string>()
+            {
+                { ClaimTypes.NameIdentifier, usuarioEncontrado.Id.ToString() },
+                { ExtraClaims.Nonce, sess.SessionId }
+            }
+        );
+
+        return new LoginOutput
+        {
+            RequiereDesafio = false,
+            TokenAcceso = tokenAcceso,
+            TokenRefresco = tokenRefresco,
+        };
+    }
+
+    private async Task<LoginOutput> LoginConTotp(LoginInput loginInput)
+    {
+        throw new NotImplementedException();
+        var tokenData = _tokenGenerator.VerificarTokenMac(loginInput.Identificador[2..]);
+
+        foreach (var (k, v) in tokenData)
+        {
+            await Console.Out.WriteLineAsync($"{k} => {v}");
+        }
+
+        return new LoginOutput
+        {
+            RequiereDesafio = true,
+            TokenAcceso = string.Empty,
+            TokenRefresco = string.Empty
+        };
     }
 }

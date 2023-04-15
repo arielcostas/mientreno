@@ -2,5 +2,13 @@
 
 public class ExtraClaims
 {
+    public const string TokenType = "token_type";
     public const string Nonce = "nonce";
+}
+
+public class TokenTypes
+{
+    public const string Key = "tokenType";
+    public const string Challange = "Challenge";
+    public const string Refresh = "Refresh";
 }
