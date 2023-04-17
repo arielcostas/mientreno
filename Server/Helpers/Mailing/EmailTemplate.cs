@@ -12,7 +12,7 @@ namespace Mientreno.Server.Helpers.Mailing;
 public partial class EmailTemplate
 {
     private static readonly string _templatePath =
-        Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"EmailTemplates");
+        Path.Combine(AppContext.BaseDirectory, @"EmailTemplates");
 
     private static readonly MarkdownPipeline pipeline =
         new MarkdownPipelineBuilder()

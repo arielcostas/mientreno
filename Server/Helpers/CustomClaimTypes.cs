@@ -8,7 +8,6 @@ public class ExtraClaims
 
 public class TokenTypes
 {
-    public const string Key = "tokenType";
     public const string Challange = "Challenge";
     public const string Refresh = "Refresh";
 }

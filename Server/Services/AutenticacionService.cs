@@ -225,7 +225,7 @@ public class AutenticacionService
                 new Dictionary<string, string>()
                 {
                     { "id", usuarioEncontrado.Id.ToString() },
-                    { TokenTypes.Key, TokenTypes.Challange }
+                    { ExtraClaims.TokenType, TokenTypes.Challange }
                 }
             );
 
