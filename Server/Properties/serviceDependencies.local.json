@@ -8,6 +8,12 @@
       "type": "mssql.onprem",
       "connectionId": "ConnectionStrings:Default",
       "dynamicId": null
+    },
+    "storage1": {
+      "secretStore": "LocalSecretsFile",
+      "type": "storage.emulator",
+      "connectionId": "ConnectionStrings:AzureStorage",
+      "dynamicId": null
     }
   }
 }
