@@ -12,7 +12,6 @@ using Mientreno.Server.Services;
 using System.Reflection;
 using System.Security.Claims;
 using System.Text.Json.Serialization;
-using Microsoft.Extensions.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,11 +81,6 @@ builder.Services.AddSingleton<IMailSender>((sp) =>
 });
 
 builder.Services.AddSingleton<Cartero>();
-builder.Services.AddAzureClients(clientBuilder =>
-{
-    clientBuilder.AddBlobServiceClient(builder.Configuration["ConnectionStrings:AzureStorage:blob"]);
-    clientBuilder.AddQueueServiceClient(builder.Configuration["ConnectionStrings:AzureStorage:queue"]);
-});
 
 var app = builder.Build();
 
