@@ -1,7 +1,4 @@
-﻿using Markdig;
-using Mientreno.Server.Models;
-using System.Reflection;
-using System.Text.Encodings.Web;
+using Markdig;
 using System.Text.RegularExpressions;
 
 namespace Mientreno.Server.Helpers.Mailing;
@@ -18,58 +15,6 @@ public partial class EmailTemplate
         new MarkdownPipelineBuilder()
             .UseAdvancedExtensions()
             .Build();
-
-    /// <summary>
-    /// Email enviado para confirmar la dirección de correo electrónico.
-    /// </summary>
-    /// <returns>An email that can be enqueued to  the MailWorkerService.</returns>
-    public static Email ConfirmAddressEmail(ref Usuario usuario)
-    {
-        Console.WriteLine(_templatePath);
-
-        var (subj, plain, html) = ApplyTemplate(
-            "Confirm",
-            "es",
-            new object[] {
-                usuario.Nombre,
-                usuario.Credenciales.CodigoVerificacionEmail!,
-                UrlEncoder.Default.Encode(usuario.Credenciales.Email)
-            }
-        );
-
-        return new(
-            $"{usuario.Nombre} {usuario.Apellidos}",
-            usuario.Credenciales.Email, 
-            subj,
-            plain,
-            html
-        );
-    }
-
-    /// <summary>
-    /// Email enviado para confirmar la dirección de correo electrónico.
-    /// </summary>
-    /// <returns>An email that can be enqueued to  the MailWorkerService.</returns>
-    public static Email AfterConfirmWelcomeEmail(ref Usuario usuario)
-    {
-        var (subj, plain, html) = ApplyTemplate(
-            "Welcome",
-            "es",
-            new object[] {
-                usuario.Nombre,
-                usuario.Credenciales.CodigoVerificacionEmail!,
-                UrlEncoder.Default.Encode(usuario.Credenciales.Email)
-            }
-        );
-
-        return new(
-            $"{usuario.Nombre} {usuario.Apellidos}",
-            usuario.Credenciales.Email,
-            subj,
-            plain,
-            html
-        );
-    }
 
     public static (string subject, string plain, string html) ApplyTemplate(
         string template,

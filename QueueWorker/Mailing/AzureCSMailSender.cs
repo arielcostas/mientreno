@@ -1,4 +1,4 @@
-﻿using Azure;
+using Azure;
 using Azure.Communication.Email;
 
 namespace Mientreno.Server.Helpers.Mailing;
@@ -52,7 +52,7 @@ public sealed class AzureCSMailSender : IMailSender
         try
         {
             var operation = await Client.SendAsync(WaitUntil.Completed, options);
-            Logger.LogInformation("Successfully sent email to {}: messageId{}", toAddress, operation.Id);
+            Logger.LogInformation("Successfully sent email to {} -- messageId: {}", toAddress, operation.Id);
         }
         catch (RequestFailedException ex)
         {

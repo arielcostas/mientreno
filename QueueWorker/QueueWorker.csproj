@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+<Project Sdk="Microsoft.NET.Sdk.Worker">
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
@@ -8,8 +8,24 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Azure.Communication.Email" Version="1.0.0" />
+		<PackageReference Include="Markdig" Version="0.31.0" />
+
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
 
 		<PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Compartido\Compartido.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="EmailTemplates\Confirm\default.md">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="EmailTemplates\Welcome\default.md">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 </Project>

@@ -6,9 +6,10 @@ using Microsoft.IdentityModel.Tokens;
 using Mientreno.Server;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Helpers.Crypto;
-using Mientreno.Server.Helpers.Mailing;
+using Mientreno.Server.Helpers.Queue;
 using Mientreno.Server.Models;
 using Mientreno.Server.Services;
+using RabbitMQ.Client;
 using System.Reflection;
 using System.Security.Claims;
 using System.Text.Json.Serialization;
@@ -67,20 +68,22 @@ builder.Services.AddTransient<IPasswordHasher<Usuario>>(sp =>
     return new PasswordHasher<Usuario>();
 });
 
-builder.Services.AddSingleton<IMailSender>((sp) =>
-{
-    var logger = sp.GetRequiredService<ILogger<AzureCSMailSender>>();
-    string connectionString =
-        builder.Configuration.GetConnectionString("AzureCS") ??
-        throw new Exception("Se debe especificar una connectionString para el envío de correo por Azure Communication Services");
-    string emailFrom =
-        builder.Configuration.GetValue<string>("EmailFrom")
-        ?? throw new Exception("Se debe especificar un EmailFrom en la configuración.");
+// RabbitMQ
+var rabbitConnectionString = builder.Configuration.GetConnectionString("RabbitMQ") ?? throw new Exception("RabbitMQ Connection String not set");
 
-    return new AzureCSMailSender(logger, connectionString, emailFrom);
+builder.Services.AddSingleton((sp) =>
+{
+	return new ConnectionFactory()
+	{
+		Uri = new Uri(rabbitConnectionString),
+	}.CreateConnection();
 });
 
-builder.Services.AddSingleton<Cartero>();
+builder.Services.AddSingleton<IQueueProvider>((sp) =>
+{
+	var connection = sp.GetRequiredService<IConnection>();
+	return new RabbitQueueProvider(connection);
+});
 
 var app = builder.Build();
 
@@ -106,10 +109,4 @@ app.UseCors(options =>
 });
 
 app.MapControllers();
-
-var cartero = app.Services.GetRequiredService<Cartero>();
-
-Thread carteroThread = new(new ThreadStart(cartero.Run));
-carteroThread.Start();
-
 app.Run();

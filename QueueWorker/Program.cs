@@ -1,3 +1,4 @@
+using Mientreno.Server.Helpers.Mailing;
 using QueueWorker;
 using RabbitMQ.Client;
 
@@ -5,7 +6,8 @@ IHostBuilder hb = Host.CreateDefaultBuilder(args);
 
 hb.ConfigureServices((context, services) =>
 {
-    var rabbitConnectionString = context.Configuration.GetConnectionString("RabbitMQ") ?? throw new Exception("RabbitMQ Connection String not set");
+	#region RabbitMQ
+	var rabbitConnectionString = context.Configuration.GetConnectionString("RabbitMQ") ?? throw new Exception("RabbitMQ Connection String not set");
 
     services.AddSingleton((sp) =>
     {
@@ -14,8 +16,22 @@ hb.ConfigureServices((context, services) =>
             Uri = new Uri(rabbitConnectionString),
         }.CreateConnection();
     });
+	#endregion
 
-    services.AddHostedService<MailQueueWorker>();
+	#region AzureCS
+	services.AddSingleton<IMailSender>((sp) =>
+	{
+		var logger = sp.GetRequiredService<ILogger<AzureCSMailSender>>();
+
+		var connectionString = context.Configuration.GetConnectionString("AzureCS") ?? throw new Exception("AzureCS Connection String not set");
+
+		var emailFrom = context.Configuration.GetValue<string>("EmailFrom") ?? throw new Exception("EmailFrom not set");
+
+		return new AzureCSMailSender(logger, connectionString, emailFrom);
+	});
+	#endregion
+
+	services.AddHostedService<MailQueueWorker>();
     //services.AddHostedService<UserDeletionQueueWorker>();
 });
 
