@@ -2,11 +2,11 @@
 	font-size: 18px;
 }
 
-#landing {
-	background-image: url('img/fondo-landing.png'), linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+#hero {
+	background-image: url('img/landing-main.png'), linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
 	background-blend-mode: overlay;
 	background-size: cover;
-	background-position: top;
+	background-position: bottom;
 	background-repeat: no-repeat;
 }
 
@@ -18,11 +18,36 @@ h2 {
 	font-size: 2.5em;
 }
 
+#topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 4rem;
+
+	padding: 0 12vw;
+	background: #131313;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+#topbar img {
+	height: 2rem;
+}
+
+::deep nav a {
+	color: #fff;
+	text-decoration: none;
+}
+
 #landing > #hero {
-	gap: 1.8rem;
 	background-color: rgba(255, 255, 255, 0.2);
-	padding-top: 9rem;
-	padding-bottom: 9rem;
+	gap: 1.8rem;
+	padding-top: min(12rem, 20vh);
+	padding-bottom: min(12rem, 20vh);
 }
 
 #hero p {
@@ -30,18 +55,14 @@ h2 {
 	font-weight: lighter;
 }
 
-.feature h2 {
-	margin-left: 1.3rem;
-	margin-right: 1.3rem;
-}
-
-.feature p {
+.feature p,
+#contact p {
 	font-size: 1.2em;
 	width: 65%;
 }
 
 #hero, .feature, #contact {
-	padding: 5rem 12vw;
+	padding: 9rem 12vw;
 	color: #fff;
 	display: flex;
 	flex-direction: column;
@@ -73,20 +94,50 @@ h2 {
 }
 
 ::deep .cta-primary {
-	background-color: var(--lighter-aqua);
-	color: #333;
+	background-color: var(--primary-aqua);
+	color: #fff;
 	font-weight: bold;
 	padding: 1rem 1.7rem;
 	border-radius: 0.5rem;
-	
+
 	transition: background-color 0.2s ease-in-out;
 }
 
 ::deep .cta-primary:hover {
-	background-color: var(--primary-aqua);
-	color: #333;
+	background-color: var(--lighter-aqua);
 }
 
 ::deep .cta-secondary:hover {
 	text-decoration: underline;
+}
+
+#contact {
+	align-items: center;
+	gap: 2.4rem;
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+	background-color: #131313;
+}
+
+#feature-1, #feature-2, #feature-3, #feature-4 {
+	background-blend-mode: overlay;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+}
+
+#feature-1 {
+	background-image: url('img/landing-feat1.jpg'), linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+}
+
+#feature-2 {
+	background-image: url('img/landing-feat2.jpg'), linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+}
+
+#feature-3 {
+	background-image: url('img/landing-feat3.webp'), linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+}
+
+#feature-4 {
+	background-image: url('img/landing-feat4.jpg'), linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
 }
