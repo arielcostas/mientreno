@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Mientreno.Server.Helpers;
@@ -11,51 +11,51 @@ namespace Mientreno.Server.Controllers;
 [Authorize(Constantes.PolicyEsAlumno)]
 public class CuestionarioController : ControllerBase
 {
-    private readonly AppDbContext _context;
+	private readonly AppDbContext _context;
 
-    public CuestionarioController(AppDbContext context)
-    {
-        _context = context;
-    }
+	public CuestionarioController(AppDbContext context)
+	{
+		_context = context;
+	}
 
-    /// <summary>
-    /// Devuelve todos los cuestionarios del alumno
-    /// </summary>
-    /// <returns></returns>
-    [HttpGet("Cuestionarios")]
-    public IActionResult Index()
-    {
-        var me = GetAlumnoAutenticado();
+	/// <summary>
+	/// Devuelve todos los cuestionarios del alumno
+	/// </summary>
+	/// <returns></returns>
+	[HttpGet("Cuestionarios")]
+	public IActionResult Index()
+	{
+		var me = GetAlumnoAutenticado();
 
-        if (me.AsignacionActual == null)
-        {
-            // TODO: Podría devolver el histórico o algo
-            return NotFound();
-        }
-        var q = me.AsignacionActual.Cuestionarios;
+		if (me.AsignacionActual == null)
+		{
+			// TODO: Podría devolver el histórico o algo
+			return NotFound();
+		}
+		var q = me.AsignacionActual.Cuestionarios;
 
-        return Ok(q);
-    }
+		return Ok(q);
+	}
 
-    private Alumno GetAlumnoAutenticado()
-    {
-        var alumnoAllegedId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+	private Alumno GetAlumnoAutenticado()
+	{
+		var alumnoAllegedId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
 
-        if (alumnoAllegedId == null)
-        {
-            throw new Exception("No se ha podido obtener el id del alumno");
-        }
+		if (alumnoAllegedId == null)
+		{
+			throw new Exception("No se ha podido obtener el id del alumno");
+		}
 
-        var alumno = _context.Alumnos
-            .Include(a => a.Asignaciones)
-            .FirstOrDefault(a => a.Id == Guid.Parse(alumnoAllegedId.Value));
+		var alumno = _context.Alumnos
+			.Include(a => a.Asignaciones)
+			.FirstOrDefault(a => a.Id == Guid.Parse(alumnoAllegedId.Value));
 
-        if (alumno == null)
-        {
-            throw new Exception("No se ha podido obtener el alumno");
-        }
+		if (alumno == null)
+		{
+			throw new Exception("No se ha podido obtener el alumno");
+		}
 
-        return alumno;
+		return alumno;
 
-    }
+	}
 }

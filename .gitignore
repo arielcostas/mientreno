@@ -251,3 +251,6 @@ FodyWeavers.xsd
 
 # Visual Studio 2017/2019 cache/options directory
 .vs/
+
+# Rider generated files
+.idea/

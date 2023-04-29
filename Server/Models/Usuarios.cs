@@ -9,27 +9,27 @@ namespace Mientreno.Server.Models;
 /// </summary>
 public class Usuario
 {
-    [Key] public Guid Id { get; set; }
-    [RegularExpression("[A-Za-z0-9]{3,20}")]
-    public string Login { get; set; }
-    public string Nombre { get; set; }
-    public string Apellidos { get; set; }
+	[Key] public Guid Id { get; set; }
+	[RegularExpression("[A-Za-z0-9]{3,20}")]
+	public string Login { get; set; }
+	public string Nombre { get; set; }
+	public string Apellidos { get; set; }
 
-    public DateTime FechaCreacion { get; set; }
-    public DateTime? FechaEliminacion { get; set; }
+	public DateTime FechaCreacion { get; set; }
+	public DateTime? FechaEliminacion { get; set; }
 
-    public Credenciales Credenciales { get; set; }
-    public List<Sesion> Sesiones { get; set; }
+	public Credenciales Credenciales { get; set; }
+	public List<Sesion> Sesiones { get; set; }
 
-    public Usuario()
-    {
-        Id = Guid.NewGuid();
-        FechaCreacion = DateTime.Now;
-        Login = string.Empty;
-        Nombre = string.Empty;
-        Apellidos = string.Empty;
-        Credenciales = new Credenciales();
-    }
+	public Usuario()
+	{
+		Id = Guid.NewGuid();
+		FechaCreacion = DateTime.Now;
+		Login = string.Empty;
+		Nombre = string.Empty;
+		Apellidos = string.Empty;
+		Credenciales = new Credenciales();
+	}
 }
 
 /// <summary>
@@ -37,28 +37,28 @@ public class Usuario
 /// </summary>
 public class Alumno : Usuario
 {
-    public List<Contrato> Asignaciones { get; set; }
+	public List<Contrato> Asignaciones { get; set; }
 
-    public Contrato? AsignacionActual => Asignaciones
-        .OrderByDescending(ae => ae.FechaAsignacion)
-        .FirstOrDefault(a => a.FechaDesasignacion == null);
+	public Contrato? AsignacionActual => Asignaciones
+		.OrderByDescending(ae => ae.FechaAsignacion)
+		.FirstOrDefault(a => a.FechaDesasignacion == null);
 
-    public Alumno() : base()
-    {
-        Asignaciones = new List<Contrato>();
-    }
+	public Alumno() : base()
+	{
+		Asignaciones = new List<Contrato>();
+	}
 
-    public Alumno(Usuario u)
-    {
-        Id = u.Id;
-        Login = u.Login;
-        Nombre = u.Nombre;
-        Apellidos = u.Apellidos;
-        FechaCreacion = u.FechaCreacion;
-        FechaEliminacion = u.FechaEliminacion;
-        Credenciales = u.Credenciales;
-        Asignaciones = new List<Contrato>();
-    }
+	public Alumno(Usuario u)
+	{
+		Id = u.Id;
+		Login = u.Login;
+		Nombre = u.Nombre;
+		Apellidos = u.Apellidos;
+		FechaCreacion = u.FechaCreacion;
+		FechaEliminacion = u.FechaEliminacion;
+		Credenciales = u.Credenciales;
+		Asignaciones = new List<Contrato>();
+	}
 }
 
 /// <summary>
@@ -66,32 +66,32 @@ public class Alumno : Usuario
 /// </summary>
 public class Entrenador : Usuario
 {
-    public List<Contrato> Asignaciones { get; set; }
+	public List<Contrato> Asignaciones { get; set; }
 
-    public List<Ejercicio> Ejercicios { get; set; }
-    public List<Categoria> Categorias { get; set; }
+	public List<Ejercicio> Ejercicios { get; set; }
+	public List<Categoria> Categorias { get; set; }
 
-    public Entrenador() : base()
-    {
-        Asignaciones = new List<Contrato>();
-        Ejercicios = new List<Ejercicio>();
-        Categorias = new List<Categoria>();
-    }
+	public Entrenador() : base()
+	{
+		Asignaciones = new List<Contrato>();
+		Ejercicios = new List<Ejercicio>();
+		Categorias = new List<Categoria>();
+	}
 
-    public Entrenador(Usuario u)
-    {
-        Id = u.Id;
-        Login = u.Login;
-        Nombre = u.Nombre;
-        Apellidos = u.Apellidos;
-        FechaCreacion = u.FechaCreacion;
-        FechaEliminacion = u.FechaEliminacion;
-        Credenciales = u.Credenciales;
+	public Entrenador(Usuario u)
+	{
+		Id = u.Id;
+		Login = u.Login;
+		Nombre = u.Nombre;
+		Apellidos = u.Apellidos;
+		FechaCreacion = u.FechaCreacion;
+		FechaEliminacion = u.FechaEliminacion;
+		Credenciales = u.Credenciales;
 
-        Asignaciones = new List<Contrato>();
-        Ejercicios = new List<Ejercicio>();
-        Categorias = new List<Categoria>();
-    }
+		Asignaciones = new List<Contrato>();
+		Ejercicios = new List<Ejercicio>();
+		Categorias = new List<Categoria>();
+	}
 }
 
 /// <summary>
@@ -99,12 +99,12 @@ public class Entrenador : Usuario
 /// </summary>
 public class Contrato
 {
-    [Key] public Guid Id { get; set; }
-    public Entrenador Entrenador { get; set; }
-    public Alumno Alumno { get; set; }
-    public DateTime FechaAsignacion { get; set; }
-    public DateTime? FechaDesasignacion { get; set; }
-    public List<Cuestionario> Cuestionarios { get; set; }
+	[Key] public Guid Id { get; set; }
+	public Entrenador Entrenador { get; set; }
+	public Alumno Alumno { get; set; }
+	public DateTime FechaAsignacion { get; set; }
+	public DateTime? FechaDesasignacion { get; set; }
+	public List<Cuestionario> Cuestionarios { get; set; }
 }
 
 /// <summary>
@@ -112,41 +112,41 @@ public class Contrato
 /// </summary>
 public class Credenciales
 {
-    [EmailAddress] public string Email { get; set; }
-    public string? CodigoVerificacionEmail { get; set; }
-    public bool EmailVerificado { get; set; } = false;
+	[EmailAddress] public string Email { get; set; }
+	public string? CodigoVerificacionEmail { get; set; }
+	public bool EmailVerificado { get; set; } = false;
 
-    public string Contraseña { get; set; }
-    public bool RequiereCambioContraseña { get; set; } = false;
+	public string Contraseña { get; set; }
+	public bool RequiereCambioContraseña { get; set; } = false;
 
-    public string? SemillaMfa { get; set; }
-    public bool MfaHabilitado { get; set; } = false;
-    public bool MfaVerificado { get; set; } = false;
+	public string? SemillaMfa { get; set; }
+	public bool MfaHabilitado { get; set; } = false;
+	public bool MfaVerificado { get; set; } = false;
 }
 
 public class Sesion
 {
-    [Key]
-    public string SessionId { get; set; }
-    public Usuario Usuario { get; set; }
-    public DateTime FechaCreacion { get; set; }
-    public DateTime FechaExpiracion { get; set; }
-    public bool Invalidada { get; set; }
+	[Key]
+	public string SessionId { get; set; }
+	public Usuario Usuario { get; set; }
+	public DateTime FechaCreacion { get; set; }
+	public DateTime FechaExpiracion { get; set; }
+	public bool Invalidada { get; set; }
 
-    public bool EsInvalida => FechaExpiracion < DateTime.Now || Invalidada;
+	public bool EsInvalida => FechaExpiracion < DateTime.Now || Invalidada;
 
-    public Sesion()
-    {
-        byte[] b = new byte[32];
-        Random.Shared.NextBytes(b);
+	public Sesion()
+	{
+		byte[] b = new byte[32];
+		Random.Shared.NextBytes(b);
 
-        SessionId = Convert.ToHexString(b);
-        FechaCreacion = DateTime.Now;
-    }
+		SessionId = Convert.ToHexString(b);
+		FechaCreacion = DateTime.Now;
+	}
 
-    public Sesion(Usuario u, DateTime fechaExpiracion) : this()
-    {
-        FechaExpiracion = fechaExpiracion;
-        Usuario = u;
-    }
+	public Sesion(Usuario u, DateTime fechaExpiracion) : this()
+	{
+		FechaExpiracion = fechaExpiracion;
+		Usuario = u;
+	}
 }

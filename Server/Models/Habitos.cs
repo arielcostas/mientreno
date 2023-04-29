@@ -2,43 +2,43 @@ namespace Mientreno.Server.Models;
 
 public class Habitos
 {
-    public string Profesion { get; set; }
-    public Fumador Fumador { get; set; }
-    public Bebedor Bebedor { get; set; }
-    public string OtrasDrogas { get; set; }
-    public Deporte Deporte { get; set; }
-    public string Sueño { get; set; }
+	public string Profesion { get; set; }
+	public Fumador Fumador { get; set; }
+	public Bebedor Bebedor { get; set; }
+	public string OtrasDrogas { get; set; }
+	public Deporte Deporte { get; set; }
+	public string Sueño { get; set; }
 
-    public Habitos()
-    {
-        Profesion = string.Empty;
-        OtrasDrogas = string.Empty;
-        Sueño = string.Empty;
-    }
+	public Habitos()
+	{
+		Profesion = string.Empty;
+		OtrasDrogas = string.Empty;
+		Sueño = string.Empty;
+	}
 }
 
 public enum Fumador
 {
-    No,
-    Social,
-    Ocasional,
-    Dejando,
-    Si
+	No,
+	Social,
+	Ocasional,
+	Dejando,
+	Si
 }
 
 public enum Bebedor
 {
-    No,
-    Social,
-    Ocasional,
-    Dejando,
-    Si
+	No,
+	Social,
+	Ocasional,
+	Dejando,
+	Si
 }
 
 public enum Deporte
 {
-    No,
-    Ocasional,
-    Semanal,
-    Diario
+	No,
+	Ocasional,
+	Semanal,
+	Diario
 }

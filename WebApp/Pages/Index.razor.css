@@ -1,0 +1,92 @@
+﻿* {
+	font-size: 18px;
+}
+
+#landing {
+	background-image: url('img/fondo-landing.png'), linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+	background-blend-mode: overlay;
+	background-size: cover;
+	background-position: top;
+	background-repeat: no-repeat;
+}
+
+h1 {
+	font-size: 4em;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+#landing > #hero {
+	gap: 1.8rem;
+	background-color: rgba(255, 255, 255, 0.2);
+	padding-top: 9rem;
+	padding-bottom: 9rem;
+}
+
+#hero p {
+	font-size: 1.5em;
+	font-weight: lighter;
+}
+
+.feature h2 {
+	margin-left: 1.3rem;
+	margin-right: 1.3rem;
+}
+
+.feature p {
+	font-size: 1.2em;
+	width: 65%;
+}
+
+#hero, .feature, #contact {
+	padding: 5rem 12vw;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	gap: 1.8rem;
+}
+
+.feature:nth-child(even) {
+	background: rgba(255, 255, 255, 0.2);
+	text-align: right;
+	color: #fff;
+	align-items: end;
+}
+
+.cta-container {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+::deep .cta {
+	font-size: 1.1em;
+	color: #fff;
+	text-decoration: none;
+}
+
+::deep .cta:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+::deep .cta-primary {
+	background-color: var(--lighter-aqua);
+	color: #333;
+	font-weight: bold;
+	padding: 1rem 1.7rem;
+	border-radius: 0.5rem;
+	
+	transition: background-color 0.2s ease-in-out;
+}
+
+::deep .cta-primary:hover {
+	background-color: var(--primary-aqua);
+	color: #333;
+}
+
+::deep .cta-secondary:hover {
+	text-decoration: underline;
+}

@@ -33,10 +33,4 @@
 		<Folder Include="Migrations" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<None Update="EmailTemplates\**\*.*">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-
 </Project>

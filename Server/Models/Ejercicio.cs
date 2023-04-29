@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mientreno.Server.Models;
 
@@ -11,16 +11,16 @@ namespace Mientreno.Server.Models;
 /// </summary>
 public class Ejercicio
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; }
-    public string Descripcion { get; set; }
-    public string? VideoUrl { get; set; }
+	public int Id { get; set; }
+	public string Nombre { get; set; }
+	public string Descripcion { get; set; }
+	public string? VideoUrl { get; set; }
 
-    public Entrenador Owner { get; set; }
-    public Categoria? Categoria { get; set; }
+	public Entrenador Owner { get; set; }
+	public Categoria? Categoria { get; set; }
 
-    [Range(1, 5)]
-    public byte Dificultad { get; set; }
+	[Range(1, 5)]
+	public byte Dificultad { get; set; }
 }
 
 /// <summary>
@@ -29,8 +29,8 @@ public class Ejercicio
 /// </summary>
 public class Categoria
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; }
-    public Entrenador Owner { get; set; }
-    public List<Ejercicio> Ejercicios { get; set; }
+	public int Id { get; set; }
+	public string Nombre { get; set; }
+	public Entrenador Owner { get; set; }
+	public List<Ejercicio> Ejercicios { get; set; }
 }
