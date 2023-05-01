@@ -17,6 +17,7 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddProblemDetails();
+builder.Services.AddApplicationInsightsTelemetry();
 
 builder.Services
 	.AddControllers(options =>
@@ -63,10 +64,6 @@ builder.Services.AddScoped<IAuthorizationHandler, ValidSessionKeyAuthorizationHa
 
 builder.Services.AddScoped<AutenticacionService>();
 builder.Services.AddSingleton<TokenGenerator>();
-builder.Services.AddTransient<IPasswordHasher<Usuario>>(sp =>
-{
-	return new PasswordHasher<Usuario>();
-});
 
 // RabbitMQ
 var rabbitConnectionString = builder.Configuration.GetConnectionString("RabbitMQ") ?? throw new Exception("RabbitMQ Connection String not set");

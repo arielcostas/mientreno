@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+using System.Security.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido.Errores;
@@ -9,23 +9,22 @@ using Mientreno.Server.Helpers.Queue;
 using Mientreno.Server.Models;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
+using BC = BCrypt.Net.BCrypt;
 
 namespace Mientreno.Server.Services;
 
 public class AutenticacionService
 {
-	const string TOTP_PREFIX = "__";
+	private const string TotpPrefix = "__";
 
 	private readonly AppDbContext _context;
 	private readonly ILogger<AutenticacionService> _logger;
-	private readonly IPasswordHasher<Usuario> _passwordHasher;
 	private readonly TokenGenerator _tokenGenerator;
 	private readonly IQueueProvider _queueProvider;
 
-	public AutenticacionService(AppDbContext context, TokenGenerator tokenGenerator, ILogger<AutenticacionService> logger, IPasswordHasher<Usuario> hasher, IQueueProvider queueProvider)
+	public AutenticacionService(AppDbContext context, TokenGenerator tokenGenerator, ILogger<AutenticacionService> logger, IQueueProvider queueProvider)
 	{
 		_context = context;
-		_passwordHasher = hasher;
 		_tokenGenerator = tokenGenerator;
 		_logger = logger;
 		_queueProvider = queueProvider;
@@ -110,11 +109,11 @@ public class AutenticacionService
 		// Comprueba que el login y el correo no estén en uso
 		var conflict = _context.Usuarios
 			.Where(u => u.Login == registroInput.Login)
-			.Where(u => u.Credenciales.Email == registroInput.Correo)
-			.FirstOrDefault();
+			.FirstOrDefault(u => u.Credenciales.Email == registroInput.Correo);
 
 		if (conflict != null)
 		{
+			_logger.LogWarning("Usuario con identificador {Login} ya existe", conflict.Login);
 			if (conflict.Login == registroInput.Login)
 			{
 				throw new ArgumentException("Login ya en uso", registroInput.Login);
@@ -125,6 +124,8 @@ public class AutenticacionService
 				throw new ArgumentException("Correo ya en uso", registroInput.Correo);
 			}
 		}
+		
+		_logger.LogInformation("Registrando usuario {Login}", registroInput.Login);
 
 		var user = new Usuario()
 		{
@@ -137,12 +138,12 @@ public class AutenticacionService
 			{
 				Email = registroInput.Correo,
 				CodigoVerificacionEmail = GenerarCodigoVerificacionEmail(),
-				Contraseña = _passwordHasher.HashPassword(null!, registroInput.Contraseña),
+				Contraseña = BC.HashPassword(registroInput.Contraseña),
 				MfaHabilitado = false,
 			}
 		};
 
-		_logger.LogInformation("Registrando usuario {Login}", user.Login);
+		_logger.LogInformation("Guardando usuario {Login}", user.Login);
 
 		if (registroInput.EsEntrenador)
 		{
@@ -156,13 +157,13 @@ public class AutenticacionService
 		await _context.SaveChangesAsync();
 
 		_logger.LogInformation("Usuario {Login} registrado. Enviando correo de verificación", user.Login);
-
+		
 		_queueProvider.Enqueue(Constantes.ColaEmails, new Compartido.Mensajes.Email
 		{
 			DireccionDestinatario = user.Credenciales.Email,
 			Idioma = "es",
 			NombreDestinatario = $"{user.Apellidos}, {user.Nombre}",
-			Parametros = new string[] { user.Nombre, user.Credenciales.CodigoVerificacionEmail!, UrlEncoder.Default.Encode(user.Credenciales.Email) },
+			Parametros = new[] { user.Nombre, user.Credenciales.CodigoVerificacionEmail!, UrlEncoder.Default.Encode(user.Credenciales.Email) },
 			Plantila = Constantes.EmailConfirmar
 		});
 
@@ -218,18 +219,11 @@ public class AutenticacionService
 			throw new EmailNoConfirmadoException();
 		}
 
-		var resultado = _passwordHasher.VerifyHashedPassword(usuarioEncontrado,
-			usuarioEncontrado.Credenciales.Contraseña, loginInput.Credencial);
+		var resultado = BC.Verify(usuarioEncontrado.Credenciales.Contraseña, loginInput.Credencial);
 
-		switch (resultado)
+		if (!resultado)
 		{
-			case PasswordVerificationResult.Failed:
-				throw new InvalidCredentialsException();
-			case PasswordVerificationResult.SuccessRehashNeeded:
-				usuarioEncontrado.Credenciales.Contraseña = _passwordHasher.HashPassword(usuarioEncontrado,
-					loginInput.Credencial);
-				await _context.SaveChangesAsync();
-				break;
+			throw new InvalidCredentialException();
 		}
 
 		if (usuarioEncontrado.Credenciales.MfaHabilitado)
@@ -246,7 +240,7 @@ public class AutenticacionService
 			return new LoginOutput()
 			{
 				RequiereDesafio = true,
-				Codigo = TOTP_PREFIX + codigo
+				Codigo = TotpPrefix + codigo
 			};
 		}
 

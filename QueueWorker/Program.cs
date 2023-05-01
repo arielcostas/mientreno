@@ -31,6 +31,8 @@ hb.ConfigureServices((context, services) =>
 	});
 	#endregion
 
+	services.AddApplicationInsightsTelemetryWorkerService();
+	
 	services.AddHostedService<MailQueueWorker>();
 	//services.AddHostedService<UserDeletionQueueWorker>();
 });
