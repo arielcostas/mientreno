@@ -25,6 +25,8 @@ builder.Services.AddSentry().AddSentryOptions(options =>
 	options.Environment = builder.Environment.EnvironmentName;
 });
 
+builder.Logging.AddSentry();
+
 builder.Services
 	.AddControllers(options =>
 	{

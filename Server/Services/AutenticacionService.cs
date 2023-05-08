@@ -113,16 +113,13 @@ public class AutenticacionService
 
 		if (conflict != null)
 		{
-			if (conflict.Email == registroInput.Correo)
-			{
-				throw new ArgumentException("Correo ya en uso", nameof(conflict.Email));
-			}
+			throw new ArgumentException("Correo ya en uso", nameof(conflict.Email));
 		}
-		
-		var c1 = SentrySdk.GetSpan()!.StartChild("hash");
+
+		var c1 = SentrySdk.GetSpan()!.StartChild("bc.hash", "Hash password");
 		var hash = BC.HashPassword(registroInput.Contraseña);
 		c1.Finish();
-		
+
 		Usuario user = new()
 		{
 			Id = Guid.NewGuid(),
@@ -138,11 +135,11 @@ public class AutenticacionService
 				MfaHabilitado = false,
 			}
 		};
-		
+
 		_context.Entrenadores.Add(new Entrenador(user));
 
 		await _context.SaveChangesAsync();
-		
+
 		_queueProvider.Enqueue(Constantes.ColaEmails, new Compartido.Mensajes.Email
 		{
 			DireccionDestinatario = user.Email,
@@ -196,11 +193,8 @@ public class AutenticacionService
 
 	private async Task<LoginOutput?> LoginConContraseña(LoginInput loginInput)
 	{
-		SentrySdk.ConfigureScope(o =>
-		{
-			o.TransactionName = "LoginConContraseña";
-		});
-		
+		SentrySdk.ConfigureScope(o => { o.TransactionName = "LoginConContraseña"; });
+
 		var usuarioEncontrado = await _context.Usuarios
 			                        .Include(u => u.Sesiones)
 			                        .FirstOrDefaultAsync(u => u.Email == loginInput.Identificador) ??

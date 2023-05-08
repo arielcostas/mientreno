@@ -51,6 +51,15 @@ namespace QueueWorker
 			var c1 = tx.StartChild("apply-template", "Apply email template");
 			var bodyBytes = e.Body.ToArray();
 			var email = Serializador.Deserializar<Email>(bodyBytes);
+
+			if (email == null)
+			{
+				throw new Exception("Mensaje inválido");
+			}
+			
+			tx.User.Email = email.DireccionDestinatario;
+			tx.SetExtra("template", email.Plantila);
+			tx.SetExtra("lang", email.Idioma);
 			
 			var (subject, plain, html) = EmailTemplate.ApplyTemplate(email.Plantila, email.Idioma, email.Parametros);
 			c1.Finish();

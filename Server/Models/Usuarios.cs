@@ -51,8 +51,11 @@ public class Entrenador : Usuario
 	{
 		Id = u.Id;
 		Nombre = u.Nombre;
+		
 		Email = u.Email;
 		EmailVerificado = u.EmailVerificado;
+		CodigoVerificacionEmail = u.CodigoVerificacionEmail;
+		
 		Apellidos = u.Apellidos;
 		FechaCreacion = u.FechaCreacion;
 		FechaEliminacion = u.FechaEliminacion;
