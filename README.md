@@ -2,28 +2,42 @@
 
 Controla fácilmente tus entrenamientos.
 
-## Configuración
+## Configuración de apps (appsettings.json, user-secrets...)
 
-### Base de datos
+### Base de datos (Server)
 
 En la configuración del programa, añadir una Connection String con nombre `Database`. Por ejemplo, en un `secrets.json` sería:
 
 ```json5
 {
-	/* ... */
 	"ConnectionStrings:Database": "Data Source=EJEMPLO;Initial Catalog=Mientreno;Integrated Security=True; Trust Server Certificate=True"
 }
 ```
 
-### Correo electrónico
+### Correo electrónico (QueueWorker)
 
 Por ahora, solo se puede configurar Azure Email Communication Services como sistema de envío de correo. Por tanto, hay que configurar la cadena de conexión `AzureEmailCS` con la ConnectionString que proporciona Azure; y el valor `EmailFrom` con el correo electrónico que se usará como remitente. Por ejemplo, en un `secrets.json`, sería tal que:
 
 ```json5
 {
-	/* ... */
 	"ConnectionStrings:AzureCS": "CADENA QUE TE PROPORCIONA AZURE COMMUNICATION SERVICES",
 	"EmailFrom": "ladireccionqueconfigureenazure@midominioconfigurado.com"
+}
+```
+
+### RabbitMQ (Server y QueueWorker)
+
+```json5
+{
+	"ConnectionStrings:RabbitMQ": "amqp://guest:guest@localhost:5672/"
+}
+```
+
+### Monitorización con Sentry (Todos)
+
+```json5
+{
+  "ConnectionStrings:Sentry": "CADENA DE CONEXION DE SENTRY.IO"
 }
 ```
 

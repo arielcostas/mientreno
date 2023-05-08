@@ -1,23 +1,29 @@
+using System.Reflection;
+using System.Security.Claims;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Mientreno.Server;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Helpers.Crypto;
 using Mientreno.Server.Helpers.Queue;
-using Mientreno.Server.Models;
 using Mientreno.Server.Services;
 using RabbitMQ.Client;
-using System.Reflection;
-using System.Security.Claims;
-using System.Text.Json.Serialization;
+using Sentry.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var devel = builder.Environment.IsDevelopment();
 
 builder.Services.AddProblemDetails();
-builder.Services.AddApplicationInsightsTelemetry();
+builder.Services.AddSentry().AddSentryOptions(options =>
+{
+	options.Dsn = builder.Configuration.GetConnectionString("Sentry") ?? string.Empty;
+	options.Debug = true;
+	options.TracesSampleRate = devel ? 1.0 : 0.5;
+	options.Environment = builder.Environment.EnvironmentName;
+});
 
 builder.Services
 	.AddControllers(options =>
@@ -54,8 +60,8 @@ builder.Services.AddAuthorization(options =>
 {
 	options.AddPolicy("ValidSessionKey", policy => policy.Requirements.Add(new ValidSessionKeyRequirement()));
 
-	options.AddPolicy(Constantes.PolicyEsAlumno, policy => policy.RequireClaim(ClaimTypes.Role, new string[] { "Alumno" }));
-	options.AddPolicy(Constantes.PolicyEsEntrenador, policy => policy.RequireClaim(ClaimTypes.Role, new string[] { "Entrenador" }));
+	options.AddPolicy(Constantes.PolicyEsAlumno, policy => policy.RequireClaim(ClaimTypes.Role, "Alumno"));
+	options.AddPolicy(Constantes.PolicyEsEntrenador, policy => policy.RequireClaim(ClaimTypes.Role, "Entrenador"));
 
 	options.DefaultPolicy = options.GetPolicy("ValidSessionKey")!;
 });
@@ -68,15 +74,12 @@ builder.Services.AddSingleton<TokenGenerator>();
 // RabbitMQ
 var rabbitConnectionString = builder.Configuration.GetConnectionString("RabbitMQ") ?? throw new Exception("RabbitMQ Connection String not set");
 
-builder.Services.AddSingleton((sp) =>
+builder.Services.AddSingleton(_ => new ConnectionFactory
 {
-	return new ConnectionFactory()
-	{
-		Uri = new Uri(rabbitConnectionString),
-	}.CreateConnection();
-});
+	Uri = new Uri(rabbitConnectionString),
+}.CreateConnection());
 
-builder.Services.AddSingleton<IQueueProvider>((sp) =>
+builder.Services.AddSingleton<IQueueProvider>(sp =>
 {
 	var connection = sp.GetRequiredService<IConnection>();
 	return new RabbitQueueProvider(connection);
@@ -104,6 +107,8 @@ app.UseCors(options =>
 	options.AllowAnyHeader();
 	options.AllowAnyMethod();
 });
+
+app.UseSentryTracing();
 
 app.MapControllers();
 app.Run();

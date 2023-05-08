@@ -10,8 +10,7 @@ namespace Mientreno.Server.Models;
 public class Usuario
 {
 	[Key] public Guid Id { get; set; }
-	[RegularExpression("[A-Za-z0-9]{3,20}")]
-	public string Login { get; set; }
+	[EmailAddress] public string Email { get; set; }
 	public string Nombre { get; set; }
 	public string Apellidos { get; set; }
 
@@ -21,43 +20,16 @@ public class Usuario
 	public Credenciales Credenciales { get; set; }
 	public List<Sesion> Sesiones { get; set; }
 
+	public string? CodigoVerificacionEmail { get; set; }
+	public bool EmailVerificado { get; set; } = false;
+
 	public Usuario()
 	{
 		Id = Guid.NewGuid();
 		FechaCreacion = DateTime.Now;
-		Login = string.Empty;
 		Nombre = string.Empty;
 		Apellidos = string.Empty;
 		Credenciales = new Credenciales();
-	}
-}
-
-/// <summary>
-/// Un alumno es un usuario que recibe entrenamiento de un entrenador.
-/// </summary>
-public class Alumno : Usuario
-{
-	public List<Contrato> Asignaciones { get; set; }
-
-	public Contrato? AsignacionActual => Asignaciones
-		.OrderByDescending(ae => ae.FechaAsignacion)
-		.FirstOrDefault(a => a.FechaDesasignacion == null);
-
-	public Alumno() : base()
-	{
-		Asignaciones = new List<Contrato>();
-	}
-
-	public Alumno(Usuario u)
-	{
-		Id = u.Id;
-		Login = u.Login;
-		Nombre = u.Nombre;
-		Apellidos = u.Apellidos;
-		FechaCreacion = u.FechaCreacion;
-		FechaEliminacion = u.FechaEliminacion;
-		Credenciales = u.Credenciales;
-		Asignaciones = new List<Contrato>();
 	}
 }
 
@@ -66,45 +38,49 @@ public class Alumno : Usuario
 /// </summary>
 public class Entrenador : Usuario
 {
-	public List<Contrato> Asignaciones { get; set; }
+	public List<Alumno> Alumnos { get; set; } = new();
 
-	public List<Ejercicio> Ejercicios { get; set; }
-	public List<Categoria> Categorias { get; set; }
+	public List<Ejercicio> Ejercicios { get; set; } = new();
+	public List<Categoria> Categorias { get; set; } = new();
 
-	public Entrenador() : base()
+	public Entrenador()
 	{
-		Asignaciones = new List<Contrato>();
-		Ejercicios = new List<Ejercicio>();
-		Categorias = new List<Categoria>();
 	}
 
 	public Entrenador(Usuario u)
 	{
 		Id = u.Id;
-		Login = u.Login;
+		Nombre = u.Nombre;
+		Email = u.Email;
+		EmailVerificado = u.EmailVerificado;
+		Apellidos = u.Apellidos;
+		FechaCreacion = u.FechaCreacion;
+		FechaEliminacion = u.FechaEliminacion;
+		Credenciales = u.Credenciales;
+	}
+}
+
+/// <summary>
+/// Un alumno es un usuario que recibe entrenamiento de un entrenador.
+/// </summary>
+public class Alumno : Usuario
+{
+	public Entrenador Entrenador { get; set; }
+	public List<Cuestionario> Cuestionarios { get; set; } = new();
+
+	public Alumno()
+	{
+	}
+
+	public Alumno(Usuario u)
+	{
+		Id = u.Id;
 		Nombre = u.Nombre;
 		Apellidos = u.Apellidos;
 		FechaCreacion = u.FechaCreacion;
 		FechaEliminacion = u.FechaEliminacion;
 		Credenciales = u.Credenciales;
-
-		Asignaciones = new List<Contrato>();
-		Ejercicios = new List<Ejercicio>();
-		Categorias = new List<Categoria>();
 	}
-}
-
-/// <summary>
-/// La relación entre un entrenador y un alumno en un momento dado.
-/// </summary>
-public class Contrato
-{
-	[Key] public Guid Id { get; set; }
-	public Entrenador Entrenador { get; set; }
-	public Alumno Alumno { get; set; }
-	public DateTime FechaAsignacion { get; set; }
-	public DateTime? FechaDesasignacion { get; set; }
-	public List<Cuestionario> Cuestionarios { get; set; }
 }
 
 /// <summary>
@@ -112,22 +88,17 @@ public class Contrato
 /// </summary>
 public class Credenciales
 {
-	[EmailAddress] public string Email { get; set; }
-	public string? CodigoVerificacionEmail { get; set; }
-	public bool EmailVerificado { get; set; } = false;
-
 	public string Contraseña { get; set; }
 	public bool RequiereCambioContraseña { get; set; } = false;
 
 	public string? SemillaMfa { get; set; }
-	public bool MfaHabilitado { get; set; } = false;
+	public bool MfaHabilitado { get; set; }
 	public bool MfaVerificado { get; set; } = false;
 }
 
 public class Sesion
 {
-	[Key]
-	public string SessionId { get; set; }
+	[Key] public string SessionId { get; set; }
 	public Usuario Usuario { get; set; }
 	public DateTime FechaCreacion { get; set; }
 	public DateTime FechaExpiracion { get; set; }

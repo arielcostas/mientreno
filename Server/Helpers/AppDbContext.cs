@@ -15,12 +15,8 @@ public class AppDbContext : DbContext
 
 		// Tablas
 		var usuario = modelBuilder.Entity<Usuario>();
-		var contrato = modelBuilder.Entity<Contrato>();
-
 		var entrenador = modelBuilder.Entity<Entrenador>();
-
 		var cuestionario = modelBuilder.Entity<Cuestionario>();
-
 		var ejercicio = modelBuilder.Entity<Ejercicio>();
 		var categoria = modelBuilder.Entity<Categoria>();
 
@@ -36,28 +32,20 @@ public class AppDbContext : DbContext
 		// Credenciales de usuario.
 		usuario.OwnsOne(u => u.Credenciales);
 
-		// Asignacion a entrenador.
-		contrato.HasOne(a => a.Entrenador)
-			.WithMany(e => e.Asignaciones)
-			.OnDelete(DeleteBehavior.NoAction)
-			.IsRequired();
+		// Entranador tiene varios alumnos
+		entrenador
+			.HasMany<Alumno>(e => e.Alumnos)
+			.WithOne(a => a.Entrenador)
+			.OnDelete(DeleteBehavior.Restrict);
 
-		// Asignacion a alumno.
-		contrato
-			.HasOne(a => a.Alumno)
-			.WithMany(a => a.Asignaciones)
-			.OnDelete(DeleteBehavior.NoAction)
-			.IsRequired();
+		// Alumno tiene cuestionarios
+		cuestionario
+			.HasOne<Alumno>(c => c.Alumno)
+			.WithMany(a => a.Cuestionarios);
 
 		// Cuestionario tiene hábitos y perímetros.
 		cuestionario.OwnsOne(c => c.Habitos);
 		cuestionario.OwnsOne(c => c.Perimetros);
-
-		// Asignacion a contrato.
-		cuestionario.HasOne(c => c.Contrato)
-			.WithMany(a => a.Cuestionarios)
-			.OnDelete(DeleteBehavior.NoAction)
-			.IsRequired();
 
 		// Ejercicios tienen categoría.
 		ejercicio.HasOne(e => e.Categoria)
@@ -79,6 +67,5 @@ public class AppDbContext : DbContext
 	public DbSet<Alumno> Alumnos { get; set; }
 	public DbSet<Sesion> Sesiones { get; set; }
 
-	public DbSet<Contrato> Asignaciones { get; set; }
 	public DbSet<Cuestionario> Cuestionarios { get; set; }
 }

@@ -10,7 +10,6 @@ public static class SigningKeyHolder
 		// TODO: Make this safer in production
 		var b = Encoding.Default.GetBytes(Environment.MachineName);
 		_token = Convert.ToHexString(b);
-		Console.WriteLine($"Token: {_token}");
 	}
 
 	public static byte[] GetToken()

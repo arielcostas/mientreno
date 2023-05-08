@@ -12,8 +12,8 @@ using Mientreno.Server.Helpers;
 namespace Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230410073419_mssql.onprem_migration_766")]
-    partial class mssqlonprem_migration_766
+    [Migration("20230508081256_NuevoPlanning")]
+    partial class NuevoPlanning
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,33 +47,6 @@ namespace Server.Migrations
                     b.ToTable("Categoria");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Contrato", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AlumnoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("EntrenadorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("FechaAsignacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("FechaDesasignacion")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AlumnoId");
-
-                    b.HasIndex("EntrenadorId");
-
-                    b.ToTable("Asignaciones");
-                });
-
             modelBuilder.Entity("Mientreno.Server.Models.Cuestionario", b =>
                 {
                     b.Property<Guid>("Id")
@@ -83,7 +56,7 @@ namespace Server.Migrations
                     b.Property<byte>("AlturaCm")
                         .HasColumnType("tinyint");
 
-                    b.Property<Guid>("ContratoId")
+                    b.Property<Guid>("AlumnoId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<byte>("Edad")
@@ -103,7 +76,7 @@ namespace Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ContratoId");
+                    b.HasIndex("AlumnoId");
 
                     b.ToTable("Cuestionarios");
                 });
@@ -179,15 +152,21 @@ namespace Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CodigoVerificacionEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailVerificado")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("FechaEliminacion")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -210,6 +189,11 @@ namespace Server.Migrations
                 {
                     b.HasBaseType("Mientreno.Server.Models.Usuario");
 
+                    b.Property<Guid>("EntrenadorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasIndex("EntrenadorId");
+
                     b.HasDiscriminator().HasValue("Alumno");
                 });
 
@@ -231,31 +215,12 @@ namespace Server.Migrations
                     b.Navigation("Owner");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Contrato", b =>
-                {
-                    b.HasOne("Mientreno.Server.Models.Alumno", "Alumno")
-                        .WithMany("Asignaciones")
-                        .HasForeignKey("AlumnoId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("Mientreno.Server.Models.Entrenador", "Entrenador")
-                        .WithMany("Asignaciones")
-                        .HasForeignKey("EntrenadorId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Alumno");
-
-                    b.Navigation("Entrenador");
-                });
-
             modelBuilder.Entity("Mientreno.Server.Models.Cuestionario", b =>
                 {
-                    b.HasOne("Mientreno.Server.Models.Contrato", "Contrato")
+                    b.HasOne("Mientreno.Server.Models.Alumno", "Alumno")
                         .WithMany("Cuestionarios")
-                        .HasForeignKey("ContratoId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("AlumnoId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.OwnsOne("Mientreno.Server.Models.Habitos", "Habitos", b1 =>
@@ -332,7 +297,7 @@ namespace Server.Migrations
                                 .HasForeignKey("CuestionarioId");
                         });
 
-                    b.Navigation("Contrato");
+                    b.Navigation("Alumno");
 
                     b.Navigation("Habitos")
                         .IsRequired();
@@ -362,7 +327,7 @@ namespace Server.Migrations
             modelBuilder.Entity("Mientreno.Server.Models.Sesion", b =>
                 {
                     b.HasOne("Mientreno.Server.Models.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("Sesiones")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -377,19 +342,9 @@ namespace Server.Migrations
                             b1.Property<Guid>("UsuarioId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<string>("CodigoVerificacionEmail")
-                                .HasColumnType("nvarchar(max)");
-
                             b1.Property<string>("Contraseña")
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Email")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<bool>("EmailVerificado")
-                                .HasColumnType("bit");
 
                             b1.Property<bool>("MfaHabilitado")
                                 .HasColumnType("bit");
@@ -415,24 +370,35 @@ namespace Server.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Mientreno.Server.Models.Alumno", b =>
+                {
+                    b.HasOne("Mientreno.Server.Models.Entrenador", "Entrenador")
+                        .WithMany("Alumnos")
+                        .HasForeignKey("EntrenadorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Entrenador");
+                });
+
             modelBuilder.Entity("Mientreno.Server.Models.Categoria", b =>
                 {
                     b.Navigation("Ejercicios");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Contrato", b =>
+            modelBuilder.Entity("Mientreno.Server.Models.Usuario", b =>
                 {
-                    b.Navigation("Cuestionarios");
+                    b.Navigation("Sesiones");
                 });
 
             modelBuilder.Entity("Mientreno.Server.Models.Alumno", b =>
                 {
-                    b.Navigation("Asignaciones");
+                    b.Navigation("Cuestionarios");
                 });
 
             modelBuilder.Entity("Mientreno.Server.Models.Entrenador", b =>
                 {
-                    b.Navigation("Asignaciones");
+                    b.Navigation("Alumnos");
 
                     b.Navigation("Categorias");
 

@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Models;
 using System.Security.Claims;
@@ -27,14 +26,18 @@ public class CuestionarioController : ControllerBase
 	{
 		var me = GetAlumnoAutenticado();
 
-		if (me.AsignacionActual == null)
+		return Ok(me.Cuestionarios.Select(c => new
 		{
-			// TODO: Podría devolver el histórico o algo
-			return NotFound();
-		}
-		var q = me.AsignacionActual.Cuestionarios;
-
-		return Ok(q);
+			c.Id,
+			c.MasaKilogramos,
+			c.AlturaCm,
+			c.Edad,
+			c.Perimetros,
+			c.FrecuenciaCardiacaReposo,
+			c.FechaCreacion,
+			c.FechaFormalizacion,
+			c.Habitos
+		}));
 	}
 
 	private Alumno GetAlumnoAutenticado()
@@ -47,7 +50,6 @@ public class CuestionarioController : ControllerBase
 		}
 
 		var alumno = _context.Alumnos
-			.Include(a => a.Asignaciones)
 			.FirstOrDefault(a => a.Id == Guid.Parse(alumnoAllegedId.Value));
 
 		if (alumno == null)
@@ -56,6 +58,5 @@ public class CuestionarioController : ControllerBase
 		}
 
 		return alumno;
-
 	}
 }

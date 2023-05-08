@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido.Errores;
 using Mientreno.Compartido.Peticiones;
 using Mientreno.Server.Services;
+using Sentry;
 
 namespace Mientreno.Server.Controllers;
 
@@ -35,6 +36,8 @@ public class AutenticacionController : ControllerBase
 	public async Task<ActionResult<LoginOutput>> Iniciar([FromBody] LoginInput loginInput)
 	{
 		_logger.LogInformation("Iniciando sesión con {Identificador}", loginInput.Identificador);
+
+		SentrySdk.CaptureMessage("Hello Sentry");
 
 		try
 		{
@@ -68,7 +71,7 @@ public class AutenticacionController : ControllerBase
 	[ProducesResponseType(409)]
 	public async Task<ActionResult> Registrar([FromBody] RegistroInput registroInput)
 	{
-		_logger.LogInformation("Registrando usuario con login {Login}", registroInput.Login);
+		_logger.LogInformation("Registrando usuario con login {Login}", registroInput.Correo);
 		try
 		{
 			await _autenticacionService.Registrar(registroInput);
@@ -77,12 +80,8 @@ public class AutenticacionController : ControllerBase
 		catch (ArgumentException e)
 		{
 			_logger.LogWarning($"Se intentó hacer un registro con un {e.ParamName} existente");
-			if (e.ParamName == "login")
-				throw new HttpRequestException(MensajesError.LoginExistente, e, HttpStatusCode.Conflict);
-			else if (e.ParamName == "email")
-				throw new HttpRequestException(MensajesError.EmailExistente, e, HttpStatusCode.Conflict);
-			else
-				return StatusCode(500);
+
+			throw new HttpRequestException(MensajesError.EmailExistente, e, HttpStatusCode.Conflict);
 		}
 	}
 

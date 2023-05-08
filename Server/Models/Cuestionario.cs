@@ -9,7 +9,7 @@ namespace Mientreno.Server.Models;
 public class Cuestionario
 {
 	public Guid Id { get; set; }
-	public Contrato Contrato { get; set; }
+	public Alumno Alumno { get; set; }
 	public DateTime FechaCreacion { get; set; }
 	public DateTime? FechaFormalizacion { get; set; }
 

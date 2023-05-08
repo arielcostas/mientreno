@@ -51,7 +51,7 @@ public sealed class AzureCSMailSender : IMailSender
 
 		try
 		{
-			var operation = await Client.SendAsync(WaitUntil.Completed, options);
+			var operation = await Client.SendAsync(WaitUntil.Started, options);
 			Logger.LogInformation("Successfully sent email to {} -- messageId: {}", toAddress, operation.Id);
 		}
 		catch (RequestFailedException ex)

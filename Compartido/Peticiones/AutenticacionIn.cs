@@ -6,10 +6,6 @@ namespace Mientreno.Compartido.Peticiones;
 public class RegistroInput
 {
 	/// <summary>
-	/// Identificador público del usuario
-	/// </summary>
-	public string Login { get; set; }
-	/// <summary>
 	/// Nombre real
 	/// </summary>
 	public string Nombre { get; set; }
@@ -25,10 +21,6 @@ public class RegistroInput
 	/// Contraseña del usuario
 	/// </summary>
 	public string Contraseña { get; set; }
-	/// <summary>
-	/// Si el usuario accederá a la sección de entrenadores. Si es `true`, es Entrenador. Si es `false` es Alumno.
-	/// </summary>
-	public bool EsEntrenador { get; set; } = false;
 }
 
 /// <summary>

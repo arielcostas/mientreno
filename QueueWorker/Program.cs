@@ -4,22 +4,32 @@ using RabbitMQ.Client;
 
 IHostBuilder hb = Host.CreateDefaultBuilder(args);
 
+hb.ConfigureLogging((context, loggingBuilder) =>
+{
+	loggingBuilder.AddConfiguration(context.Configuration);
+	loggingBuilder.AddConsole();
+	loggingBuilder.AddSentry(o =>
+	{
+		o.Dsn = context.Configuration.GetConnectionString("Sentry") ?? string.Empty;
+		o.Debug = true;
+		o.TracesSampleRate = 1.0;
+		o.Environment = context.HostingEnvironment.EnvironmentName;
+	});
+});
+
 hb.ConfigureServices((context, services) =>
 {
 	#region RabbitMQ
 	var rabbitConnectionString = context.Configuration.GetConnectionString("RabbitMQ") ?? throw new Exception("RabbitMQ Connection String not set");
 
-	services.AddSingleton((sp) =>
+	services.AddSingleton(_ => new ConnectionFactory
 	{
-		return new ConnectionFactory()
-		{
-			Uri = new Uri(rabbitConnectionString),
-		}.CreateConnection();
-	});
+		Uri = new Uri(rabbitConnectionString),
+	}.CreateConnection());
 	#endregion
 
 	#region AzureCS
-	services.AddSingleton<IMailSender>((sp) =>
+	services.AddSingleton<IMailSender>(sp =>
 	{
 		var logger = sp.GetRequiredService<ILogger<AzureCSMailSender>>();
 
@@ -31,8 +41,6 @@ hb.ConfigureServices((context, services) =>
 	});
 	#endregion
 
-	services.AddApplicationInsightsTelemetryWorkerService();
-	
 	services.AddHostedService<MailQueueWorker>();
 	//services.AddHostedService<UserDeletionQueueWorker>();
 });
