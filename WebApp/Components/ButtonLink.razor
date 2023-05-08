@@ -1,0 +1,24 @@
+﻿<div role="none">
+	<NavLink @attributes="AdditionalAttributes" class="@LinkStyle">
+		@ChildContent
+	</NavLink>
+</div>
+
+@code {
+
+	[Parameter(CaptureUnmatchedValues = true)]
+	public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+
+	[Parameter]
+	public Styles LinkStyle { get; set; } = Styles.Primary;
+
+	public enum Styles
+	{
+		Primary,
+		Link
+	}
+
+}

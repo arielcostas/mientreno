@@ -4,22 +4,14 @@
 <PageTitle>Inicio - mientreno</PageTitle>
 
 <div id="landing">
-	<div id="topbar">
-		<img src="isotipo.png" alt="mientreno" id="isotipo" />
-		
-		<nav>
-		<NavLink href="/Signup">Regístrate</NavLink>
-		<NavLink href="/Login">Inicia sesión</NavLink>
-		</nav>
-	</div>
 	<div id="hero">
 		<h1>Una nueva manera de entrenar</h1>
 
 		<p>Mientreno te permite gestionar el progreso físico de tus clientes de forma sencilla y eficaz.</p>
 
-		<div class="cta-container">
-			<NavLink href="/Signup" class="cta cta-primary">¡Regístrate ya!</NavLink>
-			<NavLink href="/Login" class="cta cta-secondary">o inicia sesión</NavLink>
+		<div class="row">
+			<ButtonLink LinkStyle="@ButtonLink.Styles.Primary" href="/Signup">¡Regístrate ya!</ButtonLink>
+			<ButtonLink LinkStyle="@ButtonLink.Styles.Link" href="/Login">o inicia sesión</ButtonLink>
 		</div>
 	</div>
 	<div id="features">
@@ -46,7 +38,7 @@
 
 			<p>¡Mientreno está en constante desarrollo! Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras.</p>
 			
-			<NavLink href="/Signup" class="cta cta-primary">¡Regístrate ya!</NavLink>
+			<ButtonLink href="/Signup" LinkStyle="@ButtonLink.Styles.Primary">¡Regístrate ya!</ButtonLink>
 		</div>
 	</div>
 
@@ -55,6 +47,6 @@
 
 		<p>Haznos llegar tus consultas, y las resolveremos lo antes posible.</p>
 
-		<a href="/contact" class="cta cta-primary">Contacta con nosotros</a>
+		<ButtonLink LinkStyle="@ButtonLink.Styles.Primary" href="/contact">Contacta con nosotros</ButtonLink>
 	</div>
 </div>

@@ -37,5 +37,10 @@
 		<Folder Include="Migrations" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Properties\serviceDependencies.json" />
+	  <None Remove="Properties\serviceDependencies.local.json" />
+	</ItemGroup>
+
 </Project>
 

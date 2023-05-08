@@ -7,6 +7,9 @@
 	font-size: 16px;
 	line-height: 1.5;
 
+	--text: #222;
+	
+	/* COLORS */
 	--primary-lime: #98e05f;
 	--primary-aqua: #54b89e;
 
@@ -17,6 +20,9 @@
 	/* B: 90 (HSB) */
 	--lighter-lime: #9ce560;
 	--lighter-aqua: #6ae5c7;
+	
+	/* SHADOWS */
+	--shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 /* selected text */
@@ -35,6 +41,23 @@ body {
 	background: #ececf0;
 }
 
+h1 {
+	font-size: 4em;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 2.5em;
+	}
+
+	h2 {
+		font-size: 2em;
+	}
+}
 
 /* Blazor*/
 h1:focus {

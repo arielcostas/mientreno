@@ -1,0 +1,38 @@
+* {
+	user-select: none;
+}
+
+div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 4rem;
+
+	padding: 0 12vw;
+	background: #131313;
+}
+
+div img {
+	height: 2rem;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+::deep nav a {
+	color: #fff;
+	text-decoration: none;
+	transform: translateY(2px);
+
+	border-bottom: 2px solid rgba(0, 0, 0, 0);
+	transition-property: border-bottom, tranform;
+	transition: 0.2s ease-in-out;
+}
+
+::deep nav a:hover {
+	transform: translateY(0);
+	border-bottom-color: rgba(255, 255, 255, 1.0);
+}
