@@ -8,8 +8,11 @@
 	line-height: 1.5;
 
 	--text: #222;
-	
+
 	/* COLORS */
+	--error: #ff0000;
+	
+	/* Theme */
 	--primary-lime: #98e05f;
 	--primary-aqua: #54b89e;
 
@@ -20,7 +23,7 @@
 	/* B: 90 (HSB) */
 	--lighter-lime: #9ce560;
 	--lighter-aqua: #6ae5c7;
-	
+
 	/* SHADOWS */
 	--shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
@@ -57,6 +60,13 @@ h2 {
 	h2 {
 		font-size: 2em;
 	}
+}
+
+/* Form validations */
+ul.validation-errors {
+	padding-left: 1.5em;
+	list-style-type: none;
+	color: var(--error);
 }
 
 /* Blazor*/

@@ -104,7 +104,14 @@ app.UseAuthorization();
 
 app.UseCors(options =>
 {
-	options.WithOrigins(builder.Configuration.GetSection("Cors").Get<string[]>() ?? Array.Empty<string>());
+	if (builder.Environment.IsDevelopment())
+	{
+		options.AllowAnyOrigin();
+	}
+	else
+	{
+		options.WithOrigins(builder.Configuration.GetSection("Cors").Get<string[]>() ?? Array.Empty<string>());
+	}
 
 	options.AllowAnyHeader();
 	options.AllowAnyMethod();

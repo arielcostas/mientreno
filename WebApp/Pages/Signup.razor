@@ -1,59 +1,53 @@
 ﻿@page "/Signup"
 @using Mientreno.Compartido.Recursos
-@using System.ComponentModel.DataAnnotations
-@using System.Text.RegularExpressions
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
 @layout LandingLayout
 
 <PageTitle>Registro - MiEntreno</PageTitle>
 
 <div id="signup">
 	<h1>@AppStrings.register</h1>
-	<EditForm Model="@_model" id="form">
-		<DataAnnotationsValidator />
-		<div class="two-in-one">
-			<div class="form-group">
-				<label for="Nombre">@AppStrings.name</label>
-				<InputText id="Nombre" class="form-control" @bind-Value="_model.Nombre"/>
-			</div>
-
-			<div class="form-group">
-				<label for="Apellidos">@AppStrings.surname</label>
-				<InputText id="Apellidos" class="form-control" @bind-Value="_model.Apellidos"/>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="Correo">@AppStrings.email</label>
-			<InputText type="email" id="Correo" class="form-control" @bind-Value="_model.Correo"/>
-		</div>
-
-		<div class="form-group">
-			<label for="Password">@AppStrings.password</label>
-			<InputText type="password" id="Password" class="form-control" @bind-Value="_model.Password"/>
-		</div>
-
-		<div class="form-group">
-			<label for="ConfirmPassword">@AppStrings.confirmPassword</label>
-			<InputText type="password" id="ConfirmPassword" class="form-control" @bind-Value="_model.ConfirmPassword"/>
-		</div>
-
-		<p>
-			@AppStrings.youAcceptTermsAndConditions
-		</p>
-
-		<Button ButtonStyle="@Button.Styles.Primary" type="submit">@AppStrings.doRegister</Button>
-	</EditForm>
-</div>
-
-@code {
-	private readonly SignupModel _model = new();
-
-	private class SignupModel
+	@if (_signupSuccess)
 	{
-		[Required] [MinLength(2)] public string Nombre { get; set; } = string.Empty;
-		[Required] [MinLength(2)] public string Apellidos { get; set; } = string.Empty;
-		[Required] [EmailAddress] public string Correo { get; set; } = string.Empty;
-		[Required] [RegularExpression("^[A-Za-z0-9\\D]{8,}")] public string Password { get; set; } = string.Empty;
-		[Required] public string ConfirmPassword { get; set; } = string.Empty;
+		<p>@AppStrings.registrationDoneEmailSent</p>
+		<ButtonLink LinkStyle="ButtonLink.Styles.LinkPrimary" href="">@AppStrings.back</ButtonLink>
 	}
-}
+	else
+	{
+		<EditForm Model="@_model" id="form" OnValidSubmit="DoSignUp">
+			<DataAnnotationsValidator/>
+			<ValidationSummary/>
+			<ul class="validation-errors">
+				<li>@_customError</li>
+			</ul>
+			<div class="two-in-one">
+				<div class="form-group">
+					<label for="Nombre">@AppStrings.name</label>
+					<InputText autocomplete="given-name" id="Nombre" class="form-control" @bind-Value="_model.Nombre"/>
+				</div>
+
+				<div class="form-group">
+					<label for="Apellidos">@AppStrings.surname</label>
+					<InputText autocomplete="family-name" id="Apellidos" class="form-control" @bind-Value="_model.Apellidos"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="Correo">@AppStrings.email</label>
+				<InputText type="email" autocomplete="email" id="Correo" class="form-control" @bind-Value="_model.Correo"/>
+			</div>
+
+			<div class="form-group">
+				<label for="Password">@AppStrings.password</label>
+				<InputText type="password" autocomplete="new-password" id="Password" class="form-control" @bind-Value="_model.Password"/>
+			</div>
+
+			<p>
+				@AppStrings.youAcceptTermsAndConditions
+			</p>
+
+			<Button ButtonStyle="@Button.Styles.Primary" type="submit">@AppStrings.doRegister</Button>
+		</EditForm>
+	}
+</div>

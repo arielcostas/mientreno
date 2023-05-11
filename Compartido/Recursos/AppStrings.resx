@@ -179,4 +179,10 @@
   <data name="youAcceptTermsAndConditions" xml:space="preserve">
     <value>Al registrarte, estás aceptando nuestros términos de uso y nuestra política de privacidad.</value>
   </data>
+  <data name="registrationDoneEmailSent" xml:space="preserve">
+	  <value>Para confirmar tu cuenta, te hemos enviado un correo electrónico. Por favor, revisa tu bandeja de entrada.</value>
+  </data>
+  <data name="back" xml:space="preserve">
+	  <value>Volver</value>
+  </data>
 </root>

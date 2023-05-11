@@ -1,0 +1,25 @@
+﻿@page "/ConfirmarCuenta?email={email}&token={token}"
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h3>Confirmar Cuenta</h3>
+
+@code {
+	[Parameter]
+	[SupplyParameterFromQuery]
+	public string email { get; set; }
+	
+	[Parameter]
+	[SupplyParameterFromQuery]
+	public string token { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		var result = await Http.PostAsJsonAsync("Autenticacion/ConfirmarCuenta", new { email, token });
+		if (result)
+		{
+			NavigationManager.NavigateTo("/");
+		}
+	}
+}
+```
