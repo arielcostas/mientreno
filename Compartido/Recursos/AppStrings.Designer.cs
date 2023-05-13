@@ -114,20 +114,11 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debes introducir usuario y contraseña.
-        /// </summary>
-        public static string enterUsernameOrPassword {
-            get {
-                return ResourceManager.GetString("enterUsernameOrPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Usuario o contraseña incorrectos.
         /// </summary>
-        public static string errorCredencialesInvalidas {
+        public static string errorInvalidCredentials {
             get {
-                return ResourceManager.GetString("errorCredencialesInvalidas", resourceCulture);
+                return ResourceManager.GetString("errorInvalidCredentials", resourceCulture);
             }
         }
         
@@ -137,6 +128,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string errorUnexpected {
             get {
                 return ResourceManager.GetString("errorUnexpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inicio de sesión.
+        /// </summary>
+        public static string login {
+            get {
+                return ResourceManager.GetString("login", resourceCulture);
             }
         }
         

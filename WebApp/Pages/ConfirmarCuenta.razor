@@ -1,25 +1,40 @@
-﻿@page "/ConfirmarCuenta?email={email}&token={token}"
+﻿@page "/ConfirmarCuenta"
 @inject NavigationManager NavigationManager
 @inject HttpClient Http
+@layout EmptyLayout
 
 <h3>Confirmar Cuenta</h3>
 
+<p>@_error</p>
+
 @code {
+
 	[Parameter]
-	[SupplyParameterFromQuery]
-	public string email { get; set; }
-	
+	[SupplyParameterFromQuery(Name = "email")]
+	public string? Email { get; set; }
+
 	[Parameter]
-	[SupplyParameterFromQuery]
-	public string token { get; set; }
+	[SupplyParameterFromQuery(Name = "token")]
+	public string? Token { get; set; }
+
+	private string _error = string.Empty;
 
 	protected override async Task OnInitializedAsync()
 	{
-		var result = await Http.PostAsJsonAsync("Autenticacion/ConfirmarCuenta", new { email, token });
-		if (result)
+		var result = await Http.PostAsJsonAsync("Autenticacion/Confirmar", new
 		{
-			NavigationManager.NavigateTo("/");
+			DireccionEmail = Email,
+			CodigoVerificacion = Token
+		});
+		if (result.IsSuccessStatusCode)
+		{
+			NavigationManager.NavigateTo("Login");
+		}
+		else
+		{
+	// TODO: Improve this
+			_error = await result.Content.ReadAsStringAsync();
 		}
 	}
+
 }
-```

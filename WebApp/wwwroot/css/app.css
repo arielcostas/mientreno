@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;700;900&display=swap');
-
 /* VARIABLES */
 :root {
-	--font-sans: 'Montserrat Alternates', 'Verdana Pro', 'Verdana', 'Helvetica Neue', Arial, Helvetica, 'Segoe UI', system-ui, sans-serif;
+	--font-sans: "Liberation Sans", 'Verdana Pro', 'Verdana', 'Helvetica Neue', Arial, Helvetica, 'Segoe UI', system-ui, sans-serif;
 	font-family: var(--font-sans);
 	font-size: 16px;
 	line-height: 1.5;
@@ -11,7 +9,7 @@
 
 	/* COLORS */
 	--error: #ff0000;
-	
+
 	/* Theme */
 	--primary-lime: #98e05f;
 	--primary-aqua: #54b89e;
@@ -67,6 +65,14 @@ ul.validation-errors {
 	padding-left: 1.5em;
 	list-style-type: none;
 	color: var(--error);
+}
+
+input.modified.valid {
+	border-color: var(--darker-lime);
+}
+
+input.modified.invalid {
+	border-color: #ff0000;
 }
 
 /* Blazor*/

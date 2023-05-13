@@ -132,10 +132,7 @@
   <data name="email" xml:space="preserve">
     <value>Correu electrònic</value>
   </data>
-  <data name="enterUsernameOrPassword" xml:space="preserve">
-    <value>Has d'introduir usuari i contrasenya</value>
-  </data>
-  <data name="errorCredencialesInvalidas" xml:space="preserve">
+  <data name="errorInvalidCredentials" xml:space="preserve">
     <value>Usuari o contrasenya incorrectes</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>

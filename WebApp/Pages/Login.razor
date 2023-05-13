@@ -1,8 +1,33 @@
 ﻿@page "/Login"
+@using Mientreno.Compartido.Recursos
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
 @layout LandingLayout
 
-<h3>Login</h3>
+<PageTitle>Login - MiEntreno</PageTitle>
 
-@code {
-	
-}
+<div id="login">
+	<h1>@AppStrings.login</h1>
+
+	<EditForm Model="@_model" id="form" OnValidSubmit="DoSignUp">
+		<DataAnnotationsValidator/>
+		<ValidationSummary/>
+		<ul class="validation-errors">
+			<li>@_customError</li>
+		</ul>
+		<div class="form-group">
+			<label for="Correo">@AppStrings.email</label>
+			<InputText type="email" autocomplete="email" id="Correo" class="form-control" @bind-Value="_model.Correo"/>
+		</div>
+
+		<div class="form-group">
+			<label for="Password">@AppStrings.password</label>
+			<InputText type="password" autocomplete="current-password" id="Password" class="form-control" @bind-Value="_model.Password"/>
+		</div>
+
+		<ButtonLink LinkStyle="ButtonLink.Styles.LinkPrimary">@AppStrings.newHereRegister</ButtonLink>
+
+		<Button ButtonStyle="@Button.Styles.Primary" type="submit">@AppStrings.doLogin</Button>
+	</EditForm>
+
+</div>
