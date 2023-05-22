@@ -11,7 +11,7 @@ using Mientreno.Server.Helpers;
 
 namespace Server.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20230403085838_mssql.onprem_migration_717")]
     partial class mssqlonprem_migration_717
     {

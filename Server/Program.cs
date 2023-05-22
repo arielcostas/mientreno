@@ -1,80 +1,83 @@
-using System.Reflection;
-using System.Security.Claims;
-using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+#region Imports
+
+using System.Globalization;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Mientreno.Server;
+using Microsoft.Extensions.Localization;
+using Mientreno.Compartido.Recursos;
 using Mientreno.Server.Helpers;
-using Mientreno.Server.Helpers.Crypto;
 using Mientreno.Server.Helpers.Queue;
-using Mientreno.Server.Services;
+using Mientreno.Server.Models;
 using RabbitMQ.Client;
 using Sentry.AspNetCore;
+
+#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 var devel = builder.Environment.IsDevelopment();
 
-builder.Services.AddProblemDetails();
-builder.Services.AddSentry().AddSentryOptions(options =>
+
+#region Sentry
+
+if (!devel)
 {
-	options.Dsn = builder.Configuration.GetConnectionString("Sentry") ?? string.Empty;
-	options.Debug = true;
-	options.TracesSampleRate = devel ? 1.0 : 0.5;
-	options.Environment = builder.Environment.EnvironmentName;
-});
-
-builder.Logging.AddSentry();
-
-builder.Services
-	.AddControllers(options =>
+	builder.Services.AddSentry().AddSentryOptions(options =>
 	{
-		options.Filters.Add<HttpExceptionFilter>();
-	})
-	.AddJsonOptions(options =>
-	{
-		options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+		options.Dsn = builder.Configuration.GetConnectionString("Sentry") ?? string.Empty;
+		options.Debug = true;
+		options.TracesSampleRate = devel ? 1.0 : 0.5;
+		options.Environment = builder.Environment.EnvironmentName;
 	});
+	builder.Logging.AddSentry();
+}
+#endregion
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
+builder.Services.AddProblemDetails();
+builder.Services.AddRazorPages();
+
+builder.Services.AddRequestLocalization(options =>
 {
-	var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-	options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+	var supportedCultures = new[]
+	{
+		new CultureInfo("es"),
+		new CultureInfo("gl"),
+		new CultureInfo("ca"),
+		new CultureInfo("eu"),
+	};
+
+	options.DefaultRequestCulture = new RequestCulture("es");
+	options.SupportedCultures = supportedCultures;
+	options.SupportedUICultures = supportedCultures;
 });
 
-builder.Services.AddDbContext<AppDbContext>(options =>
+builder.Services.AddDbContext<ApplicationContext>(options =>
 {
 	options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
 });
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-	.AddJwtBearer(options =>
+builder.Services.AddDefaultIdentity<Usuario>()
+	.AddRoles<IdentityRole>()
+	.AddEntityFrameworkStores<ApplicationContext>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+	.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
 	{
-		options.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(SigningKeyHolder.GetToken());
-		options.TokenValidationParameters.ValidateAudience = false;
-		options.TokenValidationParameters.ValidateIssuer = false;
-		options.TokenValidationParameters.ValidateLifetime = true;
+		options.Cookie.Name = "_sd";
+		options.Cookie.SameSite = SameSiteMode.Strict;
+		options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+		options.Cookie.HttpOnly = true;
+		options.Cookie.IsEssential = true;
+
+		options.SlidingExpiration = true;
+		options.ExpireTimeSpan = TimeSpan.FromDays(30);
 	});
 
-builder.Services.AddAuthorization(options =>
-{
-	options.AddPolicy("ValidSessionKey", policy => policy.Requirements.Add(new ValidSessionKeyRequirement()));
+#region RabbitMQ
 
-	options.AddPolicy(Constantes.PolicyEsAlumno, policy => policy.RequireClaim(ClaimTypes.Role, "Alumno"));
-	options.AddPolicy(Constantes.PolicyEsEntrenador, policy => policy.RequireClaim(ClaimTypes.Role, "Entrenador"));
-
-	options.DefaultPolicy = options.GetPolicy("ValidSessionKey")!;
-});
-
-builder.Services.AddScoped<IAuthorizationHandler, ValidSessionKeyAuthorizationHandler>();
-
-builder.Services.AddScoped<AutenticacionService>();
-builder.Services.AddSingleton<TokenGenerator>();
-
-// RabbitMQ
-var rabbitConnectionString = builder.Configuration.GetConnectionString("RabbitMQ") ?? throw new Exception("RabbitMQ Connection String not set");
+var rabbitConnectionString = builder.Configuration.GetConnectionString("RabbitMQ") ??
+                             throw new Exception("RabbitMQ Connection String not set");
 
 builder.Services.AddSingleton(_ => new ConnectionFactory
 {
@@ -87,6 +90,8 @@ builder.Services.AddSingleton<IQueueProvider>(sp =>
 	return new RabbitQueueProvider(connection);
 });
 
+#endregion
+
 var app = builder.Build();
 
 app.UseExceptionHandler();
@@ -95,29 +100,19 @@ app.UseHsts();
 if (app.Environment.IsDevelopment())
 {
 	app.UseDeveloperExceptionPage();
-	app.UseSwagger();
-	app.UseSwaggerUI();
 }
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseCors(options =>
+if (!devel)
 {
-	if (builder.Environment.IsDevelopment())
-	{
-		options.AllowAnyOrigin();
-	}
-	else
-	{
-		options.WithOrigins(builder.Configuration.GetSection("Cors").Get<string[]>() ?? Array.Empty<string>());
-	}
+	app.UseForwardedHeaders();
+	app.UseSentryTracing();
+}
 
-	options.AllowAnyHeader();
-	options.AllowAnyMethod();
-});
+app.UseRequestLocalization();
+app.UseStaticFiles();
+app.MapRazorPages();
 
-app.UseSentryTracing();
-
-app.MapControllers();
 app.Run();

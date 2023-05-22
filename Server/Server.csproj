@@ -16,14 +16,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.3" />
-		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Localization" />
+		
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
 		
 		<PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
 
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
 
 		<PackageReference Include="Sentry.AspNetCore" Version="3.31.0" />
 		<PackageReference Include="Sentry.Extensions.Logging" Version="3.31.0" />
@@ -35,11 +36,19 @@
 
 	<ItemGroup>
 		<Folder Include="Migrations" />
+		<Folder Include="Pages\Shared\" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="Properties\serviceDependencies.json" />
 	  <None Remove="Properties\serviceDependencies.local.json" />
+	  <None Include="wwwroot\css\button.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AdditionalFiles Include="Components\Button.razor" />
+	  <AdditionalFiles Include="Components\ButtonLink.razor" />
+	  <AdditionalFiles Include="Components\LandingHeader.razor" />
 	</ItemGroup>
 
 </Project>

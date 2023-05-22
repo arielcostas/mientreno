@@ -11,7 +11,7 @@ using Mientreno.Server.Helpers;
 
 namespace Server.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20230329191751_First")]
     partial class First
     {

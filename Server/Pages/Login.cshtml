@@ -1,0 +1,27 @@
+﻿@page
+@using Mientreno.Compartido.Recursos
+@model IndexModel
+@{
+	ViewData["Title"] = "Login";
+}
+
+<div id="login">
+	<h1>@AppStrings.login</h1>
+
+	<form method="post" id="form">
+		<div class="form-group">
+			<label for="Correo">@AppStrings.email</label>
+			<input type="email" autocomplete="email" id="Correo" class="form-control"/>
+		</div>
+
+		<div class="form-group">
+			<label for="Password">@AppStrings.password</label>
+			<input type="password" autocomplete="current-password" id="Password" class="form-control" />
+		</div>
+
+		<a class="link-primary">@AppStrings.newHereRegister</a>
+
+		<button class="button-primary" type="submit">@AppStrings.doLogin</button>
+	</form>
+
+</div>
