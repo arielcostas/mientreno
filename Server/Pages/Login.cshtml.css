@@ -4,7 +4,7 @@
 	margin: 3rem auto;
 	width: 38rem;
 	border-radius: 0.5rem;
-	
+
 	box-shadow: var(--shadow);
 }
 
@@ -14,34 +14,4 @@ h1 {
 
 h2 {
 	margin-bottom: 2rem;
-}
-
-#login > ::deep * {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-}
-
-::deep .form-group {
-	display: flex;
-	flex-direction: column;
-	color: var(--text);
-	width: 100%;
-}
-
-::deep input {
-	padding: 0.69rem;
-	border-radius: 0.25rem;
-	border: 1px solid var(--text);
-	font-size: 1.1rem;
-}
-
-::deep .form-check {
-	margin-left: 1rem;
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-}
-::deep button {
-	margin-left: auto;
 }

@@ -1,5 +1,4 @@
 ﻿@page
-@using Mientreno.Compartido.Recursos
 @model IndexModel
 @{
 	ViewData["Title"] = "Login";
@@ -19,9 +18,9 @@
 			<input type="password" autocomplete="current-password" id="Password" class="form-control" />
 		</div>
 
-		<a class="link-primary">@AppStrings.newHereRegister</a>
+		<a asp-page="Register" class="link link-primary">@AppStrings.newHereRegister</a>
 
-		<button class="button-primary" type="submit">@AppStrings.doLogin</button>
+		<button class="button button-primary" type="submit">@AppStrings.doLogin</button>
 	</form>
 
 </div>

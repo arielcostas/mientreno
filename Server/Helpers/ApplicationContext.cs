@@ -55,7 +55,6 @@ public class ApplicationContext : IdentityDbContext
 			.OnDelete(DeleteBehavior.Cascade);
 	}
 
-	public required DbSet<Usuario> Usuarios { get; set; }
 	public required DbSet<Entrenador> Entrenadores { get; set; }
 	public required DbSet<Alumno> Alumnos { get; set; }
 	public required DbSet<Cuestionario> Cuestionarios { get; set; }

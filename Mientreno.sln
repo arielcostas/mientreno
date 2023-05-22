@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Compartido", "Compartido\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueWorker", "QueueWorker\QueueWorker.csproj", "{71BD3025-8AD7-4966-9B5B-EB1DC3A9D834}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{AF13095F-0F64-47B5-9FF4-9671E61B9596}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{71BD3025-8AD7-4966-9B5B-EB1DC3A9D834}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71BD3025-8AD7-4966-9B5B-EB1DC3A9D834}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71BD3025-8AD7-4966-9B5B-EB1DC3A9D834}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF13095F-0F64-47B5-9FF4-9671E61B9596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF13095F-0F64-47B5-9FF4-9671E61B9596}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF13095F-0F64-47B5-9FF4-9671E61B9596}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF13095F-0F64-47B5-9FF4-9671E61B9596}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
