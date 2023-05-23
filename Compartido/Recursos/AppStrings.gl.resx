@@ -130,7 +130,7 @@
     <value>Inscribirse</value>
   </data>
   <data name="email" xml:space="preserve">
-    <value>Correo electrónico</value>
+	  <value>Correo-e</value>
   </data>
   <data name="errorInvalidCredentials" xml:space="preserve">
     <value>Usuario ou contrasinal incorrectos</value>
@@ -138,9 +138,6 @@
   </data>
   <data name="errorUnexpected" xml:space="preserve">
     <value>Houbo un erro inesperado. Inténtao de novo máis tarde.</value>
-  </data>
-  <data name="loginToContinue" xml:space="preserve">
-    <value>Inicia sesión para continuar</value>
   </data>
   <data name="name" xml:space="preserve">
     <value>Nome</value>
@@ -172,5 +169,62 @@
   </data>
   <data name="usernameOrEmailAlreadyInUse" xml:space="preserve">
     <value>O nome de usuario ou dirección de correo xa están rexistrados.</value>
+  </data>
+  <data name="iveReadAndAccept" xml:space="preserve">
+	  <value>Lín e acepto</value>
+  </data>
+  <data name="landing_OIniciaSesion" xml:space="preserve">
+	  <value>ou conéctate</value>
+  </data>
+  <data name="landing_RegistrateYa" xml:space="preserve">
+	  <value>Inscríbete xa!</value>
+  </data>
+  <data name="landing_Subtitulo" xml:space="preserve">
+	  <value>Mientreno permíteche xestionar o progreso físico dos teus clientes de forma sinxela e eficaz.</value>
+  </data>
+  <data name="landing_Titulo" xml:space="preserve">
+	  <value>Unha nova forma de adestrar</value>
+  </data>
+  <data name="login" xml:space="preserve">
+	  <value>Conexión</value>
+  </data>
+  <data name="theTermsAndConditions" xml:space="preserve">
+	  <value>os termos e condicións</value>
+  </data>
+  <data name="registrationDoneEmailSent" xml:space="preserve">
+	  <value>Para confirmar a túa conta, enviámoste un correo-e. Por favor, revisa a túa bandexa de entrada.</value>
+  </data>
+  <data name="back" xml:space="preserve">
+	  <value>Voltar</value>
+  </data>
+  <data name="rememberMe" xml:space="preserve">
+	  <value>Manter sesión iniciada</value>
+  </data>
+  <data name="hello" xml:space="preserve">
+	  <value>Ola</value>
+  </data>
+  <data name="landing_Feature1_Subtitulo" xml:space="preserve">
+	  <value>Xestiona os adestramentos dos teus clientes desde calquera dispositivo, en calquera lugar. E permite que os teus clientes os consulten con rapidez e comodidade.</value>
+  </data>
+  <data name="landing_Feature1_Titulo" xml:space="preserve">
+	  <value>Onde e cando queiras</value>
+  </data>
+  <data name="landing_Feature2_Subtitulo" xml:space="preserve">
+	  <value>Define plans de adestramento adaptados a cada cliente, indicando instrucións para cada exercicio, cantidade de series, repeticións e descansos.</value>
+  </data>
+  <data name="landing_Feature2_Titulo" xml:space="preserve">
+	  <value>A gusto do consumidor</value>
+  </data>
+  <data name="landing_Feature3_Subtitulo" xml:space="preserve">
+	  <value>Consulta o historial de adestramentos para ver a evolución do cliente. Mantén informes de estado periódicos. Recibe comentarios que che axuden a axustarche ás súas necesidades.</value>
+  </data>
+  <data name="landing_Feature4_Subtitulo" xml:space="preserve">
+	  <value>Mientreno está en constante desenvolvemento! Co tempo, irás obtendo acceso a novas funcionalidades e melloras.</value>
+  </data>
+  <data name="landing_Feature4_Titulo" xml:space="preserve">
+	  <value>E moito máis!</value>
+  </data>
+  <data name="landing_Feature3_Titulo" xml:space="preserve">
+	  <value>Historial de adestramentos</value>
   </data>
 </root>

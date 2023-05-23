@@ -1,7 +1,7 @@
-using Markdig;
 using System.Text.RegularExpressions;
+using Markdig;
 
-namespace Mientreno.Server.Helpers.Mailing;
+namespace QueueWorker.Mailing;
 
 /// <summary>
 /// It generates an <see cref="Email">Email</see> with the email message to be sent according to the template and the language.
@@ -36,7 +36,7 @@ public partial class EmailTemplate
 		var templateContent = File.ReadAllText(_templatePath + $"\\{templateFile}");
 
 		string appliedTemplate = string.Format(templateContent, parameters);
-		var parts = appliedTemplate.Split(Environment.NewLine, 2);
+		var parts = appliedTemplate.Split("\n", 2);
 
 		string subject = MyRegex().Replace(parts[0], "");
 		appliedTemplate = parts[1];

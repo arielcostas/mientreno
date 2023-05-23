@@ -139,12 +139,9 @@
   <data name="errorUnexpected" xml:space="preserve">
     <value>Hi va haver un error inesperat. Intem-ho de nou més tard.</value>
   </data>
-  <data name="loginToContinue" xml:space="preserve">
-    <value>Inicia sessió per continuar</value>
-  </data>
   <data name="name" xml:space="preserve">
-    <value>Nom</value>
-    <comment>Nombre real de una persona (no confundir con username)</comment>
+	  <value>Nom</value>
+	  <comment>Nombre real de una persona (no confundir con username)</comment>
   </data>
   <data name="newHereRegister" xml:space="preserve">
     <value>Nou per aquí? Regístrate.</value>

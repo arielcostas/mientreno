@@ -1,10 +1,24 @@
-﻿<div>
+﻿@using Microsoft.AspNetCore.Identity
+@using Mientreno.Server.Models
+@inject UserManager<Usuario> UserManager
+
+
+<div>
 	<a asp-page="/">
 		<img src="isotipo.png" alt="mientreno" id="isotipo"/>
 	</a>
 
+	@{ var usuario = UserManager.GetUserAsync(User).Result; }
 	<nav>
-		<a asp-page="/Login" class="link link-white link-nav">@AppStrings.doLogin</a>
-		<a asp-page="/Register" class="link link-white link-bold link-nav">@AppStrings.doRegister</a>
+		@if (usuario is null)
+		{
+			<a asp-page="/Login" class="link link-white link-nav">@AppStrings.doLogin</a>
+			<a asp-page="/Register" class="link link-white link-bold link-nav">@AppStrings.doRegister</a>
+		}
+		else
+		{
+			<a asp-page="/Dashboard" class="link link-white link-nav">@AppStrings.hello, @usuario.Nombre</a>
+		}
 	</nav>
+
 </div>

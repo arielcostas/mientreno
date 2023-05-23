@@ -56,6 +56,7 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
 });
 
 builder.Services.AddIdentity<Usuario, IdentityRole>()
+	.AddDefaultTokenProviders()
 	.AddEntityFrameworkStores<ApplicationContext>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

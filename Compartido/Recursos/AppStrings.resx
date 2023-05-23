@@ -139,9 +139,6 @@
   <data name="errorUnexpected" xml:space="preserve">
     <value>Hubo un error inesperado. Inténtalo de nuevo más tarde.</value>
   </data>
-  <data name="loginToContinue" xml:space="preserve">
-    <value>Inicia sesión para continuar</value>
-  </data>
   <data name="name" xml:space="preserve">
     <value>Nombre</value>
     <comment>Nombre real de una persona (no confundir con username)</comment>
@@ -187,5 +184,47 @@
   </data>
   <data name="theTermsAndConditions" xml:space="preserve">
 	  <value>los términos y condiciones</value>
+  </data>
+  <data name="landing_Titulo" xml:space="preserve">
+	  <value>Una nueva forma de entrenar</value>
+  </data>
+  <data name="landing_Subtitulo" xml:space="preserve">
+	  <value>Mientreno te permite gestionar el progreso físico de tus clientes de forma sencilla y eficaz.</value>
+  </data>
+  <data name="landing_RegistrateYa" xml:space="preserve">
+	  <value>¡Regístrate ya!</value>
+  </data>
+  <data name="landing_OIniciaSesion" xml:space="preserve">
+	  <value>o inicia sesión</value>
+  </data>
+  <data name="rememberMe" xml:space="preserve">
+	  <value>Mantener sesión iniciada</value>
+  </data>
+  <data name="hello" xml:space="preserve">
+	  <value>Hola</value>
+  </data>
+  <data name="landing_Feature1_Titulo" xml:space="preserve">
+	  <value>Dónde y cuando quieras</value>
+  </data>
+  <data name="landing_Feature2_Titulo" xml:space="preserve">
+	  <value>A gusto del consumidor</value>
+  </data>
+  <data name="landing_Feature3_Titulo" xml:space="preserve">
+	  <value>Historial de entrenamientos</value>
+  </data>
+  <data name="landing_Feature4_Titulo" xml:space="preserve">
+	  <value>¡Y mucho más!</value>
+  </data>
+  <data name="landing_Feature1_Subtitulo" xml:space="preserve">
+	  <value>Gestiona los entrenamientos de tus clientes desde cualquier dispositivo, en cualquier lugar. Y permite que tus clientes los consulten con rapidez y comodidad.</value>
+  </data>
+  <data name="landing_Feature2_Subtitulo" xml:space="preserve">
+	  <value>Define planes de entrenamiento adaptados a cada cliente, indicando instrucciones para cada ejercicio, cantidad de series, repeticiones y descansos.</value>
+  </data>
+  <data name="landing_Feature3_Subtitulo" xml:space="preserve">
+	  <value>Consulta el historial de entrenamientos para ver la evolución del cliente. Mantén informes de estado periódicos. Recibe comentarios que te ayuden a ajustarte a sus necesidades.</value>
+  </data>
+  <data name="landing_Feature4_Subtitulo" xml:space="preserve">
+	  <value>¡Mientreno está en constante desarrollo! Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras.</value>
   </data>
 </root>

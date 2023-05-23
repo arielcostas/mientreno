@@ -132,6 +132,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hola.
+        /// </summary>
+        public static string hello {
+            get {
+                return ResourceManager.GetString("hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to He leído y acepto.
         /// </summary>
         public static string iveReadAndAccept {
@@ -141,20 +150,119 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gestiona los entrenamientos de tus clientes desde cualquier dispositivo, en cualquier lugar. Y permite que tus clientes los consulten con rapidez y comodidad..
+        /// </summary>
+        public static string landing_Feature1_Subtitulo {
+            get {
+                return ResourceManager.GetString("landing_Feature1_Subtitulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dónde y cuando quieras.
+        /// </summary>
+        public static string landing_Feature1_Titulo {
+            get {
+                return ResourceManager.GetString("landing_Feature1_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Define planes de entrenamiento adaptados a cada cliente, indicando instrucciones para cada ejercicio, cantidad de series, repeticiones y descansos..
+        /// </summary>
+        public static string landing_Feature2_Subtitulo {
+            get {
+                return ResourceManager.GetString("landing_Feature2_Subtitulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A gusto del consumidor.
+        /// </summary>
+        public static string landing_Feature2_Titulo {
+            get {
+                return ResourceManager.GetString("landing_Feature2_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consulta el historial de entrenamientos para ver la evolución del cliente. Mantén informes de estado periódicos. Recibe comentarios que te ayuden a ajustarte a sus necesidades..
+        /// </summary>
+        public static string landing_Feature3_Subtitulo {
+            get {
+                return ResourceManager.GetString("landing_Feature3_Subtitulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Historial de entrenamientos.
+        /// </summary>
+        public static string landing_Feature3_Titulo {
+            get {
+                return ResourceManager.GetString("landing_Feature3_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¡Mientreno está en constante desarrollo! Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras..
+        /// </summary>
+        public static string landing_Feature4_Subtitulo {
+            get {
+                return ResourceManager.GetString("landing_Feature4_Subtitulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¡Y mucho más!.
+        /// </summary>
+        public static string landing_Feature4_Titulo {
+            get {
+                return ResourceManager.GetString("landing_Feature4_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to o inicia sesión.
+        /// </summary>
+        public static string landing_OIniciaSesion {
+            get {
+                return ResourceManager.GetString("landing_OIniciaSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¡Regístrate ya!.
+        /// </summary>
+        public static string landing_RegistrateYa {
+            get {
+                return ResourceManager.GetString("landing_RegistrateYa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mientreno te permite gestionar el progreso físico de tus clientes de forma sencilla y eficaz..
+        /// </summary>
+        public static string landing_Subtitulo {
+            get {
+                return ResourceManager.GetString("landing_Subtitulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Una nueva forma de entrenar.
+        /// </summary>
+        public static string landing_Titulo {
+            get {
+                return ResourceManager.GetString("landing_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inicio de sesión.
         /// </summary>
         public static string login {
             get {
                 return ResourceManager.GetString("login", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Inicia sesión para continuar.
-        /// </summary>
-        public static string loginToContinue {
-            get {
-                return ResourceManager.GetString("loginToContinue", resourceCulture);
             }
         }
         
@@ -218,6 +326,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string registrationDoneEmailSent {
             get {
                 return ResourceManager.GetString("registrationDoneEmailSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mantener sesión iniciada.
+        /// </summary>
+        public static string rememberMe {
+            get {
+                return ResourceManager.GetString("rememberMe", resourceCulture);
             }
         }
         

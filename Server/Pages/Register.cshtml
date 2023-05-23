@@ -9,49 +9,54 @@
 
 <div id="root">
 	<h1>@AppStrings.register</h1>
+	@if (Model.EmailSent)
+	{
+		<p>@AppStrings.registrationDoneEmailSent</p>
+	}
+	else
+	{
+		<form method="post">
+			<div class="form-group-double">
+				<div class="form-group">
+					<label asp-for="Form.Nombre">@AppStrings.name</label>
+					<input asp-for="Form.Nombre" autocomplete="given-name" class="form-control"/>
+				</div>
 
-	<form method="post">
-		<div class="form-group-double">
-			<div class="form-group">
-				<label asp-for="Form.Nombre">@AppStrings.name</label>
-				<input asp-for="Form.Nombre" autocomplete="given-name" class="form-control"/>
+				<div class="form-group">
+					<label asp-for="Form.Apellidos">@AppStrings.surname</label>
+					<input asp-for="Form.Apellidos" autocomplete="family-name" class="form-control"/>
+				</div>
 			</div>
 
 			<div class="form-group">
-				<label asp-for="Form.Apellidos">@AppStrings.surname</label>
-				<input asp-for="Form.Apellidos" autocomplete="family-name" class="form-control"/>
+				<label asp-for="Form.Email">@AppStrings.email</label>
+				<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control"/>
+				<span asp-validation-for="Form.Email" class="text-danger"></span>
 			</div>
-		</div>
-		
-		<div class="form-group">
-			<label asp-for="Form.Email">@AppStrings.email</label>
-			<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control"/>
-			<span asp-validation-for="Form.Email" class="text-danger"></span>
-		</div>
 
-		<div class="form-group">
-			<label asp-for="Form.Contraseña">@AppStrings.password</label>
-			<input asp-for="Form.Contraseña" type="password" autocomplete="new-password" class="form-control"/>
-			<span asp-validation-for="Form.Contraseña" class="text-danger"></span>
-		</div>
+			<div class="form-group">
+				<label asp-for="Form.Contraseña">@AppStrings.password</label>
+				<input asp-for="Form.Contraseña" type="password" autocomplete="new-password" class="form-control"/>
+				<span asp-validation-for="Form.Contraseña" class="text-danger"></span>
+			</div>
 
-		<div class="form-group">
-			<label asp-for="Form.ConfirmarContraseña">@AppStrings.confirmPassword</label>
-			<input asp-for="Form.ConfirmarContraseña" type="password" autocomplete="new-password" class="form-control"/>
-			<span asp-validation-for="Form.ConfirmarContraseña" class="text-danger"></span>
-		</div>
+			<div class="form-group">
+				<label asp-for="Form.ConfirmarContraseña">@AppStrings.confirmPassword</label>
+				<input asp-for="Form.ConfirmarContraseña" type="password" autocomplete="new-password" class="form-control"/>
+				<span asp-validation-for="Form.ConfirmarContraseña" class="text-danger"></span>
+			</div>
 
-		<a asp-page="/login" class="link link-primary link-bold">@AppStrings.alreadyHaveAccountLogin</a>
+			<a asp-page="/login" class="link link-primary link-bold">@AppStrings.alreadyHaveAccountLogin</a>
 
-		<div class="form-check">
-			<input asp-for="Form.AceptoTerminos" type="checkbox" class="form-check-input"/>
-			<label asp-for="Form.AceptoTerminos">
-				@AppStrings.iveReadAndAccept
-				<a asp-page="/Privacy" class="link link-primary link-bold">@AppStrings.theTermsAndConditions</a>.
-			</label>
-		</div>
-		
-		<button class="button button-primary" type="submit">@AppStrings.doRegister</button>
-	</form>
+			<div class="form-check">
+				<input asp-for="Form.AceptoTerminos" type="checkbox" class="form-check-input"/>
+				<label asp-for="Form.AceptoTerminos">
+					@AppStrings.iveReadAndAccept
+					<a asp-page="/Privacy" class="link link-primary link-bold">@AppStrings.theTermsAndConditions</a>.
+				</label>
+			</div>
 
+			<button class="button button-primary" type="submit">@AppStrings.doRegister</button>
+		</form>
+	}
 </div>

@@ -1,4 +1,4 @@
-namespace Mientreno.Server.Helpers.Mailing;
+namespace QueueWorker.Mailing;
 
 public interface IMailSender
 {

@@ -1,45 +1,45 @@
 ﻿@page
-@model IndexModel
 @{
-    ViewData["Title"] = "Inicio";
+	ViewData["Title"] = "Inicio";
 }
 
 <div id="landing">
 	<div id="hero">
-		<h1>Una nueva manera de entrenar</h1>
+		<h1>@AppStrings.landing_Titulo</h1>
 
-		<p>Mientreno te permite gestionar el progreso físico de tus clientes de forma sencilla y eficaz.</p>
+		<p>@AppStrings.landing_Subtitulo</p>
 
 		<div class="row">
-			<a class="button button-primary button-large" asp-page="/Signup">¡Regístrate ya!</a>
-			<a class="link link-white" asp-page="/Login">o inicia sesión</a>
+			<a class="button button-primary button-large" asp-page="/Register">@AppStrings.landing_RegistrateYa</a>
+			<a class="link link-white" asp-page="/Login">@AppStrings.landing_OIniciaSesion</a>
 		</div>
 	</div>
 	<div id="features">
+
 		<div id="feature-1" class="feature">
-			<h2>Dónde y cuando quieras</h2>
+			<h2>@AppStrings.landing_Feature1_Titulo</h2>
 
-			<p>Gestiona los entrenamientos de tus clientes desde cualquier dispositivo, en cualquier lugar. Y permite que tus clientes los consulten con rapidez y comodidad.</p>
+			<p>@AppStrings.landing_Feature1_Subtitulo</p>
 		</div>
-
+		
 		<div id="feature-2" class="feature">
-			<h2>A gusto del consumidor</h2>
+			<h2>@AppStrings.landing_Feature2_Titulo</h2>
 
-			<p>Define planes de entrenamiento adaptados a cada cliente, indicando instrucciones para cada ejercicio, cantidad de series, repeticiones y descansos.</p>
+			<p>@AppStrings.landing_Feature2_Subtitulo</p>
 		</div>
-
+		
 		<div id="feature-3" class="feature">
-			<h2>Historial de entrenamientos</h2>
+			<h2>@AppStrings.landing_Feature3_Titulo</h2>
 
-			<p>Consulta el historial de entrenamientos para ver la evolución del cliente. Mantén informes de estado periódicos. Recibe comentarios que te ayuden a ajustarte a sus necesidades.</p>
+			<p>@AppStrings.landing_Feature3_Subtitulo</p>
 		</div>
-
+		
 		<div id="feature-4" class="feature">
-			<h2>¡Y mucho más!</h2>
+			<h2>@AppStrings.landing_Feature4_Titulo</h2>
 
-			<p>¡Mientreno está en constante desarrollo! Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras.</p>
-			
-			<a asp-page="/Signup" class="button button-large button-primary">¡Regístrate ya!</a>
+			<p>@AppStrings.landing_Feature4_Subtitulo</p>
+
+			<a asp-page="/Signup" class="button button-large button-primary">@AppStrings.landing_RegistrateYa</a>
 		</div>
 	</div>
 
