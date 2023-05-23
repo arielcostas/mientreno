@@ -173,7 +173,4 @@
   <data name="usernameOrEmailAlreadyInUse" xml:space="preserve">
     <value>O nome de usuario ou dirección de correo xa están rexistrados.</value>
   </data>
-  <data name="youAcceptTermsAndConditions" xml:space="preserve">
-    <value>Ó rexistrarte, estás aceptando os nosos termos de uso e a nosa política de privacidade.</value>
-  </data>
 </root>

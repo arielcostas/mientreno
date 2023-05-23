@@ -132,6 +132,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to He leído y acepto.
+        /// </summary>
+        public static string iveReadAndAccept {
+            get {
+                return ResourceManager.GetString("iveReadAndAccept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inicio de sesión.
         /// </summary>
         public static string login {
@@ -222,6 +231,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to los términos y condiciones.
+        /// </summary>
+        public static string theTermsAndConditions {
+            get {
+                return ResourceManager.GetString("theTermsAndConditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nombre de usuario.
         /// </summary>
         public static string username {
@@ -236,15 +254,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string usernameOrEmailAlreadyInUse {
             get {
                 return ResourceManager.GetString("usernameOrEmailAlreadyInUse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Al registrarte, estás aceptando nuestros términos de uso y nuestra política de privacidad..
-        /// </summary>
-        public static string youAcceptTermsAndConditions {
-            get {
-                return ResourceManager.GetString("youAcceptTermsAndConditions", resourceCulture);
             }
         }
     }

@@ -1,3 +1,4 @@
+using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Helpers.Mailing;

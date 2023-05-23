@@ -55,23 +55,6 @@ h2 {
 }
 /*#endregion */
 
-/*#region Form validations */
-ul.validation-errors {
-	padding-left: 1.5em;
-	list-style-type: none;
-	color: var(--error);
-}
-
-input.modified.valid {
-	border-color: var(--darker-lime);
-}
-
-input.modified.invalid {
-	border-color: #ff0000;
-}
-
-/*#endregion */
-
 /*#region Buttons */
 .button {
 	font-size: 1.1em;
@@ -109,10 +92,26 @@ input.modified.invalid {
 /*#region Links */
 .link {
 	text-decoration: none;
+	transition: all 0.2s ease-in-out;
 }
 
 .link:hover {
 	text-decoration: underline;
+}
+
+.link-bold {
+	font-weight: bold;
+}
+
+.link-nav {
+	transform: translateY(2px);
+	border-bottom: 2px solid rgba(0, 0, 0, 0);
+}
+
+.link-nav:hover {
+	transform: translateY(0);
+	border-bottom-color: currentColor;
+	text-decoration: none;
 }
 
 .link-white {
@@ -136,6 +135,11 @@ form {
 	flex-direction: column;
 	color: var(--text);
 	width: 100%;
+}
+
+.form-group-double {
+	display: flex;
+	gap: 1.8rem;
 }
 
 input {

@@ -1,5 +1,8 @@
 namespace Mientreno.Compartido.Mensajes;
 
+/// <summary>
+/// Mensaje indicando que hay que enviar un email.
+/// </summary>
 public class Email : Mensaje
 {
 	public string Plantila { get; set; }

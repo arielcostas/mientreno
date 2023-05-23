@@ -30,7 +30,7 @@ public class Entrenador : Usuario
 	{
 	}
 }
-
+#pragma warning disable CS8618
 /// <summary>
 /// Un alumno es un usuario que recibe entrenamiento de un entrenador.
 /// </summary>
@@ -44,3 +44,4 @@ public class Alumno : Usuario
 	{
 	}
 }
+#pragma warning restore CS8618

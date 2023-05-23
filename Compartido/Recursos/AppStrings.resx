@@ -173,8 +173,8 @@
   <data name="usernameOrEmailAlreadyInUse" xml:space="preserve">
     <value>El nombre de usuario o dirección de correo ya están registrados.</value>
   </data>
-  <data name="youAcceptTermsAndConditions" xml:space="preserve">
-    <value>Al registrarte, estás aceptando nuestros términos de uso y nuestra política de privacidad.</value>
+  <data name="iveReadAndAccept" xml:space="preserve">
+	  <value>He leído y acepto</value>
   </data>
   <data name="registrationDoneEmailSent" xml:space="preserve">
 	  <value>Para confirmar tu cuenta, te hemos enviado un correo electrónico. Por favor, revisa tu bandeja de entrada.</value>
@@ -184,5 +184,8 @@
   </data>
   <data name="login" xml:space="preserve">
 	  <value>Inicio de sesión</value>
+  </data>
+  <data name="theTermsAndConditions" xml:space="preserve">
+	  <value>los términos y condiciones</value>
   </data>
 </root>

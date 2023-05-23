@@ -3,6 +3,9 @@ using System.Text.Json;
 
 namespace Mientreno.Compartido.Mensajes;
 
+/// <summary>
+/// Serializa y deserializa mensajes para enviarlos a la cola.
+/// </summary>
 public class Serializador
 {
 	public static byte[] Serializar(object o)

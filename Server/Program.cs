@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using Mientreno.Compartido.Recursos;
+using Mientreno.Compartido;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Helpers.Queue;
 using Mientreno.Server.Models;
@@ -17,7 +16,6 @@ using Sentry.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 var devel = builder.Environment.IsDevelopment();
-
 
 #region Sentry
 
@@ -41,13 +39,13 @@ builder.Services.AddRequestLocalization(options =>
 {
 	var supportedCultures = new[]
 	{
-		new CultureInfo("es"),
-		new CultureInfo("gl"),
-		new CultureInfo("ca"),
-		new CultureInfo("eu"),
+		new CultureInfo(Idiomas.Castellano),
+		new CultureInfo(Idiomas.Gallego),
+		new CultureInfo(Idiomas.Catalán),
+		new CultureInfo(Idiomas.Euskera),
 	};
 
-	options.DefaultRequestCulture = new RequestCulture("es");
+	options.DefaultRequestCulture = new RequestCulture(Idiomas.Castellano);
 	options.SupportedCultures = supportedCultures;
 	options.SupportedUICultures = supportedCultures;
 });
@@ -57,8 +55,7 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
 });
 
-builder.Services.AddDefaultIdentity<Usuario>()
-	.AddRoles<IdentityRole>()
+builder.Services.AddIdentity<Usuario, IdentityRole>()
 	.AddEntityFrameworkStores<ApplicationContext>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

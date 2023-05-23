@@ -1,0 +1,19 @@
+﻿div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 4rem;
+
+	padding: 0 12vw;
+	background: #131313;
+}
+
+div img {
+	height: 2rem;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
