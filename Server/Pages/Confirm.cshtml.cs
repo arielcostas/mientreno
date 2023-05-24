@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mientreno.Compartido;
@@ -35,9 +36,12 @@ public class ConfirmModel : PageModel
 
 		var result = await _userManager.ConfirmEmailAsync(usuario, Token);
 
+		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
+		var culture = rqf?.RequestCulture.Culture ?? CultureInfo.CurrentCulture;
+
 		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
 		{
-			Idioma = CultureInfo.CurrentCulture.TwoLetterISOLanguageName,
+			Idioma = culture.TwoLetterISOLanguageName,
 			NombreDestinatario = $"{usuario.Nombre} {usuario.Apellidos}",
 			DireccionDestinatario = usuario.Email!,
 			Plantila = Constantes.EmailBienvenida,

@@ -1,0 +1,12 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@using Mientreno.Server.Models
+@attribute [Authorize(Roles = Entrenador.RoleName)]
+@inject UserManager<Usuario> userManager
+@{
+	ViewData["Title"] = "Inicio";
+	var user = (await userManager.GetUserAsync(User))!;
+}
+
+<h3>Hola @user.Nombre</h3>

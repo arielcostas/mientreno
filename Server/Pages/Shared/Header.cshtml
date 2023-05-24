@@ -2,23 +2,35 @@
 @using Mientreno.Server.Models
 @inject UserManager<Usuario> UserManager
 
+@{ var usuario = UserManager.GetUserAsync(User).Result; }
 
-<div>
-	<a asp-page="/">
-		<img src="isotipo.png" alt="mientreno" id="isotipo"/>
-	</a>
+@if (usuario is null)
+{
+	<div>
+		<a asp-page="/Index">
+			<img src="isotipo.png" alt="mientreno" id="isotipo"/>
+		</a>
 
-	@{ var usuario = UserManager.GetUserAsync(User).Result; }
-	<nav>
-		@if (usuario is null)
-		{
+		<nav>
 			<a asp-page="/Login" class="link link-white link-nav">@AppStrings.doLogin</a>
 			<a asp-page="/Register" class="link link-white link-bold link-nav">@AppStrings.doRegister</a>
-		}
-		else
-		{
-			<a asp-page="/Dashboard" class="link link-white link-nav">@AppStrings.hello, @usuario.Nombre</a>
-		}
-	</nav>
+		</nav>
+	</div>
+}
+else
+{
+	<environment include="@Environments.Development">
+		@Html.Raw( string.Join("<br />", User.Claims.Select(c => $"{c.Type} => {c.Value}" ))) )
+	</environment>
+	<div>
+		<a asp-page="/Dashboard">
+			<img src="isotipo.png" alt="mientreno" id="isotipo"/>
+		</a>
 
-</div>
+		<nav>
+			<a asp-page="/Dashboard" class="link link-white link-nav">@AppStrings.hello, @usuario.Nombre</a>
+
+		</nav>
+
+	</div>
+}

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mientreno.Compartido;
@@ -14,12 +15,15 @@ namespace Mientreno.Server.Pages;
 public class RegisterModel : PageModel
 {
 	private readonly UserManager<Usuario> _userManager;
+	private readonly RoleManager<IdentityRole> _roleManager;
 	private readonly IQueueProvider _queueProvider;
 
-	public RegisterModel(UserManager<Usuario> userManager, IQueueProvider queueProvider)
+	public RegisterModel(UserManager<Usuario> userManager, IQueueProvider queueProvider,
+		RoleManager<IdentityRole> roleManager)
 	{
 		_userManager = userManager;
 		_queueProvider = queueProvider;
+		_roleManager = roleManager;
 	}
 
 	[BindProperty] public RegisterForm Form { get; set; } = new();
@@ -38,6 +42,16 @@ public class RegisterModel : PageModel
 			Email = Form.Email
 		};
 
+		if (!await _roleManager.RoleExistsAsync(Entrenador.RoleName))
+		{
+			await _roleManager.CreateAsync(new IdentityRole(Entrenador.RoleName));
+		}
+		
+		if (!await _roleManager.RoleExistsAsync(Alumno.RoleName))
+		{
+			await _roleManager.CreateAsync(new IdentityRole(Alumno.RoleName));
+		}
+
 		var result = await _userManager.CreateAsync(nuevo, Form.Contraseña);
 		await _userManager.AddToRoleAsync(nuevo, Entrenador.RoleName);
 
@@ -47,7 +61,7 @@ public class RegisterModel : PageModel
 			ModelState.AddModelError(string.Empty, error.Description);
 		}
 
-		if (result.Errors.Count() > 0)
+		if (result.Errors.Any())
 		{
 			return Page();
 		}
@@ -59,9 +73,12 @@ public class RegisterModel : PageModel
 			Request.Scheme
 		);
 
+		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
+		var culture = rqf?.RequestCulture.Culture ?? CultureInfo.CurrentCulture;
+		
 		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
 		{
-			Idioma = CultureInfo.CurrentCulture.TwoLetterISOLanguageName,
+			Idioma = culture.TwoLetterISOLanguageName,
 			NombreDestinatario = $"{Form.Nombre} {Form.Apellidos}",
 			DireccionDestinatario = Form.Email,
 			Plantila = Constantes.EmailConfirmar,
