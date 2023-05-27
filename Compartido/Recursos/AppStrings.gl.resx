@@ -227,4 +227,28 @@
   <data name="landing_Feature3_Titulo" xml:space="preserve">
 	  <value>Historial de adestramentos</value>
   </data>
+  <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
+	  <value>A túa subscrición será renovada automáticamente o </value>
+  </data>
+  <data name="dashboard_SubscriptionWillEndAt" xml:space="preserve">
+	  <value>A túa subscrición non será renovada, e rematará o </value>
+  </data>
+  <data name="dashboard_SubscribedToPlan" xml:space="preserve">
+	  <value>Estás subscrito ao plan</value>
+  </data>
+  <data name="dashboard_MyStudents" xml:space="preserve">
+	  <value>Os meus alumnos</value>
+  </data>
+  <data name="dashboard_MySubscription" xml:space="preserve">
+	  <value>A miña subscrición</value>
+  </data>
+  <data name="dashboard" xml:space="preserve">
+	  <value>O taboleiro</value>
+  </data>
+  <data name="alumnos" xml:space="preserve">
+	  <value>Alumnos</value>
+  </data>
+  <data name="ejercicios" xml:space="preserve">
+	  <value>Exercicios</value>
+  </data>
 </root>

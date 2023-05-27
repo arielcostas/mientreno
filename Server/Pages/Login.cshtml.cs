@@ -22,6 +22,9 @@ public class LoginModel : PageModel
 	
 	public string MensajeError { get; set; } = string.Empty;
 
+	[FromQuery]
+	public string? ReturnUrl { get; set; }
+	
 	public async Task<IActionResult> OnPost()
 	{
 		var user = await _userManager.FindByEmailAsync(Form.Email);
@@ -39,7 +42,7 @@ public class LoginModel : PageModel
 			false
 		);
 		
-		if (res.Succeeded) return RedirectToPage("/Index");
+		if (res.Succeeded) return Redirect(ReturnUrl ?? "/Index");
 		
 		MensajeError = AppStrings.errorInvalidCredentials;
 		return Page();

@@ -4,6 +4,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Mientreno.Compartido;
 using Mientreno.Server.Helpers;
@@ -30,10 +31,14 @@ if (!devel)
 	});
 	builder.Logging.AddSentry();
 }
+
 #endregion
 
 builder.Services.AddProblemDetails();
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+	options.Conventions.AuthorizeAreaFolder("Dashboard", "/");
+});
 
 builder.Services.AddRequestLocalization(options =>
 {
@@ -59,18 +64,18 @@ builder.Services.AddIdentity<Usuario, IdentityRole>()
 	.AddDefaultTokenProviders()
 	.AddEntityFrameworkStores<ApplicationContext>();
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-	.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
-	{
-		options.Cookie.Name = "_sd";
-		options.Cookie.SameSite = SameSiteMode.Strict;
-		options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-		options.Cookie.HttpOnly = true;
-		options.Cookie.IsEssential = true;
-
-		options.SlidingExpiration = true;
-		options.ExpireTimeSpan = TimeSpan.FromDays(30);
-	});
+builder.Services.ConfigureApplicationCookie(options =>
+{
+	options.LoginPath = "/Login";
+	options.LogoutPath = "/Logout";
+	options.AccessDeniedPath = "/Error"; // TODO: Create Error Page
+	options.Cookie.Name = "_met";
+	options.Cookie.HttpOnly = true;
+	options.Cookie.SameSite = SameSiteMode.Strict;
+	options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+	options.ExpireTimeSpan = TimeSpan.FromDays(7);
+	options.SlidingExpiration = true;
+});
 
 #region RabbitMQ
 
@@ -111,6 +116,7 @@ if (!devel)
 
 app.UseRequestLocalization();
 app.UseStaticFiles();
+
 app.MapRazorPages();
 
 app.Run();

@@ -1,0 +1,22 @@
+﻿@page
+@model AlumnosModel
+@{
+	ViewData["Title"] = "Dashboard";
+}
+
+<h2>@AppStrings.alumnos</h2>
+
+<ul>
+	@foreach (var alumno in Model.Alumnos)
+	{
+		<li>alumno.Nombre</li>
+	}
+</ul>
+
+<form method="post">
+	<div class="form-group">
+		<label for="email"></label>
+		<input type="email" id="email" name="email" placeholder="Email"/>
+	</div>
+	<input type="submit" value="Invitar" class="button button-primary"/>
+</form>

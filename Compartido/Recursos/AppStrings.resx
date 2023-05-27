@@ -227,4 +227,28 @@
   <data name="landing_Feature4_Subtitulo" xml:space="preserve">
 	  <value>¡Mientreno está en constante desarrollo! Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras.</value>
   </data>
+  <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
+	  <value>Tu suscripción será renovada automáticamente el </value>
+  </data>
+  <data name="dashboard_SubscriptionWillEndAt" xml:space="preserve">
+	  <value>Tu suscrpción no será renovada, y finalizará el </value>
+  </data>
+  <data name="dashboard_SubscribedToPlan" xml:space="preserve">
+	  <value>Estás suscrito al plan </value>
+  </data>
+  <data name="dashboard_MySubscription" xml:space="preserve">
+	  <value>Mi suscripción</value>
+  </data>
+  <data name="dashboard_MyStudents" xml:space="preserve">
+	  <value>Mis alumnos</value>
+  </data>
+  <data name="dashboard" xml:space="preserve">
+	  <value>Mi tablero</value>
+  </data>
+  <data name="alumnos" xml:space="preserve">
+	  <value>Alumnos</value>
+  </data>
+  <data name="ejercicios" xml:space="preserve">
+	  <value>Ejercicios</value>
+  </data>
 </root>

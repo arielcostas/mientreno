@@ -1,0 +1,43 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model DashboardModel
+@{
+	ViewData["Title"] = "Dashboard";
+}
+
+<h2>@AppStrings.dashboard</h2>
+<div class="card-holder">
+	<div class="card" id="card-alumnos">
+		<h3>@AppStrings.dashboard_MyStudents</h3>
+		<p>Tienes @Model.Entrenador.Alumnos.Count alumnos de un total de 3</p>
+		<a asp-page="/Dashboard/Alumnos" class="link link-primary link-bold">Gestionar alumnos</a>
+	</div>
+
+	<div class="card" id="card-suscripcion">
+		<h3>@AppStrings.dashboard_MySubscription</h3>
+		<div class="card-content">
+			<p>
+				@AppStrings.dashboard_SubscribedToPlan <b>@Model.UserSubscription.PlanName</b>.
+				@if (Model.UserSubscription.IsAutoRenewal)
+				{
+					@AppStrings.dashboard_SubscriptionWillBeRenewedAt @Model.UserSubscription.EndDate.ToString("D").ToLower()
+				}
+				else
+				{
+					@AppStrings.dashboard_SubscriptionWillEndAt @Model.UserSubscription.EndDate.ToString("D").ToLower()
+				}.
+			</p>
+			<a asp-page="/Dashboard/Suscripcion" class="link link-primary link-bold">Más detalles</a>
+
+			<meter value="@Model.UserSubscription.PercentageCompleted" max="100"> </meter>
+		</div>
+	</div>
+</div>
+
+<div class="events">
+	@foreach (var ev in Model.Events)
+	{
+		<p>Hace @Humanizer.TimeSpanHumanizeExtensions.Humanize(ev.TimeSinceEvent), @ev.AlumnoName realizó @ev.EventType</p>
+	}
+</div>

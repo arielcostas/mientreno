@@ -69,6 +69,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alumnos.
+        /// </summary>
+        public static string alumnos {
+            get {
+                return ResourceManager.GetString("alumnos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Volver.
         /// </summary>
         public static string back {
@@ -87,6 +96,60 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mi tablero.
+        /// </summary>
+        public static string dashboard {
+            get {
+                return ResourceManager.GetString("dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mis alumnos.
+        /// </summary>
+        public static string dashboard_MyStudents {
+            get {
+                return ResourceManager.GetString("dashboard_MyStudents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mi suscripción.
+        /// </summary>
+        public static string dashboard_MySubscription {
+            get {
+                return ResourceManager.GetString("dashboard_MySubscription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estás suscrito al plan .
+        /// </summary>
+        public static string dashboard_SubscribedToPlan {
+            get {
+                return ResourceManager.GetString("dashboard_SubscribedToPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tu suscripción será renovada automáticamente el .
+        /// </summary>
+        public static string dashboard_SubscriptionWillBeRenewedAt {
+            get {
+                return ResourceManager.GetString("dashboard_SubscriptionWillBeRenewedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tu suscrpción no será renovada, y finalizará el .
+        /// </summary>
+        public static string dashboard_SubscriptionWillEndAt {
+            get {
+                return ResourceManager.GetString("dashboard_SubscriptionWillEndAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Iniciar sesión.
         /// </summary>
         public static string doLogin {
@@ -101,6 +164,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string doRegister {
             get {
                 return ResourceManager.GetString("doRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ejercicios.
+        /// </summary>
+        public static string ejercicios {
+            get {
+                return ResourceManager.GetString("ejercicios", resourceCulture);
             }
         }
         
