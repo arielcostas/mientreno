@@ -9,6 +9,17 @@
 
 <div id="root">
 	<h1>@AppStrings.register</h1>
+
+	@if (Model.Invitacion is not null)
+	{
+		<div class="alert alert-good">
+			<strong class="alert-title">@Model.Invitacion.Entrenador.Nombre te ha invitado a entrenar.</strong>
+			<p>
+				Te estás registrando como Alumno de <strong>@Model.Invitacion.Entrenador.NombreCompleto.</strong>.
+			</p>
+		</div>
+	}
+
 	@if (Model.EmailSent)
 	{
 		<p>@AppStrings.registrationDoneEmailSent</p>

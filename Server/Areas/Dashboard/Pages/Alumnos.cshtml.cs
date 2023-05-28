@@ -32,12 +32,12 @@ public class AlumnosModel : PageModel
 		if (!ModelState.IsValid) return Page();
 
 		var entrenador = (await _userManager.GetUserAsync(User) as Entrenador)!;
-
+		
 		Invitacion invitacion = new()
 		{
 			Entrenador = entrenador,
 			Usos = 0,
-			MaximoUsos = (byte)Form.Cantidad
+			MaximoUsos = byte.Parse(Request.Form["cantidad"].FirstOrDefault() ?? "0")
 		};
 
 		entrenador.Invitaciones.Add(invitacion);

@@ -13,6 +13,8 @@ public class Usuario : IdentityUser
 
 	public DateTime FechaAlta { get; set; }
 	public DateTime? FechaEliminacion { get; set; }
+	
+	public string NombreCompleto => $"{Nombre} {Apellidos}";
 }
 
 /// <summary>
