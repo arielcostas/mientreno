@@ -1,6 +1,7 @@
 /*#region Defaults */
 :root {
 	--font-sans: "Liberation Sans", 'Verdana Pro', 'Verdana', 'Helvetica Neue', Arial, Helvetica, 'Segoe UI', system-ui, sans-serif;
+	--font-mono: 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Lucida Console', Monaco, monospace;
 	font-family: var(--font-sans);
 	font-size: 16px;
 	line-height: 1.5;
@@ -36,6 +37,11 @@ body {
 	background: #ececf0;
 }
 
+main {
+	display: flex;
+	flex-direction: column;
+}
+
 h1 {
 	font-size: 4em;
 }
@@ -46,6 +52,10 @@ h2 {
 
 .text-danger {
 	color: var(--error);
+}
+
+.code {
+	font-family: var(--font-mono);
 }
 
 @media screen and (max-width: 768px) {
@@ -99,6 +109,11 @@ h2 {
 	transition: all 0.2s ease-in-out;
 }
 
+.link::selection {
+	background: #fff;
+	color: blue;
+}
+
 .link:hover {
 	text-decoration: underline;
 }
@@ -122,8 +137,18 @@ h2 {
 	color: #fff;
 }
 
+.link-white::selection {
+	background: #fff;
+	color: #222;
+}
+
 .link-primary {
 	color: var(--primary-aqua);
+}
+
+.link-primary::selection {
+	background: var(--primary-aqua);
+	color: #fff;
 }
 /*#endregion */
 
@@ -173,5 +198,41 @@ header nav {
 	display: flex;
 	align-items: center;
 	gap: 1.5rem;
+}
+/*#endregion */
+
+
+/*#region Grid */
+.grid {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.grid-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+/*#endregion */
+
+/*#region Alerts */
+.alert {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	font-size: 1.1em;
+}
+
+.alert-title {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.alert-bad {
+	background-color: var(--error);
+}
+
+.alert-good {
+	background-color: var(--lighter-aqua);
 }
 /*#endregion */

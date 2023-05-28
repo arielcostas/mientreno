@@ -53,9 +53,16 @@ public class ApplicationContext : IdentityDbContext
 		entrenador.HasMany(en => en.Categorias)
 			.WithOne(c => c.Owner)
 			.OnDelete(DeleteBehavior.Cascade);
+		
+		// Invitación del entrenador a un futuro alumno.
+		entrenador.HasMany<Invitacion>(e => e.Invitaciones)
+			.WithOne(i => i.Entrenador);
 	}
 
 	public required DbSet<Entrenador> Entrenadores { get; set; }
 	public required DbSet<Alumno> Alumnos { get; set; }
+	public required DbSet<Invitacion> Invitaciones { get; set; }
 	public required DbSet<Cuestionario> Cuestionarios { get; set; }
+	public required DbSet<Ejercicio> Ejercicios { get; set; }
+	public required DbSet<Categoria> Categorias { get; set; }
 }

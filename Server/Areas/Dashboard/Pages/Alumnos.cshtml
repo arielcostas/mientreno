@@ -4,19 +4,49 @@
 	ViewData["Title"] = "Dashboard";
 }
 
-<h2>@AppStrings.alumnos</h2>
+<main>
+	<h2>@AppStrings.alumnos</h2>
 
-<ul>
-	@foreach (var alumno in Model.Alumnos)
+	@if (Model.EnlaceInvitacion is null)
 	{
-		<li>alumno.Nombre</li>
+		<form role="form" method="post" id="form-invite"></form>
+		<div id="generate-invite">
+			<label asp-for="Form.Cantidad"form="form-invite">Invitaciones</label>
+			<select asp-for="Form.Cantidad" form="form-invite">
+				@for (var i = 1; i <= 3; i++)
+				{
+					<option value="@i">@i</option>
+				}
+			</select>
+			<input type="submit" value="Invitar" class="button button-primary" form="form-invite"/>
+		</div>
 	}
-</ul>
+	else
+	{
+		<div class="alert alert-good">
+			<strong class="alert-title">Invitación creada</strong>
+			<p>
+				Comparte el siguiente enlace con tu(s) alumno(s):
+				<a href="@Model.EnlaceInvitacion" class="link link-bold code">@Model.EnlaceInvitacion</a>
+			</p>
+		</div>
+	}
 
-<form method="post">
-	<div class="form-group">
-		<label for="email"></label>
-		<input type="email" id="email" name="email" placeholder="Email"/>
+	<div class="grid grid-3">
+		<div class="alumno">
+			<img src="https://www.borbay.com/wp-content/uploads/2014/01/Walter-White-Source-Image-by-Borbay.jpg" alt="Imagen de Walter White"/>
+			<h3>Walter White</h3>
+		</div>
+
+		<div class="alumno">
+			<img src="https://yt3.ggpht.com/a/AATXAJweKWX2VUeZXd8AhTBLwGQwkago-uO2VCTpfw=s900-c-k-c0xffffffff-no-rj-mo" alt="Imagen de Jesse Pinkman"/>
+			<h3>Jesse Pinkman</h3>
+		</div>
+
+		<div class="alumno">
+			<img src="https://pbs.twimg.com/profile_images/378800000470304954/8eadbe17cfe4a3ec5771089778a09113.jpeg" alt="Imagen de Saul Goodman"/>
+			<h3>Saul Goodman</h3>
+		</div>
 	</div>
-	<input type="submit" value="Invitar" class="button button-primary"/>
-</form>
+
+</main>

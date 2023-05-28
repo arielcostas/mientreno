@@ -25,10 +25,7 @@ public class Entrenador : Usuario
 
 	public List<Ejercicio> Ejercicios { get; set; } = new();
 	public List<Categoria> Categorias { get; set; } = new();
-
-	public Entrenador()
-	{
-	}
+	public List<Invitacion> Invitaciones { get; set; } = new();
 }
 #pragma warning disable CS8618
 /// <summary>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mientreno.Server.Helpers;
 
@@ -11,9 +12,11 @@ using Mientreno.Server.Helpers;
 namespace Server.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230528091725_InvitacionesReutilizables")]
+    partial class InvitacionesReutilizables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
