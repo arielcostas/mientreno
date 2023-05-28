@@ -60,6 +60,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cuenta confirmada.
+        /// </summary>
+        public static string accountConfirmed {
+            get {
+                return ResourceManager.GetString("accountConfirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ¿Ya tienes cuenta? Inicia sesión..
         /// </summary>
         public static string alreadyHaveAccountLogin {
@@ -74,15 +83,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string alumnos {
             get {
                 return ResourceManager.GetString("alumnos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Volver.
-        /// </summary>
-        public static string back {
-            get {
-                return ResourceManager.GetString("back", resourceCulture);
             }
         }
         
@@ -191,15 +191,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string errorInvalidCredentials {
             get {
                 return ResourceManager.GetString("errorInvalidCredentials", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hubo un error inesperado. Inténtalo de nuevo más tarde..
-        /// </summary>
-        public static string errorUnexpected {
-            get {
-                return ResourceManager.GetString("errorUnexpected", resourceCulture);
             }
         }
         
@@ -375,15 +366,6 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to La contraseña es demasiado débil. Debe contener al menos 8 caracteres, con mayúsculas y minúsculas, números y/o símbolos..
-        /// </summary>
-        public static string passwordTooWeak {
-            get {
-                return ResourceManager.GetString("passwordTooWeak", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Registro.
         /// </summary>
         public static string register {
@@ -429,20 +411,11 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre de usuario.
+        ///   Looks up a localized string similar to Tu cuenta ha sido confirmada. Ya puedes iniciar sesión y empezar a utilizar MiEntreno..
         /// </summary>
-        public static string username {
+        public static string yourAccountHasBeenConfirmed {
             get {
-                return ResourceManager.GetString("username", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to El nombre de usuario o dirección de correo ya están registrados..
-        /// </summary>
-        public static string usernameOrEmailAlreadyInUse {
-            get {
-                return ResourceManager.GetString("usernameOrEmailAlreadyInUse", resourceCulture);
+                return ResourceManager.GetString("yourAccountHasBeenConfirmed", resourceCulture);
             }
         }
     }

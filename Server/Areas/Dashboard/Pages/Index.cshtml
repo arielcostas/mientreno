@@ -10,7 +10,7 @@
 <div class="card-holder">
 	<div class="card" id="card-alumnos">
 		<h3>@AppStrings.dashboard_MyStudents</h3>
-		<p>Tienes @Model.Entrenador.Alumnos.Count alumnos de un total de 3</p>
+		<p>Tienes @Model.Alumnos alumnos de un total de 3</p>
 		<a asp-page="/Dashboard/Alumnos" class="link link-primary link-bold">Gestionar alumnos</a>
 	</div>
 
@@ -33,11 +33,4 @@
 			<meter value="@Model.UserSubscription.PercentageCompleted" max="100"> </meter>
 		</div>
 	</div>
-</div>
-
-<div class="events">
-	@foreach (var ev in Model.Events)
-	{
-		<p>Hace @Humanizer.TimeSpanHumanizeExtensions.Humanize(ev.TimeSinceEvent), @ev.AlumnoName realizó @ev.EventType</p>
-	}
 </div>

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
 using Mientreno.Compartido.Recursos;
@@ -32,7 +33,7 @@ public class RegisterModel : PageModel
 
 	[FromQuery(Name = "inv")] public string? InvitacionCode { get; set; } = string.Empty;
 	public Invitacion? Invitacion { get; set; }
-	
+
 	[BindProperty] public RegisterForm Form { get; set; } = new();
 
 	public bool EmailSent { get; set; }
@@ -40,45 +41,73 @@ public class RegisterModel : PageModel
 	public async Task<IActionResult> OnGetAsync()
 	{
 		if (string.IsNullOrEmpty(InvitacionCode)) return Page();
-		
+
 		var invitacion = await _context.Invitaciones
 			.Include(i => i.Entrenador)
 			.FirstOrDefaultAsync(i => i.Id == InvitacionCode);
-		
+
 		if (invitacion is null || !invitacion.Usable)
 		{
-		Console.WriteLine(invitacion.Usable);
+			Console.WriteLine(invitacion.Usable);
 			return Page();
 		}
-		
+
 		Invitacion = invitacion;
 		return Page();
 	}
-	
+
 	public async Task<IActionResult> OnPost()
 	{
-		Entrenador nuevo = new()
-		{
-			Nombre = Form.Nombre,
-			Apellidos = Form.Apellidos,
-			FechaAlta = DateTime.Now,
-
-			UserName = Form.Email,
-			Email = Form.Email
-		};
-
 		if (!await _roleManager.RoleExistsAsync(Entrenador.RoleName))
 		{
 			await _roleManager.CreateAsync(new IdentityRole(Entrenador.RoleName));
 		}
-		
+
 		if (!await _roleManager.RoleExistsAsync(Alumno.RoleName))
 		{
 			await _roleManager.CreateAsync(new IdentityRole(Alumno.RoleName));
 		}
 
+		Usuario nuevo;
+		if (InvitacionCode.IsNullOrEmpty())
+		{
+			nuevo = new Entrenador
+			{
+				Nombre = Form.Nombre,
+				Apellidos = Form.Apellidos,
+				FechaAlta = DateTime.Now,
+
+				UserName = Form.Email,
+				Email = Form.Email
+			};
+		}
+		else
+		{
+			var invitacion = await _context.Invitaciones
+				.Include(i => i.Entrenador)
+				.FirstOrDefaultAsync(i => i.Id == InvitacionCode);
+
+			if (invitacion is null || !invitacion.Usable) return Forbid();
+			
+			nuevo = new Alumno
+			{
+				Nombre = Form.Nombre,
+				Apellidos = Form.Apellidos,
+				FechaAlta = DateTime.Now,
+				Entrenador = invitacion.Entrenador,
+
+				UserName = Form.Email,
+				Email = Form.Email
+			};
+			
+			invitacion.Usos += 1;
+			await _context.SaveChangesAsync();
+		}
+		
 		var result = await _userManager.CreateAsync(nuevo, Form.Contraseña);
-		await _userManager.AddToRoleAsync(nuevo, Entrenador.RoleName);
+
+		var rol = nuevo is Entrenador ? Entrenador.RoleName : Alumno.RoleName;
+		await _userManager.AddToRoleAsync(nuevo, rol);
 
 		foreach (var error in result.Errors)
 		{
@@ -100,17 +129,20 @@ public class RegisterModel : PageModel
 
 		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
 		var culture = rqf?.RequestCulture.Culture ?? CultureInfo.CurrentCulture;
-		
+
 		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
 		{
 			Idioma = culture.TwoLetterISOLanguageName,
 			NombreDestinatario = $"{Form.Nombre} {Form.Apellidos}",
 			DireccionDestinatario = Form.Email,
-			Plantila = Constantes.EmailConfirmar,
+			Plantila = nuevo is Entrenador
+				? Constantes.EmailConfirmar
+				: Constantes.EmailConfirmarAlumno,
 			Parametros = new[] { Form.Nombre, urlConfirmacion! }
 		});
 
 		EmailSent = true;
+		
 		return Page();
 	}
 

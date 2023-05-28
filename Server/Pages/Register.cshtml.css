@@ -16,6 +16,10 @@
 	margin-bottom: 2rem;
 }
 
+.alert {
+	margin-bottom: 1rem;
+}
+
 /*::deep .form-check {
 	margin-left: 1rem;
 	display: flex;

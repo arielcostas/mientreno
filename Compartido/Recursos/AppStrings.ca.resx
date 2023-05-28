@@ -136,9 +136,6 @@
     <value>Usuari o contrasenya incorrectes</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
-  <data name="errorUnexpected" xml:space="preserve">
-    <value>Hi va haver un error inesperat. Intem-ho de nou més tard.</value>
-  </data>
   <data name="name" xml:space="preserve">
 	  <value>Nom</value>
 	  <comment>Nombre real de una persona (no confundir con username)</comment>
@@ -153,9 +150,6 @@
   <data name="passwordsDoNotMatch" xml:space="preserve">
     <value>Les contrasenyes no coincideixen</value>
   </data>
-  <data name="passwordTooWeak" xml:space="preserve">
-    <value>La contraseña es demasiado débil. Debe contener al menos 8 caracteres, con mayúsculas y minúsculas, números y/o símbolos.</value>
-  </data>
   <data name="register" xml:space="preserve">
     <value>Registro</value>
     <comment>Título de la página de registro</comment>
@@ -163,11 +157,5 @@
   <data name="surname" xml:space="preserve">
     <value>Apellidos</value>
     <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
-  </data>
-  <data name="username" xml:space="preserve">
-    <value>Nombre de usuario</value>
-  </data>
-  <data name="usernameOrEmailAlreadyInUse" xml:space="preserve">
-    <value>El nombre de usuario o dirección de correo ya están registrados.</value>
   </data>
 </root>

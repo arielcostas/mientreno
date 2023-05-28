@@ -136,9 +136,6 @@
     <value>Usuario o contraseña incorrectos</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
-  <data name="errorUnexpected" xml:space="preserve">
-    <value>Hubo un error inesperado. Inténtalo de nuevo más tarde.</value>
-  </data>
   <data name="name" xml:space="preserve">
     <value>Nombre</value>
     <comment>Nombre real de una persona (no confundir con username)</comment>
@@ -153,9 +150,6 @@
   <data name="passwordsDoNotMatch" xml:space="preserve">
     <value>Las contraseñas no coinciden</value>
   </data>
-  <data name="passwordTooWeak" xml:space="preserve">
-    <value>La contraseña es demasiado débil. Debe contener al menos 8 caracteres, con mayúsculas y minúsculas, números y/o símbolos.</value>
-  </data>
   <data name="register" xml:space="preserve">
     <value>Registro</value>
     <comment>Título de la página de registro</comment>
@@ -164,20 +158,11 @@
     <value>Apellidos</value>
     <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
   </data>
-  <data name="username" xml:space="preserve">
-    <value>Nombre de usuario</value>
-  </data>
-  <data name="usernameOrEmailAlreadyInUse" xml:space="preserve">
-    <value>El nombre de usuario o dirección de correo ya están registrados.</value>
-  </data>
   <data name="iveReadAndAccept" xml:space="preserve">
 	  <value>He leído y acepto</value>
   </data>
   <data name="registrationDoneEmailSent" xml:space="preserve">
 	  <value>Para confirmar tu cuenta, te hemos enviado un correo electrónico. Por favor, revisa tu bandeja de entrada.</value>
-  </data>
-  <data name="back" xml:space="preserve">
-	  <value>Volver</value>
   </data>
   <data name="login" xml:space="preserve">
 	  <value>Inicio de sesión</value>
@@ -250,5 +235,11 @@
   </data>
   <data name="ejercicios" xml:space="preserve">
 	  <value>Ejercicios</value>
+  </data>
+  <data name="accountConfirmed" xml:space="preserve">
+	  <value>Cuenta confirmada</value>
+  </data>
+  <data name="yourAccountHasBeenConfirmed" xml:space="preserve">
+	  <value>Tu cuenta ha sido confirmada. Ya puedes iniciar sesión y empezar a utilizar MiEntreno.</value>
   </data>
 </root>

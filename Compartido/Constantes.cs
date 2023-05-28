@@ -4,8 +4,10 @@ public sealed class Constantes
 {
 	public const string ColaEmails = "emails";
 
-	public const string EmailConfirmar = "Confirm";
-	public const string EmailBienvenida = "Welcome";
+	public const string EmailConfirmar = "Confirmar";
+	public const string EmailBienvenida = "Bienvenido";
+	public const string EmailConfirmarAlumno = "ConfirmarAlumno";
+	public const string EmailBienvenidaAlumno = "BienvenidoAlumno";
 }
 
 public sealed class Idiomas

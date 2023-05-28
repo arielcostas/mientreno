@@ -136,9 +136,6 @@
     <value>Usuario ou contrasinal incorrectos</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
-  <data name="errorUnexpected" xml:space="preserve">
-    <value>Houbo un erro inesperado. Inténtao de novo máis tarde.</value>
-  </data>
   <data name="name" xml:space="preserve">
     <value>Nome</value>
     <comment>Nombre real de una persona (no confundir con username)</comment>
@@ -153,9 +150,6 @@
   <data name="passwordsDoNotMatch" xml:space="preserve">
     <value>Os contrasinais non coinciden</value>
   </data>
-  <data name="passwordTooWeak" xml:space="preserve">
-    <value>O contrasinal é demasiado débil. Debe conter polo menos 8 caracteres, con maiúsculas e minúsculas, números e/ou símbolos.</value>
-  </data>
   <data name="register" xml:space="preserve">
     <value>Rexistro</value>
     <comment>Título de la página de registro</comment>
@@ -163,12 +157,6 @@
   <data name="surname" xml:space="preserve">
     <value>Apelidos</value>
     <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
-  </data>
-  <data name="username" xml:space="preserve">
-    <value>Nome de usuario</value>
-  </data>
-  <data name="usernameOrEmailAlreadyInUse" xml:space="preserve">
-    <value>O nome de usuario ou dirección de correo xa están rexistrados.</value>
   </data>
   <data name="iveReadAndAccept" xml:space="preserve">
 	  <value>Lín e acepto</value>
@@ -193,9 +181,6 @@
   </data>
   <data name="registrationDoneEmailSent" xml:space="preserve">
 	  <value>Para confirmar a túa conta, enviámoste un correo-e. Por favor, revisa a túa bandexa de entrada.</value>
-  </data>
-  <data name="back" xml:space="preserve">
-	  <value>Voltar</value>
   </data>
   <data name="rememberMe" xml:space="preserve">
 	  <value>Manter sesión iniciada</value>

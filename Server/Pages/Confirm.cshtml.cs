@@ -38,13 +38,17 @@ public class ConfirmModel : PageModel
 
 		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
 		var culture = rqf?.RequestCulture.Culture ?? CultureInfo.CurrentCulture;
+		
+		var roles = await _userManager.GetRolesAsync(usuario);
 
 		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
 		{
 			Idioma = culture.TwoLetterISOLanguageName,
 			NombreDestinatario = $"{usuario.Nombre} {usuario.Apellidos}",
 			DireccionDestinatario = usuario.Email!,
-			Plantila = Constantes.EmailBienvenida,
+			Plantila = roles.Contains(Entrenador.RoleName)
+				? Constantes.EmailBienvenida
+				: Constantes.EmailBienvenidaAlumno,
 			Parametros = new[] { usuario.Nombre }
 		});
 
