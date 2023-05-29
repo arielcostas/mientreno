@@ -254,3 +254,6 @@ FodyWeavers.xsd
 
 # Rider generated files
 .idea/
+.vscode/
+
+*.sln.DotSettings.*
