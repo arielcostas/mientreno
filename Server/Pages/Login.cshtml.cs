@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mientreno.Compartido.Recursos;
-using Mientreno.Server.Models;
+using Mientreno.Server.Data.Models;
 
 namespace Mientreno.Server.Pages;
 

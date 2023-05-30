@@ -7,7 +7,7 @@ using RabbitMQ.Client.Events;
 using Sentry;
 using SkiaSharp;
 
-namespace QueueWorker;
+namespace Mientreno.QueueWorker;
 
 public class ProfilePhotoGeneratorWorker : BackgroundService
 {
@@ -44,14 +44,17 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 		await base.StartAsync(cancellationToken);
 	}
 
-	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+	protected override Task ExecuteAsync(CancellationToken stoppingToken)
 	{
-		var consumer = new EventingBasicConsumer(_channel);
-		consumer.Received += OnReceived;
-		_channel.BasicConsume(Constantes.ColaGenerarFotoPerfil, false, consumer);
+		return Task.Run(() =>
+		{
+			var consumer = new EventingBasicConsumer(_channel);
+			consumer.Received += OnReceived;
+			_channel.BasicConsume(Constantes.ColaGenerarFotoPerfil, false, consumer);
+		}, stoppingToken);
 	}
 
-	private async void OnReceived(object? sender, BasicDeliverEventArgs e)
+	private void OnReceived(object? sender, BasicDeliverEventArgs e)
 	{
 		var tx = _hub.StartTransaction("process-email", "Generar y guardar foto de perfil");
 
@@ -85,9 +88,9 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 
 	public override Task StopAsync(CancellationToken cancellationToken)
 	{
-		_logger.LogInformation("Stopping model...");
+		_logger.LogInformation("Stopping profile photo generator...");
 		_channel?.Close();
-		_logger.LogInformation("Model stopped...");
+		_logger.LogInformation("Profile photo generator stopped...");
 		return base.StopAsync(cancellationToken);
 	}
 

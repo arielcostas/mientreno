@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 using Markdig;
 
-namespace QueueWorker.Mailing;
+namespace Mientreno.QueueWorker.Mailing;
 
 /// <summary>
 /// It generates an <see cref="Email">Email</see> with the email message to be sent according to the template and the language.

@@ -1,11 +1,11 @@
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
-using QueueWorker.Mailing;
+using Mientreno.QueueWorker.Mailing;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Sentry;
 
-namespace QueueWorker;
+namespace Mientreno.QueueWorker;
 
 public class MailQueueWorker : BackgroundService
 {
@@ -37,11 +37,14 @@ public class MailQueueWorker : BackgroundService
 		await base.StartAsync(cancellationToken);
 	}
 
-	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+	protected override Task ExecuteAsync(CancellationToken stoppingToken)
 	{
-		var consumer = new EventingBasicConsumer(_channel);
-		consumer.Received += OnReceived;
-		_channel.BasicConsume(Constantes.ColaEmails, false, consumer);
+		return Task.Run(() =>
+		{
+			var consumer = new EventingBasicConsumer(_channel);
+			consumer.Received += OnReceived;
+			_channel.BasicConsume(Constantes.ColaEmails, false, consumer);
+		}, stoppingToken);
 	}
 
 	private async void OnReceived(object? sender, BasicDeliverEventArgs e)
@@ -74,9 +77,9 @@ public class MailQueueWorker : BackgroundService
 
 	public override Task StopAsync(CancellationToken cancellationToken)
 	{
-		_logger.LogInformation("Stopping model...");
+		_logger.LogInformation("Stopping mail worker...");
 		_channel?.Close();
-		_logger.LogInformation("Model stopped...");
+		_logger.LogInformation("Mail worker stopped...");
 		return base.StopAsync(cancellationToken);
 	}
 }

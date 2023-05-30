@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text;
-using Mientreno.Server.Helpers;
+using Mientreno.Server.Service;
 
-namespace Mientreno.Server.Models;
+namespace Mientreno.Server.Data.Models;
 
 public class Invitacion
 {

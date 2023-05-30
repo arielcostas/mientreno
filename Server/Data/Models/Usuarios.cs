@@ -1,7 +1,6 @@
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
-namespace Mientreno.Server.Models;
+namespace Mientreno.Server.Data.Models;
 
 /// <summary>
 /// Un usuario genérico, con su ID, datos básicos y credenciales.
@@ -23,6 +22,12 @@ public class Usuario : IdentityUser
 public class Entrenador : Usuario
 {
 	public const string RoleName = "Entrenador";
+
+	public Suscripcion Suscripcion { get; set; } = new()
+	{
+		Estado = EstadoSuscripcion.NoSuscrito
+	};
+	
 	public List<Alumno> Alumnos { get; set; } = new();
 
 	public List<Ejercicio> Ejercicios { get; set; } = new();

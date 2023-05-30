@@ -5,6 +5,8 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>dotnet-QueueWorker-6f6ccc84-845f-435b-922e-10dda5ca1eec</UserSecretsId>
+
+		<RootNamespace>Mientreno.QueueWorker</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>

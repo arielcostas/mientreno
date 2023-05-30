@@ -1,4 +1,4 @@
-﻿namespace Mientreno.Server.Helpers;
+﻿namespace Mientreno.Server.Service;
 
 public static class RandomString
 {

@@ -1,20 +1,25 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Mientreno.Server.Helpers;
-using Mientreno.Server.Models;
+using Mientreno.Server.Data;
+using Mientreno.Server.Data.Models;
+using Mientreno.Server.Service;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages;
 
 public class DashboardModel : PageModel
 {
 	private readonly UserManager<Usuario> _userManager;
-	private readonly ApplicationContext _context;
+	private readonly ApplicationDatabaseContext _databaseContext;
 	
-	public DashboardModel(UserManager<Usuario> userManager, ApplicationContext context)
+	public DashboardModel(UserManager<Usuario> userManager, ApplicationDatabaseContext databaseContext)
 	{
 		_userManager = userManager;
-		_context = context;
+		_databaseContext = databaseContext;
+
+		UserSubscription = null!;
+		Entrenador = null!;
+		Alumnos = 0;
 	}
 
 	public Subscription UserSubscription;
@@ -26,7 +31,7 @@ public class DashboardModel : PageModel
 		UserSubscription = new Subscription("Basic", DateTime.Now.AddDays(-28), DateTime.Now.AddDays(1), true);
 		Entrenador = (await _userManager.GetUserAsync(User) as Entrenador)!;
 		
-		Alumnos = _context.Alumnos.Count(a => a.Entrenador == Entrenador);
+		Alumnos = _databaseContext.Alumnos.Count(a => a.Entrenador == Entrenador);
 		
 		return Page();
 	}

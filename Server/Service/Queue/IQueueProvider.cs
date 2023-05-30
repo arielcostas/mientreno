@@ -1,6 +1,6 @@
 using Mientreno.Compartido.Mensajes;
 
-namespace Mientreno.Server.Helpers.Queue;
+namespace Mientreno.Server.Service.Queue;
 
 public interface IQueueProvider
 {

@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Mientreno.Server.Models;
+using Mientreno.Server.Data.Models;
 
-namespace Mientreno.Server.Helpers;
+namespace Mientreno.Server.Data;
 
-public class ApplicationContext : IdentityDbContext
+public class ApplicationDatabaseContext : IdentityDbContext
 {
-	public ApplicationContext(DbContextOptions options) : base(options)
+	public ApplicationDatabaseContext(DbContextOptions options) : base(options)
 	{
 	}
 

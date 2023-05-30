@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Mientreno.Server.Models;
+namespace Mientreno.Server.Data.Models;
 
 #pragma warning disable CS8618 // Initialized by EF Core
 

@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
-using Mientreno.Server.Helpers.Queue;
-using Mientreno.Server.Models;
+using Mientreno.Server.Data.Models;
+using Mientreno.Server.Service.Queue;
 
 namespace Mientreno.Server.Pages;
 

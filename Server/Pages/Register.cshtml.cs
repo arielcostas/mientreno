@@ -9,26 +9,27 @@ using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
 using Mientreno.Compartido.Recursos;
-using Mientreno.Server.Helpers;
-using Mientreno.Server.Helpers.Queue;
-using Mientreno.Server.Models;
+using Mientreno.Server.Data;
+using Mientreno.Server.Data.Models;
+using Mientreno.Server.Service;
+using Mientreno.Server.Service.Queue;
 
 namespace Mientreno.Server.Pages;
 
 public class RegisterModel : PageModel
 {
-	private readonly ApplicationContext _context;
+	private readonly ApplicationDatabaseContext _databaseContext;
 	private readonly UserManager<Usuario> _userManager;
 	private readonly RoleManager<IdentityRole> _roleManager;
 	private readonly IQueueProvider _queueProvider;
 
 	public RegisterModel(UserManager<Usuario> userManager, IQueueProvider queueProvider,
-		RoleManager<IdentityRole> roleManager, ApplicationContext context)
+		RoleManager<IdentityRole> roleManager, ApplicationDatabaseContext databaseContext)
 	{
 		_userManager = userManager;
 		_queueProvider = queueProvider;
 		_roleManager = roleManager;
-		_context = context;
+		_databaseContext = databaseContext;
 	}
 
 	[FromQuery(Name = "inv")] public string? InvitacionCode { get; set; } = string.Empty;
@@ -42,7 +43,7 @@ public class RegisterModel : PageModel
 	{
 		if (string.IsNullOrEmpty(InvitacionCode)) return Page();
 
-		var invitacion = await _context.Invitaciones
+		var invitacion = await _databaseContext.Invitaciones
 			.Include(i => i.Entrenador)
 			.FirstOrDefaultAsync(i => i.Id == InvitacionCode);
 
@@ -83,7 +84,7 @@ public class RegisterModel : PageModel
 		}
 		else
 		{
-			var invitacion = await _context.Invitaciones
+			var invitacion = await _databaseContext.Invitaciones
 				.Include(i => i.Entrenador)
 				.FirstOrDefaultAsync(i => i.Id == InvitacionCode);
 
@@ -101,7 +102,7 @@ public class RegisterModel : PageModel
 			};
 			
 			invitacion.Usos += 1;
-			await _context.SaveChangesAsync();
+			await _databaseContext.SaveChangesAsync();
 		}
 		
 		var result = await _userManager.CreateAsync(nuevo, Form.Contraseña);

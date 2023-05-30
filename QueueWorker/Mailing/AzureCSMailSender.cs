@@ -1,7 +1,7 @@
 using Azure;
 using Azure.Communication.Email;
 
-namespace QueueWorker.Mailing;
+namespace Mientreno.QueueWorker.Mailing;
 
 public sealed class AzureCSMailSender : IMailSender
 {

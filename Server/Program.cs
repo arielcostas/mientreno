@@ -8,9 +8,10 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Mientreno.Compartido;
-using Mientreno.Server.Helpers;
-using Mientreno.Server.Helpers.Queue;
-using Mientreno.Server.Models;
+using Mientreno.Server.Data;
+using Mientreno.Server.Data.Models;
+using Mientreno.Server.Service;
+using Mientreno.Server.Service.Queue;
 using RabbitMQ.Client;
 using Sentry.AspNetCore;
 
@@ -53,14 +54,14 @@ builder.Services.AddRequestLocalization(options =>
 	options.SupportedUICultures = supportedCultures;
 });
 
-builder.Services.AddDbContext<ApplicationContext>(options =>
+builder.Services.AddDbContextPool<ApplicationDatabaseContext>(options =>
 {
 	options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
 });
 
 builder.Services.AddIdentity<Usuario, IdentityRole>()
 	.AddDefaultTokenProviders()
-	.AddEntityFrameworkStores<ApplicationContext>();
+	.AddEntityFrameworkStores<ApplicationDatabaseContext>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -125,5 +126,6 @@ app.UseFileServer(new FileServerOptions()
 });
 
 app.MapRazorPages();
+app.MapControllers();
 
 app.Run();

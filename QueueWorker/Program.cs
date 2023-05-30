@@ -1,5 +1,5 @@
-using QueueWorker;
-using QueueWorker.Mailing;
+using Mientreno.QueueWorker;
+using Mientreno.QueueWorker.Mailing;
 using RabbitMQ.Client;
 
 var hb = Host.CreateDefaultBuilder(args);

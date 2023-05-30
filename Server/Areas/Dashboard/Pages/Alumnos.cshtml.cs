@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Mientreno.Server.Models;
+using Mientreno.Server.Data.Models;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages;
 

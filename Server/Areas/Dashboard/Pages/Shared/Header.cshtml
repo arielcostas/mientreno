@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using Mientreno.Server.Models
+@using Mientreno.Server.Data.Models
 @inject UserManager<Usuario> UManager
 
 @{ var usuario = UManager.GetUserAsync(User).Result!; }

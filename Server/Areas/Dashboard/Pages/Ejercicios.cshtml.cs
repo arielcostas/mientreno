@@ -2,20 +2,24 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Mientreno.Server.Helpers;
-using Mientreno.Server.Models;
+using Mientreno.Server.Data;
+using Mientreno.Server.Data.Models;
+using Mientreno.Server.Service;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages;
 
 public class EjerciciosModel : PageModel
 {
-	private readonly ApplicationContext _context;
+	private readonly ApplicationDatabaseContext _databaseContext;
 	private readonly UserManager<Usuario> _userManager;
 
-	public EjerciciosModel(ApplicationContext context, UserManager<Usuario> userManager)
+	public EjerciciosModel(ApplicationDatabaseContext databaseContext, UserManager<Usuario> userManager)
 	{
-		_context = context;
+		_databaseContext = databaseContext;
 		_userManager = userManager;
+
+		Categorias = new List<Categoria>();
+		NuevaCategoriaName = string.Empty;
 	}
 
 	public List<Categoria> Categorias { get; set; }
@@ -25,7 +29,7 @@ public class EjerciciosModel : PageModel
 	{
 		var entrenador = (await _userManager.GetUserAsync(User) as Entrenador)!;
 
-		Categorias = await _context.Categorias
+		Categorias = await _databaseContext.Categorias
 			.Include(c => c.Ejercicios)
 			.Where(a => a.Owner.Id == entrenador.Id)
 			.ToListAsync();
@@ -40,7 +44,7 @@ public class EjerciciosModel : PageModel
 		}
 		
 		var entrenador = (await _userManager.GetUserAsync(User) as Entrenador)!;
-		var e2 = (await _context.Entrenadores.Include(e => e.Categorias).FirstOrDefaultAsync(e => e.Id == entrenador.Id))!;
+		var e2 = (await _databaseContext.Entrenadores.Include(e => e.Categorias).FirstOrDefaultAsync(e => e.Id == entrenador.Id))!;
 
 		var categoria = new Categoria
 		{
@@ -48,9 +52,9 @@ public class EjerciciosModel : PageModel
 		};
 		
 		e2.Categorias.Add(categoria);
-		await _context.SaveChangesAsync();
+		await _databaseContext.SaveChangesAsync();
 
-		Categorias = await _context.Categorias
+		Categorias = await _databaseContext.Categorias
 			.Include(c => c.Ejercicios)
 			.Where(a => a.Owner.Id == entrenador.Id)
 			.ToListAsync();
