@@ -10,12 +10,13 @@
 	<ItemGroup>
 		<PackageReference Include="Azure.Communication.Email" Version="1.0.0" />
 		<PackageReference Include="Markdig" Version="0.31.0" />
-
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+		
+		<PackageReference Include="SkiaSharp" Version="2.88.2" />
 
 		<PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
 		
-		<PackageReference Include="Sentry.Extensions.Logging" Version="3.31.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+		<PackageReference Include="Sentry.Extensions.Logging" Version="3.33.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -23,16 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="EmailTemplates\Confirm\default.md">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="EmailTemplates\Welcome\default.md">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="EmailTemplates\BienvenidoAlumno\default.md">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="EmailTemplates\ConfirmarAlumno\default.md">
+	  <None Update="EmailTemplates\**">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

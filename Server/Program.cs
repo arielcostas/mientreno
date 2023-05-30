@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Mientreno.Compartido;
 using Mientreno.Server.Helpers;
 using Mientreno.Server.Helpers.Queue;
@@ -35,10 +36,7 @@ if (!devel)
 #endregion
 
 builder.Services.AddProblemDetails();
-builder.Services.AddRazorPages(options =>
-{
-	options.Conventions.AuthorizeAreaFolder("Dashboard", "/");
-});
+builder.Services.AddRazorPages(options => { options.Conventions.AuthorizeAreaFolder("Dashboard", "/"); });
 
 builder.Services.AddRequestLocalization(options =>
 {
@@ -116,6 +114,15 @@ if (!devel)
 
 app.UseRequestLocalization();
 app.UseStaticFiles();
+
+app.UseFileServer(new FileServerOptions()
+{
+	RequestPath = "/Static",
+	FileProvider = new PhysicalFileProvider(
+		builder.Configuration["FileBase"] ?? throw new Exception("FileBase not set")
+	),
+	EnableDirectoryBrowsing = false,
+});
 
 app.MapRazorPages();
 

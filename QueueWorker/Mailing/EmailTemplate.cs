@@ -22,18 +22,21 @@ public partial class EmailTemplate
 		object[] parameters
 	)
 	{
-		var localizedFileExists = File.Exists(_templatePath + $"\\{template}\\{twoLetterLanguage}.md");
+		var thisTemplatePath = Path.Combine(_templatePath, template);
+		var localizedFileExists = File.Exists(
+			Path.Combine(thisTemplatePath, $"{twoLetterLanguage}.md")
+		);
 
 		var templateFile = localizedFileExists
-			? $"{template}\\{twoLetterLanguage}.md"
-			: $"{template}\\default.md";
+			? Path.Combine(thisTemplatePath, $"{twoLetterLanguage}.md")
+			: Path.Combine(thisTemplatePath, "default.md");
 
-		if (!File.Exists(_templatePath + $"\\{templateFile}"))
+		if (!File.Exists(templateFile))
 		{
 			throw new FileNotFoundException($"Template file {templateFile} not found.");
 		}
 
-		var templateContent = File.ReadAllText(_templatePath + $"\\{templateFile}");
+		var templateContent = File.ReadAllText(templateFile);
 
 		string appliedTemplate = string.Format(templateContent, parameters);
 		var parts = appliedTemplate.Split("\n", 2);

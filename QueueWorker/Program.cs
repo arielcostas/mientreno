@@ -49,9 +49,11 @@ hb.ConfigureServices((context, services) =>
 	});
 
 	#endregion
+	
+	services.AddSingleton(context.Configuration);
 
 	services.AddHostedService<MailQueueWorker>();
-	//services.AddHostedService<UserDeletionQueueWorker>();
+	services.AddHostedService<ProfilePhotoGeneratorWorker>();
 });
 
 var host = hb.Build();

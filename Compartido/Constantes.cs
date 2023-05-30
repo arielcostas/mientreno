@@ -3,6 +3,7 @@ namespace Mientreno.Compartido;
 public sealed class Constantes
 {
 	public const string ColaEmails = "emails";
+	public const string ColaGenerarFotoPerfil = "generar-foto-perfil";
 
 	public const string EmailConfirmar = "Confirmar";
 	public const string EmailBienvenida = "Bienvenido";

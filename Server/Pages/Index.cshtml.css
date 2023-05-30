@@ -3,7 +3,7 @@
 }
 
 #hero {
-	background-image: url('img/landing-main.png'), linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+	background-image: url("img/landing-main.webp"), linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
 	background-blend-mode: overlay;
 	background-size: cover;
 	background-position: bottom;
@@ -72,11 +72,11 @@
 }
 
 #feature-1 {
-	background-image: url('img/landing-feat1.jpg'), linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+	background-image: url('img/landing-feat1.webp'), linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
 }
 
 #feature-2 {
-	background-image: url('img/landing-feat2.jpg'), linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+	background-image: url('img/landing-feat2.webp'), linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
 }
 
 #feature-3 {
@@ -84,7 +84,7 @@
 }
 
 #feature-4 {
-	background-image: url('img/landing-feat4.jpg'), linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+	background-image: url('img/landing-feat4.webp'), linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
 }
 
 @media screen and (max-width: 768px) {

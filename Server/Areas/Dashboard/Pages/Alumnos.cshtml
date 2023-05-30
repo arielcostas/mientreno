@@ -1,23 +1,25 @@
 ﻿@page
 @model AlumnosModel
 @{
-	ViewData["Title"] = "Dashboard";
+	ViewData["Title"] = @AppStrings.alumnos;
 }
 
-<main>
-	<h2>@AppStrings.alumnos</h2>
-
+<main id="main-container">
 	@if (Model.EnlaceInvitacion is null)
 	{
-		<form method="post" id="form-invite"></form>
-		<div id="generate-invite">
-			<label for="Cantidad" form="form-invite">Invitaciones</label>
-			<input type="number" id="Cantidad" name="cantidad" min="1" value="1" max="3" form="form-invite" />
-			<input type="submit" value="Invitar" class="button button-primary" form="form-invite"/>
+		<div id="title-with-action">
+			<h2>@AppStrings.alumnos</h2>
+			<form method="post" id="form-invite"></form>
+			<div class="form-inline">
+				<label for="Cantidad" form="form-invite">Invitaciones</label>
+				<input type="number" id="Cantidad" name="cantidad" min="1" value="1" max="3" form="form-invite" class="form-control"/>
+				<input type="submit" value="+ Invitar" class="button button-primary" form="form-invite"/>
+			</div>
 		</div>
 	}
 	else
 	{
+		<h2>@AppStrings.alumnos</h2>
 		<div class="alert alert-good">
 			<strong class="alert-title">Invitación creada</strong>
 			<p>

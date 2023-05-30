@@ -23,7 +23,7 @@ public class DashboardModel : PageModel
 
 	public async Task<IActionResult> OnGet()
 	{
-		UserSubscription = new Subscription("Basic", DateTime.Now.AddDays(-10), DateTime.Now.AddDays(20), true);
+		UserSubscription = new Subscription("Basic", DateTime.Now.AddDays(-28), DateTime.Now.AddDays(1), true);
 		Entrenador = (await _userManager.GetUserAsync(User) as Entrenador)!;
 		
 		Alumnos = _context.Alumnos.Count(a => a.Entrenador == Entrenador);

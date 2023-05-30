@@ -3,11 +3,6 @@
 	margin: 0 auto;
 }
 
-#generate-invite {
-	display: flex;
-	flex-direction: row;
-}
-
 .grid {
 	margin-top: 2rem;
 }
@@ -20,14 +15,14 @@
 	gap: 1rem;
 	
 	padding: 1rem;
-	border-radius: 0.5rem;
+	border-radius: var(--corner);
 	box-shadow: var(--shadow);
 }
 
 .alumno img {
 	width: 8rem;
 	height: 8rem;
-	border-radius: 50%;
+	border-radius: var(--corner);
 	object-fit: cover;
 	object-position: center;
 }

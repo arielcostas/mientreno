@@ -33,11 +33,19 @@ Por ahora, solo se puede configurar Azure Email Communication Services como sist
 }
 ```
 
-### Monitorización con Sentry (Todos)
+### Monitorización con Sentry (Server y QueueWorker)
 
 ```json5
 {
   "ConnectionStrings:Sentry": "CADENA DE CONEXION DE SENTRY.IO"
+}
+```
+
+### Guardado de imágenes local (Server y QueueWorker)
+
+```json5
+{
+  "FileBase": "C:\\Users\\you\\Desktop\\MientrenoPics"
 }
 ```
 

@@ -9,7 +9,7 @@
 </environment>
 <header>
 	<a asp-page="/Dashboard">
-		<img src="~/isotipo.png" alt="mientreno" id="isotipo"/>
+		<img src="~/isotipo.svg" alt="mientreno" id="isotipo"/>
 	</a>
 
 	<nav>
@@ -19,13 +19,17 @@
 		<a asp-area="Dashboard" asp-page="Alumnos" class="link link-white link-nav link-bold">
 			🎽 @AppStrings.alumnos
 		</a>
-		<a asp-area="Dashboard" asp-page="Index" class="link link-white link-nav link-bold">
+		<a asp-area="Dashboard" asp-page="Ejercicios" class="link link-white link-nav link-bold">
 			🏋️ @AppStrings.ejercicios
 		</a>
 	</nav>
 
 	<nav>
-		<a asp-page="Index" class="link link-white link-nav">@AppStrings.hello, @usuario.Nombre</a>
+		<a asp-page="Index" asp-area="Dashboard" class="link link-white link-nav">
+			@{ var png = usuario.Id + ".png"; }
+			<img src="/Static/profile/@png" alt="profile"/>
+			@AppStrings.hello, @usuario.Nombre
+		</a>
 	</nav>
 
 </header>

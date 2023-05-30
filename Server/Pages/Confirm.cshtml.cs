@@ -51,6 +51,13 @@ public class ConfirmModel : PageModel
 				: Constantes.EmailBienvenidaAlumno,
 			Parametros = new[] { usuario.Nombre }
 		});
+		
+		_queueProvider.Enqueue(Constantes.ColaGenerarFotoPerfil, new NuevaFoto()
+		{
+			Nombre = usuario.Nombre,
+			Apellidos = usuario.Apellidos,
+			IdUsuario = usuario.Id
+		});
 
 		return result.Succeeded ?
 			RedirectToPage("/Login", new { confirmed = true }) :

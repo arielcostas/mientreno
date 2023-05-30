@@ -1,32 +1,11 @@
-﻿#root {
-	padding: 1rem 2rem;
-	background-color: #ffffff;
-	margin: 3rem auto;
-	width: 38rem;
-	border-radius: 0.5rem;
-	
-	box-shadow: var(--shadow);
-}
-
-#root h1 {
+﻿h1 {
 	font-size: 3.25rem;
 }
 
-#root h2 {
+h2 {
 	margin-bottom: 2rem;
 }
 
 .alert {
 	margin-bottom: 1rem;
 }
-
-/*::deep .form-check {
-	margin-left: 1rem;
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-}
-::deep button {
-	margin-left: auto;
-}
-*/
