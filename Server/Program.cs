@@ -37,7 +37,8 @@ if (!devel)
 #endregion
 
 builder.Services.AddProblemDetails();
-builder.Services.AddRazorPages(options => { options.Conventions.AuthorizeAreaFolder("Dashboard", "/"); });
+builder.Services.AddAuthorization();
+builder.Services.AddRazorPages();
 
 builder.Services.AddRequestLocalization(options =>
 {

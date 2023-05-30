@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using Mientreno.Server.Service;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages;
 
+[Authorize(Roles = Entrenador.RoleName)]
 public class EjerciciosModel : PageModel
 {
 	private readonly ApplicationDatabaseContext _databaseContext;

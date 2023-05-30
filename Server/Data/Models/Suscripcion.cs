@@ -3,7 +3,7 @@ namespace Mientreno.Server.Data.Models;
 public class Suscripcion
 {
 	public EstadoSuscripcion Estado { get; set; } = EstadoSuscripcion.NoSuscrito;
-	public PlanSuscripcion Plan { get; set; } = null!;
+	public PlanSuscripcion? Plan { get; set; } = null!;
 	public DateTime FechaInicio { get; set; }
 	public DateTime FechaFin { get; set; }
 	public bool RenovacionAutomatica { get; set; }

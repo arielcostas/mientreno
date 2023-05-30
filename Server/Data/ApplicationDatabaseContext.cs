@@ -57,6 +57,9 @@ public class ApplicationDatabaseContext : IdentityDbContext
 		// Invitación del entrenador a un futuro alumno.
 		entrenador.HasMany<Invitacion>(e => e.Invitaciones)
 			.WithOne(i => i.Entrenador);
+		
+		// Entrenador tiene suscripción
+		entrenador.OwnsOne(e => e.Suscripcion);
 	}
 
 	public required DbSet<Entrenador> Entrenadores { get; set; }
@@ -65,4 +68,5 @@ public class ApplicationDatabaseContext : IdentityDbContext
 	public required DbSet<Cuestionario> Cuestionarios { get; set; }
 	public required DbSet<Ejercicio> Ejercicios { get; set; }
 	public required DbSet<Categoria> Categorias { get; set; }
+	public required DbSet<PlanSuscripcion> PlanesSuscripcion { get; set; }
 }

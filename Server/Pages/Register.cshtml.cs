@@ -11,7 +11,6 @@ using Mientreno.Compartido.Mensajes;
 using Mientreno.Compartido.Recursos;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service;
 using Mientreno.Server.Service.Queue;
 
 namespace Mientreno.Server.Pages;
@@ -49,7 +48,6 @@ public class RegisterModel : PageModel
 
 		if (invitacion is null || !invitacion.Usable)
 		{
-			Console.WriteLine(invitacion.Usable);
 			return Page();
 		}
 
@@ -79,7 +77,14 @@ public class RegisterModel : PageModel
 				FechaAlta = DateTime.Now,
 
 				UserName = Form.Email,
-				Email = Form.Email
+				Email = Form.Email,
+				Suscripcion = new()
+				{
+					Estado = EstadoSuscripcion.NoSuscrito,
+					FechaInicio = DateTime.Now,
+					FechaFin = DateTime.Now,
+					RenovacionAutomatica = false
+				}
 			};
 		}
 		else

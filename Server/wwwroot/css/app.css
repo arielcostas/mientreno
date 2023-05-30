@@ -285,4 +285,8 @@ main#main-container {
 .alert-good {
 	background-color: var(--primary);
 }
+
+.alert-centre {
+	text-align: center;
+}
 /*#endregion */

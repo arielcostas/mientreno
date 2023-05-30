@@ -60,7 +60,7 @@ public class ConfirmModel : PageModel
 		});
 
 		return result.Succeeded ?
-			RedirectToPage("/Login", new { confirmed = true }) :
+			Page() :
 			RedirectToPage("/Error");
 	}
 }

@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages;
 
+[Authorize(Roles = Entrenador.RoleName)]
 public class DashboardModel : PageModel
 {
 	private readonly UserManager<Usuario> _userManager;

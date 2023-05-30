@@ -3,18 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mientreno.Server.Data;
-using Mientreno.Server.Service;
 
 #nullable disable
 
-namespace Server.Migrations
+namespace Mientreno.Server.Migrations
 {
     [DbContext(typeof(ApplicationDatabaseContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230530144255_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -229,7 +231,7 @@ namespace Server.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Categoria", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Categoria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -252,7 +254,7 @@ namespace Server.Migrations
                     b.ToTable("Categorias");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Cuestionario", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Cuestionario", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -287,7 +289,7 @@ namespace Server.Migrations
                     b.ToTable("Cuestionarios");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Ejercicio", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Ejercicio", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -325,7 +327,7 @@ namespace Server.Migrations
                     b.ToTable("Ejercicios");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Invitacion", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Invitacion", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -350,7 +352,31 @@ namespace Server.Migrations
                     b.ToTable("Invitaciones");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Usuario", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.PlanSuscripcion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Modalidad")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StripePrice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PlanesSuscripcion");
+                });
+
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Usuario", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -371,9 +397,9 @@ namespace Server.Migrations
                     b.HasDiscriminator().HasValue("Usuario");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Alumno", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Alumno", b =>
                 {
-                    b.HasBaseType("Mientreno.Server.Models.Usuario");
+                    b.HasBaseType("Mientreno.Server.Data.Models.Usuario");
 
                     b.Property<string>("EntrenadorId")
                         .IsRequired()
@@ -384,9 +410,9 @@ namespace Server.Migrations
                     b.HasDiscriminator().HasValue("Alumno");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Entrenador", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Entrenador", b =>
                 {
-                    b.HasBaseType("Mientreno.Server.Models.Usuario");
+                    b.HasBaseType("Mientreno.Server.Data.Models.Usuario");
 
                     b.HasDiscriminator().HasValue("Entrenador");
                 });
@@ -442,9 +468,9 @@ namespace Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Categoria", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Categoria", b =>
                 {
-                    b.HasOne("Mientreno.Server.Models.Entrenador", "Owner")
+                    b.HasOne("Mientreno.Server.Data.Models.Entrenador", "Owner")
                         .WithMany("Categorias")
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -453,15 +479,15 @@ namespace Server.Migrations
                     b.Navigation("Owner");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Cuestionario", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Cuestionario", b =>
                 {
-                    b.HasOne("Mientreno.Server.Models.Alumno", "Alumno")
+                    b.HasOne("Mientreno.Server.Data.Models.Alumno", "Alumno")
                         .WithMany("Cuestionarios")
                         .HasForeignKey("AlumnoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("Mientreno.Server.Models.Habitos", "Habitos", b1 =>
+                    b.OwnsOne("Mientreno.Server.Data.Models.Habitos", "Habitos", b1 =>
                         {
                             b1.Property<Guid>("CuestionarioId")
                                 .HasColumnType("uniqueidentifier");
@@ -495,7 +521,7 @@ namespace Server.Migrations
                                 .HasForeignKey("CuestionarioId");
                         });
 
-                    b.OwnsOne("Mientreno.Server.Models.Perimetros", "Perimetros", b1 =>
+                    b.OwnsOne("Mientreno.Server.Data.Models.Perimetros", "Perimetros", b1 =>
                         {
                             b1.Property<Guid>("CuestionarioId")
                                 .HasColumnType("uniqueidentifier");
@@ -544,14 +570,14 @@ namespace Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Ejercicio", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Ejercicio", b =>
                 {
-                    b.HasOne("Mientreno.Server.Models.Categoria", "Categoria")
+                    b.HasOne("Mientreno.Server.Data.Models.Categoria", "Categoria")
                         .WithMany("Ejercicios")
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("Mientreno.Server.Models.Entrenador", "Owner")
+                    b.HasOne("Mientreno.Server.Data.Models.Entrenador", "Owner")
                         .WithMany("Ejercicios")
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -562,9 +588,9 @@ namespace Server.Migrations
                     b.Navigation("Owner");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Invitacion", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Invitacion", b =>
                 {
-                    b.HasOne("Mientreno.Server.Models.Entrenador", "Entrenador")
+                    b.HasOne("Mientreno.Server.Data.Models.Entrenador", "Entrenador")
                         .WithMany("Invitaciones")
                         .HasForeignKey("EntrenadorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -573,9 +599,9 @@ namespace Server.Migrations
                     b.Navigation("Entrenador");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Alumno", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Alumno", b =>
                 {
-                    b.HasOne("Mientreno.Server.Models.Entrenador", "Entrenador")
+                    b.HasOne("Mientreno.Server.Data.Models.Entrenador", "Entrenador")
                         .WithMany("Alumnos")
                         .HasForeignKey("EntrenadorId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -584,17 +610,61 @@ namespace Server.Migrations
                     b.Navigation("Entrenador");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Categoria", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Entrenador", b =>
+                {
+                    b.OwnsOne("Mientreno.Server.Data.Models.Suscripcion", "Suscripcion", b1 =>
+                        {
+                            b1.Property<string>("EntrenadorId")
+                                .HasColumnType("nvarchar(450)");
+
+                            b1.Property<int>("Estado")
+                                .HasColumnType("int");
+
+                            b1.Property<DateTime>("FechaFin")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<DateTime>("FechaInicio")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<int>("PlanId")
+                                .HasColumnType("int");
+
+                            b1.Property<bool>("RenovacionAutomatica")
+                                .HasColumnType("bit");
+
+                            b1.HasKey("EntrenadorId");
+
+                            b1.HasIndex("PlanId");
+
+                            b1.ToTable("AspNetUsers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("EntrenadorId");
+
+                            b1.HasOne("Mientreno.Server.Data.Models.PlanSuscripcion", "Plan")
+                                .WithMany()
+                                .HasForeignKey("PlanId")
+                                .OnDelete(DeleteBehavior.Cascade)
+                                .IsRequired();
+
+                            b1.Navigation("Plan");
+                        });
+
+                    b.Navigation("Suscripcion")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Categoria", b =>
                 {
                     b.Navigation("Ejercicios");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Alumno", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Alumno", b =>
                 {
                     b.Navigation("Cuestionarios");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Models.Entrenador", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.Entrenador", b =>
                 {
                     b.Navigation("Alumnos");
 

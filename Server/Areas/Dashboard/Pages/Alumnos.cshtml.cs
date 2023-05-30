@@ -1,17 +1,22 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages;
 
+[Authorize(Roles = Entrenador.RoleName)]
 public class AlumnosModel : PageModel
 {
 	private readonly UserManager<Usuario> _userManager;
+	private readonly ApplicationDatabaseContext _context;
 
-	public AlumnosModel(UserManager<Usuario> userManager)
+	public AlumnosModel(UserManager<Usuario> userManager, ApplicationDatabaseContext context)
 	{
 		_userManager = userManager;
+		_context = context;
 	}
 
 	public Alumno[] Alumnos { get; set; } = Array.Empty<Alumno>();
@@ -22,7 +27,9 @@ public class AlumnosModel : PageModel
 	{
 		var entrenador = (await _userManager.GetUserAsync(User) as Entrenador)!;
 
-		Alumnos = entrenador.Alumnos.ToArray();
+		Alumnos = _context.Alumnos
+			.Where(a => a.Entrenador == entrenador)
+			.ToArray();
 
 		return Page();
 	}

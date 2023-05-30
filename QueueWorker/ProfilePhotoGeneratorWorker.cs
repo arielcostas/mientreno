@@ -73,16 +73,20 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 		c1.Finish();
 
 		var c2 = tx.StartChild("save-png", "Exportar y guardar imagen como PNG");
+		var pngOut = GetOutputStream($"{data.IdUsuario}.png");
 		var png = bmp.Encode(SKEncodedImageFormat.Png, 90);
-		png.SaveTo(GetOutputStream($"{data.IdUsuario}.png"));
+		png.SaveTo(pngOut);
 		c2.Finish();
 
 		var c3 = tx.StartChild("save-webp", "Exportar y guardar imagen como WebP");
+		var webpOut = GetOutputStream($"{data.IdUsuario}.webp");
 		var webp = bmp.Encode(SKEncodedImageFormat.Webp, 90);
-		webp.SaveTo(GetOutputStream($"{data.IdUsuario}.webp"));
+		webp.SaveTo(webpOut);
 		c3.Finish();
 
 		_channel?.BasicAck(e.DeliveryTag, false);
+		pngOut.Close();
+		webpOut.Close();
 		tx.Finish();
 	}
 
@@ -147,7 +151,7 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 		return bmp;
 	}
 
-	private bool UseWhiteContrast(SKColor background)
+	private static bool UseWhiteContrast(SKColor background)
 	{
 		return !(background.Red * 0.299 + background.Green * 0.587 + background.Blue * 0.114 > 186);
 	}
