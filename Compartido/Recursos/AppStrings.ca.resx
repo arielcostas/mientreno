@@ -147,9 +147,6 @@
   <data name="password" xml:space="preserve">
     <value>Contrasenya</value>
   </data>
-  <data name="passwordsDoNotMatch" xml:space="preserve">
-    <value>Les contrasenyes no coincideixen</value>
-  </data>
   <data name="register" xml:space="preserve">
     <value>Registro</value>
     <comment>Título de la página de registro</comment>

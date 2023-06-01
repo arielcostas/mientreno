@@ -35,6 +35,8 @@
 					<input asp-for="Form.Apellidos" autocomplete="family-name" class="form-control"/>
 				</div>
 			</div>
+			<span asp-validation-for="Form.Nombre" class="text-danger"></span>
+			<span asp-validation-for="Form.Apellidos" class="text-danger"></span>
 
 			<div class="form-group">
 				<label asp-for="Form.Email">@AppStrings.email</label>
@@ -60,8 +62,9 @@
 				<input asp-for="Form.AceptoTerminos" type="checkbox" class="form-check-input"/>
 				<label asp-for="Form.AceptoTerminos">
 					@AppStrings.iveReadAndAccept
-					<a asp-page="/Privacy" class="link link-primary link-bold">@AppStrings.theTermsAndConditions</a>.
+					<a asp-page="/Terms" class="link link-primary link-bold">@AppStrings.theTermsAndConditions</a>.
 				</label>
+				<span asp-validation-for="Form.AceptoTerminos" class="text-danger"></span>
 			</div>
 
 			<button class="button button-primary" type="submit">@AppStrings.doRegister</button>

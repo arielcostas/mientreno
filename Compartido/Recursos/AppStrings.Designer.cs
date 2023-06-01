@@ -357,15 +357,6 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Las contraseñas no coinciden.
-        /// </summary>
-        public static string passwordsDoNotMatch {
-            get {
-                return ResourceManager.GetString("passwordsDoNotMatch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Registro.
         /// </summary>
         public static string register {
@@ -407,6 +398,69 @@ namespace Mientreno.Compartido.Recursos {
         public static string theTermsAndConditions {
             get {
                 return ResourceManager.GetString("theTermsAndConditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debes introducir tu correo electrónico.
+        /// </summary>
+        public static string validation_EmailRequired {
+            get {
+                return ResourceManager.GetString("validation_EmailRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debes introducir tu nombre.
+        /// </summary>
+        public static string validation_NameRequired {
+            get {
+                return ResourceManager.GetString("validation_NameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debes confirmar la contraseña.
+        /// </summary>
+        public static string validation_PasswordConfirmationRequired {
+            get {
+                return ResourceManager.GetString("validation_PasswordConfirmationRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debes introducir la contraseña.
+        /// </summary>
+        public static string validation_PasswordRequired {
+            get {
+                return ResourceManager.GetString("validation_PasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Las contraseñas no coinciden.
+        /// </summary>
+        public static string validation_PasswordsDontMatch {
+            get {
+                return ResourceManager.GetString("validation_PasswordsDontMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debes introducir tus apellidos.
+        /// </summary>
+        public static string validation_SurnameRequired {
+            get {
+                return ResourceManager.GetString("validation_SurnameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debes aceptar los términos y condiciones.
+        /// </summary>
+        public static string validation_TosNotAccepted {
+            get {
+                return ResourceManager.GetString("validation_TosNotAccepted", resourceCulture);
             }
         }
         

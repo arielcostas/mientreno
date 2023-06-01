@@ -147,9 +147,6 @@
   <data name="password" xml:space="preserve">
     <value>Contraseña</value>
   </data>
-  <data name="passwordsDoNotMatch" xml:space="preserve">
-    <value>Las contraseñas no coinciden</value>
-  </data>
   <data name="register" xml:space="preserve">
     <value>Registro</value>
     <comment>Título de la página de registro</comment>
@@ -241,5 +238,26 @@
   </data>
   <data name="yourAccountHasBeenConfirmed" xml:space="preserve">
 	  <value>Tu cuenta ha sido confirmada. Ya puedes iniciar sesión y empezar a utilizar MiEntreno.</value>
+  </data>
+  <data name="validation_NameRequired" xml:space="preserve">
+	  <value>Debes introducir tu nombre</value>
+  </data>
+  <data name="validation_SurnameRequired" xml:space="preserve">
+	  <value>Debes introducir tus apellidos</value>
+  </data>
+  <data name="validation_EmailRequired" xml:space="preserve">
+	  <value>Debes introducir tu correo electrónico</value>
+  </data>
+  <data name="validation_PasswordRequired" xml:space="preserve">
+	  <value>Debes introducir la contraseña</value>
+  </data>
+  <data name="validation_PasswordConfirmationRequired" xml:space="preserve">
+	  <value>Debes confirmar la contraseña</value>
+  </data>
+  <data name="validation_PasswordsDontMatch" xml:space="preserve">
+	  <value>Las contraseñas no coinciden</value>
+  </data>
+  <data name="validation_TosNotAccepted" xml:space="preserve">
+	  <value>Debes aceptar los términos y condiciones</value>
   </data>
 </root>

@@ -57,6 +57,14 @@ public class RegisterModel : PageModel
 
 	public async Task<IActionResult> OnPost()
 	{
+		if (!ModelState.IsValid) return Page();
+
+		if (!Form.AceptoTerminos)
+		{
+			ModelState.AddModelError(nameof(Form.AceptoTerminos), "Debes aceptar los términos y condiciones");
+			return Page();
+		}
+
 		if (!await _roleManager.RoleExistsAsync(Entrenador.RoleName))
 		{
 			await _roleManager.CreateAsync(new IdentityRole(Entrenador.RoleName));
@@ -94,7 +102,7 @@ public class RegisterModel : PageModel
 				.FirstOrDefaultAsync(i => i.Id == InvitacionCode);
 
 			if (invitacion is null || !invitacion.Usable) return Forbid();
-			
+
 			nuevo = new Alumno
 			{
 				Nombre = Form.Nombre,
@@ -105,11 +113,11 @@ public class RegisterModel : PageModel
 				UserName = Form.Email,
 				Email = Form.Email
 			};
-			
+
 			invitacion.Usos += 1;
 			await _databaseContext.SaveChangesAsync();
 		}
-		
+
 		var result = await _userManager.CreateAsync(nuevo, Form.Contraseña);
 
 		var rol = nuevo is Entrenador ? Entrenador.RoleName : Alumno.RoleName;
@@ -148,7 +156,7 @@ public class RegisterModel : PageModel
 		});
 
 		EmailSent = true;
-		
+
 		return Page();
 	}
 
@@ -160,20 +168,45 @@ public class RegisterModel : PageModel
 
 public class RegisterForm
 {
-	[Required] [MinLength(2)] public string Nombre { get; set; } = string.Empty;
+	[Required(
+		ErrorMessageResourceType = typeof(AppStrings),
+		ErrorMessageResourceName = nameof(AppStrings.validation_NameRequired)
+	)]
+	[MinLength(2)] public string Nombre { get; set; } = string.Empty;
 
-	[Required] [MinLength(2)] public string Apellidos { get; set; } = string.Empty;
+	[Required(
+		ErrorMessageResourceType = typeof(AppStrings),
+		ErrorMessageResourceName = nameof(AppStrings.validation_SurnameRequired)
+	)]
+	[MinLength(2)]
+	public string Apellidos { get; set; } = string.Empty;
 
-	[Required] [MinLength(2)] public string Email { get; set; } = string.Empty;
+	[Required(
+		ErrorMessageResourceType = typeof(AppStrings),
+		ErrorMessageResourceName = nameof(AppStrings.validation_EmailRequired)
+	)]
+	[MinLength(2)]
+	public string Email { get; set; } = string.Empty;
 
-	[Required] public string Contraseña { get; set; } = string.Empty;
+	[Required(
+		ErrorMessageResourceType = typeof(AppStrings),
+		ErrorMessageResourceName = nameof(AppStrings.validation_PasswordRequired)
+	)]
+	public string Contraseña { get; set; } = string.Empty;
 
-	[Required]
+	[Required(
+		ErrorMessageResourceType = typeof(AppStrings),
+		ErrorMessageResourceName = nameof(AppStrings.validation_PasswordConfirmationRequired)
+	)]
 	[Compare(nameof(Contraseña),
 		ErrorMessageResourceType = typeof(AppStrings),
-		ErrorMessageResourceName = nameof(AppStrings.passwordsDoNotMatch)
+		ErrorMessageResourceName = nameof(AppStrings.validation_PasswordsDontMatch)
 	)]
 	public string ConfirmarContraseña { get; set; } = string.Empty;
 
-	[Required] public bool AceptoTerminos { get; set; } = false;
+	[Required(
+		ErrorMessageResourceType = typeof(AppStrings),
+		ErrorMessageResourceName = nameof(AppStrings.validation_TosNotAccepted)
+	)]
+	public bool AceptoTerminos { get; set; } = false;
 }
