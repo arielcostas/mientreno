@@ -5,17 +5,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service;
 
-namespace Mientreno.Server.Areas.Dashboard.Pages;
+namespace Mientreno.Server.Areas.Dashboard.Pages.Ejercicios;
 
 [Authorize(Roles = Entrenador.RoleName)]
-public class EjerciciosModel : PageModel
+public class EjerciciosIndexModel : PageModel
 {
 	private readonly ApplicationDatabaseContext _databaseContext;
 	private readonly UserManager<Usuario> _userManager;
 
-	public EjerciciosModel(ApplicationDatabaseContext databaseContext, UserManager<Usuario> userManager)
+	public EjerciciosIndexModel(ApplicationDatabaseContext databaseContext, UserManager<Usuario> userManager)
 	{
 		_databaseContext = databaseContext;
 		_userManager = userManager;

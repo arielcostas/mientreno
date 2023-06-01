@@ -167,6 +167,9 @@
   <data name="theTermsAndConditions" xml:space="preserve">
 	  <value>los términos y condiciones</value>
   </data>
+  <data name="urlVideoYoutube" xml:space="preserve">
+	  <value>URL de vídeo demostrativo (YouTube)</value>
+  </data>
   <data name="landing_Titulo" xml:space="preserve">
 	  <value>Una nueva forma de entrenar</value>
   </data>
@@ -259,5 +262,23 @@
   </data>
   <data name="validation_TosNotAccepted" xml:space="preserve">
 	  <value>Debes aceptar los términos y condiciones</value>
+  </data>
+  <data name="noHayCategorias" xml:space="preserve">
+	  <value>No hay ninguna categoría creada</value>
+  </data>
+  <data name="nuevoEjercicio" xml:space="preserve">
+	  <value>Nuevo ejercicio</value>
+  </data>
+  <data name="nuevaCategoria" xml:space="preserve">
+	  <value>Nueva categoría</value>
+  </data>
+  <data name="crear" xml:space="preserve">
+	  <value>Crear</value>
+  </data>
+  <data name="descripcion" xml:space="preserve">
+	  <value>Descripción</value>
+  </data>
+  <data name="dificultad" xml:space="preserve">
+	  <value>Dificultad</value>
   </data>
 </root>

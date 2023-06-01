@@ -96,6 +96,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Crear.
+        /// </summary>
+        public static string crear {
+            get {
+                return ResourceManager.GetString("crear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mi tablero.
         /// </summary>
         public static string dashboard {
@@ -146,6 +155,24 @@ namespace Mientreno.Compartido.Recursos {
         public static string dashboard_SubscriptionWillEndAt {
             get {
                 return ResourceManager.GetString("dashboard_SubscriptionWillEndAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descripción.
+        /// </summary>
+        public static string descripcion {
+            get {
+                return ResourceManager.GetString("descripcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dificultad.
+        /// </summary>
+        public static string dificultad {
+            get {
+                return ResourceManager.GetString("dificultad", resourceCulture);
             }
         }
         
@@ -348,6 +375,33 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No hay ninguna categoría creada.
+        /// </summary>
+        public static string noHayCategorias {
+            get {
+                return ResourceManager.GetString("noHayCategorias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nueva categoría.
+        /// </summary>
+        public static string nuevaCategoria {
+            get {
+                return ResourceManager.GetString("nuevaCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nuevo ejercicio.
+        /// </summary>
+        public static string nuevoEjercicio {
+            get {
+                return ResourceManager.GetString("nuevoEjercicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contraseña.
         /// </summary>
         public static string password {
@@ -398,6 +452,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string theTermsAndConditions {
             get {
                 return ResourceManager.GetString("theTermsAndConditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to URL de vídeo demostrativo (YouTube).
+        /// </summary>
+        public static string urlVideoYoutube {
+            get {
+                return ResourceManager.GetString("urlVideoYoutube", resourceCulture);
             }
         }
         

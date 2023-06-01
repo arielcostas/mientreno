@@ -1,5 +1,5 @@
 ﻿@page
-@model EjerciciosModel
+@model EjerciciosIndexModel
 @{
 	ViewData["Title"] = @AppStrings.ejercicios;
 }
@@ -10,19 +10,31 @@
 
 		<form method="post" id="form-categoria"></form>
 		<div class="form-inline">
-			<label asp-for="NuevaCategoriaName" form="form-categoria">Nueva categoría</label>
+			<label asp-for="NuevaCategoriaName" form="form-categoria">@AppStrings.nuevaCategoria</label>
 			<input asp-for="NuevaCategoriaName" form="form-categoria" class="form-control" placeholder="@AppStrings.name"/>
-			<input type="submit" class="button button-primary" value="+ Crear" form="form-categoria">
+			<input type="submit" class="button button-primary" value="+ @AppStrings.crear" form="form-categoria">
 		</div>
 	</div>
 
 	<div id="list">
+		@if (Model.Categorias.Count == 0)
+		{
+			<div class="alert alert-bad">
+				<strong class="alert-title">@AppStrings.noHayCategorias</strong>
+			</div>
+		}
 
 		@foreach (var categoria in Model.Categorias)
 		{
 			<details>
 				<summary>@categoria.Nombre</summary>
 				<ul>
+					@{
+						var url = Url.Page("/Ejercicios/Nuevo", new { cat = categoria.Id });
+					}
+					<a class="link link-primary link-bold" href="@url">
+						@AppStrings.nuevoEjercicio
+					</a>
 					@foreach (var ejercicio in categoria.Ejercicios)
 					{
 						<li>@ejercicio.Nombre</li>

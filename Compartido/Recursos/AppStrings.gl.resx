@@ -233,4 +233,19 @@
   <data name="ejercicios" xml:space="preserve">
 	  <value>Exercicios</value>
   </data>
+  <data name="nuevoEjercicio" xml:space="preserve">
+	  <value>Novo exercicio</value>
+  </data>
+  <data name="nuevaCategoria" xml:space="preserve">
+	  <value>Nova categoría</value>
+  </data>
+  <data name="crear" xml:space="preserve">
+	  <value>Crear</value>
+  </data>
+  <data name="descripcion" xml:space="preserve">
+	  <value>Descrición</value>
+  </data>
+  <data name="dificultad" xml:space="preserve">
+	  <value>Dificultade</value>
+  </data>
 </root>

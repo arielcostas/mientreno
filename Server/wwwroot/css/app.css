@@ -177,7 +177,7 @@ form {
 	gap: 1.8rem;
 }
 
-input {
+.form-control {
 	padding: 0.69rem;
 	border-radius: var(--corner);
 	border: 1px solid var(--text);
