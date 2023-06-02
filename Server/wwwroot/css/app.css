@@ -219,7 +219,7 @@ header nav:has(img) img {
 /*#endregion */
 
 /*#region Mains */
-main#main-dialog {
+main#main-dialogue {
 	padding: 1rem 2rem;
 	background-color: #ffffff;
 	margin: 3rem auto;

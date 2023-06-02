@@ -8,10 +8,10 @@ namespace Mientreno.QueueWorker.Mailing;
 /// </summary>
 public partial class EmailTemplate
 {
-	private static readonly string _templatePath =
+	private static readonly string TemplatePath =
 		Path.Combine(AppContext.BaseDirectory, @"EmailTemplates");
 
-	private static readonly MarkdownPipeline pipeline =
+	private static readonly MarkdownPipeline Pipeline =
 		new MarkdownPipelineBuilder()
 			.UseAdvancedExtensions()
 			.Build();
@@ -22,7 +22,7 @@ public partial class EmailTemplate
 		object[] parameters
 	)
 	{
-		var thisTemplatePath = Path.Combine(_templatePath, template);
+		var thisTemplatePath = Path.Combine(TemplatePath, template);
 		var localizedFileExists = File.Exists(
 			Path.Combine(thisTemplatePath, $"{twoLetterLanguage}.md")
 		);
@@ -44,8 +44,8 @@ public partial class EmailTemplate
 		string subject = MyRegex().Replace(parts[0], "");
 		appliedTemplate = parts[1];
 
-		string plain = Markdown.ToPlainText(appliedTemplate, pipeline);
-		string html = Markdown.ToHtml(appliedTemplate, pipeline);
+		string plain = Markdown.ToPlainText(appliedTemplate, Pipeline);
+		string html = Markdown.ToHtml(appliedTemplate, Pipeline);
 
 		return (subject, plain, html);
 	}

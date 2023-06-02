@@ -48,7 +48,6 @@ public class EjerciciosNuevoModel : PageModel
 		var categoria = entrenador!.Categorias.FirstOrDefault(c => c.Id.ToString() == CategoriaId);
 		if (categoria == null)
 		{
-			Console.WriteLine(CategoriaId);
 			_logger.LogError("Entrenador intentó crear un ejercicio en una categoría que no le pertenece.");
 			return Forbid();
 		};

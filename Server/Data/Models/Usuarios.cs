@@ -14,6 +14,8 @@ public class Usuario : IdentityUser
 	public DateTime? FechaEliminacion { get; set; }
 	
 	public string NombreCompleto => $"{Nombre} {Apellidos}";
+	
+	public uint UltimosTosAceptados { get; set; } = 0;
 }
 
 /// <summary>

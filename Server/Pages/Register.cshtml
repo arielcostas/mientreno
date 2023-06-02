@@ -4,7 +4,7 @@
 	ViewData["Title"] = AppStrings.register;
 }
 
-<main id="main-dialog">
+<main id="main-dialogue">
 	<h1>@AppStrings.register</h1>
 
 	@if (Model.Invitacion is not null)
@@ -24,19 +24,21 @@
 	else
 	{
 		<form method="post">
-			<div class="form-group-double">
-				<div class="form-group">
-					<label asp-for="Form.Nombre">@AppStrings.name</label>
-					<input asp-for="Form.Nombre" autocomplete="given-name" class="form-control"/>
-				</div>
+			<div class="form-group">
+				<div class="form-group-double">
+					<div class="form-group">
+						<label asp-for="Form.Nombre">@AppStrings.name</label>
+						<input asp-for="Form.Nombre" autocomplete="given-name" class="form-control"/>
+					</div>
 
-				<div class="form-group">
-					<label asp-for="Form.Apellidos">@AppStrings.surname</label>
-					<input asp-for="Form.Apellidos" autocomplete="family-name" class="form-control"/>
+					<div class="form-group">
+						<label asp-for="Form.Apellidos">@AppStrings.surname</label>
+						<input asp-for="Form.Apellidos" autocomplete="family-name" class="form-control"/>
+					</div>
 				</div>
+				<span asp-validation-for="Form.Nombre" class="text-danger"></span>
+				<span asp-validation-for="Form.Apellidos" class="text-danger"></span>
 			</div>
-			<span asp-validation-for="Form.Nombre" class="text-danger"></span>
-			<span asp-validation-for="Form.Apellidos" class="text-danger"></span>
 
 			<div class="form-group">
 				<label asp-for="Form.Email">@AppStrings.email</label>

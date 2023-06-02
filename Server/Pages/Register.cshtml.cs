@@ -86,7 +86,8 @@ public class RegisterModel : PageModel
 
 				UserName = Form.Email,
 				Email = Form.Email,
-				Suscripcion = new()
+				UltimosTosAceptados = Constantes.VersionTos,
+				Suscripcion = new Suscripcion
 				{
 					Estado = EstadoSuscripcion.NoSuscrito,
 					FechaInicio = DateTime.Now,
@@ -111,7 +112,8 @@ public class RegisterModel : PageModel
 				Entrenador = invitacion.Entrenador,
 
 				UserName = Form.Email,
-				Email = Form.Email
+				Email = Form.Email,
+				UltimosTosAceptados = Constantes.VersionTos
 			};
 
 			invitacion.Usos += 1;
@@ -125,7 +127,6 @@ public class RegisterModel : PageModel
 
 		foreach (var error in result.Errors)
 		{
-			Console.WriteLine(@$"{error.Code}: {error.Description}");
 			ModelState.AddModelError(string.Empty, error.Description);
 		}
 

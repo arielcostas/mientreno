@@ -1,0 +1,86 @@
+# Términos de servicio de MiEntreno
+
+Versión 1 - 29 de mayo de 2023
+
+## 0. Definiciones
+
+- `MiEntreno`: aplicación web y móvil para la gestión de entrenamientos deportivos.
+
+- `Entrenador`: persona que utiliza MiEntreno para gestionar los entrenamientos de sus clientes.
+
+- `Alumno`: persona que utiliza MiEntreno para gestionar sus entrenamientos con su entrenador.
+
+- `Tú`: El Entrenador o el Alumno que utiliza MiEntreno.
+
+- `Nosotros`: MiEntreno.
+
+## 1. Ámbito de aplicación
+
+Los presentes términos y condiciones se aplican a todos los usuarios de MiEntreno en dicha plataforma. Al utilizar MiEntreno, aceptas estos términos y condiciones. Si no estás de acuerdo con estos términos y condiciones, no utilices MiEntreno.
+
+El incumplimiento de cualquiera de los términos y condiciones puede dar lugar a la cancelación de tu cuenta sin derecho a reembolso por el tiempo restante de suscripción.
+
+## 2. Cuentas
+
+Puede tener una cuenta cualquier persona que resida en España y tenga al menos los 18 años cumplidos, o tenga capacidad legal para celebrar un contrato vinculante en su jurisdicción. En el caso de los menores de 18 años, el padre, madre o tutor legal del menor será el responsable de la cuenta.
+
+Por favor, no proporciones información falsa al crear una cuenta. Si incumples esta norma, nos reservamos el derecho a cancelar tu cuenta.
+
+## 3. Contenido
+
+Eres responsable de todo el contenido que almacenes en MiEntreno. No publiques contenido que no te pertenezca o que no tengas permiso para utilizarlo. En el caso de enlaces a contenido externo, no nos hacemos responsables de dicho contenido.
+
+En el caso de que el contenido que publiques sea ilegal, nos reservamos el derecho a cancelar tu cuenta; así como poner en conocimiento de las autoridades competentes dicho contenido para que tomen las medidas oportunas.
+
+## 4. Pagos
+
+MiEntreno es un servicio de pago. El pago se realiza mediante tarjeta de crédito o débito a través de la pasarela de pago Stripe. No almacenamos ningún dato de tu tarjeta de crédito o débito. Stripe es una pasarela de pago segura y certificada por la PCI (Payment Card Industry).
+
+El pago se realiza por adelantado, y se renueva automáticamente cada mes o año, dependiendo de la suscripción que hayas elegido. Si no deseas renovar tu suscripción, puedes cancelarla en cualquier momento desde la sección de suscripción de tu cuenta; terminando así el servicio al finalizar el periodo de suscripción actual.
+
+En caso de tener algún problema con el pago, por favor ponte en contacto con nosotros por cualquiera de los medios que ponemos a tu disposición.
+
+## 5. Software
+
+MiEntreno es un servicio de software como servicio (SaaS). No se permite la descarga, copia, modificación o redistribución del software de MiEntreno, salvo que se proporcione una licencia explícita para ello.
+
+MiEntreno recibe actualizaciones periódicas para mejorar el servicio y corregir errores sin previo aviso. Procuraremos que dichas actualizaciones no perjudiquen al funcionamiento de MiEntreno, pero no nos hacemos responsables de posibles problemas que surjan a raíz de dichas actualizaciones.
+
+Es responsabilidad del usuario mantener actualizado su navegador web y sistema operativo para garantizar el correcto funcionamiento de MiEntreno. Las plataformas web soportadas son:
+
+- La última versión estable de Microsoft Edge.
+- La última versión estable de Mozilla Firefox.
+
+En el caso de desarrollo para nuevas plataformas, las versiones soportadas serán las que se indique expresamente en la información de la aplicación para dicha plataforma; por ejemplo, Google Play Store en el caso de Android.
+
+## 6. Modificaciones de este acuerdo
+
+Nos reservamos el derecho a modificar estos términos y condiciones en cualquier momento. Si se realizan cambios a estos términos, se te notificará con al menos 30 días de antelación a la entrada en vigor de los nuevos términos, mediante un correo electrónico a la dirección de correo electrónico asociada a tu cuenta.
+
+Si no estás de acuerdo con los nuevos términos, puedes cancelar tu cuenta antes de que entren en vigor, con derecho a reembolso por el tiempo restante de suscripción (en caso de que tengas una suscripción anual).
+
+## 7. Protección de datos
+
+Los datos personales que nos proporciones serán almacenados en servidores seguros ubicados en territorio español. Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición poniéndote en contacto con nosotros por cualquiera de los medios que ponemos a tu disposición.
+
+Los datos personales que nos proporciones no serán compartidos con terceros, salvo que sea necesario para el correcto funcionamiento de MiEntreno (por ejemplo, para el envío de correos electrónicos).
+
+Adicionalmente, nos reservamos el derecho a utilizar los datos de uso y comportamiento de MiEntreno para mejorar el servicio y ofrecer nuevas funcionalidades, siempre de forma anónima y agregada. Por ejemplo, podemos utilizar los datos de uso para saber qué funcionalidades son más utilizadas y cuáles no, y así poder mejorar las funcionalidades menos utilizadas.
+
+## 8. Limitación de responsabilidad
+
+MiEntreno se proporciona tal cual, sin garantías de ningún tipo, expresas o implícitas. No garantizamos que MiEntreno sea seguro, esté libre de errores o funcione sin interrupciones, más allá de lo razonablemente posible y requerido por la ley. No nos hacemos responsables de los daños que puedan surgir del uso de MiEntreno.
+
+## 9. Ley aplicable
+
+Estos términos y condiciones se rigen por la legislación española. Cualquier disputa que surja de estos términos y condiciones se resolverá en los tribunales de la ciudad de Vigo, España; o en su defecto de la comunidad autónoma de Galicia, España.
+
+## 10. Traducciones de estos términos y condiciones
+
+Estos términos y condiciones están disponibles en los mismos idiomas que el resto de la aplicación, es decir, castellano, gallego, catalán y euskera. Si bien se ha puesto el máximo cuidado en la traducción de estos términos y condiciones, en caso de discrepancia entre la versión en castellano y la versión en otro idioma, prevalecerá la versión en castellano.
+
+## 11. Contacto
+
+El responsable del tratamiento de datos es Ariel Costas Guerrero. Para contactar con el responsable del tratamiento de datos, puedes enviar un correo electrónico a la dirección `rgpd@mientreno.app`. Por razones de privacidad, no se proporciona un NIF, dirección postal ni número de teléfono.
+
+Si tienes cualquier duda o sugerencia, puedes ponerte en contacto con nosotros por cualquiera de los medios que ponemos a tu disposición.
