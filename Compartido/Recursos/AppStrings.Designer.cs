@@ -366,6 +366,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Más detalles.
+        /// </summary>
+        public static string masDetalles {
+            get {
+                return ResourceManager.GetString("masDetalles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nombre.
         /// </summary>
         public static string name {

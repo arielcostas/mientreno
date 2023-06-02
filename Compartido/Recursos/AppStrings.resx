@@ -287,4 +287,7 @@
   <data name="legalInfo" xml:space="preserve">
 	  <value>Información legal</value>
   </data>
+  <data name="masDetalles" xml:space="preserve">
+	  <value>Más detalles</value>
+  </data>
 </root>

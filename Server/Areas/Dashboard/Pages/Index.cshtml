@@ -19,22 +19,29 @@
 			<h3>@AppStrings.dashboard_MySubscription</h3>
 			<div class="card-content">
 				<p>
-					@AppStrings.dashboard_SubscribedToPlan <b>@Model.UserSubscription.PlanName</b>.
-					@if (Model.UserSubscription.IsAutoRenewal)
+					@AppStrings.dashboard_SubscribedToPlan <b>@Model.Entrenador.Suscripcion.Plan</b>.
+					@if (Model.Entrenador.Suscripcion.RenovacionAutomatica)
 					{
 						@AppStrings.dashboard_SubscriptionWillBeRenewedAt
-						@Model.UserSubscription.EndDate.ToString("D").ToLower()
+						@Model.Entrenador.Suscripcion.FechaFin.ToString("D").ToLower()
 					}
 					else
 					{
 						@AppStrings.dashboard_SubscriptionWillEndAt
-						@Model.UserSubscription.EndDate.ToString("D").ToLower()
+						@Model.Entrenador.Suscripcion.FechaFin.ToString("D").ToLower()
 					}
 					.
 				</p>
-				<a asp-page="/Dashboard/Suscripcion" class="link link-primary link-bold">Más detalles</a>
+				<a asp-page="Subscribe" asp-area="Dashboard" class="link link-primary link-bold">
+					@AppStrings.masDetalles
+				</a>
 
-				<meter value="@Model.UserSubscription.PercentageCompleted" min="0" max="100" high="80"> </meter>
+				@{
+					var total = (Model.Entrenador.Suscripcion.FechaFin - Model.Entrenador.Suscripcion.FechaInicio).TotalDays;
+					var completado = (DateTime.Now - Model.Entrenador.Suscripcion.FechaInicio).TotalDays;
+					var high = total * 0.9;
+				}
+				<meter value="@completado" min="0" max="@total" high="@high"> </meter>
 			</div>
 		</div>
 	</div>
