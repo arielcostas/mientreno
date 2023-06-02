@@ -12,6 +12,8 @@
 	<h1>@AppStrings.pricing</h1>
 	
     <stripe-pricing-table pricing-table-id="prctbl_1NEW4FKk3b9U3IGlw0dmu8vJ"
-    publishable-key="@Model.StripePublishable">
+                          publishable-key="@Model.StripePublishable"
+                          client-reference-id="@Model.Entrenador.Suscripcion.CustomerId"
+                          customer-email="@Model.Entrenador.Email">
     </stripe-pricing-table>
 </main>

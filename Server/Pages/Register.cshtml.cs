@@ -12,6 +12,7 @@ using Mientreno.Compartido.Recursos;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
 using Mientreno.Server.Service.Queue;
+using Stripe;
 
 namespace Mientreno.Server.Pages;
 
@@ -75,6 +76,13 @@ public class RegisterModel : PageModel
 			await _roleManager.CreateAsync(new IdentityRole(Alumno.RoleName));
 		}
 
+		CustomerService customerService = new();
+		var customer = await customerService.CreateAsync(new CustomerCreateOptions
+		{
+			Email = Form.Email,
+			Name = $"{Form.Nombre} {Form.Apellidos}"
+		});
+		
 		Usuario nuevo;
 		if (InvitacionCode.IsNullOrEmpty())
 		{
@@ -90,6 +98,7 @@ public class RegisterModel : PageModel
 				Suscripcion = new Suscripcion
 				{
 					Estado = EstadoSuscripcion.NoSuscrito,
+					CustomerId = customer.Id,
 					FechaInicio = DateTime.Now,
 					FechaFin = DateTime.Now,
 					RenovacionAutomatica = false

@@ -59,7 +59,8 @@ que:
 {
 	"Stripe": {
 		"Publishable": "sk_test_51N0V4dKk3b9U3IGl6anM7TsSjZLMJTdmyjgKo7Ucn83XKMkJKIhnX29sQ1F8BwERf2oColu165b9oWGBJazYjo0w00NjffAixa",
-		"Secret": "sk_test_51N0V4dKk3b9U3IGl6anM7TsSjZLMJTdmyjgKo7Ucn83XKMkJKIhnX29sQ1F8BwERf2oColu165b9oWGBJazYjo0w00NjffAixa"
+		"Secret": "sk_test_51N0V4dKk3b9U3IGl6anM7TsSjZLMJTdmyjgKo7Ucn83XKMkJKIhnX29sQ1F8BwERf2oColu165b9oWGBJazYjo0w00NjffAixa",
+		"Webhook": ""
 	}
 }
 ```

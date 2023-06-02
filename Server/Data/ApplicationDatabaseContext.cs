@@ -68,5 +68,4 @@ public class ApplicationDatabaseContext : IdentityDbContext
 	public required DbSet<Cuestionario> Cuestionarios { get; set; }
 	public required DbSet<Ejercicio> Ejercicios { get; set; }
 	public required DbSet<Categoria> Categorias { get; set; }
-	public required DbSet<PlanSuscripcion> PlanesSuscripcion { get; set; }
 }
