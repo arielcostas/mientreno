@@ -348,6 +348,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Información legal.
+        /// </summary>
+        public static string legalInfo {
+            get {
+                return ResourceManager.GetString("legalInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inicio de sesión.
         /// </summary>
         public static string login {
@@ -407,6 +416,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string password {
             get {
                 return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planes y tarifas.
+        /// </summary>
+        public static string pricing {
+            get {
+                return ResourceManager.GetString("pricing", resourceCulture);
             }
         }
         

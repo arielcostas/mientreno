@@ -14,6 +14,7 @@ using Mientreno.Server.Service;
 using Mientreno.Server.Service.Queue;
 using RabbitMQ.Client;
 using Sentry.AspNetCore;
+using Stripe;
 
 #endregion
 
@@ -21,20 +22,24 @@ var builder = WebApplication.CreateBuilder(args);
 var devel = builder.Environment.IsDevelopment();
 
 #region Sentry
-
 if (!devel)
 {
 	builder.Services.AddSentry().AddSentryOptions(options =>
 	{
 		options.Dsn = builder.Configuration.GetConnectionString("Sentry") ?? string.Empty;
 		options.Debug = true;
-		options.TracesSampleRate = devel ? 1.0 : 0.5;
+		options.TracesSampleRate = 0.5;
 		options.Environment = builder.Environment.EnvironmentName;
 	});
 	builder.Logging.AddSentry();
 }
-
 #endregion
+
+#region Stripe
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:Secret"];
+#endregion
+
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
 builder.Services.AddProblemDetails();
 builder.Services.AddAuthorization();

@@ -1,7 +1,10 @@
 @page
 @model Terms
 
-<main id="main-dialogue">
+@{
+	ViewData["Title"] = AppStrings.legalInfo;
+}
 
+<main id="main-container">
 	@Html.Raw(Model.TermsHtml)
 </main>

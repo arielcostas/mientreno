@@ -6,7 +6,8 @@ Controla fácilmente tus entrenamientos.
 
 ### Base de datos (Server)
 
-En la configuración del programa, añadir una Connection String con nombre `Database`. Por ejemplo, en un `secrets.json` sería:
+En la configuración del programa, añadir una Connection String con nombre `Database`. Por ejemplo, en un `secrets.json`
+sería:
 
 ```json5
 {
@@ -16,7 +17,10 @@ En la configuración del programa, añadir una Connection String con nombre `Dat
 
 ### Correo electrónico (QueueWorker)
 
-Por ahora, solo se puede configurar Azure Email Communication Services como sistema de envío de correo. Por tanto, hay que configurar la cadena de conexión `AzureEmailCS` con la ConnectionString que proporciona Azure; y el valor `EmailFrom` con el correo electrónico que se usará como remitente. Por ejemplo, en un `secrets.json`, sería tal que:
+Por ahora, solo se puede configurar Azure Email Communication Services como sistema de envío de correo. Por tanto, hay
+que configurar la cadena de conexión `AzureEmailCS` con la ConnectionString que proporciona Azure; y el
+valor `EmailFrom` con el correo electrónico que se usará como remitente. Por ejemplo, en un `secrets.json`, sería tal
+que:
 
 ```json5
 {
@@ -37,7 +41,7 @@ Por ahora, solo se puede configurar Azure Email Communication Services como sist
 
 ```json5
 {
-  "ConnectionStrings:Sentry": "CADENA DE CONEXION DE SENTRY.IO"
+	"ConnectionStrings:Sentry": "CADENA DE CONEXION DE SENTRY.IO"
 }
 ```
 
@@ -45,7 +49,18 @@ Por ahora, solo se puede configurar Azure Email Communication Services como sist
 
 ```json5
 {
-  "FileBase": "C:\\Users\\you\\Desktop\\MientrenoPics"
+	"FileBase": "C:\\Users\\you\\Desktop\\MientrenoPics"
+}
+```
+
+### Procesador de pagos (Server)
+
+```json5
+{
+	"Stripe": {
+		"Publishable": "sk_test_51N0V4dKk3b9U3IGl6anM7TsSjZLMJTdmyjgKo7Ucn83XKMkJKIhnX29sQ1F8BwERf2oColu165b9oWGBJazYjo0w00NjffAixa",
+		"Secret": "sk_test_51N0V4dKk3b9U3IGl6anM7TsSjZLMJTdmyjgKo7Ucn83XKMkJKIhnX29sQ1F8BwERf2oColu165b9oWGBJazYjo0w00NjffAixa"
+	}
 }
 ```
 

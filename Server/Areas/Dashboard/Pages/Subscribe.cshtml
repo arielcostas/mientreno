@@ -1,0 +1,17 @@
+@page
+@model SubscribeModel
+@{
+	ViewData["Title"] = AppStrings.pricing;
+}
+
+@section HeaderExtras {
+<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+}
+
+<main id="main-container">
+	<h1>@AppStrings.pricing</h1>
+	
+    <stripe-pricing-table pricing-table-id="prctbl_1NEW4FKk3b9U3IGlw0dmu8vJ"
+    publishable-key="@Model.StripePublishable">
+    </stripe-pricing-table>
+</main>

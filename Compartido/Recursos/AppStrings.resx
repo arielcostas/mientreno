@@ -281,4 +281,10 @@
   <data name="dificultad" xml:space="preserve">
 	  <value>Dificultad</value>
   </data>
+  <data name="pricing" xml:space="preserve">
+	  <value>Planes y tarifas</value>
+  </data>
+  <data name="legalInfo" xml:space="preserve">
+	  <value>Información legal</value>
+  </data>
 </root>
