@@ -130,7 +130,7 @@
     <value>Inscribirse</value>
   </data>
   <data name="email" xml:space="preserve">
-	  <value>Correo-e</value>
+    <value>Correo-e</value>
   </data>
   <data name="errorInvalidCredentials" xml:space="preserve">
     <value>Usuario ou contrasinal incorrectos</value>
@@ -158,17 +158,8 @@
   <data name="iveReadAndAccept" xml:space="preserve">
 	  <value>Lín e acepto</value>
   </data>
-  <data name="landing_OIniciaSesion" xml:space="preserve">
-	  <value>ou conéctate</value>
-  </data>
-  <data name="landing_RegistrateYa" xml:space="preserve">
-	  <value>Inscríbete xa!</value>
-  </data>
-  <data name="landing_Subtitulo" xml:space="preserve">
-	  <value>Mientreno permíteche xestionar o progreso físico dos teus clientes de forma sinxela e eficaz.</value>
-  </data>
-  <data name="landing_Titulo" xml:space="preserve">
-	  <value>Unha nova forma de adestrar</value>
+  <data name="registrationDoneEmailSent" xml:space="preserve">
+	  <value>Para confirmar a túa conta, enviámoste un correo-e. Por favor, revisa a túa bandexa de entrada.</value>
   </data>
   <data name="login" xml:space="preserve">
 	  <value>Conexión</value>
@@ -176,8 +167,20 @@
   <data name="theTermsAndConditions" xml:space="preserve">
 	  <value>os termos e condicións</value>
   </data>
-  <data name="registrationDoneEmailSent" xml:space="preserve">
-	  <value>Para confirmar a túa conta, enviámoste un correo-e. Por favor, revisa a túa bandexa de entrada.</value>
+  <data name="urlVideoYoutube" xml:space="preserve">
+	  <value>URL do vídeo de demostración (YouTube)</value>
+  </data>
+  <data name="landing_Titulo" xml:space="preserve">
+	  <value>Unha nova forma de adestrar</value>
+  </data>
+  <data name="landing_Subtitulo" xml:space="preserve">
+	  <value>Mientreno permíteche xestionar o progreso físico dos teus clientes de forma sinxela e eficaz.</value>
+  </data>
+  <data name="landing_RegistrateYa" xml:space="preserve">
+	  <value>Inscríbete xa!</value>
+  </data>
+  <data name="landing_OIniciaSesion" xml:space="preserve">
+	  <value>ou conéctate</value>
   </data>
   <data name="rememberMe" xml:space="preserve">
 	  <value>Manter sesión iniciada</value>
@@ -185,29 +188,29 @@
   <data name="hello" xml:space="preserve">
 	  <value>Ola</value>
   </data>
-  <data name="landing_Feature1_Subtitulo" xml:space="preserve">
-	  <value>Xestiona os adestramentos dos teus clientes desde calquera dispositivo, en calquera lugar. E permite que os teus clientes os consulten con rapidez e comodidade.</value>
-  </data>
   <data name="landing_Feature1_Titulo" xml:space="preserve">
 	  <value>Onde e cando queiras</value>
   </data>
-  <data name="landing_Feature2_Subtitulo" xml:space="preserve">
-	  <value>Define plans de adestramento adaptados a cada cliente, indicando instrucións para cada exercicio, cantidade de series, repeticións e descansos.</value>
-  </data>
   <data name="landing_Feature2_Titulo" xml:space="preserve">
 	  <value>A gusto do consumidor</value>
+  </data>
+  <data name="landing_Feature3_Titulo" xml:space="preserve">
+	  <value>Historial de adestramentos</value>
+  </data>
+  <data name="landing_Feature4_Titulo" xml:space="preserve">
+	  <value>E moito máis!</value>
+  </data>
+  <data name="landing_Feature1_Subtitulo" xml:space="preserve">
+	  <value>Xestiona os adestramentos dos teus clientes desde calquera dispositivo, en calquera lugar. E permite que os teus clientes os consulten con rapidez e comodidade.</value>
+  </data>
+  <data name="landing_Feature2_Subtitulo" xml:space="preserve">
+	  <value>Define plans de adestramento adaptados a cada cliente, indicando instrucións para cada exercicio, cantidade de series, repeticións e descansos.</value>
   </data>
   <data name="landing_Feature3_Subtitulo" xml:space="preserve">
 	  <value>Consulta o historial de adestramentos para ver a evolución do cliente. Mantén informes de estado periódicos. Recibe comentarios que che axuden a axustarche ás súas necesidades.</value>
   </data>
   <data name="landing_Feature4_Subtitulo" xml:space="preserve">
 	  <value>Mientreno está en constante desenvolvemento! Co tempo, irás obtendo acceso a novas funcionalidades e melloras.</value>
-  </data>
-  <data name="landing_Feature4_Titulo" xml:space="preserve">
-	  <value>E moito máis!</value>
-  </data>
-  <data name="landing_Feature3_Titulo" xml:space="preserve">
-	  <value>Historial de adestramentos</value>
   </data>
   <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
 	  <value>A túa subscrición será renovada automáticamente o </value>
@@ -218,11 +221,11 @@
   <data name="dashboard_SubscribedToPlan" xml:space="preserve">
 	  <value>Estás subscrito ao plan</value>
   </data>
-  <data name="dashboard_MyStudents" xml:space="preserve">
-	  <value>Os meus alumnos</value>
-  </data>
   <data name="dashboard_MySubscription" xml:space="preserve">
 	  <value>A miña subscrición</value>
+  </data>
+  <data name="dashboard_MyStudents" xml:space="preserve">
+	  <value>Os meus alumnos</value>
   </data>
   <data name="dashboard" xml:space="preserve">
 	  <value>O taboleiro</value>
@@ -233,19 +236,33 @@
   <data name="ejercicios" xml:space="preserve">
 	  <value>Exercicios</value>
   </data>
-  <data name="nuevoEjercicio" xml:space="preserve">
-	  <value>Novo exercicio</value>
+  <data name="accountConfirmed" xml:space="preserve">
+	  <value>Conta confirmada</value>
   </data>
-  <data name="nuevaCategoria" xml:space="preserve">
-	  <value>Nova categoría</value>
+  <data name="yourAccountHasBeenConfirmed" xml:space="preserve">
+	  <value>A túa conta foi confirmada. Xa podes iniciar sesión e empezar a utilizar MiEntreno.</value>
   </data>
-  <data name="crear" xml:space="preserve">
-	  <value>Crear</value>
+  <data name="validation_NameRequired" xml:space="preserve">
+	  <value>Debes introducir o teu nome</value>
   </data>
-  <data name="descripcion" xml:space="preserve">
-	  <value>Descrición</value>
+  <data name="validation_SurnameRequired" xml:space="preserve">
+	  <value>Debes introducir os teus apelidos</value>
   </data>
-  <data name="dificultad" xml:space="preserve">
-	  <value>Dificultade</value>
+  <data name="validation_EmailRequired" xml:space="preserve">
+	  <value>Debes introducir o teu correo-e</value>
   </data>
-</root>
+  <data name="validation_PasswordRequired" xml:space="preserve">
+	  <value>Debes introducir o contrasinal</value>
+  </data>
+  <data name="validation_PasswordConfirmationRequired" xml:space="preserve">
+	  <value>Debes confirmar o contrasinal</value>
+  </data>
+  <data name="validation_PasswordsDontMatch" xml:space="preserve">
+	  <value>Os contrasinais non coinciden</value>
+  </data>
+  <data name="validation_TosNotAccepted" xml:space="preserve">
+	  <value>Debes aceptar os termos e condicións</value>
+  </data>
+  <data name="noHayCategorias" xml:space="preserve">
+	  <value>Non se creou ningunha categoría</value>
+  </data>
