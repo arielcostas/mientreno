@@ -45,6 +45,7 @@ public class Alumno : Usuario
 	public const string RoleName = "Alumno";
 	public Entrenador Entrenador { get; set; }
 	public List<Cuestionario> Cuestionarios { get; set; } = new();
+	public List<JornadaEntrenamiento> JornadasEntrenamientos { get; set; } = new();
 
 	public Alumno()
 	{

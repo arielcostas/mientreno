@@ -55,17 +55,16 @@ public class StripeWebhookController : ControllerBase
 
 		var product = await new ProductService().GetAsync(subscription.Items.Data[0].Plan.ProductId);
 
-		var planValido = Enum.TryParse<PlanSuscripcion>(product.Metadata["mientreno_code"]!, out var plan);
-
-		if (!planValido) return BadRequest();
+		var plan = ParsePlan(product.Metadata["mientreno_code"]!);
+		if (plan is null) return BadRequest();
 
 		entrenador.Suscripcion.Plan = plan;
 		entrenador.Suscripcion.Estado = subscription.Status switch
 		{
 			SubscriptionStatuses.Trialing => EstadoSuscripcion.Activa,
 			SubscriptionStatuses.Active => EstadoSuscripcion.Activa,
+			SubscriptionStatuses.Canceled => EstadoSuscripcion.Cancelada,
 			SubscriptionStatuses.PastDue => EstadoSuscripcion.Expirada,
-			SubscriptionStatuses.Canceled => EstadoSuscripcion.Expirada,
 			SubscriptionStatuses.Unpaid => EstadoSuscripcion.Expirada,
 			SubscriptionStatuses.Incomplete => EstadoSuscripcion.NoSuscrito,
 			SubscriptionStatuses.IncompleteExpired => EstadoSuscripcion.NoSuscrito,
@@ -83,5 +82,16 @@ public class StripeWebhookController : ControllerBase
 		}
 
 		return Ok();
+	}
+
+	private PlanSuscripcion? ParsePlan(string nombre)
+	{
+		return nombre switch
+		{
+			"estandar" => PlanSuscripcion.Estandar,
+			"prime" => PlanSuscripcion.Prime,
+			"basico" => PlanSuscripcion.Basic,
+			_ => null
+		};
 	}
 }

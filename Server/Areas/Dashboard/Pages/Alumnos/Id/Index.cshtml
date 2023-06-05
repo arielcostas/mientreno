@@ -1,0 +1,46 @@
+﻿@page "/Dashboard/Alumnos/{id}"
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model SingleAlumnoModel
+@{
+	ViewData["Title"] = @Model.Alumno.NombreCompleto;
+}
+
+<main id="main-container">
+	<h1>
+		@Model.Alumno.NombreCompleto
+	</h1>
+
+	<div class="title-with-action">
+		<h2>Cuestionarios</h2>
+		<a href="#" class="button button-disabled">+ @AppStrings.crear cuestionario</a>
+	</div>
+
+	@if (Model.Alumno.Cuestionarios.Count == 0)
+	{
+		<div class="alert alert-bad">
+			<strong class="alert-title">No se ha realizado ningún cuestionario (todavía).</strong>
+			<p>Esta funcionalidad estará disponible próximamente.</p>
+		</div>
+	}
+
+	<div class="title-with-action">
+		<h2>Planes de entrenamiento</h2>
+		<a href="@Model.Id/NuevoPlan" class="button button-primary">+ @AppStrings.crear plan</a>
+	</div>
+
+	@if (Model.Alumno.JornadasEntrenamientos.Count == 0)
+	{
+		<div class="alert alert-bad">
+			<strong class="alert-title">No se ha creado ningún plan de entrenamiento (todavía).</strong>
+		</div>
+	}
+
+	<ul>
+		@foreach (var rutina in Model.Alumno.JornadasEntrenamientos)
+		{
+			@rutina.Nombre
+		}
+	</ul>
+
+
+</main>

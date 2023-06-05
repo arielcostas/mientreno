@@ -1,6 +1,6 @@
 ﻿@page
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@using System.Globalization
 @model DashboardModel
 @{
 	ViewData["Title"] = "Dashboard";
@@ -10,16 +10,16 @@
 	<h2>@AppStrings.dashboard</h2>
 	<div class="card-holder">
 		<div class="card" id="card-alumnos">
-			<h3>@AppStrings.dashboard_MyStudents</h3>
+			<h2>🎽 @AppStrings.dashboard_MyStudents</h2>
 			<p>Tienes @Model.Alumnos alumnos de un total de 3</p>
-			<a asp-page="Alumnos" class="link link-primary link-bold">Gestionar alumnos</a>
+			<a asp-page="/Alumnos/Index" class="link link-primary link-bold">Gestionar alumnos</a>
 		</div>
 
 		<div class="card" id="card-suscripcion">
-			<h3>@AppStrings.dashboard_MySubscription</h3>
+			<h2>🗝️ @AppStrings.dashboard_MySubscription</h2>
 			<div class="card-content">
 				<p>
-					@AppStrings.dashboard_SubscribedToPlan <b>@Model.Entrenador.Suscripcion.Plan</b>.
+					@AppStrings.dashboard_SubscribedToPlan <b>@Model.Entrenador.Suscripcion.Plan.ToString()</b>.
 					@if (Model.Entrenador.Suscripcion.RenovacionAutomatica)
 					{
 						@AppStrings.dashboard_SubscriptionWillBeRenewedAt
@@ -40,8 +40,12 @@
 					var total = (Model.Entrenador.Suscripcion.FechaFin - Model.Entrenador.Suscripcion.FechaInicio).TotalDays;
 					var completado = (DateTime.Now - Model.Entrenador.Suscripcion.FechaInicio).TotalDays;
 					var high = total * 0.9;
+
+					string t = total.ToString(CultureInfo.InvariantCulture);
+					string c = completado.ToString(CultureInfo.InvariantCulture);
+					string h = high.ToString(CultureInfo.InvariantCulture);
 				}
-				<meter value="@completado" min="0" max="@total" high="@high"> </meter>
+				<meter value="@c" min="0" max="@t" high="@h"> </meter>
 			</div>
 		</div>
 	</div>

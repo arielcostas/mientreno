@@ -2,34 +2,27 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Mientreno.Server.Areas.Dashboard.Services;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages;
 
 [Authorize(Roles = Entrenador.RoleName)]
-public class DashboardModel : PageModel
+public class DashboardModel : EntrenadorPageModel
 {
-	private readonly UserManager<Usuario> _userManager;
-	private readonly ApplicationDatabaseContext _databaseContext;
-	
-	public DashboardModel(UserManager<Usuario> userManager, ApplicationDatabaseContext databaseContext)
+	public DashboardModel(UserManager<Usuario> userManager, ApplicationDatabaseContext databaseContext) : base(userManager, databaseContext)
 	{
-		_userManager = userManager;
-		_databaseContext = databaseContext;
-
-		Entrenador = null!;
-		Alumnos = 0;
 	}
 
-	public Entrenador Entrenador;
 	public int Alumnos;
 
-	public async Task<IActionResult> OnGet()
+	public IActionResult OnGet()
 	{
-		Entrenador = (await _userManager.GetUserAsync(User) as Entrenador)!;
+		LoadEntrenador();
+		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("Subscribe");
 		
-		Alumnos = _databaseContext.Alumnos.Count(a => a.Entrenador == Entrenador);
+		Alumnos = DatabaseContext.Alumnos.Count(a => a.Entrenador == Entrenador);
 		
 		return Page();
 	}

@@ -8,6 +8,8 @@ public class Suscripcion
 	public DateTime FechaInicio { get; set; }
 	public DateTime FechaFin { get; set; }
 	public bool RenovacionAutomatica { get; set; }
+	
+	public bool Operativa => Estado != EstadoSuscripcion.NoSuscrito && Plan != null && FechaFin > DateTime.Now;
 }
 
 public enum EstadoSuscripcion

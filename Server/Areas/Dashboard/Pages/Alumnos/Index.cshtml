@@ -8,7 +8,7 @@
 <main id="main-container">
 	@if (Model.EnlaceInvitacion is null)
 	{
-		<div id="title-with-action">
+		<div class="title-with-action">
 			<h2>@AppStrings.alumnos</h2>
 			<form method="post" id="form-invite"></form>
 			<div class="form-inline">
@@ -36,9 +36,11 @@
 			@foreach (var alumno in Model.Alumnos)
 			{
 				<div class="alumno">
-					@{var png = alumno.Id + ".png";}
+					@{ var png = alumno.Id + ".png"; }
 					<img src="/Static/profile/@png" alt="Imagen de @alumno.NombreCompleto"/>
 					<h3>@alumno.NombreCompleto</h3>
+					@{ var url = Url.Page("/Alumnos/Id/Index",  new { id = alumno.Id }); }
+					<a href="@url" class="button button-primary">Ver</a>
 				</div>
 			}
 		</div>

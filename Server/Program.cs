@@ -1,6 +1,7 @@
 #region Imports
 
 using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
 builder.Services.AddProblemDetails();
 builder.Services.AddAuthorization();
+
 builder.Services.AddRazorPages();
 
 builder.Services.AddRequestLocalization(options =>

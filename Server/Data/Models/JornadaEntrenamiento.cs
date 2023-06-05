@@ -10,7 +10,7 @@ public class JornadaEntrenamiento
 	public List<EjercicioProgramado> Ejercicios { get; set; } = new();
 	
 	public DateTime FechaCreacion { get; set; }
-	public DateTime FechaRealizacion { get; set; }
+	public DateTime? FechaRealizacion { get; set; }
 	
 	public int? Valoracion { get; set; }
 	public string Comentario { get; set; } = string.Empty;

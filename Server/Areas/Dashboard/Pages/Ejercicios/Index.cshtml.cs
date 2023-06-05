@@ -3,22 +3,17 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Mientreno.Server.Areas.Dashboard.Services;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages.Ejercicios;
 
 [Authorize(Roles = Entrenador.RoleName)]
-public class EjerciciosIndexModel : PageModel
+public class EjerciciosIndexModel : EntrenadorPageModel
 {
-	private readonly ApplicationDatabaseContext _databaseContext;
-	private readonly UserManager<Usuario> _userManager;
-
-	public EjerciciosIndexModel(ApplicationDatabaseContext databaseContext, UserManager<Usuario> userManager)
+	public EjerciciosIndexModel(UserManager<Usuario> userManager, ApplicationDatabaseContext databaseContext) : base(userManager, databaseContext)
 	{
-		_databaseContext = databaseContext;
-		_userManager = userManager;
-
 		Categorias = new List<Categoria>();
 		NuevaCategoriaName = string.Empty;
 	}
@@ -28,36 +23,37 @@ public class EjerciciosIndexModel : PageModel
 
 	public async Task<IActionResult> OnGetAsync()
 	{
-		var entrenador = (await _userManager.GetUserAsync(User) as Entrenador)!;
+		LoadEntrenador();
+		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 
-		Categorias = await _databaseContext.Categorias
+		Categorias = await DatabaseContext.Categorias
 			.Include(c => c.Ejercicios)
-			.Where(a => a.Owner.Id == entrenador.Id)
+			.Where(a => a.Owner.Id == Entrenador.Id)
 			.ToListAsync();
 		return Page();
 	}
 
 	public async Task<IActionResult> OnPostAsync()
 	{
+		LoadEntrenador();
+		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("Subscribe");
+
 		if (string.IsNullOrWhiteSpace(NuevaCategoriaName))
 		{
 			return Page();
 		}
-		
-		var entrenador = (await _userManager.GetUserAsync(User) as Entrenador)!;
-		var e2 = (await _databaseContext.Entrenadores.Include(e => e.Categorias).FirstOrDefaultAsync(e => e.Id == entrenador.Id))!;
 
 		var categoria = new Categoria
 		{
 			Nombre = NuevaCategoriaName
 		};
 		
-		e2.Categorias.Add(categoria);
-		await _databaseContext.SaveChangesAsync();
+		Entrenador.Categorias.Add(categoria);
+		await DatabaseContext.SaveChangesAsync();
 
-		Categorias = await _databaseContext.Categorias
+		Categorias = await DatabaseContext.Categorias
 			.Include(c => c.Ejercicios)
-			.Where(a => a.Owner.Id == entrenador.Id)
+			.Where(a => a.Owner.Id == Entrenador.Id)
 			.ToListAsync();
 		return Page();
 	}

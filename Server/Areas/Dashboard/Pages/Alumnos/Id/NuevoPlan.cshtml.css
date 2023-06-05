@@ -1,0 +1,5 @@
+﻿.form-group-ejercicio {
+	display: grid;
+	grid-template-columns: 62% 18% 18%;
+	gap: 0.25rem;
+}

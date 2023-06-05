@@ -96,6 +96,16 @@ h2 {
 	background-color: var(--primary-darker);
 }
 
+.button-disabled {
+	background-color: var(--primary-lighter);
+	border-color: var(--primary-lighter);
+	color: var(--black);
+}
+
+.button-disabled:hover {
+	cursor: not-allowed;
+}
+
 .button-large {
 	padding: 1rem 1.7rem;
 }
@@ -243,7 +253,7 @@ main#main-container {
 	box-shadow: var(--shadow);
 }
 
-#title-with-action {
+.title-with-action {
 	display: flex;
 	flex-direction: row;
 	align-items: center;

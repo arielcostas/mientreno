@@ -60,6 +60,24 @@ public class ApplicationDatabaseContext : IdentityDbContext
 		
 		// Entrenador tiene suscripción
 		entrenador.OwnsOne(e => e.Suscripcion);
+		
+		// Alumno tiene rutinas
+		var alumno = modelBuilder.Entity<Alumno>();
+		alumno.HasMany<JornadaEntrenamiento>(a => a.JornadasEntrenamientos)
+			.WithOne(j => j.ClienteAsignado)
+			.OnDelete(DeleteBehavior.Cascade);
+		
+		// Jornada de entrenamiento tiene ejercicios
+		var jornadaEntrenamiento = modelBuilder.Entity<JornadaEntrenamiento>();
+		jornadaEntrenamiento.HasMany<EjercicioProgramado>(j => j.Ejercicios)
+			.WithOne(e => e.Jornada)
+			.OnDelete(DeleteBehavior.Cascade);
+		
+		// Ejercicio programado tiene un ejercicio
+		var ejercicioProgramado = modelBuilder.Entity<EjercicioProgramado>();
+		ejercicioProgramado.HasOne(e => e.Ejercicio)
+			.WithMany()
+			.OnDelete(DeleteBehavior.NoAction);
 	}
 
 	public required DbSet<Entrenador> Entrenadores { get; set; }
