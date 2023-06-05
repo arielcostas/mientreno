@@ -290,4 +290,16 @@
   <data name="masDetalles" xml:space="preserve">
 	  <value>Más detalles</value>
   </data>
+  <data name="goToDashboard" xml:space="preserve">
+	  <value>Ir a mi tablero</value>
+  </data>
+  <data name="suscripcionConfirmadaTitulo" xml:space="preserve">
+	  <value>Tu suscripción fue confirmada</value>
+  </data>
+  <data name="" xml:space="preserve">
+	  <value />
+  </data>
+  <data name="suscripcionConfirmadaText" xml:space="preserve">
+	  <value>Tu suscripción ha sido confirmada correctamente. A continuación, puedes ir a tu tablero y empezar a trabajar con MiEntreno.</value>
+  </data>
 </root>

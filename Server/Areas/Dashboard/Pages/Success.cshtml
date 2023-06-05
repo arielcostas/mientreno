@@ -1,0 +1,12 @@
+﻿@page
+@{
+	ViewData["Title"] = @AppStrings.email;
+}
+
+<main id="main-dialogue">
+	<h2>@AppStrings.suscripcionConfirmadaTitulo</h2>
+	
+	<p>@AppStrings.suscripcionConfirmadaText</p>
+	
+	<a asp-area="Dashboard" asp-page="Index" class="button button-primary">@AppStrings.goToDashboard</a>
+</main>

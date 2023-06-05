@@ -5,15 +5,29 @@
 }
 
 @section HeaderExtras {
-<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+	<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
 }
 
 <main id="main-container">
 	<h1>@AppStrings.pricing</h1>
-	
-    <stripe-pricing-table pricing-table-id="prctbl_1NEW4FKk3b9U3IGlw0dmu8vJ"
-                          publishable-key="@Model.StripePublishable"
-                          client-reference-id="@Model.Entrenador.Suscripcion.CustomerId"
-                          customer-email="@Model.Entrenador.Email">
-    </stripe-pricing-table>
+
+	@if (Model.Entrenador.Suscripcion.Estado != EstadoSuscripcion.Activa)
+	{
+		<stripe-pricing-table pricing-table-id="prctbl_1NEW4FKk3b9U3IGlw0dmu8vJ"
+		                      publishable-key="@Model.StripePublishable"
+		                      client-reference-id="@Model.Entrenador.Suscripcion.CustomerId"
+		                      customer-email="@Model.Entrenador.Email">
+		</stripe-pricing-table>
+	}
+	else
+	{
+		<div class="alert alert-success">
+			<span class="alert-title">
+				@AppStrings.dashboard_SubscribedToPlan @Model.Entrenador.Suscripcion.Plan
+			</span>
+			<p>
+				
+			</p>
+		</div>
+	}
 </main>

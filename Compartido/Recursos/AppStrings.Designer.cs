@@ -60,6 +60,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string _ {
+            get {
+                return ResourceManager.GetString("", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cuenta confirmada.
         /// </summary>
         public static string accountConfirmed {
@@ -218,6 +227,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string errorInvalidCredentials {
             get {
                 return ResourceManager.GetString("errorInvalidCredentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ir a mi tablero.
+        /// </summary>
+        public static string goToDashboard {
+            get {
+                return ResourceManager.GetString("goToDashboard", resourceCulture);
             }
         }
         
@@ -470,6 +488,24 @@ namespace Mientreno.Compartido.Recursos {
         public static string surname {
             get {
                 return ResourceManager.GetString("surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tu suscripción ha sido confirmada correctamente. A continuación, puedes ir a tu tablero y empezar a trabajar con MiEntreno..
+        /// </summary>
+        public static string suscripcionConfirmadaText {
+            get {
+                return ResourceManager.GetString("suscripcionConfirmadaText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tu suscripción fue confirmada.
+        /// </summary>
+        public static string suscripcionConfirmadaTitulo {
+            get {
+                return ResourceManager.GetString("suscripcionConfirmadaTitulo", resourceCulture);
             }
         }
         
