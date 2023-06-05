@@ -4,7 +4,6 @@ using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using Sentry;
 using SkiaSharp;
 
 namespace Mientreno.QueueWorker;
@@ -15,16 +14,14 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 	private readonly string _baseDir;
 
 	private readonly IConnection _connection;
-	private readonly IHub _hub;
 	private IModel? _channel;
 
 	public ProfilePhotoGeneratorWorker(ILogger<ProfilePhotoGeneratorWorker> logger, IConnection rabbitConnection,
-		IHub hub, IConfiguration configuration)
+		IConfiguration configuration)
 	{
 		_logger = logger;
 
 		_connection = rabbitConnection;
-		_hub = hub;
 
 		_baseDir = configuration["FileBase"] ?? throw new Exception("FileBase not found");
 		_baseDir = Path.Combine(_baseDir.Trim(), "profile");
@@ -56,9 +53,6 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 
 	private void OnReceived(object? sender, BasicDeliverEventArgs e)
 	{
-		var tx = _hub.StartTransaction("process-email", "Generar y guardar foto de perfil");
-
-		var c1 = tx.StartChild("generate-photo", "Generar foto a partir de iniciales");
 		var bodyBytes = e.Body.ToArray();
 		var data = Serializador.Deserializar<NuevaFoto>(bodyBytes);
 
@@ -66,28 +60,20 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 		{
 			throw new Exception("Mensaje inválido");
 		}
-
-		tx.User.Id = data.IdUsuario;
-
+		
 		var bmp = GenerarImagen($"{data.Nombre} {data.Apellidos}");
-		c1.Finish();
 
-		var c2 = tx.StartChild("save-png", "Exportar y guardar imagen como PNG");
 		var pngOut = GetOutputStream($"{data.IdUsuario}.png");
 		var png = bmp.Encode(SKEncodedImageFormat.Png, 90);
 		png.SaveTo(pngOut);
-		c2.Finish();
 
-		var c3 = tx.StartChild("save-webp", "Exportar y guardar imagen como WebP");
 		var webpOut = GetOutputStream($"{data.IdUsuario}.webp");
 		var webp = bmp.Encode(SKEncodedImageFormat.Webp, 90);
 		webp.SaveTo(webpOut);
-		c3.Finish();
 
-		_channel?.BasicAck(e.DeliveryTag, false);
 		pngOut.Close();
 		webpOut.Close();
-		tx.Finish();
+		_channel?.BasicAck(e.DeliveryTag, false);
 	}
 
 	public override Task StopAsync(CancellationToken cancellationToken)

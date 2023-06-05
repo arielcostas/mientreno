@@ -1,39 +1,21 @@
 #region Imports
 
 using System.Globalization;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Mientreno.Compartido;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service;
 using Mientreno.Server.Service.Queue;
 using RabbitMQ.Client;
-using Sentry.AspNetCore;
 using Stripe;
 
 #endregion
 
 var builder = WebApplication.CreateBuilder(args);
 var devel = builder.Environment.IsDevelopment();
-
-#region Sentry
-if (!devel)
-{
-	builder.Services.AddSentry().AddSentryOptions(options =>
-	{
-		options.Dsn = builder.Configuration.GetConnectionString("Sentry") ?? string.Empty;
-		options.Debug = true;
-		options.TracesSampleRate = 0.5;
-		options.Environment = builder.Environment.EnvironmentName;
-	});
-	builder.Logging.AddSentry();
-}
-#endregion
 
 #region Stripe
 StripeConfiguration.ApiKey = builder.Configuration["Stripe:Secret"];
@@ -103,7 +85,6 @@ builder.Services.AddSingleton<IQueueProvider>(sp =>
 var app = builder.Build();
 
 app.UseExceptionHandler();
-app.UseHsts();
 
 if (app.Environment.IsDevelopment())
 {
@@ -116,7 +97,6 @@ app.UseAuthorization();
 if (!devel)
 {
 	app.UseForwardedHeaders();
-	app.UseSentryTracing();
 }
 
 app.UseRequestLocalization();

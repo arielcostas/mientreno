@@ -37,14 +37,6 @@ que:
 }
 ```
 
-### Monitorización con Sentry (Server y QueueWorker)
-
-```json5
-{
-	"ConnectionStrings:Sentry": "CADENA DE CONEXION DE SENTRY.IO"
-}
-```
-
 ### Guardado de imágenes local (Server y QueueWorker)
 
 ```json5

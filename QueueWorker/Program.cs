@@ -4,22 +4,6 @@ using RabbitMQ.Client;
 
 var hb = Host.CreateDefaultBuilder(args);
 
-hb.ConfigureLogging((context, loggingBuilder) =>
-{
-	loggingBuilder.AddConfiguration(context.Configuration);
-	loggingBuilder.AddConsole();
-
-		loggingBuilder.AddSentry(o =>
-		{
-			o.Dsn = context.Configuration.GetConnectionString("Sentry") ?? string.Empty;
-			o.Debug = true;
-			o.EnableTracing = !context.HostingEnvironment.IsDevelopment();
-			o.TracesSampleRate = 1.0;
-			o.Environment = context.HostingEnvironment.EnvironmentName;
-		});
-	
-});
-
 hb.ConfigureServices((context, services) =>
 {
 	#region RabbitMQ

@@ -3,25 +3,22 @@ using Mientreno.Compartido.Mensajes;
 using Mientreno.QueueWorker.Mailing;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using Sentry;
 
 namespace Mientreno.QueueWorker;
 
 public class MailQueueWorker : BackgroundService
 {
-	private readonly IHub _hub;
 	private readonly ILogger<MailQueueWorker> _logger;
 
 	private readonly IConnection _connection;
 	private readonly IMailSender _sender;
 	private IModel? _channel;
 
-	public MailQueueWorker(ILogger<MailQueueWorker> logger, IConnection rabbitConnection, IMailSender sender, IHub hub)
+	public MailQueueWorker(ILogger<MailQueueWorker> logger, IConnection rabbitConnection, IMailSender sender)
 	{
 		_connection = rabbitConnection;
 		_logger = logger;
 		_sender = sender;
-		_hub = hub;
 	}
 
 	public override async Task StartAsync(CancellationToken cancellationToken)
@@ -49,9 +46,6 @@ public class MailQueueWorker : BackgroundService
 
 	private async void OnReceived(object? sender, BasicDeliverEventArgs e)
 	{
-		var tx = _hub.StartTransaction("process-email", "Email sending");
-
-		var c1 = tx.StartChild("apply-template", "Apply email template");
 		var bodyBytes = e.Body.ToArray();
 		var email = Serializador.Deserializar<Email>(bodyBytes);
 
@@ -60,19 +54,11 @@ public class MailQueueWorker : BackgroundService
 			throw new Exception("Mensaje inválido");
 		}
 
-		tx.User.Email = email.DireccionDestinatario;
-		tx.SetExtra("template", email.Plantila);
-		tx.SetExtra("lang", email.Idioma);
-
 		var (subject, plain, html) = EmailTemplate.ApplyTemplate(email.Plantila, email.Idioma, email.Parametros);
-		c1.Finish();
 
-		var c2 = tx.StartChild("send-azure", "Send email through Azure");
 		await _sender.SendMailAsync(email.DireccionDestinatario, email.NombreDestinatario, subject, plain, html);
-		c2.Finish();
 
 		_channel?.BasicAck(e.DeliveryTag, false);
-		tx.Finish();
 	}
 
 	public override Task StopAsync(CancellationToken cancellationToken)
