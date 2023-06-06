@@ -11,19 +11,18 @@
 	<form method="POST">
 
 		<div class="form-group">
-			<label asp-for="Form.Nombre">Nombre</label>
+			<label asp-for="Form.Nombre">@AppStrings.name</label>
 			<input asp-for="Form.Nombre" class="form-control"/>
 		</div>
 
 		<div class="form-group">
-			<label asp-for="Form.Descripcion">Descripción</label>
+			<label asp-for="Form.Descripcion">@AppStrings.descripcion</label>
 			<textarea asp-for="Form.Descripcion" class="form-control" rows="5"></textarea>
 		</div>
 
 		<hr/>
 
 		<div class="title-with-action">
-
 			<h2>
 				Ejercicios
 			</h2>
@@ -53,12 +52,13 @@
 
 				<input asp-for="Form.Ejercicios[0].Series" class="form-control" placeholder="Series" type="number" min="0"/>
 				<input asp-for="Form.Ejercicios[0].Repeticiones" class="form-control" placeholder="Reps." type="number" min="0"/>
+				<input asp-for="Form.Ejercicios[0].Minutos" class="form-control" placeholder="Min." type="number" min="0"/>
 			</div>
 		</div>
 
 		<hr />
 		
-		<button class="button button-primary" type="submit">+ Crear</button>
+		<button class="button button-primary" type="submit">+ @AppStrings.crear</button>
 
 	</form>
 </main>

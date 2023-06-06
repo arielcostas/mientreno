@@ -141,6 +141,14 @@ h2 {
 	text-decoration: none;
 }
 
+.link-badge {
+	color: var(--text);
+	background: var(--background);
+	padding: 0.35rem 0.7rem;
+	border-radius: 1rem;
+	text-decoration: none;
+}
+
 .link-white {
 	color: #fff;
 }

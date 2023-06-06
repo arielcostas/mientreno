@@ -219,7 +219,7 @@
 	  <value>Tu suscrpción no será renovada, y finalizará el </value>
   </data>
   <data name="dashboard_SubscribedToPlan" xml:space="preserve">
-	  <value>Estás suscrito al plan </value>
+	  <value>Tienes una suscripción activa al plan </value>
   </data>
   <data name="dashboard_MySubscription" xml:space="preserve">
 	  <value>Mi suscripción</value>
@@ -296,10 +296,73 @@
   <data name="suscripcionConfirmadaTitulo" xml:space="preserve">
 	  <value>Tu suscripción fue confirmada</value>
   </data>
-  <data name="" xml:space="preserve">
-	  <value />
-  </data>
   <data name="suscripcionConfirmadaText" xml:space="preserve">
 	  <value>Tu suscripción ha sido confirmada correctamente. A continuación, puedes ir a tu tablero y empezar a trabajar con MiEntreno.</value>
+  </data>
+  <data name="dashboard_NotSubscribedToPlan" xml:space="preserve">
+	  <value>No tienes una suscripción activa.</value>
+  </data>
+  <data name="dashboard_WeUseStripe" xml:space="preserve">
+	  <value>Utilizamos Stripe para procesar los pagos de forma segura. Puedes administrar tu suscripción en tu</value>
+  </data>
+  <data name="dashboard_StripeClientPanel" xml:space="preserve">
+	  <value>panel de control de cliente de Stripe</value>
+  </data>
+  <data name="dashboard_GetInTouch" xml:space="preserve">
+	  <value>ponte en contacto con nosotros</value>
+  </data>
+  <data name="dashboard_ProblemWithStripe" xml:space="preserve">
+	  <value>Si tuvieras algún problema con tu suscripción, por favor</value>
+  </data>
+  <data name="dashboard_AlumnosOutOf" xml:space="preserve">
+	  <value>alumnos de un total de</value>
+  </data>
+  <data name="dashboard_NoPlansCreated" xml:space="preserve">
+	  <value>No se ha creado ningún plan de entrenamiento (todavía).</value>
+  </data>
+  <data name="trainingPlans" xml:space="preserve">
+	  <value>Planes de entrenamiento</value>
+  </data>
+  <data name="cuestionarios" xml:space="preserve">
+	  <value>Cuestionarios</value>
+  </data>
+  <data name="cuestionario" xml:space="preserve">
+	  <value>cuestionario</value>
+  </data>
+  <data name="availableSoon" xml:space="preserve">
+	  <value>Esta funcionalidad estará disponible próximamente.</value>
+  </data>
+  <data name="plan" xml:space="preserve">
+	  <value>plan</value>
+  </data>
+  <data name="dashboard_NoCuestionariosCreated" xml:space="preserve">
+	  <value>No se ha creado ningún cuestionario (todavía).</value>
+  </data>
+  <data name="invitaciones" xml:space="preserve">
+	  <value>Invitaciones</value>
+  </data>
+  <data name="doInvite" xml:space="preserve">
+	  <value>Invitar</value>
+  </data>
+  <data name="dashboard_ShareInviteLink" xml:space="preserve">
+	  <value>Comparte el siguiente enlace con tu(s) alumno(s):</value>
+  </data>
+  <data name="dashboard_InviteCreated" xml:space="preserve">
+	  <value>Invitación creada</value>
+  </data>
+  <data name="ver" xml:space="preserve">
+	  <value>Ver</value>
+  </data>
+  <data name="Alert_NoAlumnos_Title" xml:space="preserve">
+	  <value>No tienes alumnos</value>
+  </data>
+  <data name="Alert_NoAlumnos_Text" xml:space="preserve">
+	  <value>Invita a tus alumnos a unirse a tí generando una invitación en la parte superior derecha.</value>
+  </data>
+  <data name="Alert_SignUpInvite_Title" xml:space="preserve">
+	  <value>te ha invitado a entrenar</value>
+  </data>
+  <data name="Alert_SignUpInvite_Text" xml:space="preserve">
+	  <value>Te estás registrando como Alumno de</value>
   </data>
 </root>

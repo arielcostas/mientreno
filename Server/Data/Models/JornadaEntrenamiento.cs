@@ -23,6 +23,7 @@ public class EjercicioProgramado
 	
 	public Ejercicio Ejercicio { get; set; } = new();
 
-	public int Series { get; set; }
-	public int Repeticiones { get; set; }
+	public int? Series { get; set; }
+	public int? Repeticiones { get; set; }
+	public int? Minutos { get; set; }
 }

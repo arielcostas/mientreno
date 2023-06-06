@@ -11,7 +11,7 @@
 	<div class="card-holder">
 		<div class="card" id="card-alumnos">
 			<h2>🎽 @AppStrings.dashboard_MyStudents</h2>
-			<p>Tienes @Model.Alumnos alumnos de un total de 3</p>
+			<p>@Model.Alumnos @AppStrings.dashboard_AlumnosOutOf @Model.MaxAlumnos</p>
 			<a asp-page="/Alumnos/Index" class="link link-primary link-bold">Gestionar alumnos</a>
 		</div>
 

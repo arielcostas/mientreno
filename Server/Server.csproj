@@ -46,7 +46,6 @@
 
 	<ItemGroup>
 	  <AdditionalFiles Include="Areas\Dashboard\Pages\Alumnos\Index.cshtml" />
-	  <AdditionalFiles Include="Areas\Dashboard\Pages\Alumnos\Nuevo.cshtml" />
 	</ItemGroup>
 
 </Project>

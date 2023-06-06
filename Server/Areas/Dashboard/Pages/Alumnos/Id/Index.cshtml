@@ -11,27 +11,29 @@
 	</h1>
 
 	<div class="title-with-action">
-		<h2>Cuestionarios</h2>
-		<a href="#" class="button button-disabled">+ @AppStrings.crear cuestionario</a>
+		<h2>@AppStrings.cuestionarios</h2>
+		<a href="#" class="button button-disabled">+ @AppStrings.crear @AppStrings.cuestionario</a>
 	</div>
 
 	@if (Model.Alumno.Cuestionarios.Count == 0)
 	{
 		<div class="alert alert-bad">
-			<strong class="alert-title">No se ha realizado ningún cuestionario (todavía).</strong>
-			<p>Esta funcionalidad estará disponible próximamente.</p>
+			<strong class="alert-title">@AppStrings.dashboard_NoCuestionariosCreated</strong>
+			<p>@AppStrings.availableSoon</p>
 		</div>
 	}
 
 	<div class="title-with-action">
-		<h2>Planes de entrenamiento</h2>
-		<a href="@Model.Id/NuevoPlan" class="button button-primary">+ @AppStrings.crear plan</a>
+		<h2>@AppStrings.trainingPlans</h2>
+		<a href="@Model.Id/NuevoPlan" class="button button-primary">+ @AppStrings.crear @AppStrings.plan</a>
 	</div>
 
 	@if (Model.Alumno.JornadasEntrenamientos.Count == 0)
 	{
 		<div class="alert alert-bad">
-			<strong class="alert-title">No se ha creado ningún plan de entrenamiento (todavía).</strong>
+			<strong class="alert-title">
+				@AppStrings.dashboard_NoPlansCreated
+			</strong>
 		</div>
 	}
 
@@ -41,6 +43,4 @@
 			@rutina.Nombre
 		}
 	</ul>
-
-
 </main>

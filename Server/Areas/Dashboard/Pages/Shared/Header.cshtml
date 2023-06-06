@@ -25,7 +25,7 @@
 	</nav>
 
 	<nav>
-		<a asp-page="Index" asp-area="Dashboard" class="link link-white link-nav">
+		<a asp-page="Index" asp-area="Dashboard" class="link-badge">
 			@{ var png = usuario.Id + ".png"; }
 			<img src="/Static/profile/@png" alt="profile"/>
 			@AppStrings.hello, @usuario.Nombre

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -77,7 +78,8 @@ public class CrearPlanModel : EntrenadorPageModel
 			{
 				Ejercicio = ejerciciosAsignables[ej.Ejercicio],
 				Series = ej.Series,
-				Repeticiones = ej.Repeticiones
+				Repeticiones = ej.Repeticiones,
+				Minutos = ej.Minutos
 			});
 		}
 		
@@ -97,7 +99,15 @@ public class NuevoPlanForm
 
 public class NuevoEjercicioPlan
 {
+	[Required]
 	public int Ejercicio { get; set; }
-	public int Series { get; set; }
-	public int Repeticiones { get; set; }
+	
+	[Range(0, int.MaxValue)]
+	public int? Series { get; set; }
+	
+	[Range(0, int.MaxValue)]
+	public int? Repeticiones { get; set; }
+	
+	[Range(0, int.MaxValue)]
+	public int? Minutos { get; set; }
 }

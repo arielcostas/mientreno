@@ -60,20 +60,47 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string _ {
-            get {
-                return ResourceManager.GetString("", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cuenta confirmada.
         /// </summary>
         public static string accountConfirmed {
             get {
                 return ResourceManager.GetString("accountConfirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invita a tus alumnos a unirse a tí generando una invitación en la parte superior derecha..
+        /// </summary>
+        public static string Alert_NoAlumnos_Text {
+            get {
+                return ResourceManager.GetString("Alert_NoAlumnos_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No tienes alumnos.
+        /// </summary>
+        public static string Alert_NoAlumnos_Title {
+            get {
+                return ResourceManager.GetString("Alert_NoAlumnos_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Te estás registrando como Alumno de.
+        /// </summary>
+        public static string Alert_SignUpInvite_Text {
+            get {
+                return ResourceManager.GetString("Alert_SignUpInvite_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to te ha invitado a entrenar.
+        /// </summary>
+        public static string Alert_SignUpInvite_Title {
+            get {
+                return ResourceManager.GetString("Alert_SignUpInvite_Title", resourceCulture);
             }
         }
         
@@ -96,6 +123,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Esta funcionalidad estará disponible próximamente..
+        /// </summary>
+        public static string availableSoon {
+            get {
+                return ResourceManager.GetString("availableSoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirmar contraseña.
         /// </summary>
         public static string confirmPassword {
@@ -114,11 +150,56 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to cuestionario.
+        /// </summary>
+        public static string cuestionario {
+            get {
+                return ResourceManager.GetString("cuestionario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cuestionarios.
+        /// </summary>
+        public static string cuestionarios {
+            get {
+                return ResourceManager.GetString("cuestionarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mi tablero.
         /// </summary>
         public static string dashboard {
             get {
                 return ResourceManager.GetString("dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to alumnos de un total de.
+        /// </summary>
+        public static string dashboard_AlumnosOutOf {
+            get {
+                return ResourceManager.GetString("dashboard_AlumnosOutOf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ponte en contacto con nosotros.
+        /// </summary>
+        public static string dashboard_GetInTouch {
+            get {
+                return ResourceManager.GetString("dashboard_GetInTouch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitación creada.
+        /// </summary>
+        public static string dashboard_InviteCreated {
+            get {
+                return ResourceManager.GetString("dashboard_InviteCreated", resourceCulture);
             }
         }
         
@@ -141,7 +222,61 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Estás suscrito al plan .
+        ///   Looks up a localized string similar to No se ha creado ningún cuestionario (todavía)..
+        /// </summary>
+        public static string dashboard_NoCuestionariosCreated {
+            get {
+                return ResourceManager.GetString("dashboard_NoCuestionariosCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se ha creado ningún plan de entrenamiento (todavía)..
+        /// </summary>
+        public static string dashboard_NoPlansCreated {
+            get {
+                return ResourceManager.GetString("dashboard_NoPlansCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No tienes una suscripción activa..
+        /// </summary>
+        public static string dashboard_NotSubscribedToPlan {
+            get {
+                return ResourceManager.GetString("dashboard_NotSubscribedToPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Si tuvieras algún problema con tu suscripción, por favor.
+        /// </summary>
+        public static string dashboard_ProblemWithStripe {
+            get {
+                return ResourceManager.GetString("dashboard_ProblemWithStripe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comparte el siguiente enlace con tu(s) alumno(s):.
+        /// </summary>
+        public static string dashboard_ShareInviteLink {
+            get {
+                return ResourceManager.GetString("dashboard_ShareInviteLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to panel de control de cliente de Stripe.
+        /// </summary>
+        public static string dashboard_StripeClientPanel {
+            get {
+                return ResourceManager.GetString("dashboard_StripeClientPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tienes una suscripción activa al plan .
         /// </summary>
         public static string dashboard_SubscribedToPlan {
             get {
@@ -168,6 +303,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Utilizamos Stripe para procesar los pagos de forma segura. Puedes administrar tu suscripción en tu.
+        /// </summary>
+        public static string dashboard_WeUseStripe {
+            get {
+                return ResourceManager.GetString("dashboard_WeUseStripe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Descripción.
         /// </summary>
         public static string descripcion {
@@ -182,6 +326,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string dificultad {
             get {
                 return ResourceManager.GetString("dificultad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitar.
+        /// </summary>
+        public static string doInvite {
+            get {
+                return ResourceManager.GetString("doInvite", resourceCulture);
             }
         }
         
@@ -245,6 +398,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string hello {
             get {
                 return ResourceManager.GetString("hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitaciones.
+        /// </summary>
+        public static string invitaciones {
+            get {
+                return ResourceManager.GetString("invitaciones", resourceCulture);
             }
         }
         
@@ -447,6 +609,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to plan.
+        /// </summary>
+        public static string plan {
+            get {
+                return ResourceManager.GetString("plan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Planes y tarifas.
         /// </summary>
         public static string pricing {
@@ -519,6 +690,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Planes de entrenamiento.
+        /// </summary>
+        public static string trainingPlans {
+            get {
+                return ResourceManager.GetString("trainingPlans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to URL de vídeo demostrativo (YouTube).
         /// </summary>
         public static string urlVideoYoutube {
@@ -587,6 +767,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string validation_TosNotAccepted {
             get {
                 return ResourceManager.GetString("validation_TosNotAccepted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ver.
+        /// </summary>
+        public static string ver {
+            get {
+                return ResourceManager.GetString("ver", resourceCulture);
             }
         }
         

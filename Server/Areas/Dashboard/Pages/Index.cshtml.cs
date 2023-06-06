@@ -16,6 +16,7 @@ public class DashboardModel : EntrenadorPageModel
 	}
 
 	public int Alumnos;
+	public int MaxAlumnos = 3;
 
 	public IActionResult OnGet()
 	{
