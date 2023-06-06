@@ -22,14 +22,16 @@ hb.ConfigureServices((context, services) =>
 
 	services.AddSingleton<IMailSender>(sp =>
 	{
-		var logger = sp.GetRequiredService<ILogger<AzureCSMailSender>>();
-
-		var connectionString = context.Configuration.GetConnectionString("AzureCS") ??
-		                       throw new Exception("AzureCS Connection String not set");
+		var logger = sp.GetRequiredService<ILogger<IMailSender>>();
 
 		var emailFrom = context.Configuration.GetValue<string>("EmailFrom") ?? throw new Exception("EmailFrom not set");
 
-		return new AzureCSMailSender(logger, connectionString, emailFrom);
+		var secretKey = context.Configuration["Scaleway:SecretKey"] ??
+		                throw new Exception("ScalewayProjectId not set");
+		var projectId = context.Configuration["Scaleway:ProjectId"] ??
+		                throw new Exception("ScalewayProjectId not set");
+
+		return new ScalewayMailSender(logger, emailFrom, secretKey, projectId);
 	});
 
 	#endregion

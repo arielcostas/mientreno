@@ -57,32 +57,29 @@ public partial class EmailTemplate
 	private static partial Regex MyRegex();
 
 	private const string HtmlBase = """
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="x-apple-disable-message-reformatting">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-	<style>
-		body {
-			font-size: 16px;
-			padding: 0 calc((100% - 80ch) / 2);
-			text-align: justify;
-		}
-	</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
 </head>
+
 <body>
-	<main>{{body}}</main>
-	<footer>
-		<p>Copyright &copy; 2023 MiEntreno. Todos los derechos reservados.</p>
-		<p>
-			Este mensaje se ha enviado porque tiene una cuenta en <a href="https://mientreno.app">https://mientreno.app</a>.
-			Por favor, contacte con <a href="mailto:hola@mientreno.app">hola@mientrneo.app</a>.
-			Por favor, no responda a este mensaje.
-		</p>
-	</footer>
+  <style></style>
+  <main style="font-size: 16px; padding: 0 calc((100%-80ch) / 2); text-align: justify;">
+    {{body}}
+  </main>
+  <footer style="padding: 0 calc((100%-80ch) / 2);">
+    <p>Copyright © 2023 MiEntreno. Todos los derechos reservados.</p>
+    <p>
+      Este mensaje se ha enviado porque tiene una cuenta en <a href="https://mientreno.app">https://mientreno.app</a>. Por favor, contacte con <a href="mailto:hola@mientreno.app">hola@mientrneo.app</a>. Por favor, no responda a este mensaje.
+    </p>
+  </footer>
+
 </body>
+
 </html>
 """;
 }
