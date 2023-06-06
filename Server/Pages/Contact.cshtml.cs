@@ -45,9 +45,11 @@ public class ContactModel : PageModel
 			DireccionDestinatario = "hola@mientreno.app",
 			Plantila = Constantes.FormContacto,
 			Parametros = new[] { Form.Nombre, Form.Email, Form.Mensaje, culture.DisplayName },
-			ResponderA = $"{Form.Nombre} <{Form.Email}>",
+			ResponderA = Form.Email
 		});
 		
+		Form = new ContactForm();
+		ContactoEnviado = true;
 		return Page();
 	}
 }
@@ -56,7 +58,7 @@ public class ContactForm
 {
 	[Required] public string Nombre { get; set; }
 
-	[Required] public string Email { get; set; }
+	[Required] [EmailAddress] public string Email { get; set; }
 
-	[Required] [EmailAddress] public string Mensaje { get; set; }
+	[Required] public string Mensaje { get; set; }
 }

@@ -4,13 +4,10 @@ Hola,
 
 Alguien ha contactado con MiEntreno a través del formulario de contacto. Estos son los datos facilitados:
 
-- Nombre: {1}
-- Correo electrónico: {2}
-- Idioma: {4}
-- Mensaje: {3}
+- Nombre: {0}
+- Correo electrónico: {1}
+- Idioma: {3}
 
-Un saludo
-
----
-
-El equipo de MiEntreno -- <https://mientreno.app>
+<blockquote>
+{2}
+</blockquote>
