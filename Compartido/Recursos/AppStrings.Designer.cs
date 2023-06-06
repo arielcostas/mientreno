@@ -357,6 +357,24 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nuevo ejercicio.
+        /// </summary>
+        public static string Doing_CrearEjercicio {
+            get {
+                return ResourceManager.GetString("Doing_CrearEjercicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editando ejercicio.
+        /// </summary>
+        public static string Doing_EditarEjercicio {
+            get {
+                return ResourceManager.GetString("Doing_EditarEjercicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invitar.
         /// </summary>
         public static string doInvite {
@@ -623,15 +641,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string nuevaCategoria {
             get {
                 return ResourceManager.GetString("nuevaCategoria", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nuevo ejercicio.
-        /// </summary>
-        public static string nuevoEjercicio {
-            get {
-                return ResourceManager.GetString("nuevoEjercicio", resourceCulture);
             }
         }
         

@@ -266,7 +266,7 @@
   <data name="noHayCategorias" xml:space="preserve">
 	  <value>No hay ninguna categoría creada</value>
   </data>
-  <data name="nuevoEjercicio" xml:space="preserve">
+  <data name="Doing_CrearEjercicio" xml:space="preserve">
 	  <value>Nuevo ejercicio</value>
   </data>
   <data name="nuevaCategoria" xml:space="preserve">
@@ -379,5 +379,8 @@
   </data>
   <data name="Alert_ContactSent_Text" xml:space="preserve">
 	  <value>Has contactado exitosamente con el equipo de MiEntreno. Te contestaremos lo antes posible.</value>
+  </data>
+  <data name="Doing_EditarEjercicio" xml:space="preserve">
+	  <value>Editando ejercicio</value>
   </data>
 </root>

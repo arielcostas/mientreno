@@ -4,7 +4,7 @@
 	ViewData["Title"] = @AppStrings.ejercicios;
 }
 
-<main id="main-container">
+<main id="main-invisible">
 	<div class="title-with-action">
 		<h2>@AppStrings.ejercicios</h2>
 
@@ -26,21 +26,23 @@
 
 		@foreach (var categoria in Model.Categorias)
 		{
-			<details>
-				<summary>@categoria.Nombre</summary>
-				<ul>
-					@{
-						var url = Url.Page("/Ejercicios/Nuevo", new { cat = categoria.Id });
-					}
-					<a class="link link-primary link-bold" href="@url">
-						@AppStrings.nuevoEjercicio
+			<div class="category">
+				<strong role="heading">
+					@categoria.Nombre (@categoria.Ejercicios.Count) -- 
+					<a class="link link-primary link-bold"
+					   href="@Url.Page("/Ejercicios/Editor", new { cat = categoria.Id })">
+						@AppStrings.crear
 					</a>
+				</strong>
+				<div class="ejercicios">
 					@foreach (var ejercicio in categoria.Ejercicios)
 					{
-						<li>@ejercicio.Nombre</li>
+						<a class="link link-primary"
+						   href="@Url.Page("/Ejercicios/Editor", new { id = ejercicio.Id })"
+						   >@ejercicio.Nombre</a>
 					}
-				</ul>
-			</details>
+				</div>
+			</div>
 		}
 	</div>
 </main>

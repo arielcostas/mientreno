@@ -8,7 +8,7 @@
 
 .card {
 	width: 32rem;
-	background-color: var(--background);
+	background-color: var(--background-max);
 	
 	padding: 1.2rem;
 	

@@ -1,0 +1,25 @@
+﻿#list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.category {
+	background-color: var(--background-max);
+	
+	padding: 1.2rem;
+	
+	border-radius: var(--corner);
+	box-shadow: var(--shadow);
+}
+
+.category > span {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.ejercicios {
+	display: flex;
+	flex-direction: column;
+	padding-left: 1rem;
+}

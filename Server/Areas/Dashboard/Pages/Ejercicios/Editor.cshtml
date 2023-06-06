@@ -1,11 +1,18 @@
 ﻿@page
 @model EjerciciosNuevoModel
 @{
-	ViewData["Title"] = @AppStrings.nuevoEjercicio;
+	ViewData["Title"] = @AppStrings.Doing_CrearEjercicio;
 }
 
 <main id="main-container">
-	<h2>@AppStrings.nuevoEjercicio</h2>
+	@if (Model.Editando)
+	{
+		<h2>@AppStrings.Doing_EditarEjercicio @Model.Form.Nombre</h2>	
+	}
+	else
+	{
+		<h2>@AppStrings.Doing_CrearEjercicio</h2>
+	}
 
 	<form method="post">
 		<div class="form-group">

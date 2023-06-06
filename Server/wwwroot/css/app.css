@@ -10,6 +10,7 @@
 	--black: #03191F;
 	--background: #FBF5F3;
 	--background-alt: #EBE5E3;
+	--background-max: #FFFFFF;
 
 	--error: #AC3931;
 
@@ -244,7 +245,7 @@ header nav:has(img) img {
 /*#region Mains */
 #main-dialogue {
 	padding: 1rem 2rem;
-	background-color: #ffffff;
+	background-color: var(--background-max);
 	margin: 3rem auto;
 	width: 42rem;
 	border-radius: 0.5rem;
@@ -252,6 +253,14 @@ header nav:has(img) img {
 	gap: 1.5rem;
 
 	box-shadow: var(--shadow);
+}
+
+#main-invisible {
+	padding: 1rem 2rem;
+	margin: 3rem auto;
+	width: 80vw;
+
+	gap: 1.5rem;
 }
 
 #main-container {
