@@ -3,3 +3,5 @@ files:
     translation: /Compartido/Recursos/AppStrings.%two_letters_code%.resx
   - source: /QueueWorker/EmailTemplates/**/default.md
     translation: /QueueWorker/EmailTemplates/**/%two_letters_code%.md
+  - source: /Compartido/TermsService/v*.es.md
+    translation: /Compartido/TermsService/v*.%two_letters_code%.md
