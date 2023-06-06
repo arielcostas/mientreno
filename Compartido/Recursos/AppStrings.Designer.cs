@@ -69,6 +69,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contactar.
+        /// </summary>
+        public static string Action_Contact {
+            get {
+                return ResourceManager.GetString("Action_Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invita a tus alumnos a unirse a tí generando una invitación en la parte superior derecha..
         /// </summary>
         public static string Alert_NoAlumnos_Text {
@@ -402,6 +411,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mensaje.
+        /// </summary>
+        public static string Input_Mensaje {
+            get {
+                return ResourceManager.GetString("Input_Mensaje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invitaciones.
         /// </summary>
         public static string invitaciones {
@@ -596,6 +614,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string nuevoEjercicio {
             get {
                 return ResourceManager.GetString("nuevoEjercicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contacto.
+        /// </summary>
+        public static string Page_Contact {
+            get {
+                return ResourceManager.GetString("Page_Contact", resourceCulture);
             }
         }
         

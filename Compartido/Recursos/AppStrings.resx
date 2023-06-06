@@ -365,4 +365,13 @@
   <data name="Alert_SignUpInvite_Text" xml:space="preserve">
 	  <value>Te estás registrando como Alumno de</value>
   </data>
+  <data name="Page_Contact" xml:space="preserve">
+	  <value>Contacto</value>
+  </data>
+  <data name="Action_Contact" xml:space="preserve">
+	  <value>Contactar</value>
+  </data>
+  <data name="Input_Mensaje" xml:space="preserve">
+	  <value>Mensaje</value>
+  </data>
 </root>

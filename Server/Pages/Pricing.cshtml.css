@@ -1,0 +1,40 @@
+#prices	 {
+	display: grid;
+	grid-template-columns: 6fr 7fr 6fr;
+	margin: 1rem 2rem;
+	
+	border-collapse: collapse;
+}
+
+#prices article {
+	padding: 1rem;
+	border: 1px solid #ccc;
+	border-radius: var(--corner);
+	
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+#prices article h2 {
+	text-align: center;
+}
+
+#prices article ul {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+} 
+
+/* List bullet */
+#prices article ul ::marker {
+	content: " ✔ ";
+	color: var(--primary-darker);
+}
+
+#prices article:not(#plan-destacado) {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	background-color: var(--background-alt);
+}
+

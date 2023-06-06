@@ -56,7 +56,8 @@ public class MailQueueWorker : BackgroundService
 
 		var (subject, plain, html) = EmailTemplate.ApplyTemplate(email.Plantila, email.Idioma, email.Parametros);
 
-		await _sender.SendMailAsync(email.DireccionDestinatario, email.NombreDestinatario, subject, plain, html);
+		await _sender.SendMailAsync(email.DireccionDestinatario, email.NombreDestinatario, subject, plain, html,
+			email.ResponderA);
 
 		_channel?.BasicAck(e.DeliveryTag, false);
 	}

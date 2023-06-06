@@ -48,5 +48,11 @@
 	  <AdditionalFiles Include="Areas\Dashboard\Pages\Alumnos\Index.cshtml" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Pages\Contact.cshtml.cs">
+	    <DependentUpon>Contact.cshtml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
 </Project>
 

@@ -16,23 +16,13 @@ public sealed class AzureCSMailSender : IMailSender
 		From = from;
 	}
 
-	public void SendMail(
-		string toAddress,
-		string toName,
-		string subject,
-		string plainBody,
-		string htmlBody
-	)
-	{
-		SendMailAsync(toAddress, toName, subject, plainBody, htmlBody).Wait();
-	}
-
 	public async Task SendMailAsync(
 		string toAddress,
 		string toName,
 		string subject,
 		string plainBody,
-		string htmlBody
+		string htmlBody,
+		string? replyTo
 	)
 	{
 		var recipientAddress = new EmailAddress(toAddress, toName);
@@ -42,12 +32,17 @@ public sealed class AzureCSMailSender : IMailSender
 		EmailMessage options = new(
 			From,
 			recipients,
-			new(subject)
+			new EmailContent(subject)
 			{
 				PlainText = plainBody,
 				Html = htmlBody
 			}
 		);
+
+		if (!string.IsNullOrWhiteSpace(replyTo))
+		{
+			options.ReplyTo.Add(new EmailAddress(replyTo));
+		}
 
 		try
 		{

@@ -1,0 +1,44 @@
+@page
+@model ContactModel
+@{
+	ViewData["Title"] = AppStrings.Page_Contact;
+}
+
+<main id="main-dialogue">
+	<h1>@AppStrings.Page_Contact</h1>
+
+	<p>
+		Puedes contactar con nosotros a través de nuestro correo electrónico: <a href="mailto:hola@mientreno.app">hola@mientreno.app</a>.
+		Alternativamente, puedes contactar con nosotros a través del siguiente formulario de contacto (respondemos en 1-2 días):
+	</p>
+
+	<form method="post" id="form">
+		<div class="form-group">
+			<label asp-for="Form.Nombre">@AppStrings.name</label>
+			<input asp-for="Form.Nombre" type="email" autocomplete="name" class="form-control"/>
+			<span asp-validation-for="Form.Nombre" class="text-danger"></span>
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Form.Email">@AppStrings.email</label>
+			<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control"/>
+			<span asp-validation-for="Form.Email" class="text-danger"></span>
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Form.Mensaje">@AppStrings.Input_Mensaje</label>
+			<textarea asp-for="Form.Mensaje" class="form-control" rows="5"></textarea>
+			<span asp-validation-for="Form.Mensaje" class="text-danger"></span>
+		</div>
+
+		<button class="button button-primary" type="submit">@AppStrings.Action_Contact</button>
+
+		<small>
+			Los datos introducidos en este formulario serán enviados a nuestro correo electrónico y no serán almacenados
+			en ninguna base de datos.
+			<strong>
+				No comparta contraseñas o información sensible a través de este formulario.
+			</strong>
+		</small>
+	</form>
+</main>

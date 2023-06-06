@@ -1,9 +1,65 @@
 @page
-@model RegisterModel
 @{
 	ViewData["Title"] = AppStrings.pricing;
 }
 
-<main id="main-container">
+<main id="main-info">
 	<h1>@AppStrings.pricing</h1>
+
+	<p>
+		Para gestionar entrenamientos utilizando MiEntreno es necesaria una suscripción.
+		Contamos con varios planes, para que puedas elegir el que mejor se adapte a tus necesidades.
+		Para suscribirte, debes registrarte en MiEntreno, y una vez inicies sesión por primera vez, podrás
+		elegir el plan que prefieras.
+	</p>
+
+	<section id="prices">
+		<article>
+			<h2>Basic</h2>
+			<h3>1,99 € al mes (19,90 € al año)</h3>
+
+			<ul>
+				<li>Entrena hasta 2 personas</li>
+			</ul>
+		</article>
+
+		<article id="plan-destacado">
+			<h2>⭐ Estándar</h2>
+			<h3>4,99 € al mes (49,90 € al año)</h3>
+
+			<ul>
+				<li>Entrena hasta 5 personas</li>
+				<li>Acceso prioritario a soporte técnico</li>
+			</ul>
+		</article>
+
+		<article>
+			<h2>Prime</h2>
+			<h3>9,99 € al mes (99,00 € al año)</h3>
+
+			<ul>
+				<li>Entrena hasta 20 personas</li>
+				<li>Acceso prioritario a soporte técnico</li>
+			</ul>
+		</article>
+	</section>
+	
+	<a asp-page="Register" asp-area="" class="button button-primary">
+		@AppStrings.landing_RegistrateYa
+	</a>
+
+	<p>
+		Para cada plan, se puede elegir entre una suscripción mensual o anual. La suscripción anual tiene un
+		descuento equivalente a dos meses gratis. Si se elige la suscripción anual, se cobrará el importe total
+		de la suscripción al inicio del periodo de suscripción.
+	</p>
+
+	<p>
+		Con las nuevas suscripciones se incluye un periodo de prueba de 14 días, tras los cuales se renovará
+		automáticamente la suscripción, a no ser que se cancele antes de que finalice el periodo de prueba.
+	</p>
+
+	<p>
+		Si eres un alumno de un entrenador, no necesitas una suscripción, y MiEntreno será totalmente gratuito para ti.
+	</p>
 </main>

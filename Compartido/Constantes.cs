@@ -9,6 +9,7 @@ public sealed class Constantes
 	public const string EmailBienvenida = "Bienvenido";
 	public const string EmailConfirmarAlumno = "ConfirmarAlumno";
 	public const string EmailBienvenidaAlumno = "BienvenidoAlumno";
+	public const string FormContacto = "FormContacto";
 
 	public const uint VersionTos = 1;
 }
