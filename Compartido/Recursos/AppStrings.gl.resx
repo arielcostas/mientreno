@@ -219,7 +219,7 @@
 	  <value>A túa subscrición non será renovada, e rematará o </value>
   </data>
   <data name="dashboard_SubscribedToPlan" xml:space="preserve">
-	  <value>Estás subscrito ao plan</value>
+	  <value>Tes unha subscrición activa ao plan </value>
   </data>
   <data name="dashboard_MySubscription" xml:space="preserve">
 	  <value>A miña subscrición</value>
@@ -265,5 +265,104 @@
   </data>
   <data name="noHayCategorias" xml:space="preserve">
 	  <value>Non se creou ningunha categoría</value>
+  </data>
+  <data name="nuevoEjercicio" xml:space="preserve">
+	  <value>Novo exercicio</value>
+  </data>
+  <data name="nuevaCategoria" xml:space="preserve">
+	  <value>Nova categoría</value>
+  </data>
+  <data name="crear" xml:space="preserve">
+	  <value>Crear</value>
+  </data>
+  <data name="descripcion" xml:space="preserve">
+	  <value>Descrición</value>
+  </data>
+  <data name="dificultad" xml:space="preserve">
+	  <value>Dificultade</value>
+  </data>
+  <data name="pricing" xml:space="preserve">
+	  <value>Plans e tarifas</value>
+  </data>
+  <data name="legalInfo" xml:space="preserve">
+	  <value>Información legal</value>
+  </data>
+  <data name="masDetalles" xml:space="preserve">
+	  <value>Máis detalles</value>
+  </data>
+  <data name="goToDashboard" xml:space="preserve">
+	  <value>Ir ao meu taboleiro</value>
+  </data>
+  <data name="suscripcionConfirmadaTitulo" xml:space="preserve">
+	  <value>Confirmouse a túa subscrición</value>
+  </data>
+  <data name="suscripcionConfirmadaText" xml:space="preserve">
+	  <value>A túa subscrición confirmouse correctamente. Despois podes ir ao teu panel e comezar a traballar con MiEntreno.</value>
+  </data>
+  <data name="dashboard_NotSubscribedToPlan" xml:space="preserve">
+	  <value>Non tes unha subscrición activa.</value>
+  </data>
+  <data name="dashboard_WeUseStripe" xml:space="preserve">
+	  <value>Usamos Stripe para procesar pagos de forma segura. Podes xestionar a túa subscrición no teu</value>
+  </data>
+  <data name="dashboard_StripeClientPanel" xml:space="preserve">
+	  <value>panel de control de cliente de Stripe</value>
+  </data>
+  <data name="dashboard_GetInTouch" xml:space="preserve">
+	  <value>contacta connosco</value>
+  </data>
+  <data name="dashboard_ProblemWithStripe" xml:space="preserve">
+	  <value>Se tes algún problema coa túa subscrición, por favor</value>
+  </data>
+  <data name="dashboard_AlumnosOutOf" xml:space="preserve">
+	  <value>alumnos dun total de</value>
+  </data>
+  <data name="dashboard_NoPlansCreated" xml:space="preserve">
+	  <value>Non se creou (aínda) ningún plan de adestramento.</value>
+  </data>
+  <data name="trainingPlans" xml:space="preserve">
+	  <value>Plans de adestramento</value>
+  </data>
+  <data name="cuestionarios" xml:space="preserve">
+	  <value>Cuestionarios</value>
+  </data>
+  <data name="cuestionario" xml:space="preserve">
+	  <value>cuestionario</value>
+  </data>
+  <data name="availableSoon" xml:space="preserve">
+	  <value>Esta funcionalidade estará dispoñible en breve.</value>
+  </data>
+  <data name="plan" xml:space="preserve">
+	  <value>plan</value>
+  </data>
+  <data name="dashboard_NoCuestionariosCreated" xml:space="preserve">
+	  <value>Non se creou ningún cuestionario (aínda).</value>
+  </data>
+  <data name="invitaciones" xml:space="preserve">
+	  <value>Convites</value>
+  </data>
+  <data name="doInvite" xml:space="preserve">
+	  <value>Convidar</value>
+  </data>
+  <data name="dashboard_ShareInviteLink" xml:space="preserve">
+	  <value>Comparte a seguinte ligazón co(s) teu(s) alumno(s):</value>
+  </data>
+  <data name="dashboard_InviteCreated" xml:space="preserve">
+	  <value>Convite creado</value>
+  </data>
+  <data name="ver" xml:space="preserve">
+	  <value>Ver</value>
+  </data>
+  <data name="Alert_NoAlumnos_Title" xml:space="preserve">
+	  <value>Non tes alumnos</value>
+  </data>
+  <data name="Alert_NoAlumnos_Text" xml:space="preserve">
+	  <value>Invita aos teus alumnos a unirse a ti xerando unha invitación na parte superior dereita.</value>
+  </data>
+  <data name="Alert_SignUpInvite_Title" xml:space="preserve">
+	  <value>invitoute a adestrar</value>
+  </data>
+  <data name="Alert_SignUpInvite_Text" xml:space="preserve">
+	  <value>Estas rexistrándote como alumno de</value>
   </data>
 </root>

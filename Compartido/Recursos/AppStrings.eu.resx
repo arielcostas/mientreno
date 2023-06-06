@@ -117,24 +117,177 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="alreadyHaveAccountLogin" xml:space="preserve">
+    <value>Kontu bat al duzu dagoeneko? Saioa hasi.</value>
+  </data>
+  <data name="confirmPassword" xml:space="preserve">
+    <value>pasahitza baieztatu</value>
+  </data>
+  <data name="doLogin" xml:space="preserve">
+    <value>Saioa hasi</value>
+  </data>
+  <data name="doRegister" xml:space="preserve">
+    <value>Check in</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Posta elektronikoa</value>
+  </data>
   <data name="errorInvalidCredentials" xml:space="preserve">
-	  <value />
-	  <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
+    <value>Erabiltzaile-izena edo pasahitza okerra</value>
+    <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
   <data name="name" xml:space="preserve">
-	  <value />
-	  <comment>Nombre real de una persona (no confundir con username)</comment>
+    <value>Izena</value>
+    <comment>Nombre real de una persona (no confundir con username)</comment>
   </data>
   <data name="newHereRegister" xml:space="preserve">
-	  <value />
-	  <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
+    <value>Berria hemen inguruan? Izena eman.</value>
+    <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Pasahitza</value>
   </data>
   <data name="register" xml:space="preserve">
-	  <value />
-	  <comment>Título de la página de registro</comment>
+    <value>Grabatu</value>
+    <comment>Título de la página de registro</comment>
   </data>
   <data name="surname" xml:space="preserve">
-	  <value />
-	  <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
+    <value>Abizenak</value>
+    <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
+  </data>
+  <data name="iveReadAndAccept" xml:space="preserve">
+	  <value>Irakurri dut eta ados nago</value>
+  </data>
+  <data name="registrationDoneEmailSent" xml:space="preserve">
+	  <value>Zure kontua berresteko, mezu elektroniko bat bidali dizugu. Mesedez, egiaztatu zure sarrera-ontzia.</value>
+  </data>
+  <data name="login" xml:space="preserve">
+	  <value>Saioa hasi</value>
+  </data>
+  <data name="theTermsAndConditions" xml:space="preserve">
+	  <value>terminoak eta baldintzak</value>
+  </data>
+  <data name="urlVideoYoutube" xml:space="preserve">
+	  <value>Erakuspen bideoaren URLa (YouTube)</value>
+  </data>
+  <data name="landing_Titulo" xml:space="preserve">
+	  <value>Entrenatzeko modu berri bat</value>
+  </data>
+  <data name="landing_Subtitulo" xml:space="preserve">
+	  <value>Mientrenok zure bezeroen aurrerapen fisikoa modu erraz eta eraginkor batean kudeatzeko aukera ematen dizu.</value>
+  </data>
+  <data name="landing_RegistrateYa" xml:space="preserve">
+	  <value>Eman izena orain!</value>
+  </data>
+  <data name="landing_OIniciaSesion" xml:space="preserve">
+	  <value>edo saioa hasi</value>
+  </data>
+  <data name="rememberMe" xml:space="preserve">
+	  <value>mantendu saioa hasita</value>
+  </data>
+  <data name="hello" xml:space="preserve">
+	  <value>Kaixo</value>
+  </data>
+  <data name="landing_Feature1_Titulo" xml:space="preserve">
+	  <value>non eta nahi duzunean</value>
+  </data>
+  <data name="landing_Feature2_Titulo" xml:space="preserve">
+	  <value>kontsumitzailearen gustura</value>
+  </data>
+  <data name="landing_Feature3_Titulo" xml:space="preserve">
+	  <value>prestakuntza historia</value>
+  </data>
+  <data name="landing_Feature4_Titulo" xml:space="preserve">
+	  <value>Eta askoz gehiago!</value>
+  </data>
+  <data name="landing_Feature1_Subtitulo" xml:space="preserve">
+	  <value>Kudeatu zure bezeroen entrenamenduak edozein gailutatik eta edonon. Eta utzi zure bezeroei azkar eta eroso kontsulta ditzaten.</value>
+  </data>
+  <data name="landing_Feature2_Subtitulo" xml:space="preserve">
+	  <value>Bezero bakoitzari egokitutako entrenamendu-planak definitzea, ariketa bakoitzerako argibideak, serie kopurua, errepikapenak eta atseden-aldiak adieraziz.</value>
+  </data>
+  <data name="landing_Feature3_Subtitulo" xml:space="preserve">
+	  <value>Begiratu prestakuntza-historia bezeroaren bilakaera ikusteko. Aldizkako egoera-txostenak mantentzea. Jaso haien beharretara egokitzen lagunduko dizuten iruzkinak.</value>
+  </data>
+  <data name="landing_Feature4_Subtitulo" xml:space="preserve">
+	  <value>Etengabeko garapenean dagoen bitartean! Denborarekin, eginbide eta hobekuntza berrietarako sarbidea izango duzu.</value>
+  </data>
+  <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
+	  <value>Zure harpidetza automatikoki berrituko da </value>
+  </data>
+  <data name="dashboard_SubscriptionWillEndAt" xml:space="preserve">
+	  <value>Zure harpidetza ez da berrituko, eta </value>
+  </data>
+  <data name="dashboard_SubscribedToPlan" xml:space="preserve">
+	  <value>Planera harpidetuta zaude </value>
+  </data>
+  <data name="dashboard_MySubscription" xml:space="preserve">
+	  <value>nire harpidetza</value>
+  </data>
+  <data name="dashboard_MyStudents" xml:space="preserve">
+	  <value>Nire ikasleak</value>
+  </data>
+  <data name="dashboard" xml:space="preserve">
+	  <value>nire taula</value>
+  </data>
+  <data name="alumnos" xml:space="preserve">
+	  <value>Ikasleak</value>
+  </data>
+  <data name="ejercicios" xml:space="preserve">
+	  <value>Ariketak</value>
+  </data>
+  <data name="accountConfirmed" xml:space="preserve">
+	  <value>baieztatutako kontua</value>
+  </data>
+  <data name="yourAccountHasBeenConfirmed" xml:space="preserve">
+	  <value>Zure kontua berretsi da. Orain saioa hasi eta MyTraining erabiltzen has zaitezke.</value>
+  </data>
+  <data name="validation_NameRequired" xml:space="preserve">
+	  <value>Zure izena idatzi behar duzu</value>
+  </data>
+  <data name="validation_SurnameRequired" xml:space="preserve">
+	  <value>Zure abizena sartu behar duzu</value>
+  </data>
+  <data name="validation_EmailRequired" xml:space="preserve">
+	  <value>Zure helbide elektronikoa sartu behar duzu</value>
+  </data>
+  <data name="validation_PasswordRequired" xml:space="preserve">
+	  <value>Pasahitza sartu behar duzu</value>
+  </data>
+  <data name="validation_PasswordConfirmationRequired" xml:space="preserve">
+	  <value>Pasahitza berretsi behar duzu</value>
+  </data>
+  <data name="validation_PasswordsDontMatch" xml:space="preserve">
+	  <value>Pasahitzak ez datoz bat</value>
+  </data>
+  <data name="validation_TosNotAccepted" xml:space="preserve">
+	  <value>Zehaztapenak eta baldintzak onartu behar dituzu</value>
+  </data>
+  <data name="noHayCategorias" xml:space="preserve">
+	  <value>Ez da kategoriarik sortu</value>
+  </data>
+  <data name="nuevoEjercicio" xml:space="preserve">
+	  <value>ariketa berria</value>
+  </data>
+  <data name="nuevaCategoria" xml:space="preserve">
+	  <value>Kategoria berria</value>
+  </data>
+  <data name="crear" xml:space="preserve">
+	  <value>Sortu</value>
+  </data>
+  <data name="descripcion" xml:space="preserve">
+	  <value>Deskribapena</value>
+  </data>
+  <data name="dificultad" xml:space="preserve">
+	  <value>Zailtasuna</value>
+  </data>
+  <data name="pricing" xml:space="preserve">
+	  <value>Planak eta tarifak</value>
+  </data>
+  <data name="legalInfo" xml:space="preserve">
+	  <value>Informazio juridikoa</value>
+  </data>
+  <data name="masDetalles" xml:space="preserve">
+	  <value>Xehetasun gehiago</value>
   </data>
 </root>
