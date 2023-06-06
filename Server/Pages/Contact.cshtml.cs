@@ -48,7 +48,10 @@ public class ContactModel : PageModel
 			ResponderA = Form.Email
 		});
 		
-		Form = new ContactForm();
+		Form.Nombre = string.Empty;
+		Form.Email = string.Empty;
+		Form.Mensaje = string.Empty;
+		
 		ContactoEnviado = true;
 		return Page();
 	}

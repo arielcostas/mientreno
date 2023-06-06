@@ -12,6 +12,14 @@
 		Alternativamente, puedes contactar con nosotros a través del siguiente formulario de contacto (respondemos en 1-2 días):
 	</p>
 
+	@if (Model.ContactoEnviado)
+	{
+		<div class="alert alert-success">
+			<strong class="alert-title">@AppStrings.Alert_ContactSent_Title</strong>
+			@AppStrings.Alert_ContactSent_Text
+		</div>
+	}
+
 	<form method="post" id="form">
 		<div class="form-group">
 			<label asp-for="Form.Nombre">@AppStrings.name</label>

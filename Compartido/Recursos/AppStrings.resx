@@ -374,4 +374,10 @@
   <data name="Input_Mensaje" xml:space="preserve">
 	  <value>Mensaje</value>
   </data>
+  <data name="Alert_ContactSent_Title" xml:space="preserve">
+	  <value>Tu mensaje se ha enviado</value>
+  </data>
+  <data name="Alert_ContactSent_Text" xml:space="preserve">
+	  <value>Has contactado exitosamente con el equipo de MiEntreno. Te contestaremos lo antes posible.</value>
+  </data>
 </root>

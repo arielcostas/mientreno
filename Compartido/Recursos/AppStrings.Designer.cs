@@ -78,6 +78,24 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Has contactado exitosamente con el equipo de MiEntreno. Te contestaremos lo antes posible..
+        /// </summary>
+        public static string Alert_ContactSent_Text {
+            get {
+                return ResourceManager.GetString("Alert_ContactSent_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tu mensaje se ha enviado.
+        /// </summary>
+        public static string Alert_ContactSent_Title {
+            get {
+                return ResourceManager.GetString("Alert_ContactSent_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invita a tus alumnos a unirse a tí generando una invitación en la parte superior derecha..
         /// </summary>
         public static string Alert_NoAlumnos_Text {
