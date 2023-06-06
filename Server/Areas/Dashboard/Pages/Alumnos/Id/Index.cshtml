@@ -12,7 +12,7 @@
 
 	<div class="title-with-action">
 		<h2>@AppStrings.cuestionarios</h2>
-		<a href="#" class="button button-disabled">+ @AppStrings.crear @AppStrings.cuestionario</a>
+		<a href="#" class="button button-disabled">+ @AppStrings.Action_Crear @AppStrings.cuestionario</a>
 	</div>
 
 	@if (Model.Alumno.Cuestionarios.Count == 0)
@@ -25,7 +25,7 @@
 
 	<div class="title-with-action">
 		<h2>@AppStrings.trainingPlans</h2>
-		<a href="@Model.Id/NuevoPlan" class="button button-primary">+ @AppStrings.crear @AppStrings.plan</a>
+		<a href="@Model.Id/NuevoPlan" class="button button-primary">+ @AppStrings.Action_Crear @AppStrings.plan</a>
 	</div>
 
 	@if (Model.Alumno.JornadasEntrenamientos.Count == 0)
@@ -40,7 +40,7 @@
 	<ul>
 		@foreach (var rutina in Model.Alumno.JornadasEntrenamientos)
 		{
-			@rutina.Nombre
+			@rutina.FechaCreacion
 		}
 	</ul>
 </main>

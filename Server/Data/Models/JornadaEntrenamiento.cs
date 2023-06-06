@@ -9,6 +9,7 @@ public class JornadaEntrenamiento
 	public Alumno ClienteAsignado { get; set; } = new();
 	public List<EjercicioProgramado> Ejercicios { get; set; } = new();
 	
+	public EstadoRutina Estado { get; set; } = EstadoRutina.Borrador;
 	public DateTime FechaCreacion { get; set; }
 	public DateTime? FechaRealizacion { get; set; }
 	
@@ -26,4 +27,11 @@ public class EjercicioProgramado
 	public int? Series { get; set; }
 	public int? Repeticiones { get; set; }
 	public int? Minutos { get; set; }
+}
+
+public enum EstadoRutina
+{
+	Borrador,
+	Publicada,
+	Realizada
 }

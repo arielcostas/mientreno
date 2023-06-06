@@ -7,7 +7,7 @@
 <main id="main-container">
 	@if (Model.Editando)
 	{
-		<h2>@AppStrings.Doing_EditarEjercicio @Model.Form.Nombre</h2>	
+		<h2>@AppStrings.Doing_EditarEjercicio @Model.Form.Nombre</h2>
 	}
 	else
 	{
@@ -37,6 +37,13 @@
 			<span asp-validation-for="Form.Dificultad" class="text-danger"></span>
 		</div>
 
-		<input type="submit" class="button button-primary" value="+ @AppStrings.crear"/>
+		@if (Model.Editando)
+		{
+			<input type="submit" class="button button-primary" value="💾 @AppStrings.Action_Editar"/>
+		}
+		else
+		{
+			<input type="submit" class="button button-primary" value="+ @AppStrings.Action_Crear"/>
+		}
 	</form>
 </main>

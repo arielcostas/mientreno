@@ -272,7 +272,7 @@
   <data name="nuevaCategoria" xml:space="preserve">
 	  <value>Nova categoría</value>
   </data>
-  <data name="crear" xml:space="preserve">
+  <data name="Action_Crear" xml:space="preserve">
 	  <value>Crear</value>
   </data>
   <data name="descripcion" xml:space="preserve">

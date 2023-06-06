@@ -78,6 +78,24 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Crear.
+        /// </summary>
+        public static string Action_Crear {
+            get {
+                return ResourceManager.GetString("Action_Crear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar.
+        /// </summary>
+        public static string Action_Editar {
+            get {
+                return ResourceManager.GetString("Action_Editar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Has contactado exitosamente con el equipo de MiEntreno. Te contestaremos lo antes posible..
         /// </summary>
         public static string Alert_ContactSent_Text {
@@ -164,15 +182,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string confirmPassword {
             get {
                 return ResourceManager.GetString("confirmPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Crear.
-        /// </summary>
-        public static string crear {
-            get {
-                return ResourceManager.GetString("crear", resourceCulture);
             }
         }
         
