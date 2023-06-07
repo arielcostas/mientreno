@@ -31,5 +31,8 @@
 	  <None Update="EmailTemplates\FormContacto\default.md">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="EmailTemplates\SuscripcionCreada\default.md">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 </Project>

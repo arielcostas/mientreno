@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Mientreno.Compartido;
+using Mientreno.Compartido.Mensajes;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
+using Mientreno.Server.Service.Queue;
 using Stripe;
 
 namespace Mientreno.Server.Controllers;
@@ -11,11 +14,13 @@ public class StripeWebhookController : ControllerBase
 {
 	private readonly IConfiguration _configuration;
 	private readonly ApplicationDatabaseContext _context;
+	private readonly IQueueProvider _queueProvider;
 
-	public StripeWebhookController(IConfiguration configuration, ApplicationDatabaseContext context)
+	public StripeWebhookController(IConfiguration configuration, ApplicationDatabaseContext context, IQueueProvider queueProvider)
 	{
 		_configuration = configuration;
 		_context = context;
+		_queueProvider = queueProvider;
 	}
 
 	[HttpPost]
@@ -40,7 +45,7 @@ public class StripeWebhookController : ControllerBase
 		}
 
 		// TODO: Gestionar facturas pagadas
-		
+
 		return Ok();
 	}
 
@@ -48,8 +53,10 @@ public class StripeWebhookController : ControllerBase
 	{
 		if (stripeEvent.Data.Object is not Subscription subscription) return BadRequest();
 
+		var customer = await new CustomerService().GetAsync(subscription.CustomerId);
+
 		var entrenador = _context.Entrenadores
-			.FirstOrDefault(e => e.Suscripcion.CustomerId == subscription.CustomerId);
+			.FirstOrDefault(e => e.Email == customer.Email);
 
 		if (entrenador is null) return NotFound();
 
@@ -76,15 +83,23 @@ public class StripeWebhookController : ControllerBase
 
 		await _context.SaveChangesAsync();
 
-		if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
+		if (stripeEvent.Type != Events.CustomerSubscriptionCreated) return Ok();
+		entrenador.Suscripcion.CustomerId = customer.Id;
+			
+		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
 		{
-			//TODO: Email confirmación suscripción	
-		}
+			Idioma = "es",
+			NombreDestinatario = entrenador.NombreCompleto,
+			DireccionDestinatario = entrenador.Email!,
+			Plantila = Constantes.SuscripcionCreada,
+			// TODO: Los planes deberían usar el nombre bien capitalizado
+			Parametros = new[] { entrenador.Nombre, plan.ToString()! }
+		});
 
 		return Ok();
 	}
 
-	private PlanSuscripcion? ParsePlan(string nombre)
+	private static PlanSuscripcion? ParsePlan(string nombre)
 	{
 		return nombre switch
 		{

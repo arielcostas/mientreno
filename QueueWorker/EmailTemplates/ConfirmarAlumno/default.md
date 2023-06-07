@@ -12,8 +12,4 @@ Si has sido tú quien creó la cuenta, puedes confirmarla visitando la siguiente
 
 Si **no has sido tú** quien creó la cuenta, puedes ignorar este correo. Pasadas 48 horas, la cuenta se eliminará. Haber recibido este correo no implica que tu cuenta de correo esté comprometida. Si tienes cualquier duda, puedes contactar con nosotros respondiendo a este mensaje.
 
-Un saludo,
-
----
-
-El equipo de MiEntreno -- <https://mientreno.app>
+Un saludo

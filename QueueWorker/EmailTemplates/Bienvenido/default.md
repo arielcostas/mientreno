@@ -11,7 +11,3 @@ Recuerda que si tienes alguna duda, puedes contactar con nosotros escribiendo un
 ¡Estaremos encantados de ayudarte!
 
 ¡Un saludo!
-
----
-
-El equipo de MiEntreno -- <https://mientreno.app>

@@ -94,7 +94,7 @@ public class NuevoPlanForm
 {
 	public string Nombre { get; set; } = string.Empty;
 	public string Descripcion { get; set; } = string.Empty;
-	public NuevoEjercicioPlan[] Ejercicios { get; set; }
+	public NuevoEjercicioPlan[] Ejercicios { get; set; } = Array.Empty<NuevoEjercicioPlan>();
 }
 
 public class NuevoEjercicioPlan

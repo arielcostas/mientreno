@@ -23,9 +23,18 @@ public class LoginModel : PageModel
 
 	[FromQuery]
 	public string? ReturnUrl { get; set; }
+
+	public void OnGet()
+	{
+		if (_userManager.GetUserId(User) is not null) Response.Redirect("/Index");
+	}
 	
 	public async Task<IActionResult> OnPost()
 	{
+		if (_userManager.GetUserId(User) is not null) return Redirect("/Index");
+		
+		if (!ModelState.IsValid) return Page();
+	
 		var user = await _userManager.FindByEmailAsync(Form.Email);
 		
 		if (user is null)

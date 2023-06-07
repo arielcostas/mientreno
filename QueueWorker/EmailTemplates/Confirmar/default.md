@@ -14,8 +14,4 @@ Si **no has sido tú** quien creó la cuenta, puedes ignorar este correo. Pasada
 recibido este correo no implica que tu cuenta de correo esté comprometida. Si tienes cualquier duda, puedes contactar
 con nosotros respondiendo a este mensaje.
 
-Un saludo,
-
----
-
-El equipo de MiEntreno -- <https://mientreno.app>
+Un saludo

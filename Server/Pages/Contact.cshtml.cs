@@ -59,9 +59,9 @@ public class ContactModel : PageModel
 
 public class ContactForm
 {
-	[Required] public string Nombre { get; set; }
+	[Required] public string Nombre { get; set; } = string.Empty;
 
-	[Required] [EmailAddress] public string Email { get; set; }
+	[Required] [EmailAddress] public string Email { get; set; } = string.Empty;
 
-	[Required] public string Mensaje { get; set; }
+	[Required] public string Mensaje { get; set; } = string.Empty;
 }

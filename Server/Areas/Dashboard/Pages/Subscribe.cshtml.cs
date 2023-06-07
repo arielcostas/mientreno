@@ -24,6 +24,7 @@ public class SubscribeModel : PageModel
 		_context = context;
 
 		StripePublishable = _configuration["Stripe:Publishable"]!;
+		StripeSubscriptionManager = string.Empty;
 		Entrenador = null!;
 	}
 

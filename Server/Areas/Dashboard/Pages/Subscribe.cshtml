@@ -4,24 +4,36 @@
 	ViewData["Title"] = AppStrings.pricing;
 }
 
-<main id="main-dialogue">
+<main id="main-container">
 	<h1>@AppStrings.pricing</h1>
 
-	<strong>
-		@if (Model.Entrenador.Suscripcion.Operativa)
-		{
+	@if (Model.Entrenador.Suscripcion.Operativa)
+	{
+		<strong>
 			@AppStrings.dashboard_SubscribedToPlan
 			@Model.Entrenador.Suscripcion.Plan
-		}
-		else
-		{
+		</strong>
+		<p>
+			@AppStrings.dashboard_WeUseStripe
+			<a href="@Model.StripeSubscriptionManager">@AppStrings.dashboard_StripeClientPanel</a>.
+		</p>
+	}
+	else
+	{
+		<strong>
 			@AppStrings.dashboard_NotSubscribedToPlan
+		</strong>
+
+		@section HeaderExtras
+		{
+			<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
 		}
-	</strong>
-	<p>
-		@AppStrings.dashboard_WeUseStripe
-		<a href="@Model.StripeSubscriptionManager">@AppStrings.dashboard_StripeClientPanel</a>.
-	</p>
+		<stripe-pricing-table pricing-table-id="prctbl_1NEW4FKk3b9U3IGlw0dmu8vJ"
+		                      publishable-key="@Model.StripePublishable"
+		                      client-reference-id="@Model.Entrenador.Suscripcion.CustomerId"
+		                      customer-email="@Model.Entrenador.Email">
+		</stripe-pricing-table>
+	}
 
 	<p>
 		@AppStrings.dashboard_ProblemWithStripe

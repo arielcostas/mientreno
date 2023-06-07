@@ -46,14 +46,14 @@ public class EjerciciosNuevoModel : EntrenadorPageModel
 
 		if (!string.IsNullOrWhiteSpace(CategoriaId))
 		{
-			return await OnNewEjercicio();
+			return OnNewEjercicio();
 		}
 
 		_logger.LogError("Entrenador intentó crear un ejercicio sin especificar la categoría.");
 		return BadRequest();
 	}
 
-	private async Task<IActionResult> OnNewEjercicio()
+	private IActionResult OnNewEjercicio()
 	{
 		var categoria = Entrenador.Categorias.FirstOrDefault(c => c.Id.ToString() == CategoriaId);
 		if (categoria != null) return Page();
