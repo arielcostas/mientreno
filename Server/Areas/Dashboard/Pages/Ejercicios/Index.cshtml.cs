@@ -36,7 +36,7 @@ public class EjerciciosIndexModel : EntrenadorPageModel
 	public async Task<IActionResult> OnPostAsync()
 	{
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("Subscribe");
+		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 
 		if (string.IsNullOrWhiteSpace(NuevaCategoriaName))
 		{

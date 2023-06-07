@@ -20,7 +20,7 @@ public class AlumnosModel : EntrenadorPageModel
 	public IActionResult OnGet()
 	{
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("Subscribe");
+		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 		
 		Alumnos = DatabaseContext.Alumnos
 			.Where(a => a.Entrenador == Entrenador)
@@ -32,7 +32,7 @@ public class AlumnosModel : EntrenadorPageModel
 	public async Task<IActionResult> OnPostAsync()
 	{
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("Subscribe");
+		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 		
 		if (!ModelState.IsValid) return Page();
 		

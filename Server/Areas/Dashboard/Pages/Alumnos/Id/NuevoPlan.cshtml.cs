@@ -28,7 +28,7 @@ public class CrearPlanModel : EntrenadorPageModel
 	public async Task<IActionResult> OnGetAsync()
 	{
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("Subscribe");
+		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 
 		var alumno = await DatabaseContext.Alumnos
 			.FirstOrDefaultAsync(a => a.Id == Id && a.Entrenador == Entrenador);
@@ -50,7 +50,7 @@ public class CrearPlanModel : EntrenadorPageModel
 		if (!ModelState.IsValid) return Page();
 
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("Subscribe");
+		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 
 		var alumno = await DatabaseContext.Alumnos
 			.FirstOrDefaultAsync(a => a.Id == Id && a.Entrenador == Entrenador);

@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Mientreno.Server.Data.Models
+@inject UserManager<Usuario> UManager
+
+@{ var usuario = UManager.GetUserAsync(User).Result!; }
+
+<environment include="@Environments.Development">
+	@Html.Raw(string.Join("<br />", User.Claims.Select(c => $"{c.Type} => {c.Value}"))) )
+</environment>
+<header>
+	<a asp-area="Dashboard" asp-page="/Index">
+		<img src="~/isotipo.svg" alt="mientreno" id="isotipo"/>
+	</a>
+
+	<nav>
+		<a asp-area="Dashboard" asp-page="/Index" class="link link-white link-nav link-bold">
+			🏠@AppStrings.dashboard
+		</a>
+		<a asp-area="Dashboard" asp-page="/Alumnos/Index" class="link link-white link-nav link-bold">
+			🎽 @AppStrings.alumnos
+		</a>
+		<a asp-area="Dashboard" asp-page="/Ejercicios/Index" class="link link-white link-nav link-bold">
+			🏋️ @AppStrings.ejercicios
+		</a>
+	</nav>
+
+	<nav>
+		<a asp-page="Index" asp-area="Dashboard" class="link-badge">
+			@{ var png = usuario.Id + ".png"; }
+			<img src="/Static/profile/@png" alt="profile"/>
+			@AppStrings.hello, @usuario.Nombre
+		</a>
+	</nav>
+
+</header>

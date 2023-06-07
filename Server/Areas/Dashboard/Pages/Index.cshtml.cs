@@ -21,7 +21,7 @@ public class DashboardModel : EntrenadorPageModel
 	public IActionResult OnGet()
 	{
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("Subscribe");
+		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 		
 		Alumnos = DatabaseContext.Alumnos.Count(a => a.Entrenador == Entrenador);
 		

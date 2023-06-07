@@ -45,6 +45,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AdditionalFiles Include="Areas\Alumnos\Pages\Index.cshtml" />
+	  <AdditionalFiles Include="Areas\Alumnos\Pages\Shared\Header.cshtml" />
+	  <AdditionalFiles Include="Areas\Alumnos\Pages\Shared\_Layout.cshtml" />
+	  <AdditionalFiles Include="Areas\Alumnos\Pages\_ViewImports.cshtml" />
+	  <AdditionalFiles Include="Areas\Alumnos\Pages\_ViewStart.cshtml" />
 	  <AdditionalFiles Include="Areas\Dashboard\Pages\Alumnos\Index.cshtml" />
 	</ItemGroup>
 
@@ -52,6 +57,14 @@
 	  <Compile Update="Pages\Contact.cshtml.cs">
 	    <DependentUpon>Contact.cshtml</DependentUpon>
 	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="Areas\Alumnos\Pages\Ejercicios\Index.cshtml" />
+	  <_ContentIncludedByDefault Remove="Areas\Alumnos\Pages\Ejercicios\Nuevo.cshtml" />
+	  <_ContentIncludedByDefault Remove="Areas\Alumnos\Pages\Alumnos\Id\Index.cshtml" />
+	  <_ContentIncludedByDefault Remove="Areas\Alumnos\Pages\Alumnos\Id\NuevoPlan.cshtml" />
+	  <_ContentIncludedByDefault Remove="Areas\Alumnos\Pages\Alumnos\Index.cshtml" />
 	</ItemGroup>
 
 </Project>
