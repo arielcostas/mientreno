@@ -16,7 +16,8 @@ public class StripeWebhookController : ControllerBase
 	private readonly ApplicationDatabaseContext _context;
 	private readonly IQueueProvider _queueProvider;
 
-	public StripeWebhookController(IConfiguration configuration, ApplicationDatabaseContext context, IQueueProvider queueProvider)
+	public StripeWebhookController(IConfiguration configuration, ApplicationDatabaseContext context,
+		IQueueProvider queueProvider)
 	{
 		_configuration = configuration;
 		_context = context;
@@ -42,6 +43,8 @@ public class StripeWebhookController : ControllerBase
 			case Events.CustomerSubscriptionResumed:
 			case Events.CustomerSubscriptionPaused:
 				return await HandleSubscriptionStatusChange(stripeEvent);
+			case Events.CustomerSubscriptionTrialWillEnd:
+				return await HandleTrialWillEnd(stripeEvent);
 		}
 
 		// TODO: Gestionar facturas pagadas
@@ -49,6 +52,27 @@ public class StripeWebhookController : ControllerBase
 		return Ok();
 	}
 
+	private async Task<IActionResult> HandleTrialWillEnd(Event stripeEvent)
+	{
+		if (stripeEvent.Data.Object is not Subscription subscription) return BadRequest();
+		
+		var entrenador = _context.Entrenadores
+			.FirstOrDefault(e => e.Suscripcion.CustomerId == subscription.CustomerId);
+		
+		if (entrenador is null) return NotFound();
+
+		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
+		{
+			Idioma = Idiomas.Castellano,
+			NombreDestinatario = entrenador.NombreCompleto,
+			DireccionDestinatario = entrenador.Email!,
+			Plantila = Constantes.PruebaTermina,
+			Parametros = new[] { entrenador.Nombre, entrenador.Suscripcion.Plan.ToString()! }
+		});
+
+		return Ok();
+	}
+	
 	private async Task<IActionResult> HandleSubscriptionStatusChange(Event stripeEvent)
 	{
 		if (stripeEvent.Data.Object is not Subscription subscription) return BadRequest();
@@ -83,18 +107,32 @@ public class StripeWebhookController : ControllerBase
 
 		await _context.SaveChangesAsync();
 
-		if (stripeEvent.Type != Events.CustomerSubscriptionCreated) return Ok();
-		entrenador.Suscripcion.CustomerId = customer.Id;
-			
-		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
+		switch (stripeEvent.Type)
 		{
-			Idioma = "es",
-			NombreDestinatario = entrenador.NombreCompleto,
-			DireccionDestinatario = entrenador.Email!,
-			Plantila = Constantes.SuscripcionCreada,
-			// TODO: Los planes deberían usar el nombre bien capitalizado
-			Parametros = new[] { entrenador.Nombre, plan.ToString()! }
-		});
+			case Events.CustomerSubscriptionCreated:
+				entrenador.Suscripcion.CustomerId = customer.Id;
+
+				_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
+				{
+					Idioma = Idiomas.Castellano,
+					NombreDestinatario = entrenador.NombreCompleto,
+					DireccionDestinatario = entrenador.Email!,
+					Plantila = Constantes.SuscripcionCreada,
+					// TODO: Los planes deberían usar el nombre bien capitalizado
+					Parametros = new[] { entrenador.Nombre, plan.ToString()! }
+				});
+				break;
+			case Events.CustomerSubscriptionDeleted:
+				_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
+				{
+					Idioma = Idiomas.Castellano,
+					NombreDestinatario = entrenador.NombreCompleto,
+					DireccionDestinatario = entrenador.Email!,
+					Plantila = Constantes.SuscripcionCancelada,
+					Parametros = new[] { entrenador.NombreCompleto }
+				});
+				break;
+		}
 
 		return Ok();
 	}

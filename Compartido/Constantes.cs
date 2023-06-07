@@ -11,6 +11,8 @@ public sealed class Constantes
 	public const string EmailBienvenidaAlumno = "BienvenidoAlumno";
 	public const string FormContacto = "FormContacto";
 	public const string SuscripcionCreada = "SuscripcionCreada";
+	public const string SuscripcionCancelada = "SuscripcionCancelada";
+	public const string PruebaTermina = "PruebaTermina";
 
 	public const uint VersionTos = 1;
 }

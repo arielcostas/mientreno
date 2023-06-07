@@ -34,5 +34,11 @@
 	  <None Update="EmailTemplates\SuscripcionCreada\default.md">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="EmailTemplates\SuscripcionCancelada\default.md">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="EmailTemplates\PruebaTermina\default.md">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 </Project>
