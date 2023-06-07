@@ -42,6 +42,16 @@ builder.Services.AddRequestLocalization(options =>
 	options.DefaultRequestCulture = new RequestCulture(Idiomas.Castellano);
 	options.SupportedCultures = supportedCultures;
 	options.SupportedUICultures = supportedCultures;
+
+	options.RequestCultureProviders = new List<IRequestCultureProvider>
+	{
+		new CookieRequestCultureProvider
+		{
+			CookieName = "_lang",
+			Options = options
+		},
+		new AcceptLanguageHeaderRequestCultureProvider()
+	}; 
 });
 
 builder.Services.AddDbContextPool<ApplicationDatabaseContext>(options =>
