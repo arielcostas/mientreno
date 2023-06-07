@@ -129,14 +129,14 @@
   <data name="doRegister" xml:space="preserve">
     <value>Registrar-se</value>
   </data>
-  <data name="email" xml:space="preserve">
+  <data name="Input_Email" xml:space="preserve">
     <value>Correu electrònic</value>
   </data>
   <data name="errorInvalidCredentials" xml:space="preserve">
     <value>Usuari o contrasenya incorrectes</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
-  <data name="name" xml:space="preserve">
+  <data name="Input_Name" xml:space="preserve">
     <value>Nom</value>
     <comment>Nombre real de una persona (no confundir con username)</comment>
   </data>
@@ -144,14 +144,14 @@
     <value>Nou per aquí? Regístrate.</value>
     <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
   </data>
-  <data name="password" xml:space="preserve">
+  <data name="Input_Password" xml:space="preserve">
     <value>Contrasenya</value>
   </data>
   <data name="register" xml:space="preserve">
     <value>Registro</value>
     <comment>Título de la página de registro</comment>
   </data>
-  <data name="surname" xml:space="preserve">
+  <data name="Input_Surname" xml:space="preserve">
     <value>Apellidos</value>
     <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
   </data>
@@ -167,49 +167,49 @@
   <data name="theTermsAndConditions" xml:space="preserve">
 	  <value>els termes i condicions</value>
   </data>
-  <data name="urlVideoYoutube" xml:space="preserve">
+  <data name="Input_YoutubeVideoUrl" xml:space="preserve">
 	  <value>URL de vídeo demostratiu (YouTube)</value>
   </data>
-  <data name="landing_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Title" xml:space="preserve">
 	  <value>Una nova manera d'entrenar</value>
   </data>
-  <data name="landing_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Text" xml:space="preserve">
 	  <value>Mentrestant et permet gestionar el progrés físic dels teus clients de manera senzilla i eficaç.</value>
   </data>
-  <data name="landing_RegistrateYa" xml:space="preserve">
+  <data name="CallToAction_SignUpNow" xml:space="preserve">
 	  <value>Registra't ja!</value>
   </data>
-  <data name="landing_OIniciaSesion" xml:space="preserve">
+  <data name="CallToAction_OrLogIn" xml:space="preserve">
 	  <value>o inicia sessió</value>
   </data>
-  <data name="rememberMe" xml:space="preserve">
+  <data name="Input_RememberMe" xml:space="preserve">
 	  <value>Mantenir sessió iniciada</value>
   </data>
   <data name="hello" xml:space="preserve">
 	  <value>Hola</value>
   </data>
-  <data name="landing_Feature1_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature1_Title" xml:space="preserve">
 	  <value>On i quan vulguis</value>
   </data>
-  <data name="landing_Feature2_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature2_Title" xml:space="preserve">
 	  <value>A gust del consumidor</value>
   </data>
-  <data name="landing_Feature3_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature3_Title" xml:space="preserve">
 	  <value>Historial d'entrenaments</value>
   </data>
-  <data name="landing_Feature4_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature4_Title" xml:space="preserve">
 	  <value>I molt més!</value>
   </data>
-  <data name="landing_Feature1_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature1_Text" xml:space="preserve">
 	  <value>Gestiona els entrenaments dels teus clients des de qualsevol dispositiu, a qualsevol lloc. I permet que els teus clients els consultin amb rapidesa i comoditat.</value>
   </data>
-  <data name="landing_Feature2_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature2_Text" xml:space="preserve">
 	  <value>Defineix plans d'entrenament adaptats a cada client i indica instruccions per a cada exercici, quantitat de sèries, repeticions i descansos.</value>
   </data>
-  <data name="landing_Feature3_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature3_Text" xml:space="preserve">
 	  <value>Consulteu l'historial d'entrenaments per veure l'evolució del client. Mantingues informes d'estat periòdics. Rep comentaris que t'ajudin a ajustar-te a les teves necessitats.</value>
   </data>
-  <data name="landing_Feature4_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
 	  <value>Mentrestant està en constant desenvolupament! Amb el temps, aniràs obtenint accés a noves funcionalitats i millores.</value>
   </data>
   <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
@@ -236,31 +236,31 @@
   <data name="ejercicios" xml:space="preserve">
 	  <value>Exercicis</value>
   </data>
-  <data name="accountConfirmed" xml:space="preserve">
+  <data name="Alert_AccountConfirmed_Title" xml:space="preserve">
 	  <value>Compte confirmat</value>
   </data>
-  <data name="yourAccountHasBeenConfirmed" xml:space="preserve">
+  <data name="Alert_AccountConfirmed_Text" xml:space="preserve">
 	  <value>El teu compte ha estat confirmat. Ja podeu iniciar sessió i començar a utilitzar MiEntreno.</value>
   </data>
-  <data name="validation_NameRequired" xml:space="preserve">
+  <data name="Validation_Name_Required" xml:space="preserve">
 	  <value>Has d'introduir el teu nom</value>
   </data>
-  <data name="validation_SurnameRequired" xml:space="preserve">
+  <data name="Validation_Surname_Required" xml:space="preserve">
 	  <value>Has d'introduir els teus cognoms</value>
   </data>
-  <data name="validation_EmailRequired" xml:space="preserve">
+  <data name="Validation_Email_Required" xml:space="preserve">
 	  <value>Has d'introduir el teu correu electrònic</value>
   </data>
-  <data name="validation_PasswordRequired" xml:space="preserve">
+  <data name="Validation_Password_Required" xml:space="preserve">
 	  <value>Heu d'introduir la contrasenya</value>
   </data>
-  <data name="validation_PasswordConfirmationRequired" xml:space="preserve">
+  <data name="Validation_PasswordConfirmation_Required" xml:space="preserve">
 	  <value>Heu de confirmar la contrasenya</value>
   </data>
-  <data name="validation_PasswordsDontMatch" xml:space="preserve">
+  <data name="Validation_Password_DontMatch" xml:space="preserve">
 	  <value>Les contrasenyes no coincideixen</value>
   </data>
-  <data name="validation_TosNotAccepted" xml:space="preserve">
+  <data name="Validation_Tos_Unchecked" xml:space="preserve">
 	  <value>Has d'acceptar els termes i les condicions</value>
   </data>
   <data name="noHayCategorias" xml:space="preserve">
@@ -272,7 +272,7 @@
   <data name="nuevaCategoria" xml:space="preserve">
 	  <value>Nova categoria</value>
   </data>
-  <data name="Action_Crear" xml:space="preserve">
+  <data name="Action_Create" xml:space="preserve">
 	  <value>Crear</value>
   </data>
   <data name="descripcion" xml:space="preserve">

@@ -180,43 +180,43 @@ public class RegisterForm
 {
 	[Required(
 		ErrorMessageResourceType = typeof(AppStrings),
-		ErrorMessageResourceName = nameof(AppStrings.validation_NameRequired)
+		ErrorMessageResourceName = nameof(AppStrings.Validation_Name_Required)
 	)]
 	[MinLength(2)] public string Nombre { get; set; } = string.Empty;
 
 	[Required(
 		ErrorMessageResourceType = typeof(AppStrings),
-		ErrorMessageResourceName = nameof(AppStrings.validation_SurnameRequired)
+		ErrorMessageResourceName = nameof(AppStrings.Validation_Surname_Required)
 	)]
 	[MinLength(2)]
 	public string Apellidos { get; set; } = string.Empty;
 
 	[Required(
 		ErrorMessageResourceType = typeof(AppStrings),
-		ErrorMessageResourceName = nameof(AppStrings.validation_EmailRequired)
+		ErrorMessageResourceName = nameof(AppStrings.Validation_Email_Required)
 	)]
 	[MinLength(2)]
 	public string Email { get; set; } = string.Empty;
 
 	[Required(
 		ErrorMessageResourceType = typeof(AppStrings),
-		ErrorMessageResourceName = nameof(AppStrings.validation_PasswordRequired)
+		ErrorMessageResourceName = nameof(AppStrings.Validation_Password_Required)
 	)]
 	public string Contraseña { get; set; } = string.Empty;
 
 	[Required(
 		ErrorMessageResourceType = typeof(AppStrings),
-		ErrorMessageResourceName = nameof(AppStrings.validation_PasswordConfirmationRequired)
+		ErrorMessageResourceName = nameof(AppStrings.Validation_PasswordConfirmation_Required)
 	)]
 	[Compare(nameof(Contraseña),
 		ErrorMessageResourceType = typeof(AppStrings),
-		ErrorMessageResourceName = nameof(AppStrings.validation_PasswordsDontMatch)
+		ErrorMessageResourceName = nameof(AppStrings.Validation_Password_DontMatch)
 	)]
 	public string ConfirmarContraseña { get; set; } = string.Empty;
 
 	[Required(
 		ErrorMessageResourceType = typeof(AppStrings),
-		ErrorMessageResourceName = nameof(AppStrings.validation_TosNotAccepted)
+		ErrorMessageResourceName = nameof(AppStrings.Validation_Tos_Unchecked)
 	)]
 	public bool AceptoTerminos { get; set; } = false;
 }

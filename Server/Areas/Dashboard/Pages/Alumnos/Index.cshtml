@@ -48,7 +48,7 @@
 				<img src="/Static/profile/@png" alt="Imagen de @alumno.NombreCompleto"/>
 				<h3>@alumno.NombreCompleto</h3>
 				@{ var url = Url.Page("/Alumnos/Id/Index",  new { id = alumno.Id }); }
-				<a href="@url" class="button button-primary">@AppStrings.ver</a>
+				<a href="@url" class="button button-primary">@AppStrings.Action_See</a>
 			</div>
 		}
 	</div>

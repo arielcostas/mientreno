@@ -16,7 +16,7 @@
 
 	<form method="post">
 		<div class="form-group">
-			<label asp-for="Form.Nombre">@AppStrings.name</label>
+			<label asp-for="Form.Nombre">@AppStrings.Input_Name</label>
 			<input asp-for="Form.Nombre" class="form-control"/>
 			<span asp-validation-for="Form.Nombre" class="text-danger"></span>
 		</div>
@@ -26,7 +26,7 @@
 			<span asp-validation-for="Form.Descripcion" class="text-danger"></span>
 		</div>
 		<div class="form-group">
-			<label asp-for="Form.UrlVideo">@AppStrings.urlVideoYoutube</label>
+			<label asp-for="Form.UrlVideo">@AppStrings.Input_YoutubeVideoUrl</label>
 			<input asp-for="Form.UrlVideo" class="form-control"/>
 			<span asp-validation-for="Form.UrlVideo" class="text-danger"></span>
 		</div>
@@ -39,11 +39,11 @@
 
 		@if (Model.Editando)
 		{
-			<input type="submit" class="button button-primary" value="💾 @AppStrings.Action_Editar"/>
+			<input type="submit" class="button button-primary" value="💾 @AppStrings.Action_Edit"/>
 		}
 		else
 		{
-			<input type="submit" class="button button-primary" value="+ @AppStrings.Action_Crear"/>
+			<input type="submit" class="button button-primary" value="+ @AppStrings.Action_Create"/>
 		}
 	</form>
 </main>

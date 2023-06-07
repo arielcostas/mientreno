@@ -17,19 +17,19 @@
 
 	<form method="post" id="form">
 		<div class="form-group">
-			<label asp-for="Form.Email">@AppStrings.email</label>
+			<label asp-for="Form.Email">@AppStrings.Input_Email</label>
 			<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control"/>
 		</div>
 
 		<div class="form-group">
-			<label asp-for="Form.Contraseña">@AppStrings.password</label>
+			<label asp-for="Form.Contraseña">@AppStrings.Input_Password</label>
 			<input asp-for="Form.Contraseña" type="password" autocomplete="current-password" class="form-control"/>
 		</div>
 
 		<div class="form-check">
 			<input asp-for="Form.Recordar" type="checkbox" class="form-check-input"/>
 			<label asp-for="Form.Recordar">
-				@AppStrings.rememberMe
+				@AppStrings.Input_RememberMe
 			</label>
 		</div>
 

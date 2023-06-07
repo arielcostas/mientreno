@@ -129,14 +129,14 @@
   <data name="doRegister" xml:space="preserve">
     <value>Inscribirse</value>
   </data>
-  <data name="email" xml:space="preserve">
+  <data name="Input_Email" xml:space="preserve">
     <value>Correo-e</value>
   </data>
   <data name="errorInvalidCredentials" xml:space="preserve">
     <value>Usuario ou contrasinal incorrectos</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
-  <data name="name" xml:space="preserve">
+  <data name="Input_Name" xml:space="preserve">
     <value>Nome</value>
     <comment>Nombre real de una persona (no confundir con username)</comment>
   </data>
@@ -144,14 +144,14 @@
     <value>¿Novo por aquí? Rexístrate.</value>
     <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
   </data>
-  <data name="password" xml:space="preserve">
+  <data name="Input_Password" xml:space="preserve">
     <value>Contrasinal</value>
   </data>
   <data name="register" xml:space="preserve">
     <value>Rexistro</value>
     <comment>Título de la página de registro</comment>
   </data>
-  <data name="surname" xml:space="preserve">
+  <data name="Input_Surname" xml:space="preserve">
     <value>Apelidos</value>
     <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
   </data>
@@ -167,49 +167,49 @@
   <data name="theTermsAndConditions" xml:space="preserve">
 	  <value>os termos e condicións</value>
   </data>
-  <data name="urlVideoYoutube" xml:space="preserve">
+  <data name="Input_YoutubeVideoUrl" xml:space="preserve">
 	  <value>URL do vídeo de demostración (YouTube)</value>
   </data>
-  <data name="landing_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Title" xml:space="preserve">
 	  <value>Unha nova forma de adestrar</value>
   </data>
-  <data name="landing_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Text" xml:space="preserve">
 	  <value>Mientreno permíteche xestionar o progreso físico dos teus clientes de forma sinxela e eficaz.</value>
   </data>
-  <data name="landing_RegistrateYa" xml:space="preserve">
+  <data name="CallToAction_SignUpNow" xml:space="preserve">
 	  <value>Inscríbete xa!</value>
   </data>
-  <data name="landing_OIniciaSesion" xml:space="preserve">
+  <data name="CallToAction_OrLogIn" xml:space="preserve">
 	  <value>ou conéctate</value>
   </data>
-  <data name="rememberMe" xml:space="preserve">
+  <data name="Input_RememberMe" xml:space="preserve">
 	  <value>Manter sesión iniciada</value>
   </data>
   <data name="hello" xml:space="preserve">
 	  <value>Ola</value>
   </data>
-  <data name="landing_Feature1_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature1_Title" xml:space="preserve">
 	  <value>Onde e cando queiras</value>
   </data>
-  <data name="landing_Feature2_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature2_Title" xml:space="preserve">
 	  <value>A gusto do consumidor</value>
   </data>
-  <data name="landing_Feature3_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature3_Title" xml:space="preserve">
 	  <value>Historial de adestramentos</value>
   </data>
-  <data name="landing_Feature4_Titulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature4_Title" xml:space="preserve">
 	  <value>E moito máis!</value>
   </data>
-  <data name="landing_Feature1_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature1_Text" xml:space="preserve">
 	  <value>Xestiona os adestramentos dos teus clientes desde calquera dispositivo, en calquera lugar. E permite que os teus clientes os consulten con rapidez e comodidade.</value>
   </data>
-  <data name="landing_Feature2_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature2_Text" xml:space="preserve">
 	  <value>Define plans de adestramento adaptados a cada cliente, indicando instrucións para cada exercicio, cantidade de series, repeticións e descansos.</value>
   </data>
-  <data name="landing_Feature3_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature3_Text" xml:space="preserve">
 	  <value>Consulta o historial de adestramentos para ver a evolución do cliente. Mantén informes de estado periódicos. Recibe comentarios que che axuden a axustarche ás súas necesidades.</value>
   </data>
-  <data name="landing_Feature4_Subtitulo" xml:space="preserve">
+  <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
 	  <value>Mientreno está en constante desenvolvemento! Co tempo, irás obtendo acceso a novas funcionalidades e melloras.</value>
   </data>
   <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
@@ -236,31 +236,31 @@
   <data name="ejercicios" xml:space="preserve">
 	  <value>Exercicios</value>
   </data>
-  <data name="accountConfirmed" xml:space="preserve">
+  <data name="Alert_AccountConfirmed_Title" xml:space="preserve">
 	  <value>Conta confirmada</value>
   </data>
-  <data name="yourAccountHasBeenConfirmed" xml:space="preserve">
+  <data name="Alert_AccountConfirmed_Text" xml:space="preserve">
 	  <value>A túa conta foi confirmada. Xa podes iniciar sesión e empezar a utilizar MiEntreno.</value>
   </data>
-  <data name="validation_NameRequired" xml:space="preserve">
+  <data name="Validation_Name_Required" xml:space="preserve">
 	  <value>Debes introducir o teu nome</value>
   </data>
-  <data name="validation_SurnameRequired" xml:space="preserve">
+  <data name="Validation_Surname_Required" xml:space="preserve">
 	  <value>Debes introducir os teus apelidos</value>
   </data>
-  <data name="validation_EmailRequired" xml:space="preserve">
+  <data name="Validation_Email_Required" xml:space="preserve">
 	  <value>Debes introducir o teu correo-e</value>
   </data>
-  <data name="validation_PasswordRequired" xml:space="preserve">
+  <data name="Validation_Password_Required" xml:space="preserve">
 	  <value>Debes introducir o contrasinal</value>
   </data>
-  <data name="validation_PasswordConfirmationRequired" xml:space="preserve">
+  <data name="Validation_PasswordConfirmation_Required" xml:space="preserve">
 	  <value>Debes confirmar o contrasinal</value>
   </data>
-  <data name="validation_PasswordsDontMatch" xml:space="preserve">
+  <data name="Validation_Password_DontMatch" xml:space="preserve">
 	  <value>Os contrasinais non coinciden</value>
   </data>
-  <data name="validation_TosNotAccepted" xml:space="preserve">
+  <data name="Validation_Tos_Unchecked" xml:space="preserve">
 	  <value>Debes aceptar os termos e condicións</value>
   </data>
   <data name="noHayCategorias" xml:space="preserve">
@@ -272,7 +272,7 @@
   <data name="nuevaCategoria" xml:space="preserve">
 	  <value>Nova categoría</value>
   </data>
-  <data name="Action_Crear" xml:space="preserve">
+  <data name="Action_Create" xml:space="preserve">
 	  <value>Crear</value>
   </data>
   <data name="descripcion" xml:space="preserve">
@@ -293,10 +293,10 @@
   <data name="goToDashboard" xml:space="preserve">
 	  <value>Ir ao meu taboleiro</value>
   </data>
-  <data name="suscripcionConfirmadaTitulo" xml:space="preserve">
+  <data name="Text_Dashboard_SubscriptionConfirmed_Title" xml:space="preserve">
 	  <value>Confirmouse a túa subscrición</value>
   </data>
-  <data name="suscripcionConfirmadaText" xml:space="preserve">
+  <data name="Text_Dashboard_SubscriptionConfirmed_Text" xml:space="preserve">
 	  <value>A túa subscrición confirmouse correctamente. Despois podes ir ao teu panel e comezar a traballar con MiEntreno.</value>
   </data>
   <data name="dashboard_NotSubscribedToPlan" xml:space="preserve">
@@ -350,7 +350,7 @@
   <data name="dashboard_InviteCreated" xml:space="preserve">
 	  <value>Convite creado</value>
   </data>
-  <data name="ver" xml:space="preserve">
+  <data name="Action_See" xml:space="preserve">
 	  <value>Ver</value>
   </data>
   <data name="Alert_NoAlumnos_Title" xml:space="preserve">

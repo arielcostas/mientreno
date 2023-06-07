@@ -22,19 +22,19 @@
 
 	<form method="post" id="form">
 		<div class="form-group">
-			<label asp-for="Form.Nombre">@AppStrings.name</label>
+			<label asp-for="Form.Nombre">@AppStrings.Input_Name</label>
 			<input asp-for="Form.Nombre" type="text" autocomplete="name" class="form-control"/>
 			<span asp-validation-for="Form.Nombre" class="text-danger"></span>
 		</div>
 
 		<div class="form-group">
-			<label asp-for="Form.Email">@AppStrings.email</label>
+			<label asp-for="Form.Email">@AppStrings.Input_Email</label>
 			<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control"/>
 			<span asp-validation-for="Form.Email" class="text-danger"></span>
 		</div>
 
 		<div class="form-group">
-			<label asp-for="Form.Mensaje">@AppStrings.Input_Mensaje</label>
+			<label asp-for="Form.Mensaje">@AppStrings.Input_Message</label>
 			<textarea asp-for="Form.Mensaje" class="form-control" rows="5"></textarea>
 			<span asp-validation-for="Form.Mensaje" class="text-danger"></span>
 		</div>

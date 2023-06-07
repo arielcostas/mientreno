@@ -11,8 +11,8 @@
 		<form method="post" id="form-categoria"></form>
 		<div class="form-inline">
 			<label asp-for="NuevaCategoriaName" form="form-categoria">@AppStrings.nuevaCategoria</label>
-			<input asp-for="NuevaCategoriaName" form="form-categoria" class="form-control" placeholder="@AppStrings.name"/>
-			<input type="submit" class="button button-primary" value="+ @AppStrings.Action_Crear" form="form-categoria">
+			<input asp-for="NuevaCategoriaName" form="form-categoria" class="form-control" placeholder="@AppStrings.Input_Name"/>
+			<input type="submit" class="button button-primary" value="+ @AppStrings.Action_Create" form="form-categoria">
 		</div>
 	</div>
 
@@ -31,7 +31,7 @@
 					@categoria.Nombre (@categoria.Ejercicios.Count) -- 
 					<a class="link link-primary link-bold"
 					   href="@Url.Page("/Ejercicios/Editor", new { cat = categoria.Id })">
-						@AppStrings.Action_Crear
+						@AppStrings.Action_Create
 					</a>
 				</strong>
 				<div class="ejercicios">

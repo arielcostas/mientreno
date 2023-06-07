@@ -1,53 +1,53 @@
 ﻿@page
 @{
-	ViewData["Title"] = "Inicio";
+	ViewData["Title"] = @AppStrings.Page_Landing;
 }
 
 <div id="landing">
 	<div id="hero">
-		<h1>@AppStrings.landing_Titulo</h1>
+		<h1>@AppStrings.Text_LandingPage_Title</h1>
 
-		<p>@AppStrings.landing_Subtitulo</p>
+		<p>@AppStrings.Text_LandingPage_Text</p>
 
 		<div class="row">
-			<a class="button button-primary button-large" asp-page="/Register">@AppStrings.landing_RegistrateYa</a>
-			<a class="link link-white" asp-page="/Login">@AppStrings.landing_OIniciaSesion</a>
+			<a class="button button-primary button-large" asp-page="/Register">@AppStrings.CallToAction_SignUpNow</a>
+			<a class="link link-white" asp-page="/Login">@AppStrings.CallToAction_OrLogIn</a>
 		</div>
 	</div>
 	<div id="features">
 
 		<div id="feature-1" class="feature">
-			<h2>@AppStrings.landing_Feature1_Titulo</h2>
+			<h2>@AppStrings.Text_LandingPage_Feature1_Title</h2>
 
-			<p>@AppStrings.landing_Feature1_Subtitulo</p>
+			<p>@AppStrings.Text_LandingPage_Feature1_Text</p>
 		</div>
 
 		<div id="feature-2" class="feature">
-			<h2>@AppStrings.landing_Feature2_Titulo</h2>
+			<h2>@AppStrings.Text_LandingPage_Feature2_Title</h2>
 
-			<p>@AppStrings.landing_Feature2_Subtitulo</p>
+			<p>@AppStrings.Text_LandingPage_Feature2_Text</p>
 		</div>
 
 		<div id="feature-3" class="feature">
-			<h2>@AppStrings.landing_Feature3_Titulo</h2>
+			<h2>@AppStrings.Text_LandingPage_Feature3_Title</h2>
 
-			<p>@AppStrings.landing_Feature3_Subtitulo</p>
+			<p>@AppStrings.Text_LandingPage_Feature3_Text</p>
 		</div>
 
 		<div id="feature-4" class="feature">
-			<h2>@AppStrings.landing_Feature4_Titulo</h2>
+			<h2>@AppStrings.Text_LandingPage_Feature4_Title</h2>
 
-			<p>@AppStrings.landing_Feature4_Subtitulo</p>
+			<p>@AppStrings.Text_LandingPage_Feature4_Text</p>
 
-			<a asp-page="Register" class="button button-large button-primary">@AppStrings.landing_RegistrateYa</a>
+			<a asp-page="Register" class="button button-large button-primary">@AppStrings.CallToAction_SignUpNow</a>
 		</div>
 	</div>
 
 	<div id="contact">
-		<h2>¿Quieres saber más? ¿Tienes alguna duda?</h2>
+		<h2>@AppStrings.Text_LandingPage_WannaKnowMore</h2>
 
-		<p>Haznos llegar tus consultas, y las resolveremos lo antes posible.</p>
+		<p>@AppStrings.Text_LandingPage_ContactUsQuestions</p>
 
-		<a asp-page="Contact" class="button button-large button-primary">Contacta con nosotros</a>
+		<a asp-page="Contact" class="button button-large button-primary">@AppStrings.CallToAction_Contact</a>
 	</div>
 </div>

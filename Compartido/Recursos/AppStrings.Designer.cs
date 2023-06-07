@@ -60,15 +60,6 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cuenta confirmada.
-        /// </summary>
-        public static string accountConfirmed {
-            get {
-                return ResourceManager.GetString("accountConfirmed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Contactar.
         /// </summary>
         public static string Action_Contact {
@@ -80,18 +71,45 @@ namespace Mientreno.Compartido.Recursos {
         /// <summary>
         ///   Looks up a localized string similar to Crear.
         /// </summary>
-        public static string Action_Crear {
+        public static string Action_Create {
             get {
-                return ResourceManager.GetString("Action_Crear", resourceCulture);
+                return ResourceManager.GetString("Action_Create", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Editar.
         /// </summary>
-        public static string Action_Editar {
+        public static string Action_Edit {
             get {
-                return ResourceManager.GetString("Action_Editar", resourceCulture);
+                return ResourceManager.GetString("Action_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ver.
+        /// </summary>
+        public static string Action_See {
+            get {
+                return ResourceManager.GetString("Action_See", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tu cuenta ha sido confirmada. Ya puedes iniciar sesión y empezar a utilizar MiEntreno..
+        /// </summary>
+        public static string Alert_AccountConfirmed_Text {
+            get {
+                return ResourceManager.GetString("Alert_AccountConfirmed_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cuenta confirmada.
+        /// </summary>
+        public static string Alert_AccountConfirmed_Title {
+            get {
+                return ResourceManager.GetString("Alert_AccountConfirmed_Title", resourceCulture);
             }
         }
         
@@ -173,6 +191,33 @@ namespace Mientreno.Compartido.Recursos {
         public static string availableSoon {
             get {
                 return ResourceManager.GetString("availableSoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contacta con nosotros.
+        /// </summary>
+        public static string CallToAction_Contact {
+            get {
+                return ResourceManager.GetString("CallToAction_Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to o inicia sesión.
+        /// </summary>
+        public static string CallToAction_OrLogIn {
+            get {
+                return ResourceManager.GetString("CallToAction_OrLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¡Regístrate ya!.
+        /// </summary>
+        public static string CallToAction_SignUpNow {
+            get {
+                return ResourceManager.GetString("CallToAction_SignUpNow", resourceCulture);
             }
         }
         
@@ -420,15 +465,6 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Correo electrónico.
-        /// </summary>
-        public static string email {
-            get {
-                return ResourceManager.GetString("email", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Usuario o contraseña incorrectos.
         /// </summary>
         public static string errorInvalidCredentials {
@@ -456,11 +492,65 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Correo electrónico.
+        /// </summary>
+        public static string Input_Email {
+            get {
+                return ResourceManager.GetString("Input_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mensaje.
         /// </summary>
-        public static string Input_Mensaje {
+        public static string Input_Message {
             get {
-                return ResourceManager.GetString("Input_Mensaje", resourceCulture);
+                return ResourceManager.GetString("Input_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nombre.
+        /// </summary>
+        public static string Input_Name {
+            get {
+                return ResourceManager.GetString("Input_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña.
+        /// </summary>
+        public static string Input_Password {
+            get {
+                return ResourceManager.GetString("Input_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mantener sesión iniciada.
+        /// </summary>
+        public static string Input_RememberMe {
+            get {
+                return ResourceManager.GetString("Input_RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apellido(s).
+        /// </summary>
+        public static string Input_Surname {
+            get {
+                return ResourceManager.GetString("Input_Surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to URL de vídeo demostrativo (YouTube).
+        /// </summary>
+        public static string Input_YoutubeVideoUrl {
+            get {
+                return ResourceManager.GetString("Input_YoutubeVideoUrl", resourceCulture);
             }
         }
         
@@ -479,114 +569,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string iveReadAndAccept {
             get {
                 return ResourceManager.GetString("iveReadAndAccept", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gestiona los entrenamientos de tus clientes desde cualquier dispositivo, en cualquier lugar. Y permite que tus clientes los consulten con rapidez y comodidad..
-        /// </summary>
-        public static string landing_Feature1_Subtitulo {
-            get {
-                return ResourceManager.GetString("landing_Feature1_Subtitulo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dónde y cuando quieras.
-        /// </summary>
-        public static string landing_Feature1_Titulo {
-            get {
-                return ResourceManager.GetString("landing_Feature1_Titulo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Define planes de entrenamiento adaptados a cada cliente, indicando instrucciones para cada ejercicio, cantidad de series, repeticiones y descansos..
-        /// </summary>
-        public static string landing_Feature2_Subtitulo {
-            get {
-                return ResourceManager.GetString("landing_Feature2_Subtitulo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A gusto del consumidor.
-        /// </summary>
-        public static string landing_Feature2_Titulo {
-            get {
-                return ResourceManager.GetString("landing_Feature2_Titulo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Consulta el historial de entrenamientos para ver la evolución del cliente. Mantén informes de estado periódicos. Recibe comentarios que te ayuden a ajustarte a sus necesidades..
-        /// </summary>
-        public static string landing_Feature3_Subtitulo {
-            get {
-                return ResourceManager.GetString("landing_Feature3_Subtitulo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Historial de entrenamientos.
-        /// </summary>
-        public static string landing_Feature3_Titulo {
-            get {
-                return ResourceManager.GetString("landing_Feature3_Titulo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ¡Mientreno está en constante desarrollo! Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras..
-        /// </summary>
-        public static string landing_Feature4_Subtitulo {
-            get {
-                return ResourceManager.GetString("landing_Feature4_Subtitulo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ¡Y mucho más!.
-        /// </summary>
-        public static string landing_Feature4_Titulo {
-            get {
-                return ResourceManager.GetString("landing_Feature4_Titulo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to o inicia sesión.
-        /// </summary>
-        public static string landing_OIniciaSesion {
-            get {
-                return ResourceManager.GetString("landing_OIniciaSesion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ¡Regístrate ya!.
-        /// </summary>
-        public static string landing_RegistrateYa {
-            get {
-                return ResourceManager.GetString("landing_RegistrateYa", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mientreno te permite gestionar el progreso físico de tus clientes de forma sencilla y eficaz..
-        /// </summary>
-        public static string landing_Subtitulo {
-            get {
-                return ResourceManager.GetString("landing_Subtitulo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Una nueva forma de entrenar.
-        /// </summary>
-        public static string landing_Titulo {
-            get {
-                return ResourceManager.GetString("landing_Titulo", resourceCulture);
             }
         }
         
@@ -614,15 +596,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string masDetalles {
             get {
                 return ResourceManager.GetString("masDetalles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nombre.
-        /// </summary>
-        public static string name {
-            get {
-                return ResourceManager.GetString("name", resourceCulture);
             }
         }
         
@@ -663,11 +636,11 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contraseña.
+        ///   Looks up a localized string similar to Inicio.
         /// </summary>
-        public static string password {
+        public static string Page_Landing {
             get {
-                return ResourceManager.GetString("password", resourceCulture);
+                return ResourceManager.GetString("Page_Landing", resourceCulture);
             }
         }
         
@@ -708,38 +681,128 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mantener sesión iniciada.
-        /// </summary>
-        public static string rememberMe {
-            get {
-                return ResourceManager.GetString("rememberMe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Apellidos.
-        /// </summary>
-        public static string surname {
-            get {
-                return ResourceManager.GetString("surname", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Tu suscripción ha sido confirmada correctamente. A continuación, puedes ir a tu tablero y empezar a trabajar con MiEntreno..
         /// </summary>
-        public static string suscripcionConfirmadaText {
+        public static string Text_Dashboard_SubscriptionConfirmed_Text {
             get {
-                return ResourceManager.GetString("suscripcionConfirmadaText", resourceCulture);
+                return ResourceManager.GetString("Text_Dashboard_SubscriptionConfirmed_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Tu suscripción fue confirmada.
         /// </summary>
-        public static string suscripcionConfirmadaTitulo {
+        public static string Text_Dashboard_SubscriptionConfirmed_Title {
             get {
-                return ResourceManager.GetString("suscripcionConfirmadaTitulo", resourceCulture);
+                return ResourceManager.GetString("Text_Dashboard_SubscriptionConfirmed_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Haznos llegar tus consultas, y las resolveremos lo antes posible..
+        /// </summary>
+        public static string Text_LandingPage_ContactUsQuestions {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_ContactUsQuestions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gestiona los entrenamientos de tus clientes desde cualquier dispositivo, en cualquier lugar. Y permite que tus clientes los consulten con rapidez y comodidad..
+        /// </summary>
+        public static string Text_LandingPage_Feature1_Text {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Feature1_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dónde y cuando quieras.
+        /// </summary>
+        public static string Text_LandingPage_Feature1_Title {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Feature1_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Define planes de entrenamiento adaptados a cada cliente, indicando instrucciones para cada ejercicio, cantidad de series, repeticiones y descansos..
+        /// </summary>
+        public static string Text_LandingPage_Feature2_Text {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Feature2_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A gusto del consumidor.
+        /// </summary>
+        public static string Text_LandingPage_Feature2_Title {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Feature2_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consulta el historial de entrenamientos para ver la evolución del cliente. Mantén informes de estado periódicos. Recibe comentarios que te ayuden a ajustarte a sus necesidades..
+        /// </summary>
+        public static string Text_LandingPage_Feature3_Text {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Feature3_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Historial de entrenamientos.
+        /// </summary>
+        public static string Text_LandingPage_Feature3_Title {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Feature3_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¡Mientreno está en constante desarrollo! Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras..
+        /// </summary>
+        public static string Text_LandingPage_Feature4_Text {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Feature4_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¡Y mucho más!.
+        /// </summary>
+        public static string Text_LandingPage_Feature4_Title {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Feature4_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mientreno te permite gestionar el progreso físico de tus clientes de forma sencilla y eficaz..
+        /// </summary>
+        public static string Text_LandingPage_Text {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Una nueva forma de entrenar.
+        /// </summary>
+        public static string Text_LandingPage_Title {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Quieres saber más? ¿Tienes alguna duda?.
+        /// </summary>
+        public static string Text_LandingPage_WannaKnowMore {
+            get {
+                return ResourceManager.GetString("Text_LandingPage_WannaKnowMore", resourceCulture);
             }
         }
         
@@ -762,92 +825,65 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL de vídeo demostrativo (YouTube).
-        /// </summary>
-        public static string urlVideoYoutube {
-            get {
-                return ResourceManager.GetString("urlVideoYoutube", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Debes introducir tu correo electrónico.
         /// </summary>
-        public static string validation_EmailRequired {
+        public static string Validation_Email_Required {
             get {
-                return ResourceManager.GetString("validation_EmailRequired", resourceCulture);
+                return ResourceManager.GetString("Validation_Email_Required", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Debes introducir tu nombre.
         /// </summary>
-        public static string validation_NameRequired {
+        public static string Validation_Name_Required {
             get {
-                return ResourceManager.GetString("validation_NameRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Debes confirmar la contraseña.
-        /// </summary>
-        public static string validation_PasswordConfirmationRequired {
-            get {
-                return ResourceManager.GetString("validation_PasswordConfirmationRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Debes introducir la contraseña.
-        /// </summary>
-        public static string validation_PasswordRequired {
-            get {
-                return ResourceManager.GetString("validation_PasswordRequired", resourceCulture);
+                return ResourceManager.GetString("Validation_Name_Required", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Las contraseñas no coinciden.
         /// </summary>
-        public static string validation_PasswordsDontMatch {
+        public static string Validation_Password_DontMatch {
             get {
-                return ResourceManager.GetString("validation_PasswordsDontMatch", resourceCulture);
+                return ResourceManager.GetString("Validation_Password_DontMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debes introducir la contraseña.
+        /// </summary>
+        public static string Validation_Password_Required {
+            get {
+                return ResourceManager.GetString("Validation_Password_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debes confirmar la contraseña.
+        /// </summary>
+        public static string Validation_PasswordConfirmation_Required {
+            get {
+                return ResourceManager.GetString("Validation_PasswordConfirmation_Required", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Debes introducir tus apellidos.
         /// </summary>
-        public static string validation_SurnameRequired {
+        public static string Validation_Surname_Required {
             get {
-                return ResourceManager.GetString("validation_SurnameRequired", resourceCulture);
+                return ResourceManager.GetString("Validation_Surname_Required", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Debes aceptar los términos y condiciones.
         /// </summary>
-        public static string validation_TosNotAccepted {
+        public static string Validation_Tos_Unchecked {
             get {
-                return ResourceManager.GetString("validation_TosNotAccepted", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ver.
-        /// </summary>
-        public static string ver {
-            get {
-                return ResourceManager.GetString("ver", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tu cuenta ha sido confirmada. Ya puedes iniciar sesión y empezar a utilizar MiEntreno..
-        /// </summary>
-        public static string yourAccountHasBeenConfirmed {
-            get {
-                return ResourceManager.GetString("yourAccountHasBeenConfirmed", resourceCulture);
+                return ResourceManager.GetString("Validation_Tos_Unchecked", resourceCulture);
             }
         }
     }
