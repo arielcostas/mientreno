@@ -2,7 +2,10 @@
 @using Mientreno.Server.Data.Models
 @inject UserManager<Usuario> UserManager
 
-@{ var usuario = UserManager.GetUserAsync(User).Result; }
+@{
+	var usuario = UserManager.GetUserAsync(User).Result;
+	var area = usuario is Alumno ? "Alumnos" : "Dashboard";
+}
 
 @if (usuario is null)
 {
@@ -23,13 +26,10 @@ else
 		@Html.Raw(string.Join("<br />", User.Claims.Select(c => $"{c.Type} => {c.Value}"))) )
 	</environment>
 	<header>
-		<a asp-area="" asp-page="/Index">
+		<a asp-area="@area" asp-page="/Index">
 			<img src="~/isotipo.svg" alt="mientreno" id="isotipo"/>
 		</a>
 
-		@{
-			var area = usuario is Alumno ? "Alumnos" : "Dashboard";
-		}
 		<nav>
 			<a asp-page="/Index" asp-area="@area" class="link-badge">
 				@{ var png = usuario.Id + ".png"; }

@@ -44,7 +44,7 @@ public class StripeWebhookController : ControllerBase
 			case Events.CustomerSubscriptionPaused:
 				return await HandleSubscriptionStatusChange(stripeEvent);
 			case Events.CustomerSubscriptionTrialWillEnd:
-				return await HandleTrialWillEnd(stripeEvent);
+				return HandleTrialWillEnd(stripeEvent);
 		}
 
 		// TODO: Gestionar facturas pagadas
@@ -52,7 +52,7 @@ public class StripeWebhookController : ControllerBase
 		return Ok();
 	}
 
-	private async Task<IActionResult> HandleTrialWillEnd(Event stripeEvent)
+	private IActionResult HandleTrialWillEnd(Event stripeEvent)
 	{
 		if (stripeEvent.Data.Object is not Subscription subscription) return BadRequest();
 		
