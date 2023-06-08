@@ -1,6 +1,6 @@
 ﻿namespace Mientreno.Server.Service;
 
-public static class RandomString
+public static class CustomExtensions
 {
 	public static string NextString(this Random random, int size)
 	{
@@ -12,5 +12,10 @@ public static class RandomString
 	public static string NextString(this Random random)
 	{
 		return random.NextString(8);
+	}
+	
+	public static bool IsNullOrWhiteSpace(this string? str)
+	{
+		return string.IsNullOrWhiteSpace(str);
 	}
 }

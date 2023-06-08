@@ -1,0 +1,128 @@
+﻿@page "/Dashboard/Alumnos/{id}/Plan"
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model PlanEditorModel
+@{
+	ViewData["Title"] = AppStrings.trainingPlans;
+}
+
+<main id="main-dialogue">
+	<h1>@AppStrings.trainingPlans</h1>
+
+	@{ var disabled = !Model.Editable; }
+	<form method="POST">
+
+		<div class="form-group">
+			<label asp-for="Form.Nombre">@AppStrings.Input_Name</label>
+			<input asp-for="Form.Nombre" class="form-control" disabled="@disabled"/>
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Form.Descripcion">@AppStrings.descripcion</label>
+			<textarea asp-for="Form.Descripcion" class="form-control" rows="5" disabled="@disabled"></textarea>
+		</div>
+
+		<hr/>
+
+		<div class="title-with-action">
+			<h2>
+				Ejercicios
+			</h2>
+
+			<button class="button button-primary" type="button" onclick="addEjercicio()" disabled="@disabled">+ Añadir</button>
+		</div>
+
+		<div id="ejercicio-container">
+			@{
+				var groupedByCategory = Model.Ejercicios.GroupBy(e => e.Categoria);
+			}
+
+			@for (var i = 0; i < Model.Form.EjerciciosPlan.Length; i++)
+			{
+				<article class="ejercicio">
+					<select asp-for="Form.EjerciciosPlan[i].Ejercicio" class="form-control" title="Ejercicio" disabled="@disabled">
+						@foreach (var group in groupedByCategory)
+						{
+							<optgroup label="@group.Key!.Nombre">
+								@foreach (var ejercicio in group)
+								{
+									@if (Model.Form.EjerciciosPlan[i].Ejercicio == ejercicio.Id)
+									{
+										<option value="@ejercicio.Id" selected>
+											@ejercicio.Nombre
+										</option>
+									}
+									else
+									{
+										<option value="@ejercicio.Id">
+											@ejercicio.Nombre
+										</option>
+									}									
+									
+								}
+							</optgroup>
+						}
+					</select>
+					<input asp-for="Form.EjerciciosPlan[i].Series" class="form-control" placeholder="Series" type="number" min="0" disabled="@disabled"/>
+					<input asp-for="Form.EjerciciosPlan[i].Repeticiones" class="form-control" placeholder="Reps." type="number" min="0" disabled="@disabled"/>
+					<input asp-for="Form.EjerciciosPlan[i].Minutos" class="form-control" placeholder="Min." type="number" min="0" disabled="@disabled"/>
+				</article>
+			}
+
+			@if (Model.Form.EjerciciosPlan.Length == 0)
+			{
+				<article class="ejercicio">
+					<select for="Form__EjerciciosPlan_0__Ejercicio" class="form-control" title="Ejercicio" disabled="@disabled">
+						@foreach (var group in groupedByCategory)
+						{
+							<optgroup label="@group.Key!.Nombre">
+								@foreach (var ejercicio in group)
+								{
+									<option value="@ejercicio.Id">@ejercicio.Nombre</option>
+								}
+							</optgroup>
+						}
+					</select>
+					<input for="Form.EjerciciosPlan_0.Series" class="form-control" placeholder="Series" type="number" min="0" disabled="@disabled"/>
+					<input for="Form.EjerciciosPlan_0.Repeticiones" class="form-control" placeholder="Reps." type="number" min="0" disabled="@disabled"/>
+					<input for="Form.EjerciciosPlan_0.Minutos" class="form-control" placeholder="Min." type="number" min="0" disabled="@disabled"/>
+				</article>
+			}
+		</div>
+
+		<hr/>
+
+		<div class="form-check">
+			<input asp-for="Form.Publicar" type="checkbox" class="form-check-input"/>
+			<label asp-for="Form.Publicar">
+				@AppStrings.Input_PublishPlanUnableEditLater
+			</label>
+		</div>
+
+		<button class="button button-primary" type="submit">💾 @AppStrings.Action_Edit</button>
+
+	</form>
+</main>
+
+<script>
+		const el0 = document.querySelector("article.ejercicio");
+		const button = document.querySelector("#ejercicio-container > button");
+		
+		function addEjercicio() {
+			// Clone the first element
+			const el = el0.cloneNode(true);
+			
+			// Clear the values of the two inputs
+			el.querySelector("select").selectedIndex = 0;
+			el.querySelectorAll("input[type=number]").forEach(node => node.value = "");
+			
+			// Change the name of the inputs
+			el.querySelectorAll("input, select").forEach(node => {
+				const name = node.getAttribute("name");
+				node.setAttribute("name", name.replace("0", document.querySelectorAll("article.ejercicio").length));
+			});
+			
+			// Append the element before the button
+			el0.parentNode.insertBefore(el, button);
+			
+		}
+	</script>

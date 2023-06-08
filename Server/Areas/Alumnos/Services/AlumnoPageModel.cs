@@ -26,7 +26,7 @@ public class AlumnoPageModel : PageModel
 	protected void LoadAlumno(
 		bool? includeEntrenador = true,
 		bool? includeJornadas = false,
-		bool? includeRutinas = false
+		bool? includeCuestionarios = false
 	)
 	{
 		if (_loaded) return;
@@ -45,7 +45,7 @@ public class AlumnoPageModel : PageModel
 			ent = ent.Include(e => e.JornadasEntrenamientos);
 		}
 
-		if (includeRutinas == true)
+		if (includeCuestionarios == true)
 		{
 			ent = ent.Include(e => e.Cuestionarios);
 		}

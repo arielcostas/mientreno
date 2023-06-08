@@ -398,4 +398,7 @@
   <data name="Page_Landing" xml:space="preserve">
 	  <value>Inicio</value>
   </data>
+  <data name="Input_PublishPlanUnableEditLater" xml:space="preserve">
+	  <value>Publicar plan (no se podrá modificar más tarde)</value>
+  </data>
 </root>

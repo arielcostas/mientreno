@@ -528,6 +528,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Publicar plan (no se podrá modificar más tarde).
+        /// </summary>
+        public static string Input_PublishPlanUnableEditLater {
+            get {
+                return ResourceManager.GetString("Input_PublishPlanUnableEditLater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mantener sesión iniciada.
         /// </summary>
         public static string Input_RememberMe {

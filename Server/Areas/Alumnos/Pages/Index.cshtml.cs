@@ -17,7 +17,7 @@ public class AlumnoIndexModel : AlumnoPageModel
 
 	public IActionResult OnGet()
 	{
-		LoadAlumno(includeEntrenador: true);
+		LoadAlumno(includeEntrenador: true, includeJornadas:true);
 		return Page();
 	}
 }

@@ -1,9 +1,26 @@
 ﻿@page
+@using Mientreno.Server.Data.Models
 @model AlumnoIndexModel
 @{
 	ViewData["Title"] = "Dashboard";
 }
 
 <main id="main-container">
-	<h2>@AppStrings.dashboard</h2>
+	<h2>@AppStrings.hello, @Model.Alumno.Nombre</h2>
+
+	<h3>Tus entrenamientos programados</h3>
+
+	@if (Model.Alumno.JornadasEntrenamientos.Count == 0)
+	{
+		<p>No tienes entrenamientos programados</p>
+	}
+
+	<ul>
+		@foreach (var jornada in Model.Alumno
+			.JornadasEntrenamientos
+			.Where(j => j.Estado == EstadoRutina.Publicada))
+		{
+			<li>@jornada.FechaCreacion.ToShortDateString()</li>
+		}
+	</ul>
 </main>
