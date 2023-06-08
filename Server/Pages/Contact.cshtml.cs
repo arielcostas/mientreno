@@ -4,9 +4,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
+using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
+using Mientreno.Server.Service;
 using Mientreno.Server.Service.Queue;
 
 namespace Mientreno.Server.Pages;
@@ -15,11 +18,13 @@ public class ContactModel : PageModel
 {
 	private readonly IQueueProvider _queueProvider;
 	private UserManager<Usuario> _userManager;
+	private ApplicationDatabaseContext _databaseContext;
 
-	public ContactModel(IQueueProvider queueProvider, UserManager<Usuario> userManager)
+	public ContactModel(IQueueProvider queueProvider, UserManager<Usuario> userManager, ApplicationDatabaseContext databaseContext)
 	{
 		_queueProvider = queueProvider;
 		_userManager = userManager;
+		_databaseContext = databaseContext;
 		Form = new ContactForm();
 	}
 	
@@ -52,11 +57,22 @@ public class ContactModel : PageModel
 		var email = Form.Email;
 
 		var user = _userManager.GetUserAsync(User).Result;
+		var priority = false;
 
 		if (user != null)
 		{
 			nombre = user.Nombre;
 			email = user.Email!;
+
+			if (user is Entrenador)
+			{
+				var plan = _databaseContext.Entrenadores
+					.Include(e => e.Suscripcion)
+					.Where(e => e.Id == user.Id)
+					.Select(e => e.Suscripcion.Plan)
+					.FirstOrDefault();
+				priority = SubscriptionRestrictions.PrioritySupport(plan);
+			}
 		}
 		
 		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
@@ -68,7 +84,7 @@ public class ContactModel : PageModel
 			NombreDestinatario = "Equipo de MiEntreno",
 			DireccionDestinatario = "hola@mientreno.app",
 			Plantila = Constantes.FormContacto,
-			Parametros = new[] { nombre, email, Form.Mensaje, culture.DisplayName },
+			Parametros = new[] { nombre, email, Form.Mensaje, culture.DisplayName, priority.ToString() },
 			ResponderA = email
 		});
 		

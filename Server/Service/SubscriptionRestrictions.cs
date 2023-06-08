@@ -16,13 +16,14 @@ public class SubscriptionRestrictions
 		};
 	}
 	
-	public static bool PrioritySupport(PlanSuscripcion plan)
+	public static bool PrioritySupport(PlanSuscripcion? plan)
 	{
 		return plan switch
 		{
 			PlanSuscripcion.Basic => false,
 			PlanSuscripcion.Estandar => true,
 			PlanSuscripcion.Prime => true,
+			null => false,
 			_ => throw new ArgumentOutOfRangeException(nameof(plan), plan, null)
 		};
 	}

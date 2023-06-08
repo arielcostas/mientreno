@@ -7,6 +7,7 @@ Alguien ha contactado con MiEntreno a través del formulario de contacto. Estos 
 - Nombre: {0}
 - Correo electrónico: {1}
 - Idioma: {3}
+- PRIO: {4}
 
 <blockquote>
 {2}
