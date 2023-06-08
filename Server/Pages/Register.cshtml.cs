@@ -11,6 +11,7 @@ using Mientreno.Compartido.Mensajes;
 using Mientreno.Compartido.Recursos;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
+using Mientreno.Server.Service;
 using Mientreno.Server.Service.Queue;
 using Stripe;
 
@@ -38,6 +39,7 @@ public class RegisterModel : PageModel
 	[BindProperty] public RegisterForm Form { get; set; } = new();
 
 	public bool EmailSent { get; set; }
+	public bool InviteError { get; set; }
 
 	public async Task<IActionResult> OnGetAsync()
 	{
@@ -47,17 +49,11 @@ public class RegisterModel : PageModel
 			var area = usuario is Alumno ? "Alumnos" : "Dashboard";
 			return Redirect($"/{area}");
 		}
-		
+
 		if (string.IsNullOrEmpty(InvitacionCode)) return Page();
 
-		var invitacion = await _databaseContext.Invitaciones
-			.Include(i => i.Entrenador)
-			.FirstOrDefaultAsync(i => i.Id == InvitacionCode);
-
-		if (invitacion is null || !invitacion.Usable)
-		{
-			return Page();
-		}
+		var invitacion = await ValidateInvitacion();
+		if (invitacion is null) InviteError = true;
 
 		Invitacion = invitacion;
 		return Page();
@@ -71,6 +67,7 @@ public class RegisterModel : PageModel
 			var area = usuario is Alumno ? "Alumnos" : "Dashboard";
 			return Redirect($"/{area}");
 		}
+
 		if (!ModelState.IsValid) return Page();
 
 		if (!Form.AceptoTerminos)
@@ -89,42 +86,16 @@ public class RegisterModel : PageModel
 			await _roleManager.CreateAsync(new IdentityRole(Alumno.RoleName));
 		}
 
-		CustomerService customerService = new();
-		var customer = await customerService.CreateAsync(new CustomerCreateOptions
-		{
-			Email = Form.Email,
-			Name = $"{Form.Nombre} {Form.Apellidos}"
-		});
-		
 		Usuario nuevo;
 		if (InvitacionCode.IsNullOrEmpty())
 		{
-			nuevo = new Entrenador
-			{
-				Nombre = Form.Nombre,
-				Apellidos = Form.Apellidos,
-				FechaAlta = DateTime.Now,
-
-				UserName = Form.Email,
-				Email = Form.Email,
-				UltimosTosAceptados = Constantes.VersionTos,
-				Suscripcion = new Suscripcion
-				{
-					Estado = EstadoSuscripcion.NoSuscrito,
-					CustomerId = customer.Id,
-					FechaInicio = DateTime.Now,
-					FechaFin = DateTime.Now,
-					RenovacionAutomatica = false
-				}
-			};
+			var customer = await NewCustomer();
+			nuevo = NewEntrenador(customer);
 		}
 		else
 		{
-			var invitacion = await _databaseContext.Invitaciones
-				.Include(i => i.Entrenador)
-				.FirstOrDefaultAsync(i => i.Id == InvitacionCode);
-
-			if (invitacion is null || !invitacion.Usable) return Forbid();
+			var invitacion = await ValidateInvitacion();
+			if (invitacion is null) return Forbid();
 
 			nuevo = new Alumno
 			{
@@ -156,17 +127,70 @@ public class RegisterModel : PageModel
 		{
 			return Page();
 		}
+		
+		SendConfirmationEmail(nuevo);
 
+		return Page();
+	}
+
+	private async Task<Invitacion?> ValidateInvitacion()
+	{
+		var invitacion = await _databaseContext.Invitaciones
+			.Include(i => i.Entrenador)
+			.FirstOrDefaultAsync(i => i.Id == InvitacionCode);
+
+		if (invitacion is null || !invitacion.Usable) return null;
+
+		var maxSubs = SubscriptionRestrictions.MaxAlumnosPerEntrenador(invitacion.Entrenador.Suscripcion.Plan);
+		var currentSubs = await _databaseContext.Alumnos
+			.CountAsync(a => a.Entrenador.Id == invitacion.Entrenador.Id);
+		
+		return currentSubs+1 >= maxSubs ? null : invitacion;
+	}
+
+	private async Task<Customer> NewCustomer()
+	{
+		CustomerService customerService = new();
+		return await customerService.CreateAsync(new CustomerCreateOptions
+		{
+			Email = Form.Email,
+			Name = $"{Form.Nombre} {Form.Apellidos}"
+		});
+	}
+
+	private Entrenador NewEntrenador(Customer customer)
+	{
+		return new Entrenador
+		{
+			Nombre = Form.Nombre,
+			Apellidos = Form.Apellidos,
+			FechaAlta = DateTime.Now,
+
+			UserName = Form.Email,
+			Email = Form.Email,
+			UltimosTosAceptados = Constantes.VersionTos,
+			Suscripcion = new Suscripcion
+			{
+				Estado = EstadoSuscripcion.NoSuscrito,
+				CustomerId = customer.Id,
+				FechaInicio = DateTime.Now,
+				FechaFin = DateTime.Now,
+				RenovacionAutomatica = false
+			}
+		};
+	}
+
+	private void SendConfirmationEmail(Usuario nuevo)
+	{
 		var urlConfirmacion = Url.Page(
 			"/Confirm",
 			null,
 			new { nuevo.Id, token = GenerateEmailConfirmationToken(nuevo) },
 			Request.Scheme
 		);
-
+		
 		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
 		var culture = rqf?.RequestCulture.Culture ?? CultureInfo.CurrentCulture;
-
 		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
 		{
 			Idioma = culture.TwoLetterISOLanguageName,
@@ -179,8 +203,6 @@ public class RegisterModel : PageModel
 		});
 
 		EmailSent = true;
-
-		return Page();
 	}
 
 	private string GenerateEmailConfirmationToken(Usuario user)
@@ -195,7 +217,8 @@ public class RegisterForm
 		ErrorMessageResourceType = typeof(AppStrings),
 		ErrorMessageResourceName = nameof(AppStrings.Validation_Name_Required)
 	)]
-	[MinLength(2)] public string Nombre { get; set; } = string.Empty;
+	[MinLength(2)]
+	public string Nombre { get; set; } = string.Empty;
 
 	[Required(
 		ErrorMessageResourceType = typeof(AppStrings),

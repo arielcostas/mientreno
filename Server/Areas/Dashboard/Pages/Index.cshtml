@@ -12,7 +12,10 @@
 		<div class="card" id="card-alumnos">
 			<h2>🎽 @AppStrings.dashboard_MyStudents</h2>
 			<p>@Model.Alumnos @AppStrings.dashboard_AlumnosOutOf @Model.MaxAlumnos</p>
-			<a asp-page="/Alumnos/Index" class="link link-primary link-bold">Gestionar alumnos</a>
+			<a asp-page="/Alumnos/Index" class="link link-primary link-bold">
+				@AppStrings.Action_Manage @AppStrings.alumnos
+			</a>
+			<meter value="@Model.Alumnos" min="0" max="@Model.MaxAlumnos" high="@(Model.MaxAlumnos * 0.9)"> </meter>
 		</div>
 
 		<div class="card" id="card-suscripcion">

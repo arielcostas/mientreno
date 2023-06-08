@@ -114,6 +114,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gestionar.
+        /// </summary>
+        public static string Action_Manage {
+            get {
+                return ResourceManager.GetString("Action_Manage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registrarse.
         /// </summary>
         public static string Action_Register {
@@ -159,6 +168,24 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parece que has excedido tu cuota de alumnos. Si quieres invitar a más, considera cambiarte a un plan superior..
+        /// </summary>
+        public static string Alert_CannotInviteQuotaExceeded_Text {
+            get {
+                return ResourceManager.GetString("Alert_CannotInviteQuotaExceeded_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se pueden invitar más alumnos.
+        /// </summary>
+        public static string Alert_CannotInviteQuotaExceeded_Title {
+            get {
+                return ResourceManager.GetString("Alert_CannotInviteQuotaExceeded_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Has contactado exitosamente con el equipo de MiEntreno. Te contestaremos lo antes posible..
         /// </summary>
         public static string Alert_ContactSent_Text {
@@ -173,6 +200,24 @@ namespace Mientreno.Compartido.Recursos {
         public static string Alert_ContactSent_Title {
             get {
                 return ResourceManager.GetString("Alert_ContactSent_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La invitación no es válida, porque no existe, ha caducado, o tu entrenador no puede invitar más alumnos en estos momentos..
+        /// </summary>
+        public static string Alert_InviteInvalid_Text {
+            get {
+                return ResourceManager.GetString("Alert_InviteInvalid_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitación inválida.
+        /// </summary>
+        public static string Alert_InviteInvalid_Title {
+            get {
+                return ResourceManager.GetString("Alert_InviteInvalid_Title", resourceCulture);
             }
         }
         
