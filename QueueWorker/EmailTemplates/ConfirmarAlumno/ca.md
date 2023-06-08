@@ -10,8 +10,4 @@ Si has estat tu qui va crear el compte, pots confirmar visitant la següent pàg
 
 Si **no has estat** qui va crear el compte, pots ignorar aquest correu. Passades 48 hores, el compte s'eliminarà. Haver rebut aquest correu no implica que el vostre compte de correu estigui compromès. Si tens qualsevol dubte, pots contactar amb nosaltres responent aquest missatge.
 
-Una salutació,
-
----
-
-L'equip de MiEntreno -- <https://mientreno.app>
+Una salutació

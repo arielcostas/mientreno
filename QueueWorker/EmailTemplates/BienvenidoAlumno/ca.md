@@ -9,7 +9,3 @@ Ara que hem confirmat la teva adreça de correu electrònic, pots iniciar sessi�
 Recorda que si tens algun dubte, pots contactar amb nosaltres escrivint un correu a <hola@mientreno.app>, o preguntar al teu entrenador. Estarem encantats d'ajudar-te!
 
 Una salutació!
-
----
-
-L'equip de MiEntreno -- <https://mientreno.app>

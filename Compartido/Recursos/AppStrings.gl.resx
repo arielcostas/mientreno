@@ -152,8 +152,8 @@
     <comment>Título de la página de registro</comment>
   </data>
   <data name="Input_Surname" xml:space="preserve">
-    <value>Apelidos</value>
-    <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
+	  <value>Apelidos</value>
+	  <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
   </data>
   <data name="iveReadAndAccept" xml:space="preserve">
 	  <value>Lín e acepto</value>
@@ -364,5 +364,71 @@
   </data>
   <data name="Alert_SignUpInvite_Text" xml:space="preserve">
 	  <value>Estas rexistrándote como alumno de</value>
+  </data>
+  <data name="Page_Contact" xml:space="preserve">
+	  <value>Contacto</value>
+  </data>
+  <data name="Action_Contact" xml:space="preserve">
+	  <value>Contactar</value>
+  </data>
+  <data name="Input_Message" xml:space="preserve">
+	  <value>Mensaxe</value>
+  </data>
+  <data name="Alert_ContactSent_Title" xml:space="preserve">
+	  <value>A túa mensaxe foi enviada</value>
+  </data>
+  <data name="Alert_ContactSent_Text" xml:space="preserve">
+	  <value>Contactaches correctamente co equipo de MiEntreno. Responderémosche canto antes.</value>
+  </data>
+  <data name="Doing_EditarEjercicio" xml:space="preserve">
+	  <value>Editando exercicio</value>
+  </data>
+  <data name="Action_Edit" xml:space="preserve">
+	  <value>Editar</value>
+  </data>
+  <data name="Text_LandingPage_WannaKnowMore" xml:space="preserve">
+	  <value>Queres saber máis? Tes algunha dúbida?</value>
+  </data>
+  <data name="Text_LandingPage_ContactUsQuestions" xml:space="preserve">
+	  <value>Envíanos as túas consultas e resolverémolas canto antes.</value>
+  </data>
+  <data name="CallToAction_Contact" xml:space="preserve">
+	  <value>Contacta connosco</value>
+  </data>
+  <data name="Page_Landing" xml:space="preserve">
+	  <value>Inicio</value>
+  </data>
+  <data name="Input_PublishPlanUnableEditLater" xml:space="preserve">
+	  <value>Publicar o plan (non se poderá modificar máis tarde)</value>
+  </data>
+  <data name="Noun_EstadoRutina_Publicada" xml:space="preserve">
+	  <value>Publicado</value>
+  </data>
+  <data name="Noun_EstadoRutina_Borrador" xml:space="preserve">
+	  <value>Borrador</value>
+  </data>
+  <data name="Noun_EstadoRutina_EnCurso" xml:space="preserve">
+	  <value>En progreso</value>
+  </data>
+  <data name="Noun_EstadoRutina_Finalizada" xml:space="preserve">
+	  <value>Completado</value>
+  </data>
+  <data name="Noun_EstadoRutina_Evaluada" xml:space="preserve">
+	  <value>Avaliado</value>
+  </data>
+  <data name="Noun_JornadaEntrenamiento_NoName" xml:space="preserve">
+	  <value>Sen nome</value>
+  </data>
+  <data name="Text_Alumnos_ScheduledJornadas" xml:space="preserve">
+	  <value>Os teus adestramentos programados</value>
+  </data>
+  <data name="Text_Alumnos_NoJornadasScheduled" xml:space="preserve">
+	  <value>Non tes ningún adestramento programado. Se cres que se trata dun erro, ponte en contacto co teu adestrador.</value>
+  </data>
+  <data name="Action_Add" xml:space="preserve">
+	  <value>Engadir</value>
+  </data>
+  <data name="Action_Save" xml:space="preserve">
+	  <value>Gardar</value>
   </data>
 </root>

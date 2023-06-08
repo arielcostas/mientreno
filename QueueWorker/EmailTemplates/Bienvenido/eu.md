@@ -9,7 +9,3 @@ Zure helbide elektronikoa baieztatu dugulako, saioa hasi, zure harpidetza aktiba
 Gogoratu zalantzaren bat izanez gero, gurekin harremanetan jar zaitezkeela [hola@mientreno.app helbidera mezu elektroniko bat idatziz](mailto:hola@mientreno.app) Gustura lagunduko dizugu!
 
 Onena!
-
----
-
-MiEntreno taldea -- <https://mientreno.app>

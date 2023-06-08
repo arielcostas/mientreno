@@ -10,8 +10,4 @@ Se fuches tí quen creou a conta, podes confirmala visitando a seguinte páxina 
 
 Se **non fuches ti** quen creou a conta, podes ignorar este correo. Pasadas 48 horas, a conta eliminarase. Ter recibido este correo electrónico non implica que a túa conta de correo electrónico estea comprometida. Se tes calquera dúbida, podes contactar connosco respondendo a esta mensaxe.
 
-Un saúdo!
-
----
-
-O equipo de MiEntreno -- <https://mientreno.app>
+Un saúdo

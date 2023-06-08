@@ -152,8 +152,8 @@
     <comment>Título de la página de registro</comment>
   </data>
   <data name="Input_Surname" xml:space="preserve">
-    <value>Abizenak</value>
-    <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
+	  <value>Abizenak</value>
+	  <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
   </data>
   <data name="iveReadAndAccept" xml:space="preserve">
 	  <value>Irakurri dut eta ados nago</value>
@@ -289,5 +289,146 @@
   </data>
   <data name="masDetalles" xml:space="preserve">
 	  <value>Xehetasun gehiago</value>
+  </data>
+  <data name="goToDashboard" xml:space="preserve">
+	  <value>joan nire taulara</value>
+  </data>
+  <data name="Text_Dashboard_SubscriptionConfirmed_Title" xml:space="preserve">
+	  <value>Zure harpidetza berretsi da</value>
+  </data>
+  <data name="Text_Dashboard_SubscriptionConfirmed_Text" xml:space="preserve">
+	  <value>Zure harpidetza behar bezala berretsi da. Ondoren, zure panelera joan eta MyTraining-ekin lanean has zaitezke.</value>
+  </data>
+  <data name="dashboard_NotSubscribedToPlan" xml:space="preserve">
+	  <value>Ez duzu harpidetza aktiborik.</value>
+  </data>
+  <data name="dashboard_WeUseStripe" xml:space="preserve">
+	  <value>Stripe erabiltzen dugu ordainketak modu seguruan prozesatzeko. Zure harpidetza kudea dezakezu zure</value>
+  </data>
+  <data name="dashboard_StripeClientPanel" xml:space="preserve">
+	  <value>stripe bezeroen panela</value>
+  </data>
+  <data name="dashboard_GetInTouch" xml:space="preserve">
+	  <value>Jarri gurekin harremanetan</value>
+  </data>
+  <data name="dashboard_ProblemWithStripe" xml:space="preserve">
+	  <value>Zure harpidetzarekin arazoren bat baduzu, mesedez</value>
+  </data>
+  <data name="dashboard_AlumnosOutOf" xml:space="preserve">
+	  <value>ikasle guztira</value>
+  </data>
+  <data name="dashboard_NoPlansCreated" xml:space="preserve">
+	  <value>Ez da prestakuntza planik sortu (oraindik).</value>
+  </data>
+  <data name="trainingPlans" xml:space="preserve">
+	  <value>prestakuntza-planak</value>
+  </data>
+  <data name="cuestionarios" xml:space="preserve">
+	  <value>Galdetegiak</value>
+  </data>
+  <data name="cuestionario" xml:space="preserve">
+	  <value>galdetegia</value>
+  </data>
+  <data name="availableSoon" xml:space="preserve">
+	  <value>Funtzio hau laster egongo da erabilgarri.</value>
+  </data>
+  <data name="plan" xml:space="preserve">
+	  <value>plana</value>
+  </data>
+  <data name="dashboard_NoCuestionariosCreated" xml:space="preserve">
+	  <value>Ez da galdetegirik sortu (oraindik).</value>
+  </data>
+  <data name="invitaciones" xml:space="preserve">
+	  <value>Gonbidapenak</value>
+  </data>
+  <data name="Action_Invite" xml:space="preserve">
+	  <value>Gonbidatu</value>
+  </data>
+  <data name="dashboard_ShareInviteLink" xml:space="preserve">
+	  <value>Partekatu ondorengo esteka zure ikaslearekin:</value>
+  </data>
+  <data name="dashboard_InviteCreated" xml:space="preserve">
+	  <value>gonbidapena sortu da</value>
+  </data>
+  <data name="Action_See" xml:space="preserve">
+	  <value>Ikusi</value>
+  </data>
+  <data name="Alert_NoAlumnos_Title" xml:space="preserve">
+	  <value>ez duzu ikaslerik</value>
+  </data>
+  <data name="Alert_NoAlumnos_Text" xml:space="preserve">
+	  <value>Gonbidatu zure ikasleak zurekin bat egitera, goiko eskuinaldean gonbidapena sortuz.</value>
+  </data>
+  <data name="Alert_SignUpInvite_Title" xml:space="preserve">
+	  <value>entrenatzera gonbidatu zaitu</value>
+  </data>
+  <data name="Alert_SignUpInvite_Text" xml:space="preserve">
+	  <value>Ikasle gisa erregistratzen ari zara</value>
+  </data>
+  <data name="Page_Contact" xml:space="preserve">
+	  <value>Harremanetan jarri</value>
+  </data>
+  <data name="Action_Contact" xml:space="preserve">
+	  <value>Kontaktua</value>
+  </data>
+  <data name="Input_Message" xml:space="preserve">
+	  <value>Mezua</value>
+  </data>
+  <data name="Alert_ContactSent_Title" xml:space="preserve">
+	  <value>Zure mezua bidali da</value>
+  </data>
+  <data name="Alert_ContactSent_Text" xml:space="preserve">
+	  <value>MiTraining taldearekin harremanetan jarri zara. Ahalik eta azkarren erantzungo dizugu.</value>
+  </data>
+  <data name="Doing_EditarEjercicio" xml:space="preserve">
+	  <value>edizio ariketa</value>
+  </data>
+  <data name="Action_Edit" xml:space="preserve">
+	  <value>Editatu</value>
+  </data>
+  <data name="Text_LandingPage_WannaKnowMore" xml:space="preserve">
+	  <value>Gehiago jakin nahi duzu? Zalantzarik al duzu?</value>
+  </data>
+  <data name="Text_LandingPage_ContactUsQuestions" xml:space="preserve">
+	  <value>Bidal iezaguzu zure zalantzak, eta ahalik eta azkarren ebatziko ditugu.</value>
+  </data>
+  <data name="CallToAction_Contact" xml:space="preserve">
+	  <value>Jarri gurekin harremanetan</value>
+  </data>
+  <data name="Page_Landing" xml:space="preserve">
+	  <value>Hasi</value>
+  </data>
+  <data name="Input_PublishPlanUnableEditLater" xml:space="preserve">
+	  <value>Argitaratu plana (geroago ezin da aldatu)</value>
+  </data>
+  <data name="Noun_EstadoRutina_Publicada" xml:space="preserve">
+	  <value>Argitaratu</value>
+  </data>
+  <data name="Noun_EstadoRutina_Borrador" xml:space="preserve">
+	  <value>Zirriborroa</value>
+  </data>
+  <data name="Noun_EstadoRutina_EnCurso" xml:space="preserve">
+	  <value>Abian</value>
+  </data>
+  <data name="Noun_EstadoRutina_Finalizada" xml:space="preserve">
+	  <value>Amaitua</value>
+  </data>
+  <data name="Noun_EstadoRutina_Evaluada" xml:space="preserve">
+	  <value>ebaluatu</value>
+  </data>
+  <data name="Noun_JornadaEntrenamiento_NoName" xml:space="preserve">
+	  <value>Izenik gabe</value>
+  </data>
+  <data name="Text_Alumnos_ScheduledJornadas" xml:space="preserve">
+	  <value>Zure programatutako entrenamenduak</value>
+  </data>
+  <data name="Text_Alumnos_NoJornadasScheduled" xml:space="preserve">
+	  <value>Ez duzu programatutako entrenamendurik. Hau akats bat dela uste baduzu, jarri harremanetan zure entrenatzailearekin.</value>
+  </data>
+  <data name="Action_Add" xml:space="preserve">
+	  <value>Gehitu</value>
+  </data>
+  <data name="Action_Save" xml:space="preserve">
+	  <value>Gorde</value>
   </data>
 </root>

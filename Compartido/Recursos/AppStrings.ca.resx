@@ -152,8 +152,8 @@
     <comment>Título de la página de registro</comment>
   </data>
   <data name="Input_Surname" xml:space="preserve">
-    <value>Apellidos</value>
-    <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
+	  <value>Apellidos</value>
+	  <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
   </data>
   <data name="iveReadAndAccept" xml:space="preserve">
 	  <value>He llegit i accepto</value>
@@ -289,5 +289,146 @@
   </data>
   <data name="masDetalles" xml:space="preserve">
 	  <value>Més detalls</value>
+  </data>
+  <data name="goToDashboard" xml:space="preserve">
+	  <value>Anar al meu tauler</value>
+  </data>
+  <data name="Text_Dashboard_SubscriptionConfirmed_Title" xml:space="preserve">
+	  <value>La teva subscripció va ser confirmada</value>
+  </data>
+  <data name="Text_Dashboard_SubscriptionConfirmed_Text" xml:space="preserve">
+	  <value>La vostra subscripció ha estat confirmada correctament. A continuació, pots anar al teu tauler i començar a treballar amb MiEntreno.</value>
+  </data>
+  <data name="dashboard_NotSubscribedToPlan" xml:space="preserve">
+	  <value>No tens una subscripció activa.</value>
+  </data>
+  <data name="dashboard_WeUseStripe" xml:space="preserve">
+	  <value>Utilitzem Stripe per processar els pagaments de manera segura. Pots administrar la teva subscripció a la teva</value>
+  </data>
+  <data name="dashboard_StripeClientPanel" xml:space="preserve">
+	  <value>panell de control de client de Stripe</value>
+  </data>
+  <data name="dashboard_GetInTouch" xml:space="preserve">
+	  <value>posa't en contacte amb nosaltres</value>
+  </data>
+  <data name="dashboard_ProblemWithStripe" xml:space="preserve">
+	  <value>Si tinguessis algun problema amb la teva subscripció, si us plau</value>
+  </data>
+  <data name="dashboard_AlumnosOutOf" xml:space="preserve">
+	  <value>alumnes d'un total de</value>
+  </data>
+  <data name="dashboard_NoPlansCreated" xml:space="preserve">
+	  <value>No s'ha creat cap pla d'entrenament (encara).</value>
+  </data>
+  <data name="trainingPlans" xml:space="preserve">
+	  <value>Plans d´entrenament</value>
+  </data>
+  <data name="cuestionarios" xml:space="preserve">
+	  <value>Qüestionaris</value>
+  </data>
+  <data name="cuestionario" xml:space="preserve">
+	  <value>qüestionari</value>
+  </data>
+  <data name="availableSoon" xml:space="preserve">
+	  <value>Aquesta funcionalitat estarà disponible properament.</value>
+  </data>
+  <data name="plan" xml:space="preserve">
+	  <value>pla</value>
+  </data>
+  <data name="dashboard_NoCuestionariosCreated" xml:space="preserve">
+	  <value>No s'ha creat cap qüestionari (encara).</value>
+  </data>
+  <data name="invitaciones" xml:space="preserve">
+	  <value>Invitacions</value>
+  </data>
+  <data name="Action_Invite" xml:space="preserve">
+	  <value>Convidar</value>
+  </data>
+  <data name="dashboard_ShareInviteLink" xml:space="preserve">
+	  <value>Comparteix el següent enllaç amb el teu(s) alumne(s):</value>
+  </data>
+  <data name="dashboard_InviteCreated" xml:space="preserve">
+	  <value>Invitació creada</value>
+  </data>
+  <data name="Action_See" xml:space="preserve">
+	  <value>Veure</value>
+  </data>
+  <data name="Alert_NoAlumnos_Title" xml:space="preserve">
+	  <value>No tens alumnes</value>
+  </data>
+  <data name="Alert_NoAlumnos_Text" xml:space="preserve">
+	  <value>Convida els teus alumnes a unir-se a tu generant una invitació a la part superior dreta.</value>
+  </data>
+  <data name="Alert_SignUpInvite_Title" xml:space="preserve">
+	  <value>t'ha convidat a entrenar</value>
+  </data>
+  <data name="Alert_SignUpInvite_Text" xml:space="preserve">
+	  <value>T'estàs registrant com a Alumne de</value>
+  </data>
+  <data name="Page_Contact" xml:space="preserve">
+	  <value>Contacte</value>
+  </data>
+  <data name="Action_Contact" xml:space="preserve">
+	  <value>Contactar</value>
+  </data>
+  <data name="Input_Message" xml:space="preserve">
+	  <value>Missatge</value>
+  </data>
+  <data name="Alert_ContactSent_Title" xml:space="preserve">
+	  <value>El teu missatge s'ha enviat</value>
+  </data>
+  <data name="Alert_ContactSent_Text" xml:space="preserve">
+	  <value>Has contactat amb èxit amb l'equip de MiEntreno. Et contestarem com més aviat millor.</value>
+  </data>
+  <data name="Doing_EditarEjercicio" xml:space="preserve">
+	  <value>Editant exercici</value>
+  </data>
+  <data name="Action_Edit" xml:space="preserve">
+	  <value>Edita</value>
+  </data>
+  <data name="Text_LandingPage_WannaKnowMore" xml:space="preserve">
+	  <value>En vols saber més? Tens cap dubte?</value>
+  </data>
+  <data name="Text_LandingPage_ContactUsQuestions" xml:space="preserve">
+	  <value>Fes-nos arribar les teves consultes, i les resoldrem com més aviat millor.</value>
+  </data>
+  <data name="CallToAction_Contact" xml:space="preserve">
+	  <value>Contacta amb nosaltres</value>
+  </data>
+  <data name="Page_Landing" xml:space="preserve">
+	  <value>Inici</value>
+  </data>
+  <data name="Input_PublishPlanUnableEditLater" xml:space="preserve">
+	  <value>Publicar pla (no es podrà modificar més tard)</value>
+  </data>
+  <data name="Noun_EstadoRutina_Publicada" xml:space="preserve">
+	  <value>Publicat</value>
+  </data>
+  <data name="Noun_EstadoRutina_Borrador" xml:space="preserve">
+	  <value>Esborrany</value>
+  </data>
+  <data name="Noun_EstadoRutina_EnCurso" xml:space="preserve">
+	  <value>En curs</value>
+  </data>
+  <data name="Noun_EstadoRutina_Finalizada" xml:space="preserve">
+	  <value>Finalitzat</value>
+  </data>
+  <data name="Noun_EstadoRutina_Evaluada" xml:space="preserve">
+	  <value>Avaluat</value>
+  </data>
+  <data name="Noun_JornadaEntrenamiento_NoName" xml:space="preserve">
+	  <value>Sense nom</value>
+  </data>
+  <data name="Text_Alumnos_ScheduledJornadas" xml:space="preserve">
+	  <value>Els teus entrenaments programats</value>
+  </data>
+  <data name="Text_Alumnos_NoJornadasScheduled" xml:space="preserve">
+	  <value>No teniu entrenaments programats. Si creus que és un error, posa't en contacte amb el teu entrenador.</value>
+  </data>
+  <data name="Action_Add" xml:space="preserve">
+	  <value>Afegir</value>
+  </data>
+  <data name="Action_Save" xml:space="preserve">
+	  <value>Desa</value>
   </data>
 </root>

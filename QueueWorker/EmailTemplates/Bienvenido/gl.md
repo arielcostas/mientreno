@@ -9,7 +9,3 @@ Agora que confirmamos o teu enderezo de correo electrónico, podes iniciar sesi�
 Lembra que se tes algunha dúbida podes contactar connosco escribindo un correo electrónico a <hola@mientreno.app> Estaremos encantados de axudarte!
 
 Un saúdo!
-
----
-
-O equipo de MiEntreno -- <https://mientreno.app>
