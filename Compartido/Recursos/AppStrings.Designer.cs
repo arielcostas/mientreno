@@ -114,6 +114,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cerrar sesión.
+        /// </summary>
+        public static string Action_Logout {
+            get {
+                return ResourceManager.GetString("Action_Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gestionar.
         /// </summary>
         public static string Action_Manage {
@@ -389,24 +398,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string dashboard_InviteCreated {
             get {
                 return ResourceManager.GetString("dashboard_InviteCreated", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mis alumnos.
-        /// </summary>
-        public static string dashboard_MyStudents {
-            get {
-                return ResourceManager.GetString("dashboard_MyStudents", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mi suscripción.
-        /// </summary>
-        public static string dashboard_MySubscription {
-            get {
-                return ResourceManager.GetString("dashboard_MySubscription", resourceCulture);
             }
         }
         
@@ -839,6 +830,33 @@ namespace Mientreno.Compartido.Recursos {
         public static string Text_Alumnos_ScheduledJornadas {
             get {
                 return ResourceManager.GetString("Text_Alumnos_ScheduledJornadas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mi cuenta.
+        /// </summary>
+        public static string Text_Dashboard_MyAccount_Title {
+            get {
+                return ResourceManager.GetString("Text_Dashboard_MyAccount_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mis alumnos.
+        /// </summary>
+        public static string Text_Dashboard_MyAlumnos_Title {
+            get {
+                return ResourceManager.GetString("Text_Dashboard_MyAlumnos_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mi suscripción.
+        /// </summary>
+        public static string Text_Dashboard_MySuscripcion_Title {
+            get {
+                return ResourceManager.GetString("Text_Dashboard_MySuscripcion_Title", resourceCulture);
             }
         }
         

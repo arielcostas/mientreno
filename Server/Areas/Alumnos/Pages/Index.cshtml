@@ -13,12 +13,10 @@
 
 	@if (Model.Alumno.JornadasEntrenamientos.Count == 0)
 	{
-		<p>@AppStrings.Text_Alumnos_ScheduledJornadas</p>
+		<p>@AppStrings.Text_Alumnos_NoJornadasScheduled</p>
 	}
 
 	<ul>
-		
-		
 		@foreach (var jornada in Model.Alumno
 			.JornadasEntrenamientos
 			.Where(j => j.Estado == EstadoRutina.Publicada))

@@ -221,10 +221,10 @@
   <data name="dashboard_SubscribedToPlan" xml:space="preserve">
 	  <value>Tienes una suscripción activa al plan </value>
   </data>
-  <data name="dashboard_MySubscription" xml:space="preserve">
+  <data name="Text_Dashboard_MySuscripcion_Title" xml:space="preserve">
 	  <value>Mi suscripción</value>
   </data>
-  <data name="dashboard_MyStudents" xml:space="preserve">
+  <data name="Text_Dashboard_MyAlumnos_Title" xml:space="preserve">
 	  <value>Mis alumnos</value>
   </data>
   <data name="dashboard" xml:space="preserve">
@@ -451,5 +451,11 @@
   </data>
   <data name="Alert_ContactPreFilled_Text" xml:space="preserve">
 	  <value>Tus datos de contacto fueron cubiertos automáticamente porque tienes la sesión iniciada. Si tu plan incluye soporte prioritario, este se tendrá en cuenta.</value>
+  </data>
+  <data name="Action_Logout" xml:space="preserve">
+	  <value>Cerrar sesión</value>
+  </data>
+  <data name="Text_Dashboard_MyAccount_Title" xml:space="preserve">
+	  <value>Mi cuenta</value>
   </data>
 </root>

@@ -10,7 +10,7 @@
 	<h2>@AppStrings.dashboard</h2>
 	<div class="card-holder">
 		<div class="card" id="card-alumnos">
-			<h2>🎽 @AppStrings.dashboard_MyStudents</h2>
+			<h2>🎽 @AppStrings.Text_Dashboard_MyAlumnos_Title</h2>
 			<p>@Model.Alumnos @AppStrings.dashboard_AlumnosOutOf @Model.MaxAlumnos</p>
 			<a asp-page="/Alumnos/Index" class="link link-primary link-bold">
 				@AppStrings.Action_Manage @AppStrings.alumnos
@@ -19,7 +19,7 @@
 		</div>
 
 		<div class="card" id="card-suscripcion">
-			<h2>🗝️ @AppStrings.dashboard_MySubscription</h2>
+			<h2>🗝️ @AppStrings.Text_Dashboard_MySuscripcion_Title</h2>
 			<div class="card-content">
 				<p>
 					@AppStrings.dashboard_SubscribedToPlan <b>@Model.Entrenador.Suscripcion.Plan.ToString()</b>.
@@ -51,5 +51,15 @@
 				<meter value="@c" min="0" max="@t" high="@h"> </meter>
 			</div>
 		</div>
+
+		<div class="card" id="card-entrenador">
+			<h2>👤 @AppStrings.Text_Dashboard_MyAccount_Title</h2>
+			<div class="card-content">
+				<a asp-page="/Logout" asp-area="" class="link link-primary link-bold">
+					@AppStrings.Action_Logout
+				</a>
+			</div>
+		</div>
+
 	</div>
 </main>

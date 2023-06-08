@@ -221,10 +221,10 @@
   <data name="dashboard_SubscribedToPlan" xml:space="preserve">
 	  <value>Planera harpidetuta zaude </value>
   </data>
-  <data name="dashboard_MySubscription" xml:space="preserve">
+  <data name="Text_Dashboard_MySuscripcion_Title" xml:space="preserve">
 	  <value>nire harpidetza</value>
   </data>
-  <data name="dashboard_MyStudents" xml:space="preserve">
+  <data name="Text_Dashboard_MyAlumnos_Title" xml:space="preserve">
 	  <value>Nire ikasleak</value>
   </data>
   <data name="dashboard" xml:space="preserve">
