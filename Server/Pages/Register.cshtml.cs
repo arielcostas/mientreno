@@ -41,7 +41,13 @@ public class RegisterModel : PageModel
 
 	public async Task<IActionResult> OnGetAsync()
 	{
-		if (_userManager.GetUserId(User) is not null) return Redirect("/Index");
+		var usuario = _userManager.GetUserAsync(User).Result;
+		if (usuario is not null)
+		{
+			var area = usuario is Alumno ? "Alumnos" : "Dashboard";
+			return Redirect($"/{area}");
+		}
+		
 		if (string.IsNullOrEmpty(InvitacionCode)) return Page();
 
 		var invitacion = await _databaseContext.Invitaciones
@@ -59,6 +65,12 @@ public class RegisterModel : PageModel
 
 	public async Task<IActionResult> OnPost()
 	{
+		var usuario = _userManager.GetUserAsync(User).Result;
+		if (usuario is not null)
+		{
+			var area = usuario is Alumno ? "Alumnos" : "Dashboard";
+			return Redirect($"/{area}");
+		}
 		if (!ModelState.IsValid) return Page();
 
 		if (!Form.AceptoTerminos)

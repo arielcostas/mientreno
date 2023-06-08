@@ -26,13 +26,24 @@ public class LoginModel : PageModel
 
 	public IActionResult OnGet()
 	{
-		if (_userManager.GetUserId(User) is not null) return Redirect("/Index");
+		var usuario = _userManager.GetUserAsync(User).Result;
+		if (usuario is not null)
+		{
+			var area = usuario is Alumno ? "Alumnos" : "Dashboard";
+			return Redirect($"/{area}");
+		}
+
 		return Page();
 	}
 	
 	public async Task<IActionResult> OnPost()
 	{
-		if (_userManager.GetUserId(User) is not null) return Redirect("/Index");
+		var usuario = _userManager.GetUserAsync(User).Result;
+		if (usuario is not null)
+		{
+			var area = usuario is Alumno ? "Alumnos" : "Dashboard";
+			return Redirect($"/{area}");
+		}
 		
 		if (!ModelState.IsValid) return Page();
 	
