@@ -7,7 +7,7 @@ public class TermsProvider
 	
 	public static string GetTerms(uint version, string? language)
 	{
-		language ??= "es";
+		language ??= Idiomas.Castellano;
 		var localizedFileExists = File.Exists(
 			Path.Combine(TemplatePath, $"v{version}.{language}.md")
 		);

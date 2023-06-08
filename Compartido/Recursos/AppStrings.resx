@@ -446,4 +446,10 @@
   <data name="Alert_InviteInvalid_Text" xml:space="preserve">
 	  <value>La invitación no es válida, porque no existe, ha caducado, o tu entrenador no puede invitar más alumnos en estos momentos.</value>
   </data>
+  <data name="Alert_ContactPreFilled_Title" xml:space="preserve">
+	  <value>Tienes la sesión iniciada</value>
+  </data>
+  <data name="Alert_ContactPreFilled_Text" xml:space="preserve">
+	  <value>Tus datos de contacto fueron cubiertos automáticamente porque tienes la sesión iniciada. Si tu plan incluye soporte prioritario, este se tendrá en cuenta.</value>
+  </data>
 </root>

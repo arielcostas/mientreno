@@ -21,15 +21,37 @@
 	}
 
 	<form method="post" id="form">
+		@if (Model.LoggedInPrefill)
+		{
+			<div class="alert alert-good">
+				<strong class="alert-title">@AppStrings.Alert_ContactPreFilled_Title</strong>
+				@AppStrings.Alert_ContactPreFilled_Text
+			</div>
+		}
+
 		<div class="form-group">
 			<label asp-for="Form.Nombre">@AppStrings.Input_Name</label>
-			<input asp-for="Form.Nombre" type="text" autocomplete="name" class="form-control"/>
+			@if (Model.LoggedInPrefill)
+			{
+				<input asp-for="Form.Nombre" type="text" class="form-control" disabled/>
+			}
+			else
+			{
+				<input asp-for="Form.Nombre" type="text" autocomplete="name" class="form-control"/>
+			}
 			<span asp-validation-for="Form.Nombre" class="text-danger"></span>
 		</div>
 
 		<div class="form-group">
 			<label asp-for="Form.Email">@AppStrings.Input_Email</label>
-			<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control"/>
+			@if (Model.LoggedInPrefill)
+			{
+				<input asp-for="Form.Email" type="email" class="form-control" disabled/>
+			}
+			else
+			{
+				<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control"/>
+			}
 			<span asp-validation-for="Form.Email" class="text-danger"></span>
 		</div>
 

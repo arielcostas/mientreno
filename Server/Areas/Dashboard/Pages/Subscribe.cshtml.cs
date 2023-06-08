@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Mientreno.Compartido;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
 using Stripe;
@@ -46,7 +47,7 @@ public class SubscribeModel : PageModel
 			{
 				Email = usuario.Email,
 				Name = usuario.Nombre,
-				PreferredLocales = new List<string> { "es" },
+				PreferredLocales = new List<string> { Idiomas.Castellano },
 			};
 			
 			var customerService = new CustomerService();

@@ -186,6 +186,24 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tus datos de contacto fueron cubiertos automáticamente porque tienes la sesión iniciada. Si tu plan incluye soporte prioritario, este se tendrá en cuenta..
+        /// </summary>
+        public static string Alert_ContactPreFilled_Text {
+            get {
+                return ResourceManager.GetString("Alert_ContactPreFilled_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tienes la sesión iniciada.
+        /// </summary>
+        public static string Alert_ContactPreFilled_Title {
+            get {
+                return ResourceManager.GetString("Alert_ContactPreFilled_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Has contactado exitosamente con el equipo de MiEntreno. Te contestaremos lo antes posible..
         /// </summary>
         public static string Alert_ContactSent_Text {

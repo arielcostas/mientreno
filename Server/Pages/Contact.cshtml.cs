@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -13,18 +14,30 @@ namespace Mientreno.Server.Pages;
 public class ContactModel : PageModel
 {
 	private readonly IQueueProvider _queueProvider;
-	
-	public ContactModel(IQueueProvider queueProvider)
+	private UserManager<Usuario> _userManager;
+
+	public ContactModel(IQueueProvider queueProvider, UserManager<Usuario> userManager)
 	{
 		_queueProvider = queueProvider;
+		_userManager = userManager;
 		Form = new ContactForm();
 	}
 	
 	[BindProperty] public ContactForm Form { get; set; }
 	public bool ContactoEnviado { get; set; } = false;
+	public bool LoggedInPrefill { get; set; } = false;
 
 	public void OnGet()
 	{
+		var user = _userManager.GetUserAsync(User).Result;
+		
+		if (user != null)
+		{
+			Form.Nombre = user.Nombre;
+			Form.Email = user.Email!;
+			LoggedInPrefill = true;
+		}
+
 		Page();
 	}
 
@@ -34,18 +47,29 @@ public class ContactModel : PageModel
 		{
 			return Page();
 		}
+
+		var nombre = Form.Nombre;
+		var email = Form.Email;
+
+		var user = _userManager.GetUserAsync(User).Result;
+
+		if (user != null)
+		{
+			nombre = user.Nombre;
+			email = user.Email!;
+		}
 		
 		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
 		var culture = rqf?.RequestCulture.Culture ?? CultureInfo.CurrentCulture;
 
 		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
 		{
-			Idioma = "es",
+			Idioma = Idiomas.Castellano,
 			NombreDestinatario = "Equipo de MiEntreno",
 			DireccionDestinatario = "hola@mientreno.app",
 			Plantila = Constantes.FormContacto,
-			Parametros = new[] { Form.Nombre, Form.Email, Form.Mensaje, culture.DisplayName },
-			ResponderA = Form.Email
+			Parametros = new[] { nombre, email, Form.Mensaje, culture.DisplayName },
+			ResponderA = email
 		});
 		
 		Form.Nombre = string.Empty;

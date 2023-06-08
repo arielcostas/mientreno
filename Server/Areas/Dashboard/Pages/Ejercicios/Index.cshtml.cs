@@ -55,6 +55,7 @@ public class EjerciciosIndexModel : EntrenadorPageModel
 			.Include(c => c.Ejercicios)
 			.Where(a => a.Owner.Id == Entrenador.Id)
 			.ToListAsync();
+		NuevaCategoriaName = string.Empty;
 		return Page();
 	}
 }
