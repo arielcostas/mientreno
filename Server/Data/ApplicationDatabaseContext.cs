@@ -24,7 +24,7 @@ public class ApplicationDatabaseContext : IdentityDbContext
 		usuario.HasDiscriminator<string>("Tipo")
 			.HasValue<Entrenador>("Entrenador")
 			.HasValue<Alumno>("Alumno");
-		
+
 		// Entranador tiene varios alumnos
 		entrenador
 			.HasMany<Alumno>(e => e.Alumnos)
@@ -53,26 +53,26 @@ public class ApplicationDatabaseContext : IdentityDbContext
 		entrenador.HasMany(en => en.Categorias)
 			.WithOne(c => c.Owner)
 			.OnDelete(DeleteBehavior.Cascade);
-		
+
 		// Invitación del entrenador a un futuro alumno.
 		entrenador.HasMany<Invitacion>(e => e.Invitaciones)
 			.WithOne(i => i.Entrenador);
-		
+
 		// Entrenador tiene suscripción
 		entrenador.OwnsOne(e => e.Suscripcion);
-		
+
 		// Alumno tiene rutinas
 		var alumno = modelBuilder.Entity<Alumno>();
 		alumno.HasMany<JornadaEntrenamiento>(a => a.JornadasEntrenamientos)
 			.WithOne(j => j.ClienteAsignado)
 			.OnDelete(DeleteBehavior.Cascade);
-		
+
 		// Jornada de entrenamiento tiene ejercicios
 		var jornadaEntrenamiento = modelBuilder.Entity<JornadaEntrenamiento>();
 		jornadaEntrenamiento.HasMany<EjercicioProgramado>(j => j.Ejercicios)
 			.WithOne(e => e.Jornada)
 			.OnDelete(DeleteBehavior.Cascade);
-		
+
 		// Ejercicio programado tiene un ejercicio
 		var ejercicioProgramado = modelBuilder.Entity<EjercicioProgramado>();
 		ejercicioProgramado.HasOne(e => e.Ejercicio)

@@ -12,8 +12,8 @@ using Mientreno.Server.Data;
 namespace Mientreno.Server.Migrations
 {
     [DbContext(typeof(ApplicationDatabaseContext))]
-    [Migration("20230602104107_TermsOfService")]
-    partial class TermsOfService
+    [Migration("20230608180642_CorramosUnTupidoVelo")]
+    partial class CorramosUnTupidoVelo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -327,6 +327,39 @@ namespace Mientreno.Server.Migrations
                     b.ToTable("Ejercicios");
                 });
 
+            modelBuilder.Entity("Mientreno.Server.Data.Models.EjercicioProgramado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EjercicioId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("JornadaId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("Minutos")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Repeticiones")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Series")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EjercicioId");
+
+                    b.HasIndex("JornadaId");
+
+                    b.ToTable("EjercicioProgramado");
+                });
+
             modelBuilder.Entity("Mientreno.Server.Data.Models.Invitacion", b =>
                 {
                     b.Property<string>("Id")
@@ -352,28 +385,50 @@ namespace Mientreno.Server.Migrations
                     b.ToTable("Invitaciones");
                 });
 
-            modelBuilder.Entity("Mientreno.Server.Data.Models.PlanSuscripcion", b =>
+            modelBuilder.Entity("Mientreno.Server.Data.Models.JornadaEntrenamiento", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("ClienteAsignadoId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Modalidad")
-                        .HasColumnType("int");
+                    b.Property<string>("Comentario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaEvalucion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaFinRealizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaInicioRealizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaPublicacion")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("StripePrice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte?>("Valoracion")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlanesSuscripcion");
+                    b.HasIndex("ClienteAsignadoId");
+
+                    b.ToTable("JornadaEntrenamiento");
                 });
 
             modelBuilder.Entity("Mientreno.Server.Data.Models.Usuario", b =>
@@ -529,10 +584,10 @@ namespace Mientreno.Server.Migrations
                             b1.Property<Guid>("CuestionarioId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<byte>("Abd1")
+                            b1.Property<byte>("AbdominalOmbligo")
                                 .HasColumnType("tinyint");
 
-                            b1.Property<byte>("AbdominalOmbligo")
+                            b1.Property<byte>("AbdominalXifoides")
                                 .HasColumnType("tinyint");
 
                             b1.Property<byte>("Cadera")
@@ -591,6 +646,25 @@ namespace Mientreno.Server.Migrations
                     b.Navigation("Owner");
                 });
 
+            modelBuilder.Entity("Mientreno.Server.Data.Models.EjercicioProgramado", b =>
+                {
+                    b.HasOne("Mientreno.Server.Data.Models.Ejercicio", "Ejercicio")
+                        .WithMany()
+                        .HasForeignKey("EjercicioId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Mientreno.Server.Data.Models.JornadaEntrenamiento", "Jornada")
+                        .WithMany("Ejercicios")
+                        .HasForeignKey("JornadaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ejercicio");
+
+                    b.Navigation("Jornada");
+                });
+
             modelBuilder.Entity("Mientreno.Server.Data.Models.Invitacion", b =>
                 {
                     b.HasOne("Mientreno.Server.Data.Models.Entrenador", "Entrenador")
@@ -600,6 +674,17 @@ namespace Mientreno.Server.Migrations
                         .IsRequired();
 
                     b.Navigation("Entrenador");
+                });
+
+            modelBuilder.Entity("Mientreno.Server.Data.Models.JornadaEntrenamiento", b =>
+                {
+                    b.HasOne("Mientreno.Server.Data.Models.Alumno", "ClienteAsignado")
+                        .WithMany("JornadasEntrenamientos")
+                        .HasForeignKey("ClienteAsignadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ClienteAsignado");
                 });
 
             modelBuilder.Entity("Mientreno.Server.Data.Models.Alumno", b =>
@@ -620,6 +705,10 @@ namespace Mientreno.Server.Migrations
                             b1.Property<string>("EntrenadorId")
                                 .HasColumnType("nvarchar(450)");
 
+                            b1.Property<string>("CustomerId")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
                             b1.Property<int>("Estado")
                                 .HasColumnType("int");
 
@@ -629,7 +718,7 @@ namespace Mientreno.Server.Migrations
                             b1.Property<DateTime>("FechaInicio")
                                 .HasColumnType("datetime2");
 
-                            b1.Property<int?>("PlanId")
+                            b1.Property<int?>("Plan")
                                 .HasColumnType("int");
 
                             b1.Property<bool>("RenovacionAutomatica")
@@ -637,18 +726,10 @@ namespace Mientreno.Server.Migrations
 
                             b1.HasKey("EntrenadorId");
 
-                            b1.HasIndex("PlanId");
-
                             b1.ToTable("AspNetUsers");
 
                             b1.WithOwner()
                                 .HasForeignKey("EntrenadorId");
-
-                            b1.HasOne("Mientreno.Server.Data.Models.PlanSuscripcion", "Plan")
-                                .WithMany()
-                                .HasForeignKey("PlanId");
-
-                            b1.Navigation("Plan");
                         });
 
                     b.Navigation("Suscripcion")
@@ -660,9 +741,16 @@ namespace Mientreno.Server.Migrations
                     b.Navigation("Ejercicios");
                 });
 
+            modelBuilder.Entity("Mientreno.Server.Data.Models.JornadaEntrenamiento", b =>
+                {
+                    b.Navigation("Ejercicios");
+                });
+
             modelBuilder.Entity("Mientreno.Server.Data.Models.Alumno", b =>
                 {
                     b.Navigation("Cuestionarios");
+
+                    b.Navigation("JornadasEntrenamientos");
                 });
 
             modelBuilder.Entity("Mientreno.Server.Data.Models.Entrenador", b =>

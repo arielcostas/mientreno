@@ -32,7 +32,7 @@ public class Perimetros
 {
 	public byte PectoralInspiracion { get; set; }
 	public byte PectoralExpiracion { get; set; }
-	public byte Abd1 { get; set; } // TODO: Nombre completo
+	public byte AbdominalXifoides { get; set; }
 	public byte AbdominalOmbligo { get; set; }
 	public byte Cintura { get; set; }
 	public byte Cadera { get; set; }

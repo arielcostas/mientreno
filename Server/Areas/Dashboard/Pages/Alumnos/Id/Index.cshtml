@@ -44,21 +44,33 @@
 			var badgeColour = rutina.Estado switch
 			{
 				EstadoRutina.Borrador => "bad",
-				EstadoRutina.Realizada => "good",
 				EstadoRutina.Publicada => "warning",
+				EstadoRutina.EnCurso => "warning",
+				EstadoRutina.Finalizada => "good",
+				EstadoRutina.Evaluada => "good",
 				_ => "bad"
 				};
 
+			var badgeText = rutina.Estado switch {
+				EstadoRutina.Borrador => AppStrings.Noun_EstadoRutina_Borrador,
+				EstadoRutina.Publicada => AppStrings.Noun_EstadoRutina_Publicada,
+				EstadoRutina.EnCurso => AppStrings.Noun_EstadoRutina_EnCurso,
+				EstadoRutina.Finalizada => AppStrings.Noun_EstadoRutina_Finalizada,
+				EstadoRutina.Evaluada => AppStrings.Noun_EstadoRutina_Evaluada,
+				_ => throw new ArgumentOutOfRangeException()
+				};
 			<li>
-				<span class="badge badge-@badgeColour">@rutina.Estado</span>
+				<span class="badge badge-@badgeColour">@badgeText</span>
 				-
-				<a class="link link-text" href="@Model.Id/Plan?p=@rutina.Id">
+				<a class="link link-text"
+				   href="@Model.Id/Plan?p=@rutina.Id">
 					@if (rutina.Nombre.IsNullOrWhiteSpace())
 					{
-						<i>Sin nombre</i>
+						<i>@AppStrings.Noun_JornadaEntrenamiento_NoName</i>
 					}
+
 					@rutina.Nombre
-				</a>
+				</a >
 			</li>
 		}
 	</section>

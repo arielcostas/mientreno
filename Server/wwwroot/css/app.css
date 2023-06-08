@@ -373,3 +373,8 @@ header nav:has(img) img {
 	background-color: var(--error);
 	color: var(--background-max);
 }
+
+.badge-inverse {
+	background-color: var(--text);
+	color: var(--background-max);
+}

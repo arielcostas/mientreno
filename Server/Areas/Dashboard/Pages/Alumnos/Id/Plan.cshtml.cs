@@ -61,11 +61,9 @@ public class PlanEditorModel : EntrenadorPageModel
 			
 			return RedirectToPage("Plan", new { id = AlumnoId, p = nuevoPlan.Id });
 		}
-
-		if (!int.TryParse(PlanId, out var planNum)) return BadRequest();
-
+		
 		var plan = Alumno.JornadasEntrenamientos
-			.FirstOrDefault(j => j.Id == planNum && j.ClienteAsignado.Id == alumno.Id);
+			.FirstOrDefault(j => j.Id == PlanId && j.ClienteAsignado.Id == alumno.Id);
 
 		if (plan is null) return NotFound();
 
@@ -101,9 +99,7 @@ public class PlanEditorModel : EntrenadorPageModel
 		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 
 		if (PlanId.IsNullOrWhiteSpace()) return BadRequest();
-
-		if (!int.TryParse(PlanId, out var planNum)) return BadRequest();
-
+		
 		var alumno = await DatabaseContext.Alumnos
 			.Include(a => a.JornadasEntrenamientos)
 			.ThenInclude(j => j.Ejercicios)
@@ -114,7 +110,7 @@ public class PlanEditorModel : EntrenadorPageModel
 		Alumno = alumno;
 		
 		var plan = Alumno.JornadasEntrenamientos
-			.FirstOrDefault(j => j.Id == planNum && j.ClienteAsignado.Id == alumno.Id);
+			.FirstOrDefault(j => j.Id == PlanId && j.ClienteAsignado.Id == alumno.Id);
 
 		if (plan is null) return NotFound();
 		
@@ -125,8 +121,9 @@ public class PlanEditorModel : EntrenadorPageModel
 		
 		plan.Nombre = Form.Nombre;
 		plan.Descripcion = Form.Descripcion;
-		plan.Estado = Form.Publicar ? EstadoRutina.Publicada : EstadoRutina.Borrador;
 		plan.Ejercicios.Clear();
+		
+		if (Form.Publicar) plan.FechaPublicacion = DateTime.Now;
 
 		foreach (var ej in Form.EjerciciosPlan)
 		{

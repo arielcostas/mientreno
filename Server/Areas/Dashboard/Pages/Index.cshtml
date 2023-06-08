@@ -41,9 +41,9 @@
 					var completado = (DateTime.Now - Model.Entrenador.Suscripcion.FechaInicio).TotalDays;
 					var high = total * 0.9;
 
-					string t = total.ToString(CultureInfo.InvariantCulture);
-					string c = completado.ToString(CultureInfo.InvariantCulture);
-					string h = high.ToString(CultureInfo.InvariantCulture);
+					var t = total.ToString(CultureInfo.InvariantCulture);
+					var c = completado.ToString(CultureInfo.InvariantCulture);
+					var h = high.ToString(CultureInfo.InvariantCulture);
 				}
 				<meter value="@c" min="0" max="@t" high="@h"> </meter>
 			</div>

@@ -123,10 +123,10 @@
   <data name="confirmPassword" xml:space="preserve">
     <value>Confirmar contrasenya</value>
   </data>
-  <data name="doLogin" xml:space="preserve">
+  <data name="Action_Login" xml:space="preserve">
     <value>Iniciar sessió</value>
   </data>
-  <data name="doRegister" xml:space="preserve">
+  <data name="Action_Register" xml:space="preserve">
     <value>Registrar-se</value>
   </data>
   <data name="Input_Email" xml:space="preserve">
@@ -275,13 +275,13 @@
   <data name="Action_Create" xml:space="preserve">
 	  <value>Crear</value>
   </data>
-  <data name="descripcion" xml:space="preserve">
+  <data name="Input_Descripcion" xml:space="preserve">
 	  <value>Descripció</value>
   </data>
   <data name="dificultad" xml:space="preserve">
 	  <value>Dificultat</value>
   </data>
-  <data name="pricing" xml:space="preserve">
+  <data name="Page_Pricing" xml:space="preserve">
 	  <value>Plans i tarifes</value>
   </data>
   <data name="legalInfo" xml:space="preserve">

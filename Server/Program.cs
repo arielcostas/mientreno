@@ -59,7 +59,10 @@ builder.Services.AddDbContextPool<ApplicationDatabaseContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
 });
 
-builder.Services.AddIdentity<Usuario, IdentityRole>()
+builder.Services.AddIdentity<Usuario, IdentityRole>(options =>
+	{
+		options.SignIn.RequireConfirmedAccount = true;
+	})
 	.AddDefaultTokenProviders()
 	.AddEntityFrameworkStores<ApplicationDatabaseContext>();
 

@@ -123,10 +123,10 @@
   <data name="confirmPassword" xml:space="preserve">
     <value>Confirmar contraseña</value>
   </data>
-  <data name="doLogin" xml:space="preserve">
+  <data name="Action_Login" xml:space="preserve">
     <value>Iniciar sesión</value>
   </data>
-  <data name="doRegister" xml:space="preserve">
+  <data name="Action_Register" xml:space="preserve">
     <value>Registrarse</value>
   </data>
   <data name="Input_Email" xml:space="preserve">
@@ -275,13 +275,13 @@
   <data name="Action_Create" xml:space="preserve">
 	  <value>Crear</value>
   </data>
-  <data name="descripcion" xml:space="preserve">
+  <data name="Input_Descripcion" xml:space="preserve">
 	  <value>Descripción</value>
   </data>
   <data name="dificultad" xml:space="preserve">
 	  <value>Dificultad</value>
   </data>
-  <data name="pricing" xml:space="preserve">
+  <data name="Page_Pricing" xml:space="preserve">
 	  <value>Planes y tarifas</value>
   </data>
   <data name="legalInfo" xml:space="preserve">
@@ -341,7 +341,7 @@
   <data name="invitaciones" xml:space="preserve">
 	  <value>Invitaciones</value>
   </data>
-  <data name="doInvite" xml:space="preserve">
+  <data name="Action_Invite" xml:space="preserve">
 	  <value>Invitar</value>
   </data>
   <data name="dashboard_ShareInviteLink" xml:space="preserve">
@@ -400,5 +400,35 @@
   </data>
   <data name="Input_PublishPlanUnableEditLater" xml:space="preserve">
 	  <value>Publicar plan (no se podrá modificar más tarde)</value>
+  </data>
+  <data name="Noun_EstadoRutina_Publicada" xml:space="preserve">
+	  <value>Publicado</value>
+  </data>
+  <data name="Noun_EstadoRutina_Borrador" xml:space="preserve">
+	  <value>Borrador</value>
+  </data>
+  <data name="Noun_EstadoRutina_EnCurso" xml:space="preserve">
+	  <value>En curso</value>
+  </data>
+  <data name="Noun_EstadoRutina_Finalizada" xml:space="preserve">
+	  <value>Finalizado</value>
+  </data>
+  <data name="Noun_EstadoRutina_Evaluada" xml:space="preserve">
+	  <value>Evaluado</value>
+  </data>
+  <data name="Noun_JornadaEntrenamiento_NoName" xml:space="preserve">
+	  <value>Sin nombre</value>
+  </data>
+  <data name="Text_Alumnos_ScheduledJornadas" xml:space="preserve">
+	  <value>Tus entrenamientos programados</value>
+  </data>
+  <data name="Text_Alumnos_NoJornadasScheduled" xml:space="preserve">
+	  <value>No tienes entrenamientos programados. Si crees que se trata de un error, ponte en contacto con tu entrenador.</value>
+  </data>
+  <data name="Action_Add" xml:space="preserve">
+	  <value>Añadir</value>
+  </data>
+  <data name="Action_Save" xml:space="preserve">
+	  <value>Guardar</value>
   </data>
 </root>

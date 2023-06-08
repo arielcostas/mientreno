@@ -123,10 +123,10 @@
   <data name="confirmPassword" xml:space="preserve">
     <value>Confirmar contrasinal</value>
   </data>
-  <data name="doLogin" xml:space="preserve">
+  <data name="Action_Login" xml:space="preserve">
     <value>Conectar</value>
   </data>
-  <data name="doRegister" xml:space="preserve">
+  <data name="Action_Register" xml:space="preserve">
     <value>Inscribirse</value>
   </data>
   <data name="Input_Email" xml:space="preserve">
@@ -275,13 +275,13 @@
   <data name="Action_Create" xml:space="preserve">
 	  <value>Crear</value>
   </data>
-  <data name="descripcion" xml:space="preserve">
+  <data name="Input_Descripcion" xml:space="preserve">
 	  <value>Descrición</value>
   </data>
   <data name="dificultad" xml:space="preserve">
 	  <value>Dificultade</value>
   </data>
-  <data name="pricing" xml:space="preserve">
+  <data name="Page_Pricing" xml:space="preserve">
 	  <value>Plans e tarifas</value>
   </data>
   <data name="legalInfo" xml:space="preserve">
@@ -341,7 +341,7 @@
   <data name="invitaciones" xml:space="preserve">
 	  <value>Convites</value>
   </data>
-  <data name="doInvite" xml:space="preserve">
+  <data name="Action_Invite" xml:space="preserve">
 	  <value>Convidar</value>
   </data>
   <data name="dashboard_ShareInviteLink" xml:space="preserve">

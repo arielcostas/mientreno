@@ -60,6 +60,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Añadir.
+        /// </summary>
+        public static string Action_Add {
+            get {
+                return ResourceManager.GetString("Action_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contactar.
         /// </summary>
         public static string Action_Contact {
@@ -83,6 +92,42 @@ namespace Mientreno.Compartido.Recursos {
         public static string Action_Edit {
             get {
                 return ResourceManager.GetString("Action_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invitar.
+        /// </summary>
+        public static string Action_Invite {
+            get {
+                return ResourceManager.GetString("Action_Invite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iniciar sesión.
+        /// </summary>
+        public static string Action_Login {
+            get {
+                return ResourceManager.GetString("Action_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registrarse.
+        /// </summary>
+        public static string Action_Register {
+            get {
+                return ResourceManager.GetString("Action_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardar.
+        /// </summary>
+        public static string Action_Save {
+            get {
+                return ResourceManager.GetString("Action_Save", resourceCulture);
             }
         }
         
@@ -393,15 +438,6 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Descripción.
-        /// </summary>
-        public static string descripcion {
-            get {
-                return ResourceManager.GetString("descripcion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Dificultad.
         /// </summary>
         public static string dificultad {
@@ -425,33 +461,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string Doing_EditarEjercicio {
             get {
                 return ResourceManager.GetString("Doing_EditarEjercicio", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invitar.
-        /// </summary>
-        public static string doInvite {
-            get {
-                return ResourceManager.GetString("doInvite", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Iniciar sesión.
-        /// </summary>
-        public static string doLogin {
-            get {
-                return ResourceManager.GetString("doLogin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Registrarse.
-        /// </summary>
-        public static string doRegister {
-            get {
-                return ResourceManager.GetString("doRegister", resourceCulture);
             }
         }
         
@@ -488,6 +497,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string hello {
             get {
                 return ResourceManager.GetString("hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descripción.
+        /// </summary>
+        public static string Input_Descripcion {
+            get {
+                return ResourceManager.GetString("Input_Descripcion", resourceCulture);
             }
         }
         
@@ -627,6 +645,60 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Borrador.
+        /// </summary>
+        public static string Noun_EstadoRutina_Borrador {
+            get {
+                return ResourceManager.GetString("Noun_EstadoRutina_Borrador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to En curso.
+        /// </summary>
+        public static string Noun_EstadoRutina_EnCurso {
+            get {
+                return ResourceManager.GetString("Noun_EstadoRutina_EnCurso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluado.
+        /// </summary>
+        public static string Noun_EstadoRutina_Evaluada {
+            get {
+                return ResourceManager.GetString("Noun_EstadoRutina_Evaluada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finalizado.
+        /// </summary>
+        public static string Noun_EstadoRutina_Finalizada {
+            get {
+                return ResourceManager.GetString("Noun_EstadoRutina_Finalizada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publicado.
+        /// </summary>
+        public static string Noun_EstadoRutina_Publicada {
+            get {
+                return ResourceManager.GetString("Noun_EstadoRutina_Publicada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sin nombre.
+        /// </summary>
+        public static string Noun_JornadaEntrenamiento_NoName {
+            get {
+                return ResourceManager.GetString("Noun_JornadaEntrenamiento_NoName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nueva categoría.
         /// </summary>
         public static string nuevaCategoria {
@@ -654,20 +726,20 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Planes y tarifas.
+        /// </summary>
+        public static string Page_Pricing {
+            get {
+                return ResourceManager.GetString("Page_Pricing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to plan.
         /// </summary>
         public static string plan {
             get {
                 return ResourceManager.GetString("plan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Planes y tarifas.
-        /// </summary>
-        public static string pricing {
-            get {
-                return ResourceManager.GetString("pricing", resourceCulture);
             }
         }
         
@@ -686,6 +758,24 @@ namespace Mientreno.Compartido.Recursos {
         public static string registrationDoneEmailSent {
             get {
                 return ResourceManager.GetString("registrationDoneEmailSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No tienes entrenamientos programados. Si crees que se trata de un error, ponte en contacto con tu entrenador..
+        /// </summary>
+        public static string Text_Alumnos_NoJornadasScheduled {
+            get {
+                return ResourceManager.GetString("Text_Alumnos_NoJornadasScheduled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tus entrenamientos programados.
+        /// </summary>
+        public static string Text_Alumnos_ScheduledJornadas {
+            get {
+                return ResourceManager.GetString("Text_Alumnos_ScheduledJornadas", resourceCulture);
             }
         }
         

@@ -335,8 +335,9 @@ namespace Mientreno.Server.Migrations
                     b.Property<int>("EjercicioId")
                         .HasColumnType("int");
 
-                    b.Property<int>("JornadaId")
-                        .HasColumnType("int");
+                    b.Property<string>("JornadaId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("Minutos")
                         .HasColumnType("int");
@@ -383,11 +384,8 @@ namespace Mientreno.Server.Migrations
 
             modelBuilder.Entity("Mientreno.Server.Data.Models.JornadaEntrenamiento", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ClienteAsignadoId")
                         .IsRequired()
@@ -401,21 +399,27 @@ namespace Mientreno.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Estado")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("FechaRealizacion")
+                    b.Property<DateTime?>("FechaEvalucion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaFinRealizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaInicioRealizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaPublicacion")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Valoracion")
-                        .HasColumnType("int");
+                    b.Property<byte?>("Valoracion")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("Id");
 
@@ -577,10 +581,10 @@ namespace Mientreno.Server.Migrations
                             b1.Property<Guid>("CuestionarioId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<byte>("Abd1")
+                            b1.Property<byte>("AbdominalOmbligo")
                                 .HasColumnType("tinyint");
 
-                            b1.Property<byte>("AbdominalOmbligo")
+                            b1.Property<byte>("AbdominalXifoides")
                                 .HasColumnType("tinyint");
 
                             b1.Property<byte>("Cadera")

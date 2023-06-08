@@ -1,5 +1,6 @@
 ﻿@page
 @using Mientreno.Server.Data.Models
+@using Mientreno.Server.Service
 @model AlumnoIndexModel
 @{
 	ViewData["Title"] = "Dashboard";
@@ -8,19 +9,52 @@
 <main id="main-container">
 	<h2>@AppStrings.hello, @Model.Alumno.Nombre</h2>
 
-	<h3>Tus entrenamientos programados</h3>
+	<h3>@AppStrings.Text_Alumnos_ScheduledJornadas</h3>
 
 	@if (Model.Alumno.JornadasEntrenamientos.Count == 0)
 	{
-		<p>No tienes entrenamientos programados</p>
+		<p>@AppStrings.Text_Alumnos_ScheduledJornadas</p>
 	}
 
 	<ul>
+		
+		
 		@foreach (var jornada in Model.Alumno
 			.JornadasEntrenamientos
 			.Where(j => j.Estado == EstadoRutina.Publicada))
 		{
-			<li>@jornada.FechaCreacion.ToShortDateString()</li>
+			var badgeColour = jornada.Estado switch
+			{
+				EstadoRutina.Borrador => "bad",
+				EstadoRutina.Publicada => "warning",
+				EstadoRutina.EnCurso => "warning",
+				EstadoRutina.Finalizada => "good",
+				EstadoRutina.Evaluada => "good",
+				_ => "bad"
+				};
+
+			var badgeText = jornada.Estado switch {
+				EstadoRutina.Borrador => AppStrings.Noun_EstadoRutina_Borrador,
+				EstadoRutina.Publicada => AppStrings.Noun_EstadoRutina_Publicada,
+				EstadoRutina.EnCurso => AppStrings.Noun_EstadoRutina_EnCurso,
+				EstadoRutina.Finalizada => AppStrings.Noun_EstadoRutina_Finalizada,
+				EstadoRutina.Evaluada => AppStrings.Noun_EstadoRutina_Evaluada,
+				_ => throw new ArgumentOutOfRangeException()
+				};
+			
+			<li>
+				<span class="badge badge-@badgeColour">@badgeText</span>
+				-
+				<a class="link link-text"
+				   href="Alumnos/Plan?p=@jornada.Id">
+					@if (jornada.Nombre.IsNullOrWhiteSpace())
+					{
+						<i>@AppStrings.Noun_JornadaEntrenamiento_NoName</i>
+					}
+
+					@jornada.Nombre
+				</a >
+			</li>
 		}
 	</ul>
 </main>
