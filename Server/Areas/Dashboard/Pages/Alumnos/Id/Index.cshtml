@@ -1,5 +1,6 @@
 ﻿@page "/Dashboard/Alumnos/{id}"
 @using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Mientreno.Server.Service
 @model SingleAlumnoModel
 @{
 	ViewData["Title"] = @Model.Alumno.NombreCompleto;
@@ -25,7 +26,7 @@
 
 	<div class="title-with-action">
 		<h2>@AppStrings.trainingPlans</h2>
-		<a href="@Model.Id/NuevoPlan" class="button button-primary">+ @AppStrings.Action_Create @AppStrings.plan</a>
+		<a href="@Model.Id/Plan" class="button button-primary">+ @AppStrings.Action_Create @AppStrings.plan</a>
 	</div>
 
 	@if (Model.Alumno.JornadasEntrenamientos.Count == 0)
@@ -37,10 +38,28 @@
 		</div>
 	}
 
-	<ul>
-		@foreach (var rutina in Model.Alumno.JornadasEntrenamientos)
+	<section>
+		@foreach (var rutina in Model.Alumno.JornadasEntrenamientos.OrderBy(r => r.Estado))
 		{
-			@rutina.FechaCreacion
+			var badgeColour = rutina.Estado switch
+			{
+				EstadoRutina.Borrador => "bad",
+				EstadoRutina.Realizada => "good",
+				EstadoRutina.Publicada => "warning",
+				_ => "bad"
+				};
+
+			<li>
+				<span class="badge badge-@badgeColour">@rutina.Estado</span>
+				-
+				<a class="link link-text" href="@Model.Id/Plan?p=@rutina.Id">
+					@if (rutina.Nombre.IsNullOrWhiteSpace())
+					{
+						<i>Sin nombre</i>
+					}
+					@rutina.Nombre
+				</a>
+			</li>
 		}
-	</ul>
+	</section>
 </main>

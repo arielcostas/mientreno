@@ -17,6 +17,8 @@
 	--primary: #00f000;
 	--primary-darker: #69f000;
 	--primary-lighter: #a7ea72;
+
+	--warning: #f0f000;
 	
 	--corner: 0.15rem;
 
@@ -155,11 +157,20 @@ ul, ol {
 	text-decoration: none;
 }
 
-.link-white {
+.link-text {
+	color: var(--text);
+}
+
+.link-text::selection {
+	background: var(--text);
 	color: #fff;
 }
 
-.link-white::selection {
+.link-inverted {
+	color: var(--background-max);
+}
+
+.link-inverted::selection {
 	background: #fff;
 	color: #222;
 }
@@ -339,3 +350,26 @@ header nav:has(img) img {
 	text-align: center;
 }
 /*#endregion */
+
+/*#region Badges */
+.badge {
+	padding: 0.25rem;
+	border-radius: var(--corner);
+	font-size: 0.9rem;
+	font-weight: bold;
+}
+
+.badge-good {
+	background-color: var(--primary);
+	color: var(--black);
+}
+
+.badge-warning {
+	background-color: var(--warning);
+	color: var(--black);
+}
+
+.badge-bad {
+	background-color: var(--error);
+	color: var(--background-max);
+}

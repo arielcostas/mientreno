@@ -71,7 +71,7 @@
 			@if (Model.Form.EjerciciosPlan.Length == 0)
 			{
 				<article class="ejercicio">
-					<select for="Form__EjerciciosPlan_0__Ejercicio" class="form-control" title="Ejercicio" disabled="@disabled">
+					<select name="Form.EjerciciosPlan[0].Ejercicio" class="form-control" title="Ejercicio" disabled="@disabled">
 						@foreach (var group in groupedByCategory)
 						{
 							<optgroup label="@group.Key!.Nombre">
@@ -82,9 +82,9 @@
 							</optgroup>
 						}
 					</select>
-					<input for="Form.EjerciciosPlan_0.Series" class="form-control" placeholder="Series" type="number" min="0" disabled="@disabled"/>
-					<input for="Form.EjerciciosPlan_0.Repeticiones" class="form-control" placeholder="Reps." type="number" min="0" disabled="@disabled"/>
-					<input for="Form.EjerciciosPlan_0.Minutos" class="form-control" placeholder="Min." type="number" min="0" disabled="@disabled"/>
+					<input name="Form.EjerciciosPlan[0].Series" class="form-control" placeholder="Series" type="number" min="0" disabled="@disabled"/>
+					<input name="Form.EjerciciosPlan[0].Repeticiones" class="form-control" placeholder="Reps." type="number" min="0" disabled="@disabled"/>
+					<input name="Form.EjerciciosPlan[0].Minutos" class="form-control" placeholder="Min." type="number" min="0" disabled="@disabled"/>
 				</article>
 			}
 		</div>

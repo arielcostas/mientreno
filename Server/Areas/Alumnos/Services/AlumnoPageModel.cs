@@ -50,7 +50,7 @@ public class AlumnoPageModel : PageModel
 			ent = ent.Include(e => e.Cuestionarios);
 		}
 		
-		Alumno = ent.FirstOrDefault(e => e.Id == user.Id)!;
+		Alumno = ent.AsSplitQuery().FirstOrDefault(e => e.Id == user.Id)!;
 
 		_loaded = true;
 	}
