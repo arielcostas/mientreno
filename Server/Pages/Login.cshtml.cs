@@ -24,9 +24,10 @@ public class LoginModel : PageModel
 	[FromQuery]
 	public string? ReturnUrl { get; set; }
 
-	public void OnGet()
+	public IActionResult OnGet()
 	{
-		if (_userManager.GetUserId(User) is not null) Response.Redirect("/Index");
+		if (_userManager.GetUserId(User) is not null) return Redirect("/Index");
+		return Page();
 	}
 	
 	public async Task<IActionResult> OnPost()

@@ -41,6 +41,7 @@ public class RegisterModel : PageModel
 
 	public async Task<IActionResult> OnGetAsync()
 	{
+		if (_userManager.GetUserId(User) is not null) return Redirect("/Index");
 		if (string.IsNullOrEmpty(InvitacionCode)) return Page();
 
 		var invitacion = await _databaseContext.Invitaciones
