@@ -476,4 +476,19 @@
   <data name="Text_Pricing_AvisoAutonomos" xml:space="preserve">
 	  <value>Por cuestiones fiscales, si eres autónomo o empresa, debes &lt;a href="/Contact"&gt;ponterte en contacto con nosotros&lt;/a&gt; previamente.</value>
   </data>
+  <data name="Noun_Language_Spanish" xml:space="preserve">
+	  <value>Español</value>
+  </data>
+  <data name="Noun_Language_Galician" xml:space="preserve">
+	  <value>Gallego</value>
+  </data>
+  <data name="Noun_Language_Catalan" xml:space="preserve">
+	  <value>Catalán</value>
+  </data>
+  <data name="Noun_Language_Basque" xml:space="preserve">
+	  <value>Euskera</value>
+  </data>
+  <data name="Noun_Language" xml:space="preserve">
+	  <value>Idioma</value>
+  </data>
 </root>

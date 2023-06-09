@@ -735,6 +735,51 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Idioma.
+        /// </summary>
+        public static string Noun_Language {
+            get {
+                return ResourceManager.GetString("Noun_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Euskera.
+        /// </summary>
+        public static string Noun_Language_Basque {
+            get {
+                return ResourceManager.GetString("Noun_Language_Basque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Catalán.
+        /// </summary>
+        public static string Noun_Language_Catalan {
+            get {
+                return ResourceManager.GetString("Noun_Language_Catalan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gallego.
+        /// </summary>
+        public static string Noun_Language_Galician {
+            get {
+                return ResourceManager.GetString("Noun_Language_Galician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Español.
+        /// </summary>
+        public static string Noun_Language_Spanish {
+            get {
+                return ResourceManager.GetString("Noun_Language_Spanish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nueva categoría.
         /// </summary>
         public static string nuevaCategoria {

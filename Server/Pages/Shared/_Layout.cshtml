@@ -18,8 +18,8 @@
 
 @RenderBody()
 
-@await RenderSectionAsync("Scripts", required: false)
 @await Html.PartialAsync("Footer")
+@await RenderSectionAsync("Scripts", required: false)
 <script src="~/js/language.js"></script>
 </body>
 </html>

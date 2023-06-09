@@ -38,11 +38,20 @@
 
 body {
 	background: var(--background);
+	
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: repeat(3, auto);
+	grid-template-columns: 1fr;
 }
 
-main {
-	display: flex;
-	flex-direction: column;
+header, footer {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+footer {
+	align-self: end;
 }
 
 h1 {
@@ -274,6 +283,11 @@ header nav:has(img) img {
 /*#endregion */
 
 /*#region Mains */
+main {
+	display: flex;
+	flex-direction: column;
+}
+
 #main-dialogue {
 	padding: 1rem 2rem;
 	background-color: var(--background-max);
@@ -404,3 +418,42 @@ header nav:has(img) img {
 	background-color: var(--text);
 	color: var(--background-max);
 }
+
+/*#region Footer */
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 12rem;
+
+	padding: 0 12vw;
+	background: #131313;
+	
+	color: var(--background-max);
+}
+
+footer nav {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	
+	font-size: 1.1rem;
+	gap: 0.4rem;
+}
+
+@media screen and (max-width: 1100px) {
+	footer {
+		padding: 0 3rem;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	footer {
+		flex-direction: column;
+		height: auto;
+		justify-content: center;
+		padding: 1rem 0;
+		gap: 1.2rem;
+	}
+}
+/*#endregion */
