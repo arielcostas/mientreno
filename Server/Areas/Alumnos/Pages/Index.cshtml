@@ -9,6 +9,12 @@
 <main id="main-container">
 	<h2>@AppStrings.hello, @Model.Alumno.Nombre</h2>
 
+	<h3>@AppStrings.Text_Dashboard_MyAccount_Title</h3>
+
+	<a asp-page="/Logout" asp-area="" class="link link-primary link-bold">
+		@AppStrings.Action_Logout
+	</a>
+
 	<h3>@AppStrings.Text_Alumnos_ScheduledJornadas</h3>
 
 	@{
@@ -17,7 +23,7 @@
 			.Where(j => j.Estado == EstadoRutina.Publicada)
 			.ToList();
 	}
-	
+
 	@if (entrenamientosPublicados.Count == 0)
 	{
 		<p>@AppStrings.Text_Alumnos_NoJornadasScheduled</p>
@@ -44,7 +50,7 @@
 				EstadoRutina.Evaluada => AppStrings.Noun_EstadoRutina_Evaluada,
 				_ => throw new ArgumentOutOfRangeException()
 				};
-			
+
 			<li>
 				<span class="badge badge-@badgeColour">@badgeText</span>
 				-

@@ -1,0 +1,3 @@
+﻿Contact: mailto:hola@mientreno.app
+Expires: 2023-12-31T22:59:00.000Z
+Preferred-Languages: es, en
