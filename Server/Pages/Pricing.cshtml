@@ -1,4 +1,5 @@
 @page
+@using Humanizer
 @{
 	ViewData["Title"] = AppStrings.Page_Pricing;
 }
@@ -7,10 +8,7 @@
 	<h1>@AppStrings.Page_Pricing</h1>
 
 	<p>
-		Para gestionar entrenamientos utilizando MiEntreno es necesaria una suscripción.
-		Contamos con varios planes, para que puedas elegir el que mejor se adapte a tus necesidades.
-		Para suscribirte, debes registrarte en MiEntreno, y una vez inicies sesión por primera vez, podrás
-		elegir el plan que prefieras.
+		@AppStrings.Text_Pricing_SubscriptionNeeded
 	</p>
 
 	<section id="prices">
@@ -19,7 +17,7 @@
 			<h3>1,99 € al mes (19,90 € al año)</h3>
 
 			<ul>
-				<li>Entrena hasta 2 personas</li>
+				<li>@AppStrings.Text_Pricing_TrainUpToPeople.FormatWith("2")</li>
 			</ul>
 		</article>
 
@@ -28,7 +26,7 @@
 			<h3>4,99 € al mes (49,90 € al año)</h3>
 
 			<ul>
-				<li>Entrena hasta 5 personas</li>
+				<li>@AppStrings.Text_Pricing_TrainUpToPeople.FormatWith("5")</li>
 				<li>Acceso prioritario a soporte técnico</li>
 			</ul>
 		</article>
@@ -38,28 +36,31 @@
 			<h3>9,99 € al mes (99,00 € al año)</h3>
 
 			<ul>
-				<li>Entrena hasta 20 personas</li>
+				<li>@AppStrings.Text_Pricing_TrainUpToPeople.FormatWith("20")</li>
 				<li>Acceso prioritario a soporte técnico</li>
 			</ul>
 		</article>
 	</section>
-	
+
 	<a asp-page="Register" asp-area="" class="button button-primary">
 		@AppStrings.CallToAction_SignUpNow
 	</a>
 
 	<p>
-		Para cada plan, se puede elegir entre una suscripción mensual o anual. La suscripción anual tiene un
-		descuento equivalente a dos meses gratis. Si se elige la suscripción anual, se cobrará el importe total
-		de la suscripción al inicio del periodo de suscripción.
+		@AppStrings.Text_Pricing_MonthlyAndAnnuallyAvailable
 	</p>
 
 	<p>
-		Con las nuevas suscripciones se incluye un periodo de prueba de 14 días, tras los cuales se renovará
-		automáticamente la suscripción, a no ser que se cancele antes de que finalice el periodo de prueba.
+		@AppStrings.Text_Pricing_Free14DayTrial
 	</p>
 
 	<p>
-		Si eres un alumno de un entrenador, no necesitas una suscripción, y MiEntreno será totalmente gratuito para ti.
+		@AppStrings.Text_Pricing_FreeForAlumnos
+	</p>
+
+	<p>
+		<strong>
+			@Html.Raw(@AppStrings.Text_Pricing_AvisoAutonomos)
+		</strong>
 	</p>
 </main>

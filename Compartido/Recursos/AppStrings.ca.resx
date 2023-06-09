@@ -147,7 +147,7 @@
   <data name="Input_Password" xml:space="preserve">
     <value>Contrasenya</value>
   </data>
-  <data name="register" xml:space="preserve">
+  <data name="Page_Register" xml:space="preserve">
     <value>Registro</value>
     <comment>Título de la página de registro</comment>
   </data>
@@ -161,7 +161,7 @@
   <data name="registrationDoneEmailSent" xml:space="preserve">
 	  <value>Per confirmar el vostre compte, us hem enviat un correu electrònic. Reviseu la vostra safata d'entrada.</value>
   </data>
-  <data name="login" xml:space="preserve">
+  <data name="Page_Login" xml:space="preserve">
 	  <value>Inici de sessió</value>
   </data>
   <data name="theTermsAndConditions" xml:space="preserve">
@@ -284,7 +284,7 @@
   <data name="Page_Pricing" xml:space="preserve">
 	  <value>Plans i tarifes</value>
   </data>
-  <data name="legalInfo" xml:space="preserve">
+  <data name="Page_Terms" xml:space="preserve">
 	  <value>Informació legal</value>
   </data>
   <data name="masDetalles" xml:space="preserve">
@@ -338,7 +338,7 @@
   <data name="dashboard_NoCuestionariosCreated" xml:space="preserve">
 	  <value>No s'ha creat cap qüestionari (encara).</value>
   </data>
-  <data name="invitaciones" xml:space="preserve">
+  <data name="Noun_Invite_Plural" xml:space="preserve">
 	  <value>Invitacions</value>
   </data>
   <data name="Action_Invite" xml:space="preserve">

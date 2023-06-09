@@ -147,7 +147,7 @@
   <data name="Input_Password" xml:space="preserve">
     <value>Contraseña</value>
   </data>
-  <data name="register" xml:space="preserve">
+  <data name="Page_Register" xml:space="preserve">
     <value>Registro</value>
     <comment>Título de la página de registro</comment>
   </data>
@@ -161,7 +161,7 @@
   <data name="registrationDoneEmailSent" xml:space="preserve">
 	  <value>Para confirmar tu cuenta, te hemos enviado un correo electrónico. Por favor, revisa tu bandeja de entrada.</value>
   </data>
-  <data name="login" xml:space="preserve">
+  <data name="Page_Login" xml:space="preserve">
 	  <value>Inicio de sesión</value>
   </data>
   <data name="theTermsAndConditions" xml:space="preserve">
@@ -284,7 +284,7 @@
   <data name="Page_Pricing" xml:space="preserve">
 	  <value>Planes y tarifas</value>
   </data>
-  <data name="legalInfo" xml:space="preserve">
+  <data name="Page_Terms" xml:space="preserve">
 	  <value>Información legal</value>
   </data>
   <data name="masDetalles" xml:space="preserve">
@@ -338,7 +338,7 @@
   <data name="dashboard_NoCuestionariosCreated" xml:space="preserve">
 	  <value>No se ha creado ningún cuestionario (todavía).</value>
   </data>
-  <data name="invitaciones" xml:space="preserve">
+  <data name="Noun_Invite_Plural" xml:space="preserve">
 	  <value>Invitaciones</value>
   </data>
   <data name="Action_Invite" xml:space="preserve">
@@ -457,5 +457,23 @@
   </data>
   <data name="Text_Dashboard_MyAccount_Title" xml:space="preserve">
 	  <value>Mi cuenta</value>
+  </data>
+  <data name="Text_Pricing_SubscriptionNeeded" xml:space="preserve">
+	  <value>Para gestionar entrenamientos utilizando MiEntreno es necesaria una suscripción. Contamos con varios planes, para que puedas elegir el que mejor se adapte a tus necesidades. Para suscribirte, debes registrarte en MiEntreno, y una vez inicies sesión por primera vez, podrás elegir el plan que prefieras.</value>
+  </data>
+  <data name="Text_Pricing_TrainUpToPeople" xml:space="preserve">
+	  <value>Entrena hasta {0} personas</value>
+  </data>
+  <data name="Text_Pricing_FreeForAlumnos" xml:space="preserve">
+	  <value>Si eres un alumno de un entrenador, no necesitas una suscripción, y MiEntreno será totalmente gratuito para ti.</value>
+  </data>
+  <data name="Text_Pricing_Free14DayTrial" xml:space="preserve">
+	  <value>Con las nuevas suscripciones se incluye un periodo de prueba de 14 días, tras los cuales se renovará automáticamente la suscripción, a no ser que se cancele antes de que finalice el periodo de prueba.</value>
+  </data>
+  <data name="Text_Pricing_MonthlyAndAnnuallyAvailable" xml:space="preserve">
+	  <value>Para cada plan, se puede elegir entre una suscripción mensual o anual. La suscripción anual tiene un descuento equivalente a dos meses gratis. Si se elige la suscripción anual, se cobrará el importe total de la suscripción al inicio del periodo de suscripción.</value>
+  </data>
+  <data name="Text_Pricing_AvisoAutonomos" xml:space="preserve">
+	  <value>Por cuestiones fiscales, si eres autónomo o empresa, debes &lt;a href="/Contact"&gt;ponterte en contacto con nosotros&lt;/a&gt; previamente.</value>
   </data>
 </root>

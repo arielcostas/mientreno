@@ -636,38 +636,11 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invitaciones.
-        /// </summary>
-        public static string invitaciones {
-            get {
-                return ResourceManager.GetString("invitaciones", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to He leído y acepto.
         /// </summary>
         public static string iveReadAndAccept {
             get {
                 return ResourceManager.GetString("iveReadAndAccept", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Información legal.
-        /// </summary>
-        public static string legalInfo {
-            get {
-                return ResourceManager.GetString("legalInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Inicio de sesión.
-        /// </summary>
-        public static string login {
-            get {
-                return ResourceManager.GetString("login", resourceCulture);
             }
         }
         
@@ -744,6 +717,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invitaciones.
+        /// </summary>
+        public static string Noun_Invite_Plural {
+            get {
+                return ResourceManager.GetString("Noun_Invite_Plural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sin nombre.
         /// </summary>
         public static string Noun_JornadaEntrenamiento_NoName {
@@ -780,6 +762,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inicio de sesión.
+        /// </summary>
+        public static string Page_Login {
+            get {
+                return ResourceManager.GetString("Page_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Planes y tarifas.
         /// </summary>
         public static string Page_Pricing {
@@ -789,20 +780,29 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Registro.
+        /// </summary>
+        public static string Page_Register {
+            get {
+                return ResourceManager.GetString("Page_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Información legal.
+        /// </summary>
+        public static string Page_Terms {
+            get {
+                return ResourceManager.GetString("Page_Terms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to plan.
         /// </summary>
         public static string plan {
             get {
                 return ResourceManager.GetString("plan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Registro.
-        /// </summary>
-        public static string register {
-            get {
-                return ResourceManager.GetString("register", resourceCulture);
             }
         }
         
@@ -983,6 +983,60 @@ namespace Mientreno.Compartido.Recursos {
         public static string Text_LandingPage_WannaKnowMore {
             get {
                 return ResourceManager.GetString("Text_LandingPage_WannaKnowMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Por cuestiones fiscales, si eres autónomo o empresa, debes &lt;a href=&quot;/Contact&quot;&gt;ponterte en contacto con nosotros&lt;/a&gt; previamente..
+        /// </summary>
+        public static string Text_Pricing_AvisoAutonomos {
+            get {
+                return ResourceManager.GetString("Text_Pricing_AvisoAutonomos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Con las nuevas suscripciones se incluye un periodo de prueba de 14 días, tras los cuales se renovará automáticamente la suscripción, a no ser que se cancele antes de que finalice el periodo de prueba..
+        /// </summary>
+        public static string Text_Pricing_Free14DayTrial {
+            get {
+                return ResourceManager.GetString("Text_Pricing_Free14DayTrial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Si eres un alumno de un entrenador, no necesitas una suscripción, y MiEntreno será totalmente gratuito para ti..
+        /// </summary>
+        public static string Text_Pricing_FreeForAlumnos {
+            get {
+                return ResourceManager.GetString("Text_Pricing_FreeForAlumnos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para cada plan, se puede elegir entre una suscripción mensual o anual. La suscripción anual tiene un descuento equivalente a dos meses gratis. Si se elige la suscripción anual, se cobrará el importe total de la suscripción al inicio del periodo de suscripción..
+        /// </summary>
+        public static string Text_Pricing_MonthlyAndAnnuallyAvailable {
+            get {
+                return ResourceManager.GetString("Text_Pricing_MonthlyAndAnnuallyAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para gestionar entrenamientos utilizando MiEntreno es necesaria una suscripción. Contamos con varios planes, para que puedas elegir el que mejor se adapte a tus necesidades. Para suscribirte, debes registrarte en MiEntreno, y una vez inicies sesión por primera vez, podrás elegir el plan que prefieras..
+        /// </summary>
+        public static string Text_Pricing_SubscriptionNeeded {
+            get {
+                return ResourceManager.GetString("Text_Pricing_SubscriptionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entrena hasta {0} personas.
+        /// </summary>
+        public static string Text_Pricing_TrainUpToPeople {
+            get {
+                return ResourceManager.GetString("Text_Pricing_TrainUpToPeople", resourceCulture);
             }
         }
         
