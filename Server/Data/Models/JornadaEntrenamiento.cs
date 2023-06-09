@@ -17,7 +17,7 @@ public class JornadaEntrenamiento
 	public DateTime? FechaFinRealizacion { get; set; }
 	public DateTime? FechaEvalucion { get; set; }
 	
-	public byte? Valoracion { get; set; }
+	public byte Valoracion { get; set; }
 	public string Comentario { get; set; } = string.Empty;
 
 	public EstadoRutina Estado => GetEstado();

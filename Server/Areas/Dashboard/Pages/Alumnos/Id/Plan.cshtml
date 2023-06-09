@@ -56,8 +56,7 @@
 										<option value="@ejercicio.Id">
 											@ejercicio.Nombre
 										</option>
-									}									
-									
+									}
 								}
 							</optgroup>
 						}
@@ -91,12 +90,36 @@
 
 		<hr/>
 
-		<div class="form-check">
-			<input asp-for="Form.Publicar" type="checkbox" class="form-check-input" disabled="@disabled"/>
-			<label asp-for="Form.Publicar" disabled="@disabled">
-				@AppStrings.Input_PublishPlanUnableEditLater
-			</label>
-		</div>
+		@if (Model.Editable)
+		{
+			<div class="form-check">
+				<input asp-for="Form.Publicar" type="checkbox" class="form-check-input" disabled="@disabled"/>
+				<label asp-for="Form.Publicar" disabled="@disabled">
+					@AppStrings.Input_PublishPlanUnableEditLater
+				</label>
+			</div>
+		}
+
+		@if (Model.Feedback is not null)
+		{
+			<h3>@AppStrings.Text_Dashboard_AlumnoFeedback</h3>
+
+			<p>
+				@for (var i = 1; i <= 5; i++)
+				{
+					var fill = i <= Model.Feedback.Valoracion ? "gold" : "transparent";
+					var stroke = i <= Model.Feedback.Valoracion ? "gold" : "currentColor";
+					<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24">
+						<!-- 'star' by tablericons.com | MIT Licence -->
+						<path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" fill="@fill" stroke="@stroke"/>
+					</svg>
+				}
+			</p>
+
+			<blockquote>
+				@Model.Feedback.Comentario
+			</blockquote>
+		}
 
 		<button class="button button-primary" type="submit">
 			@(Model.Editable ? " 💾 " + AppStrings.Action_Save : AppStrings.Action_Exit)

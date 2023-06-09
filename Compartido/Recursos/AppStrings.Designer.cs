@@ -933,6 +933,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Valoración del alumno.
+        /// </summary>
+        public static string Text_Dashboard_AlumnoFeedback {
+            get {
+                return ResourceManager.GetString("Text_Dashboard_AlumnoFeedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mi cuenta.
         /// </summary>
         public static string Text_Dashboard_MyAccount_Title {

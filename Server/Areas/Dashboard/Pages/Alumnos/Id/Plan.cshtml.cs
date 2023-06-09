@@ -30,6 +30,8 @@ public class PlanEditorModel : EntrenadorPageModel
 
 	[FromRoute(Name = "id")] public string AlumnoId { get; set; }
 	[BindProperty(Name = "p", SupportsGet = true)] public string? PlanId { get; set; }
+	
+	public Feedback? Feedback { get; set; }
 
 	public async Task<IActionResult> OnGetAsync()
 	{
@@ -88,6 +90,15 @@ public class PlanEditorModel : EntrenadorPageModel
 			.Where(e => e.Owner == Entrenador)
 			.ToListAsync();
 
+		if (plan.Estado == EstadoRutina.Evaluada)
+		{
+			Feedback = new Feedback()
+			{
+				Valoracion = plan.Valoracion,
+				Comentario = plan.Comentario
+			};
+		}
+
 		return Page();
 	}
 
@@ -140,6 +151,12 @@ public class PlanEditorModel : EntrenadorPageModel
 
 		return RedirectToPage("Index", new { id = AlumnoId });
 	}
+}
+
+public class Feedback
+{
+	public byte Valoracion { get; set; }
+	public string Comentario { get; set; } = string.Empty;
 }
 
 public class NuevoPlanForm
