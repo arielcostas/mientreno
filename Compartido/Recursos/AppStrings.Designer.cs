@@ -96,6 +96,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Salir.
+        /// </summary>
+        public static string Action_Exit {
+            get {
+                return ResourceManager.GetString("Action_Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invitar.
         /// </summary>
         public static string Action_Invite {
@@ -861,11 +870,56 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comentarios para tu entrenador.
+        /// </summary>
+        public static string Text_Alumnos_FeedbackComments {
+            get {
+                return ResourceManager.GetString("Text_Alumnos_FeedbackComments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Puntuación general.
+        /// </summary>
+        public static string Text_Alumnos_FeedbackScore {
+            get {
+                return ResourceManager.GetString("Text_Alumnos_FeedbackScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No tienes entrenamientos programados. Si crees que se trata de un error, ponte en contacto con tu entrenador..
         /// </summary>
         public static string Text_Alumnos_NoJornadasScheduled {
             get {
                 return ResourceManager.GetString("Text_Alumnos_NoJornadasScheduled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realizado hace.
+        /// </summary>
+        public static string Text_Alumnos_Plan_DoneAt {
+            get {
+                return ResourceManager.GetString("Text_Alumnos_Plan_DoneAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluado el.
+        /// </summary>
+        public static string Text_Alumnos_Plan_ReviewedAt {
+            get {
+                return ResourceManager.GetString("Text_Alumnos_Plan_ReviewedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comenzado hace.
+        /// </summary>
+        public static string Text_Alumnos_Plan_StartedAt {
+            get {
+                return ResourceManager.GetString("Text_Alumnos_Plan_StartedAt", resourceCulture);
             }
         }
         

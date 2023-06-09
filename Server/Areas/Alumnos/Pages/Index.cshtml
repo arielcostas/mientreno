@@ -11,15 +11,20 @@
 
 	<h3>@AppStrings.Text_Alumnos_ScheduledJornadas</h3>
 
-	@if (Model.Alumno.JornadasEntrenamientos.Count == 0)
+	@{
+		var entrenamientosPublicados = Model.Alumno
+			.JornadasEntrenamientos
+			.Where(j => j.Estado == EstadoRutina.Publicada)
+			.ToList();
+	}
+	
+	@if (entrenamientosPublicados.Count == 0)
 	{
 		<p>@AppStrings.Text_Alumnos_NoJornadasScheduled</p>
 	}
 
 	<ul>
-		@foreach (var jornada in Model.Alumno
-			.JornadasEntrenamientos
-			.Where(j => j.Estado == EstadoRutina.Publicada))
+		@foreach (var jornada in entrenamientosPublicados)
 		{
 			var badgeColour = jornada.Estado switch
 			{

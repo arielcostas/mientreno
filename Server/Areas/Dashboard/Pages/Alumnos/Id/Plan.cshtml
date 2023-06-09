@@ -92,13 +92,15 @@
 		<hr/>
 
 		<div class="form-check">
-			<input asp-for="Form.Publicar" type="checkbox" class="form-check-input"/>
-			<label asp-for="Form.Publicar">
+			<input asp-for="Form.Publicar" type="checkbox" class="form-check-input" disabled="@disabled"/>
+			<label asp-for="Form.Publicar" disabled="@disabled">
 				@AppStrings.Input_PublishPlanUnableEditLater
 			</label>
 		</div>
 
-		<button class="button button-primary" type="submit">💾 @AppStrings.Action_Save</button>
+		<button class="button button-primary" type="submit">
+			@(Model.Editable ? " 💾 " + AppStrings.Action_Save : AppStrings.Action_Exit)
+		</button>
 
 	</form>
 </main>

@@ -78,7 +78,7 @@ public class PlanEditorModel : EntrenadorPageModel
 				Repeticiones = e.Repeticiones,
 				Minutos = e.Minutos
 			}).ToArray(),
-			Publicar = false
+			Publicar = plan.Estado != EstadoRutina.Borrador
 		};
 		
 		Editable = plan.Estado == EstadoRutina.Borrador;

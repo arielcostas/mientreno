@@ -1,0 +1,56 @@
+﻿main#main-invisible-dialogue {
+	gap: 0.75rem;
+}
+
+.card-holder {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	
+	margin: 1rem 0;
+}
+
+.card {
+	width: auto;
+	background-color: var(--background-max);
+
+	padding: 1.2rem;
+
+	border-radius: var(--corner);
+	box-shadow: var(--shadow);
+}
+
+.card,
+.card-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 0.4rem;
+}
+
+
+.marker-holder {
+	display: flex;
+	flex-direction: row;
+	align-items: end;
+	gap: 2rem;
+}
+
+.marker {
+	display: flex;
+	align-items: center;
+	gap: 0.9rem;
+	
+	font-weight: bold;
+	font-family: var(--font-mono);
+	letter-spacing: 0.3rem;
+}
+
+.marker svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.marker span {
+	transform: translateY(2px);
+}

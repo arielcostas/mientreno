@@ -70,6 +70,10 @@ h2 {
 	font-family: var(--font-mono);
 }
 
+.italic {
+	font-style: italic;
+}
+
 ul, ol {
 	padding-left: 1.5rem;
 }
@@ -113,18 +117,23 @@ ul, ol {
 	background-color: var(--primary-darker);
 }
 
-.button-disabled {
-	background-color: var(--primary-lighter);
-	border-color: var(--primary-lighter);
+.button-disabled, button[disabled="disabled"] {
+	background-color: var(--background-alt);
+	border-color: transparent;
 	color: var(--black);
 }
 
-.button-disabled:hover {
+.button-disabled:hover, button[disabled="disabled"]:hover {
 	cursor: not-allowed;
+	background-color: var(--background-alt);
 }
 
 .button-large {
 	padding: 1rem 1.7rem;
+}
+
+.button-text-end {
+	text-align: end;
 }
 /*#endregion */
 
@@ -191,6 +200,12 @@ ul, ol {
 .link-primary::selection {
 	background: var(--primary);
 	color: #fff;
+}
+
+.link-external::after {
+	content: "↗";
+	font-size: 0.8em;
+	vertical-align: super;
 }
 /*#endregion */
 
@@ -303,6 +318,13 @@ main {
 #main-invisible {
 	margin: 3rem auto;
 	width: 80vw;
+
+	gap: 1.5rem;
+}
+
+#main-invisible-dialogue {
+	margin: 3rem auto;
+	width: 42rem;
 
 	gap: 1.5rem;
 }

@@ -42,7 +42,9 @@ public class AlumnoPageModel : PageModel
 
 		if (includeJornadas == true)
 		{
-			ent = ent.Include(e => e.JornadasEntrenamientos);
+			ent = ent.Include(e => e.JornadasEntrenamientos)
+				.ThenInclude(j => j.Ejercicios)
+				.ThenInclude(ep => ep.Ejercicio);
 		}
 
 		if (includeCuestionarios == true)

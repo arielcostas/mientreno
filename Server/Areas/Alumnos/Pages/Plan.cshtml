@@ -1,0 +1,163 @@
+﻿@page
+@using Mientreno.Server.Data.Models
+@using Mientreno.Server.Service
+@using Humanizer
+@using System.Globalization
+@model AlumnoPlanModel
+@{
+	ViewData["Title"] = "Dashboard";
+}
+
+<main id="main-invisible-dialogue">
+	<h1>@Model.Plan.Nombre</h1>
+
+	<p>
+		@Model.Plan.Descripcion
+	</p>
+
+	<p class="italic">
+		Asignado el @Model.Plan.FechaPublicacion!.Value.ToString("f").
+		@if (Model.Plan.FechaFinRealizacion.HasValue)
+		{
+			var diff = DateTime.Now - Model.Plan.FechaFinRealizacion!.Value;
+			<span>
+				@AppStrings.Text_Alumnos_Plan_DoneAt
+				@diff.Humanize(culture: new CultureInfo("es")).
+			</span>
+		}
+		else if (Model.Plan.FechaInicioRealizacion.HasValue)
+		{
+			var diff = DateTime.Now - Model.Plan.FechaInicioRealizacion!.Value;
+			<span>
+				@AppStrings.Text_Alumnos_Plan_StartedAt @diff.Humanize(culture: new CultureInfo("es")).
+			</span>
+		}
+
+		@if (Model.Plan.FechaEvalucion.HasValue)
+		{
+			<span>
+				@AppStrings.Text_Alumnos_Plan_ReviewedAt @Model.Plan.FechaEvalucion!.Value.ToString("f") .
+			</span>
+		}
+
+	</p>
+
+	<div class="card-holder">
+		@foreach (var ejp in Model.Plan.Ejercicios)
+		{
+			<article class="card">
+				<h2>
+					@ejp.Ejercicio.Nombre
+				</h2>
+				<p>
+					@if (!ejp.Ejercicio.VideoUrl.IsNullOrWhiteSpace())
+					{
+						<a href="@ejp.Ejercicio.VideoUrl" class="link link-bold link-primary link-external">
+							Vídeo
+						</a>
+						<span>
+							&mdash;
+						</span>
+					}
+					@ejp.Ejercicio.Descripcion
+				</p>
+
+				<div class="marker-holder">
+					<div class="marker">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18" stroke="black" fill="none">
+							<path d="M3 17l0 -3"/>
+							<path d="M6 17l0 -6"/>
+							<path d="M9 17l0 -9"/>
+							<path d="M12 17l0 -12"/>
+							<path d="M15 17l0 -15"/>
+						</svg>
+
+						<span> @ejp.Ejercicio.Dificultad/5</span>
+					</div>
+
+					@if (ejp.Series != null)
+					{
+						<div class="marker">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="black" fill="none">
+								<!-- 'repeat' by tablericons.com | MIT Licence -->
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								<path d="M4 12v-3a3 3 0 0 1 3 -3h13m-3 -3l3 3l-3 3"/>
+								<path d="M20 12v3a3 3 0 0 1 -3 3h-13m3 3l-3 -3l3 -3"/>
+							</svg>
+
+							<span> @ejp.Series</span>
+						</div>
+					}
+
+					@if (ejp.Repeticiones != null)
+					{
+						<div class="marker">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="black" fill="none">
+								<!-- 'tabler-abacus' by tablericons.com | MIT Licence -->
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								<path d="M5 3v18"/>
+								<path d="M19 21v-18"/>
+								<path d="M5 7h14"/>
+								<path d="M5 15h14"/>
+								<path d="M8 13v4"/>
+								<path d="M11 13v4"/>
+								<path d="M16 13v4"/>
+								<path d="M14 5v4"/>
+								<path d="M11 5v4"/>
+								<path d="M8 5v4"/>
+								<path d="M3 21h18"/>
+							</svg>
+
+							<span> @ejp.Repeticiones</span>
+						</div>
+					}
+
+					@if (ejp.Minutos != null)
+					{
+						<div class="marker">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="black" fill="none">
+								<!-- 'clock-hour-4' by tablericons.com | MIT Licence -->
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+								<path d="M12 12l3 2"/>
+								<path d="M12 7v5"/>
+							</svg>
+
+							<span> @ejp.Minutos</span>
+						</div>
+					}
+				</div>
+			</article>
+		}
+	</div>
+
+	<form method="post">
+		@if (Model.Plan.Estado == EstadoRutina.Finalizada)
+		{
+			<hr/>
+			<div class="form-group">
+				<label asp-for="Feedback.Puntuacion">@AppStrings.Text_Alumnos_FeedbackScore</label>
+				<input type="range" min="1" max="5" value="3" asp-for="Feedback.Puntuacion"/>
+			</div>
+			<div class="form-group">
+				<label asp-for="Feedback.Comentario">@AppStrings.Text_Alumnos_FeedbackComments</label>
+				<textarea asp-for="Feedback.Comentario" class="form-control" rows="5"></textarea>
+			</div>
+		}
+
+		<button type="submit" class="button button-primary button-text-end">
+			@{
+				var nextAction = Model.Plan.Estado switch {
+					EstadoRutina.Publicada => "Comenzar",
+					EstadoRutina.EnCurso => "Finalizar",
+					EstadoRutina.Finalizada => "Evaluar",
+					EstadoRutina.Evaluada => "Salir",
+					_ => "Comenzar"
+					};
+			}
+
+			@nextAction
+		</button>
+	</form>
+
+</main>
