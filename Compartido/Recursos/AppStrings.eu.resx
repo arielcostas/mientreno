@@ -431,4 +431,85 @@
   <data name="Action_Save" xml:space="preserve">
 	  <value>Gorde</value>
   </data>
+  <data name="Action_Manage" xml:space="preserve">
+	  <value>Kudeatu</value>
+  </data>
+  <data name="Alert_CannotInviteQuotaExceeded_Title" xml:space="preserve">
+	  <value>Ezin da ikasle gehiago gonbidatu</value>
+  </data>
+  <data name="Alert_CannotInviteQuotaExceeded_Text" xml:space="preserve">
+	  <value>Ikasleen kuota gainditu duzula dirudi. Gehiago gonbidatu nahi badituzu, kontuan hartu goragoko plan batera igotzea.</value>
+  </data>
+  <data name="Alert_InviteInvalid_Title" xml:space="preserve">
+	  <value>gonbidapen baliogabea</value>
+  </data>
+  <data name="Alert_InviteInvalid_Text" xml:space="preserve">
+	  <value>Gonbidapenak ez du balio, ez dagoelako, iraungi egin delako edo zure entrenatzaileak ezin duelako momentuz ikasle gehiago gonbidatu.</value>
+  </data>
+  <data name="Alert_ContactPreFilled_Title" xml:space="preserve">
+	  <value>Saioa hasi zara</value>
+  </data>
+  <data name="Alert_ContactPreFilled_Text" xml:space="preserve">
+	  <value>Zure harremanetarako datuak automatikoki estali dira saioa hasita zaudelako. Zure planak lehentasunezko laguntza jasotzen badu, hori hartuko da kontuan.</value>
+  </data>
+  <data name="Action_Logout" xml:space="preserve">
+	  <value>Saioa itxi</value>
+  </data>
+  <data name="Text_Dashboard_MyAccount_Title" xml:space="preserve">
+	  <value>Nire kontua</value>
+  </data>
+  <data name="Text_Pricing_SubscriptionNeeded" xml:space="preserve">
+	  <value>MyTraining erabiliz prestakuntza saioak kudeatzeko, harpidetza bat behar da. Hainbat plan ditugu, zure beharretara hobekien egokitzen dena aukera dezazun. Harpidetzeko, MyTraining-en erregistratu behar duzu, eta lehen aldiz saioa hasten duzunean, nahiago duzun plana aukeratu ahal izango duzu.</value>
+  </data>
+  <data name="Text_Pricing_TrainUpToPeople" xml:space="preserve">
+	  <value>Gehienez {0} pertsona entrenatu</value>
+  </data>
+  <data name="Text_Pricing_FreeForAlumnos" xml:space="preserve">
+	  <value>Entrenatzaile baten ikaslea bazara, ez duzu harpidetzarik behar, eta MiEntreno guztiz doakoa izango da zuretzat.</value>
+  </data>
+  <data name="Text_Pricing_Free14DayTrial" xml:space="preserve">
+	  <value>Harpidetza berriekin 14 eguneko proba-epea sartzen da, eta, ondoren, harpidetza automatikoki berrituko da proba-aldia amaitu baino lehen bertan behera uzten ez bada.</value>
+  </data>
+  <data name="Text_Pricing_MonthlyAndAnnuallyAvailable" xml:space="preserve">
+	  <value>Plan bakoitzeko, hileroko edo urteko harpidetza bat aukeratu dezakezu. Urteko harpidetzak doaneko bi hilabeteko deskontua du. Urteko harpidetza aukeratzen bada, harpidetzaren zenbateko osoa harpidetza epearen hasieran kobratuko da.</value>
+  </data>
+  <data name="Text_Pricing_AvisoAutonomos" xml:space="preserve">
+	  <value>Zerga arrazoiengatik, autonomoa edo enpresa bat bazara, &lt;a href="/Contact"&gt;gurekin harremanetan jarri behar duzu&lt;/a&gt; aldez aurretik.</value>
+  </data>
+  <data name="Noun_Language_Spanish" xml:space="preserve">
+	  <value>gaztelania</value>
+  </data>
+  <data name="Noun_Language_Galician" xml:space="preserve">
+	  <value>galegoa</value>
+  </data>
+  <data name="Noun_Language_Catalan" xml:space="preserve">
+	  <value>katalana</value>
+  </data>
+  <data name="Noun_Language_Basque" xml:space="preserve">
+	  <value>euskara</value>
+  </data>
+  <data name="Noun_Language" xml:space="preserve">
+	  <value>Hizkuntza</value>
+  </data>
+  <data name="Text_Alumnos_FeedbackComments" xml:space="preserve">
+	  <value>Zure entrenatzailearen iritzia</value>
+  </data>
+  <data name="Text_Alumnos_FeedbackScore" xml:space="preserve">
+	  <value>puntuazio orokorra</value>
+  </data>
+  <data name="Text_Alumnos_Plan_ReviewedAt" xml:space="preserve">
+	  <value>Ebaluatua</value>
+  </data>
+  <data name="Text_Alumnos_Plan_StartedAt" xml:space="preserve">
+	  <value>duela hasi zen</value>
+  </data>
+  <data name="Text_Alumnos_Plan_DoneAt" xml:space="preserve">
+	  <value>orain dela egina</value>
+  </data>
+  <data name="Action_Exit" xml:space="preserve">
+	  <value>Atera</value>
+  </data>
+  <data name="Text_Dashboard_AlumnoFeedback" xml:space="preserve">
+	  <value>ikasleen ebaluazioa</value>
+  </data>
 </root>

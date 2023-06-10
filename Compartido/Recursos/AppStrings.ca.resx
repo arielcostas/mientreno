@@ -148,7 +148,7 @@
     <value>Contrasenya</value>
   </data>
   <data name="Page_Register" xml:space="preserve">
-    <value>Registro</value>
+    <value>Registre</value>
     <comment>Título de la página de registro</comment>
   </data>
   <data name="Input_Surname" xml:space="preserve">
@@ -430,5 +430,86 @@
   </data>
   <data name="Action_Save" xml:space="preserve">
 	  <value>Desa</value>
+  </data>
+  <data name="Action_Manage" xml:space="preserve">
+	  <value>Gestionar</value>
+  </data>
+  <data name="Alert_CannotInviteQuotaExceeded_Title" xml:space="preserve">
+	  <value>No es poden convidar més alumnes</value>
+  </data>
+  <data name="Alert_CannotInviteQuotaExceeded_Text" xml:space="preserve">
+	  <value>Sembla que heu excedit la vostra quota d'alumnes. Si vols convidar-ne a més, considera canviar-te a un pla superior.</value>
+  </data>
+  <data name="Alert_InviteInvalid_Title" xml:space="preserve">
+	  <value>Invitació invàlida</value>
+  </data>
+  <data name="Alert_InviteInvalid_Text" xml:space="preserve">
+	  <value>La invitació no és vàlida, perquè no existeix, ha caducat, o el teu entrenador no pot convidar més alumnes en aquests moments.</value>
+  </data>
+  <data name="Alert_ContactPreFilled_Title" xml:space="preserve">
+	  <value>Tens la sessió iniciada</value>
+  </data>
+  <data name="Alert_ContactPreFilled_Text" xml:space="preserve">
+	  <value>Les teves dades de contacte van ser cobertes automàticament perquè tens la sessió iniciada. Si el vostre pla inclou suport prioritari, aquest es tindrà en compte.</value>
+  </data>
+  <data name="Action_Logout" xml:space="preserve">
+	  <value>Tancar sessió</value>
+  </data>
+  <data name="Text_Dashboard_MyAccount_Title" xml:space="preserve">
+	  <value>El meu compte</value>
+  </data>
+  <data name="Text_Pricing_SubscriptionNeeded" xml:space="preserve">
+	  <value>Per gestionar entrenaments utilitzant MiEntreno cal una subscripció. Comptem amb diversos plans perquè pugueu triar el que millor s'adapti a les vostres necessitats. Per subscriure't, has de registrar-te a MiEntreno, i un cop iniciis sessió per primera vegada, podràs triar el pla que prefereixis.</value>
+  </data>
+  <data name="Text_Pricing_TrainUpToPeople" xml:space="preserve">
+	  <value>Entrena fins a {0} persones</value>
+  </data>
+  <data name="Text_Pricing_FreeForAlumnos" xml:space="preserve">
+	  <value>Si sou un alumne d'un entrenador, no necessiteu una subscripció, i MiEntreno serà totalment gratuït per a tu.</value>
+  </data>
+  <data name="Text_Pricing_Free14DayTrial" xml:space="preserve">
+	  <value>Amb les noves subscripcions s'inclou un període de prova de 14 dies, després dels quals es renovarà automàticament la subscripció, tret que es cancel·li abans que finalitzi el període de prova.</value>
+  </data>
+  <data name="Text_Pricing_MonthlyAndAnnuallyAvailable" xml:space="preserve">
+	  <value>Per a cada pla, es pot triar entre una subscripció mensual o anual. La subscripció anual té un descompte equivalent a dos mesos de franc. Si s'escull la subscripció anual, es cobrarà l'import total de la subscripció a l'inici del període de subscripció.</value>
+  </data>
+  <data name="Text_Pricing_AvisoAutonomos" xml:space="preserve">
+	  <value>Per qüestions fiscals, si ets autònom o empresa, has de &lt;a href="/Contact"&gt;posar-te en contacte amb nosaltres&lt;/a&gt; prèviament.</value>
+  </data>
+  <data name="Noun_Language_Spanish" xml:space="preserve">
+	  <value>Espanyol</value>
+  </data>
+  <data name="Noun_Language_Galician" xml:space="preserve">
+	  <value>Gallec</value>
+  </data>
+  <data name="Noun_Language_Catalan" xml:space="preserve">
+	  <value>Català</value>
+  </data>
+  <data name="Noun_Language_Basque" xml:space="preserve">
+	  <value>Euskera</value>
+  </data>
+  <data name="Noun_Language" xml:space="preserve">
+	  <value>Idioma</value>
+  </data>
+  <data name="Text_Alumnos_FeedbackComments" xml:space="preserve">
+	  <value>Comentaris per al teu entrenador</value>
+  </data>
+  <data name="Text_Alumnos_FeedbackScore" xml:space="preserve">
+	  <value>Puntuació general</value>
+  </data>
+  <data name="Text_Alumnos_Plan_ReviewedAt" xml:space="preserve">
+	  <value>Avaluat el</value>
+  </data>
+  <data name="Text_Alumnos_Plan_StartedAt" xml:space="preserve">
+	  <value>Començat fa</value>
+  </data>
+  <data name="Text_Alumnos_Plan_DoneAt" xml:space="preserve">
+	  <value>Realitzat fa</value>
+  </data>
+  <data name="Action_Exit" xml:space="preserve">
+	  <value>Sortir</value>
+  </data>
+  <data name="Text_Dashboard_AlumnoFeedback" xml:space="preserve">
+	  <value>Valoració de l'alumne</value>
   </data>
 </root>

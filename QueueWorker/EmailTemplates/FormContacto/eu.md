@@ -7,6 +7,7 @@ Norbait jarri da harremanetan MiEntrenorekin harremanetan jartzeko formularioare
 - Izena: {0}
 - Posta elektronikoa: {1}
 - Hizkuntza: {3}
+- PREZIOA: {4}
 
 <blockquote>
 {2}

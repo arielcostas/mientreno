@@ -4,7 +4,7 @@ Ola {0}
 
 Alguén (esperemos que ti) tentou crear unha conta en [MiEntreno](https://mientreno.app). MiEntreno é unha aplicación na que, como adestrador persoal, podes xestionar as rutinas dos teus alumnos, permitíndolles consultalas en momento e deixar a súa valoración; ademais de almacenar outra información relacionada cos seus adestramentos.
 
-Se fuches tí quen creou a conta, podes confirmala visitando a seguinte páxina no teu navegador web prefirido:
+Se fuches ti quen creou a conta, podes confirmala visitando a seguinte páxina no teu navegador web preferido:
 
 <{1}>
 

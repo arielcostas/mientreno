@@ -431,4 +431,85 @@
   <data name="Action_Save" xml:space="preserve">
 	  <value>Gardar</value>
   </data>
+  <data name="Action_Manage" xml:space="preserve">
+	  <value>Xestionar</value>
+  </data>
+  <data name="Alert_CannotInviteQuotaExceeded_Title" xml:space="preserve">
+	  <value>Non se poden convidar máis alumnos</value>
+  </data>
+  <data name="Alert_CannotInviteQuotaExceeded_Text" xml:space="preserve">
+	  <value>Parece que superaches a túa cota de alumnos. Se queres convidar máis, considera actualizar a un plan superior.</value>
+  </data>
+  <data name="Alert_InviteInvalid_Title" xml:space="preserve">
+	  <value>Convite inválido</value>
+  </data>
+  <data name="Alert_InviteInvalid_Text" xml:space="preserve">
+	  <value>O convite non é válido, porque non existe, caducou ou o teu adestrador non pode convidar a máis alumnos agora.</value>
+  </data>
+  <data name="Alert_ContactPreFilled_Title" xml:space="preserve">
+	  <value>Tes a sesión iniciada</value>
+  </data>
+  <data name="Alert_ContactPreFilled_Text" xml:space="preserve">
+	  <value>Os teus datos de contacto foron cubertos automaticamente porque iniciaches sesión. Se o teu plan inclúe soporte prioritario, este terase en conta.</value>
+  </data>
+  <data name="Action_Logout" xml:space="preserve">
+	  <value>Desconectar</value>
+  </data>
+  <data name="Text_Dashboard_MyAccount_Title" xml:space="preserve">
+	  <value>A miña conta</value>
+  </data>
+  <data name="Text_Pricing_SubscriptionNeeded" xml:space="preserve">
+	  <value>Para xestionar sesións de adestramento mediante MiEntreno, é necesaria unha subscrición. Contamos con varios plans, para que elixas o que mellor se adapte ás túas necesidades. Para subscribirte, debes rexistrarte en MiEntreno e, unha vez que inicies sesión por primeira vez, poderás elixir o plan que prefires.</value>
+  </data>
+  <data name="Text_Pricing_TrainUpToPeople" xml:space="preserve">
+	  <value>Adestra ata {0} persoas</value>
+  </data>
+  <data name="Text_Pricing_FreeForAlumnos" xml:space="preserve">
+	  <value>Se es alumno dun adestrador, non necesitas unha subscrición, e MiEntreno será totalmente de balde para ti.</value>
+  </data>
+  <data name="Text_Pricing_Free14DayTrial" xml:space="preserve">
+	  <value>Inclúese un período de proba de 14 días coas novas subscricións, despois do cal a subscrición renovarase automaticamente a menos que se cancele antes do final do período de proba.</value>
+  </data>
+  <data name="Text_Pricing_MonthlyAndAnnuallyAvailable" xml:space="preserve">
+	  <value>Para cada plan, podes escoller entre unha subscrición mensual ou anual. A subscrición anual ten un desconto equivalente a dous meses gratuítos. Se se opta pola subscrición anual, o importe total da subscrición cobrarase ao comezo do período de subscrición.</value>
+  </data>
+  <data name="Text_Pricing_AvisoAutonomos" xml:space="preserve">
+	  <value>Por razóns fiscais, se es un traballador por conta propia ou unha empresa, debes &lt;a href="/Contact"&gt;contactar connosco&lt;/a&gt; previamente.</value>
+  </data>
+  <data name="Noun_Language_Spanish" xml:space="preserve">
+	  <value>Castelán</value>
+  </data>
+  <data name="Noun_Language_Galician" xml:space="preserve">
+	  <value>Galego</value>
+  </data>
+  <data name="Noun_Language_Catalan" xml:space="preserve">
+	  <value>Catalán</value>
+  </data>
+  <data name="Noun_Language_Basque" xml:space="preserve">
+	  <value>Éuscaro</value>
+  </data>
+  <data name="Noun_Language" xml:space="preserve">
+	  <value>Lingua</value>
+  </data>
+  <data name="Text_Alumnos_FeedbackComments" xml:space="preserve">
+	  <value>Comentarios para o teu adestrador</value>
+  </data>
+  <data name="Text_Alumnos_FeedbackScore" xml:space="preserve">
+	  <value>Puntuación xeral</value>
+  </data>
+  <data name="Text_Alumnos_Plan_ReviewedAt" xml:space="preserve">
+	  <value>Avaliado o</value>
+  </data>
+  <data name="Text_Alumnos_Plan_StartedAt" xml:space="preserve">
+	  <value>Comezado hai</value>
+  </data>
+  <data name="Text_Alumnos_Plan_DoneAt" xml:space="preserve">
+	  <value>Realizado hai</value>
+  </data>
+  <data name="Action_Exit" xml:space="preserve">
+	  <value>Saír</value>
+  </data>
+  <data name="Text_Dashboard_AlumnoFeedback" xml:space="preserve">
+	  <value>Avaliación do alumno</value>
+  </data>
 </root>
