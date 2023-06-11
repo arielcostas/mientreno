@@ -89,8 +89,7 @@ public class RegisterModel : PageModel
 		Usuario nuevo;
 		if (InvitacionCode.IsNullOrEmpty())
 		{
-			var customer = await NewCustomer();
-			nuevo = NewEntrenador(customer);
+			nuevo = NewEntrenador();
 		}
 		else
 		{
@@ -148,17 +147,7 @@ public class RegisterModel : PageModel
 		return currentSubs+1 >= maxSubs ? null : invitacion;
 	}
 
-	private async Task<Customer> NewCustomer()
-	{
-		CustomerService customerService = new();
-		return await customerService.CreateAsync(new CustomerCreateOptions
-		{
-			Email = Form.Email,
-			Name = $"{Form.Nombre} {Form.Apellidos}"
-		});
-	}
-
-	private Entrenador NewEntrenador(Customer customer)
+	private Entrenador NewEntrenador()
 	{
 		return new Entrenador
 		{
@@ -172,7 +161,7 @@ public class RegisterModel : PageModel
 			Suscripcion = new Suscripcion
 			{
 				Estado = EstadoSuscripcion.NoSuscrito,
-				CustomerId = customer.Id,
+				CustomerId = string.Empty,
 				FechaInicio = DateTime.Now,
 				FechaFin = DateTime.Now,
 				RenovacionAutomatica = false

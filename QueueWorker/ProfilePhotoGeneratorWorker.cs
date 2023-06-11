@@ -54,22 +54,32 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 	private void OnReceived(object? sender, BasicDeliverEventArgs e)
 	{
 		var bodyBytes = e.Body.ToArray();
-		var data = Serializador.Deserializar<NuevaFoto>(bodyBytes);
+		var data = Serializador.Deserializar<NuevaFoto>(bodyBytes)!;
+		
+		_logger.LogInformation("Generating profile photo for {DataNombre} {DataApellidos}...", data.Nombre, data.Apellidos);
 
 		if (data == null)
 		{
-			throw new Exception("Mensaje inválido");
+			_logger.LogError("Invalid message");
+			throw new Exception("Invalid message");
 		}
 		
 		var bmp = GenerarImagen($"{data.Nombre} {data.Apellidos}");
+		
+		_logger.LogInformation("Profile photo generated for {DataNombre} {DataApellidos}...", data.Nombre, data.Apellidos);
 
 		var pngOut = GetOutputStream($"{data.IdUsuario}.png");
+		_logger.LogInformation("Saving profile photo to {Path}...", _baseDir);
 		var png = bmp.Encode(SKEncodedImageFormat.Png, 90);
 		png.SaveTo(pngOut);
+		
+		_logger.LogInformation("Png profile photo saved for {DataNombre} {DataApellidos}...", data.Nombre, data.Apellidos);
 
 		var webpOut = GetOutputStream($"{data.IdUsuario}.webp");
 		var webp = bmp.Encode(SKEncodedImageFormat.Webp, 90);
 		webp.SaveTo(webpOut);
+		
+		_logger.LogInformation("Webp profile photo saved for {DataNombre} {DataApellidos}...", data.Nombre, data.Apellidos);
 
 		pngOut.Close();
 		webpOut.Close();

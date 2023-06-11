@@ -13,7 +13,8 @@
 		<PackageReference Include="Azure.Communication.Email" Version="1.0.0" />
 		<PackageReference Include="Markdig" Version="0.31.0" />
 		
-		<PackageReference Include="SkiaSharp" Version="2.88.2" />
+		<PackageReference Include="SkiaSharp" Version="2.88.3" />
+		<PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.3"/>
 
 		<PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
 		
