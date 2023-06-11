@@ -152,7 +152,7 @@
     <comment>Título de la página de registro</comment>
   </data>
   <data name="Input_Surname" xml:space="preserve">
-	  <value>Apellidos</value>
+	  <value>Cognom(s)</value>
 	  <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
   </data>
   <data name="iveReadAndAccept" xml:space="preserve">
@@ -165,7 +165,7 @@
 	  <value>Inici de sessió</value>
   </data>
   <data name="theTermsAndConditions" xml:space="preserve">
-	  <value>els termes i condicions</value>
+	  <value>els Termes i condicions</value>
   </data>
   <data name="Input_YoutubeVideoUrl" xml:space="preserve">
 	  <value>URL de vídeo demostratiu (YouTube)</value>
@@ -174,7 +174,7 @@
 	  <value>Una nova manera d'entrenar</value>
   </data>
   <data name="Text_LandingPage_Text" xml:space="preserve">
-	  <value>Mentrestant et permet gestionar el progrés físic dels teus clients de manera senzilla i eficaç.</value>
+	  <value>Entretant et permet gestionar els entrenaments físics dels teus clients de manera senzilla i eficaç.</value>
   </data>
   <data name="CallToAction_SignUpNow" xml:space="preserve">
 	  <value>Registra't ja!</value>
@@ -189,28 +189,28 @@
 	  <value>Hola</value>
   </data>
   <data name="Text_LandingPage_Feature1_Title" xml:space="preserve">
-	  <value>On i quan vulguis</value>
+	  <value>Gestiona entrenaments</value>
   </data>
   <data name="Text_LandingPage_Feature2_Title" xml:space="preserve">
-	  <value>A gust del consumidor</value>
+	  <value>Des de qualsevol lloc, en qualsevol moment</value>
   </data>
   <data name="Text_LandingPage_Feature3_Title" xml:space="preserve">
 	  <value>Historial d'entrenaments</value>
   </data>
   <data name="Text_LandingPage_Feature4_Title" xml:space="preserve">
-	  <value>I molt més!</value>
+	  <value>Sempre millor</value>
   </data>
   <data name="Text_LandingPage_Feature1_Text" xml:space="preserve">
-	  <value>Gestiona els entrenaments dels teus clients des de qualsevol dispositiu, a qualsevol lloc. I permet que els teus clients els consultin amb rapidesa i comoditat.</value>
+	  <value>Gestiona els entrenaments dels teus clients: quins exercicis fer, quantes sèries i repeticions. Afegeix un vídeo per demostrar la realització de lexercici.</value>
   </data>
   <data name="Text_LandingPage_Feature2_Text" xml:space="preserve">
-	  <value>Defineix plans d'entrenament adaptats a cada client i indica instruccions per a cada exercici, quantitat de sèries, repeticions i descansos.</value>
+	  <value>MiEntreno funciona des de qualsevol dispositiu amb connexió a internet. Permet que el teu client revisi la rutina assignada o els detalls d'un exercici concret des de qualsevol lloc, visualitzant-se de manera amigable i adaptada al dispositiu.</value>
   </data>
   <data name="Text_LandingPage_Feature3_Text" xml:space="preserve">
-	  <value>Consulteu l'historial d'entrenaments per veure l'evolució del client. Mantingues informes d'estat periòdics. Rep comentaris que t'ajudin a ajustar-te a les teves necessitats.</value>
+	  <value>Consulteu l'historial d'entrenaments per veure l'evolució del client. Rep feedback immediat després de la realització de cada rutina; per poder adaptar-te millor a les seves capacitats i necessitats.</value>
   </data>
   <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
-	  <value>Mentrestant està en constant desenvolupament! Amb el temps, aniràs obtenint accés a noves funcionalitats i millores.</value>
+	  <value>Mentrestant està en constant desenvolupament. Amb el temps, aniràs obtenint accés a noves funcionalitats i millores.</value>
   </data>
   <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
 	  <value>La teva subscripció serà renovada automàticament el </value>
@@ -511,5 +511,23 @@
   </data>
   <data name="Text_Dashboard_AlumnoFeedback" xml:space="preserve">
 	  <value>Valoració de l'alumne</value>
+  </data>
+  <data name="Page_MfaSetup" xml:space="preserve">
+	  <value>Configurar MFA</value>
+  </data>
+  <data name="Doing_VerifyIdentity" xml:space="preserve">
+	  <value>Comprovar que ets tu</value>
+  </data>
+  <data name="Input_MfaCode" xml:space="preserve">
+	  <value>Codi de l'autenticador</value>
+  </data>
+  <data name="Input_RememberDevice" xml:space="preserve">
+	  <value>Recordar aquest dispositiu</value>
+  </data>
+  <data name="Error_InvalidMfaCode" xml:space="preserve">
+	  <value>Codi d'autenticador invàlid</value>
+  </data>
+  <data name="Text_ContactPrivacy" xml:space="preserve">
+	  <value>Les dades introduïdes en aquest formulari seran enviades al nostre correu electrònic i no seran emmagatzemades a cap base de dades. &lt;strong&gt;	No compartiu contrasenyes o informació sensible a través d'aquest formulari.&lt;/strong&gt;</value>
   </data>
 </root>

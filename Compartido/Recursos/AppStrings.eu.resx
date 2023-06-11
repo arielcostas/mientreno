@@ -174,7 +174,7 @@
 	  <value>Entrenatzeko modu berri bat</value>
   </data>
   <data name="Text_LandingPage_Text" xml:space="preserve">
-	  <value>Mientrenok zure bezeroen aurrerapen fisikoa modu erraz eta eraginkor batean kudeatzeko aukera ematen dizu.</value>
+	  <value>Mientrenok zure bezeroen prestakuntza fisikoa modu erraz eta eraginkor batean kudeatzeko aukera ematen dizu.</value>
   </data>
   <data name="CallToAction_SignUpNow" xml:space="preserve">
 	  <value>Eman izena orain!</value>
@@ -189,28 +189,28 @@
 	  <value>Kaixo</value>
   </data>
   <data name="Text_LandingPage_Feature1_Title" xml:space="preserve">
-	  <value>non eta nahi duzunean</value>
+	  <value>Prestakuntza kudeatu</value>
   </data>
   <data name="Text_LandingPage_Feature2_Title" xml:space="preserve">
-	  <value>kontsumitzailearen gustura</value>
+	  <value>Edozein lekutatik, edonoiz</value>
   </data>
   <data name="Text_LandingPage_Feature3_Title" xml:space="preserve">
 	  <value>prestakuntza historia</value>
   </data>
   <data name="Text_LandingPage_Feature4_Title" xml:space="preserve">
-	  <value>Eta askoz gehiago!</value>
+	  <value>beti onerako</value>
   </data>
   <data name="Text_LandingPage_Feature1_Text" xml:space="preserve">
-	  <value>Kudeatu zure bezeroen entrenamenduak edozein gailutatik eta edonon. Eta utzi zure bezeroei azkar eta eroso kontsulta ditzaten.</value>
+	  <value>Kudeatu zure bezeroen entrenamenduak: zer ariketa egin, zenbat serie eta errepikapen. Gehitu bideo bat ariketaren errendimendua erakusteko.</value>
   </data>
   <data name="Text_LandingPage_Feature2_Text" xml:space="preserve">
-	  <value>Bezero bakoitzari egokitutako entrenamendu-planak definitzea, ariketa bakoitzerako argibideak, serie kopurua, errepikapenak eta atseden-aldiak adieraziz.</value>
+	  <value>MiEntrenok Interneteko konexioa duen edozein gailutatik funtzionatzen du. Eman zure bezeroari esleitutako errutina edo ariketa zehatz baten xehetasunak edozein lekutatik berrikusteko, gailura egokitutako modu atseginean ikusiz.</value>
   </data>
   <data name="Text_LandingPage_Feature3_Text" xml:space="preserve">
-	  <value>Begiratu prestakuntza-historia bezeroaren bilakaera ikusteko. Aldizkako egoera-txostenak mantentzea. Jaso haien beharretara egokitzen lagunduko dizuten iruzkinak.</value>
+	  <value>Begiratu prestakuntza-historia bezeroaren bilakaera ikusteko. Errutina bakoitza amaitu ondoren berehalako iritzia jaso; beren gaitasun eta beharretara hobeto egokitzeko.</value>
   </data>
   <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
-	  <value>Etengabeko garapenean dagoen bitartean! Denborarekin, eginbide eta hobekuntza berrietarako sarbidea izango duzu.</value>
+	  <value>Etengabeko garapenean dagoen bitartean. Denborarekin, eginbide eta hobekuntza berrietarako sarbidea izango duzu.</value>
   </data>
   <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
 	  <value>Zure harpidetza automatikoki berrituko da </value>
@@ -511,5 +511,23 @@
   </data>
   <data name="Text_Dashboard_AlumnoFeedback" xml:space="preserve">
 	  <value>ikasleen ebaluazioa</value>
+  </data>
+  <data name="Page_MfaSetup" xml:space="preserve">
+	  <value>konfiguratu MFA</value>
+  </data>
+  <data name="Doing_VerifyIdentity" xml:space="preserve">
+	  <value>Zu zarela egiaztatzen</value>
+  </data>
+  <data name="Input_MfaCode" xml:space="preserve">
+	  <value>autentifikatzailearen kodea</value>
+  </data>
+  <data name="Input_RememberDevice" xml:space="preserve">
+	  <value>gogoratu gailu hau</value>
+  </data>
+  <data name="Error_InvalidMfaCode" xml:space="preserve">
+	  <value>Autentifikatzaile-kode baliogabea</value>
+  </data>
+  <data name="Text_ContactPrivacy" xml:space="preserve">
+	  <value>Inprimaki honetan sartutako datuak gure posta elektronikora bidaliko dira eta ez dira inongo datu-basetan gordeko. &lt;strong&gt;	Ez partekatu pasahitzak edo informazio sentikorra formulario honen bidez.&lt;/strong&gt;</value>
   </data>
 </root>
