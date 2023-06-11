@@ -15,6 +15,16 @@ let cookie = document.cookie.split(";").find((c) => c.trim().startsWith("_lang="
 if (cookie) {
 	let cookieValue = cookie.substring("_lang=".length, cookie.length);
 	footerLanguageSelector.value = cookieValue.split("|")[0].split("=")[1];
+} else {
+	// Try to get the user's browser language
+	let userLanguage = navigator.language || navigator.userLanguage;
+	
+	if (userLanguage) {
+		footerLanguageSelector.value = userLanguage;
+	}
+	
+	// Set the cookie
+	document.cookie = `_lang=c=${footerLanguageSelector.value}|uic=${footerLanguageSelector.value};path=/;max-age=31536000;samesite=strict`;
 }
 
 if (footerLanguageSelector) {

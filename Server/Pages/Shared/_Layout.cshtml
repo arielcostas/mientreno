@@ -6,6 +6,9 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<title>@ViewData["Title"] - mientreno</title>
+	
+	<meta name="theme-color" content="#69f000"/>
+	<meta name="description" content="Mientreno es una aplicación web con la que los entrenadores personales pueden gestionar todo lo relacionado a los entrenamientos."/>
 
 	<link rel="stylesheet" href="~/css/app.css" asp-append-version="true"/>
 	<link rel="stylesheet" href="~/Server.styles.css" asp-append-version="true"/>
@@ -20,6 +23,6 @@
 
 @await Html.PartialAsync("Footer")
 @await RenderSectionAsync("Scripts", required: false)
-<script src="~/js/language.js"></script>
+<script async src="~/js/language.js"></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
 ﻿User-agent: *
 Disallow: /Alumnos
 Disallow: /Dashboard
-
-Sitemap: /sitemap.xml
