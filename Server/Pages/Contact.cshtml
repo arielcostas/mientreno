@@ -64,11 +64,7 @@
 		<button class="button button-primary" type="submit">@AppStrings.Action_Contact</button>
 
 		<small>
-			Los datos introducidos en este formulario serán enviados a nuestro correo electrónico y no serán almacenados
-			en ninguna base de datos.
-			<strong>
-				No comparta contraseñas o información sensible a través de este formulario.
-			</strong>
+			@Html.Raw(@AppStrings.Text_ContactPrivacy)
 		</small>
 	</form>
 </main>

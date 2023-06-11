@@ -527,4 +527,7 @@
   <data name="Error_InvalidMfaCode" xml:space="preserve">
 	  <value>Código de autenticador inválido</value>
   </data>
+  <data name="Text_ContactPrivacy" xml:space="preserve">
+	  <value>Los datos introducidos en este formulario serán enviados a nuestro correo electrónico y no serán almacenados en ninguna base de datos. &lt;strong&gt;	No comparta contraseñas o información sensible a través de este formulario.&lt;/strong&gt;</value>
+  </data>
 </root>

@@ -40,6 +40,7 @@ public class EjerciciosIndexModel : EntrenadorPageModel
 
 		if (string.IsNullOrWhiteSpace(NuevaCategoriaName))
 		{
+			ModelState.AddModelError("NuevaCategoriaName", "El nombre de la categoría no puede estar vacío");
 			return Page();
 		}
 

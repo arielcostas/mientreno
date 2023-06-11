@@ -71,16 +71,13 @@
 	background-position: center;
 }
 
-#feature-1 {
-	background-image: url('img/landing-feat1.webp'), linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+#feature-1,
+#feature-3 {
+	background-color: #131313;
 }
 
 #feature-2 {
 	background-image: url('img/landing-feat2.webp'), linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
-}
-
-#feature-3 {
-	background-image: url('img/landing-feat3.webp'), linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
 }
 
 #feature-4 {

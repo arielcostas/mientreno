@@ -978,6 +978,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Los datos introducidos en este formulario serán enviados a nuestro correo electrónico y no serán almacenados en ninguna base de datos. &lt;strong&gt;	No comparta contraseñas o información sensible a través de este formulario.&lt;/strong&gt;.
+        /// </summary>
+        public static string Text_ContactPrivacy {
+            get {
+                return ResourceManager.GetString("Text_ContactPrivacy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Valoración del alumno.
         /// </summary>
         public static string Text_Dashboard_AlumnoFeedback {

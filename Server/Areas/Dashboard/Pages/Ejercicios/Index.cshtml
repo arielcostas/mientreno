@@ -16,19 +16,19 @@
 		</div>
 	</div>
 
-	<div id="list">
-		@if (Model.Categorias.Count == 0)
-		{
-			<div class="alert alert-bad">
-				<strong class="alert-title">@AppStrings.noHayCategorias</strong>
-			</div>
-		}
+	@if (Model.Categorias.Count == 0)
+	{
+		<div class="alert alert-bad">
+			<strong class="alert-title">@AppStrings.noHayCategorias</strong>
+		</div>
+	}
 
+	<div id="list">
 		@foreach (var categoria in Model.Categorias)
 		{
 			<div class="category">
 				<strong role="heading">
-					@categoria.Nombre (@categoria.Ejercicios.Count) -- 
+					@categoria.Nombre (@categoria.Ejercicios.Count) --
 					<a class="link link-primary link-bold"
 					   href="@Url.Page("/Ejercicios/Editor", new { cat = categoria.Id })">
 						@AppStrings.Action_Create
@@ -38,8 +38,9 @@
 					@foreach (var ejercicio in categoria.Ejercicios)
 					{
 						<a class="link link-primary"
-						   href="@Url.Page("/Ejercicios/Editor", new { id = ejercicio.Id })"
-						   >@ejercicio.Nombre</a>
+						   href="@Url.Page("/Ejercicios/Editor", new { id = ejercicio.Id })">
+							@ejercicio.Nombre
+						</a>
 					}
 				</div>
 			</div>
