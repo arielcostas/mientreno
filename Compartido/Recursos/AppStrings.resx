@@ -174,7 +174,7 @@
 	  <value>Una nueva forma de entrenar</value>
   </data>
   <data name="Text_LandingPage_Text" xml:space="preserve">
-	  <value>Mientreno te permite gestionar el progreso físico de tus clientes de forma sencilla y eficaz.</value>
+	  <value>Mientreno te permite gestionar los entrenamientos físicos de tus clientes de forma sencilla y eficaz.</value>
   </data>
   <data name="CallToAction_SignUpNow" xml:space="preserve">
 	  <value>¡Regístrate ya!</value>
@@ -189,28 +189,28 @@
 	  <value>Hola</value>
   </data>
   <data name="Text_LandingPage_Feature1_Title" xml:space="preserve">
-	  <value>Dónde y cuando quieras</value>
+	  <value>Gestiona entrenamientos</value>
   </data>
   <data name="Text_LandingPage_Feature2_Title" xml:space="preserve">
-	  <value>A gusto del consumidor</value>
+	  <value>Desde cualquier lugar, en cualquier momento</value>
   </data>
   <data name="Text_LandingPage_Feature3_Title" xml:space="preserve">
 	  <value>Historial de entrenamientos</value>
   </data>
   <data name="Text_LandingPage_Feature4_Title" xml:space="preserve">
-	  <value>¡Y mucho más!</value>
+	  <value>Siempre a mejor</value>
   </data>
   <data name="Text_LandingPage_Feature1_Text" xml:space="preserve">
-	  <value>Gestiona los entrenamientos de tus clientes desde cualquier dispositivo, en cualquier lugar. Y permite que tus clientes los consulten con rapidez y comodidad.</value>
+	  <value>Gestiona los entrenamientos de tus clientes: qué ejercicios realizar, cuántas series y repeticiones. Añade un vídeo para demostrar la realización del ejercicio.</value>
   </data>
   <data name="Text_LandingPage_Feature2_Text" xml:space="preserve">
-	  <value>Define planes de entrenamiento adaptados a cada cliente, indicando instrucciones para cada ejercicio, cantidad de series, repeticiones y descansos.</value>
+	  <value>MiEntreno funciona desde cualquier dispositivo con conexión a internet. Permite que tu cliente revise la rutina asignada o los detalles de un ejercicio concreto desde cualquier lugar, visualizándose de una forma amigable y adaptada al dispositivo.</value>
   </data>
   <data name="Text_LandingPage_Feature3_Text" xml:space="preserve">
-	  <value>Consulta el historial de entrenamientos para ver la evolución del cliente. Mantén informes de estado periódicos. Recibe comentarios que te ayuden a ajustarte a sus necesidades.</value>
+	  <value>Consulta el historial de entrenamientos para ver la evolución del cliente. Recibe feedback inmediato tras la realización de cada rutina; para poder adaptarte mejor a sus capacidades y sus necesidades.</value>
   </data>
   <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
-	  <value>¡Mientreno está en constante desarrollo! Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras.</value>
+	  <value>Mientreno está en constante desarrollo. Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras.</value>
   </data>
   <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
 	  <value>Tu suscripción será renovada automáticamente el </value>
@@ -474,7 +474,7 @@
 	  <value>Para cada plan, se puede elegir entre una suscripción mensual o anual. La suscripción anual tiene un descuento equivalente a dos meses gratis. Si se elige la suscripción anual, se cobrará el importe total de la suscripción al inicio del periodo de suscripción.</value>
   </data>
   <data name="Text_Pricing_AvisoAutonomos" xml:space="preserve">
-	  <value>Por cuestiones fiscales, si eres autónomo o empresa, debes &lt;a href="/Contact"&gt;ponterte en contacto con nosotros&lt;/a&gt; previamente.</value>
+	  <value>Por cuestiones fiscales, si eres autónomo o empresa, debes &lt;a href="/Contact"&gt;ponerte en contacto con nosotros&lt;/a&gt; previamente.</value>
   </data>
   <data name="Noun_Language_Spanish" xml:space="preserve">
 	  <value>Español</value>

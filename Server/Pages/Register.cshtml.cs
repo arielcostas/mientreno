@@ -114,19 +114,19 @@ public class RegisterModel : PageModel
 
 		var result = await _userManager.CreateAsync(nuevo, Form.Contraseña);
 
+		if (!result.Succeeded)
+		{
+			foreach (var error in result.Errors)
+			{
+				ModelState.AddModelError(string.Empty, error.Description);
+			}
+
+			return Page();
+		}
+
 		var rol = nuevo is Entrenador ? Entrenador.RoleName : Alumno.RoleName;
 		await _userManager.AddToRoleAsync(nuevo, rol);
 
-		foreach (var error in result.Errors)
-		{
-			ModelState.AddModelError(string.Empty, error.Description);
-		}
-
-		if (result.Errors.Any())
-		{
-			return Page();
-		}
-		
 		SendConfirmationEmail(nuevo);
 
 		return Page();
@@ -143,8 +143,8 @@ public class RegisterModel : PageModel
 		var maxSubs = SubscriptionRestrictions.MaxAlumnosPerEntrenador(invitacion.Entrenador.Suscripcion.Plan);
 		var currentSubs = await _databaseContext.Alumnos
 			.CountAsync(a => a.Entrenador.Id == invitacion.Entrenador.Id);
-		
-		return currentSubs+1 >= maxSubs ? null : invitacion;
+
+		return currentSubs + 1 >= maxSubs ? null : invitacion;
 	}
 
 	private Entrenador NewEntrenador()
@@ -177,7 +177,7 @@ public class RegisterModel : PageModel
 			new { nuevo.Id, token = GenerateEmailConfirmationToken(nuevo) },
 			Request.Scheme
 		);
-		
+
 		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
 		var culture = rqf?.RequestCulture.Culture ?? CultureInfo.CurrentCulture;
 		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()

@@ -1041,7 +1041,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gestiona los entrenamientos de tus clientes desde cualquier dispositivo, en cualquier lugar. Y permite que tus clientes los consulten con rapidez y comodidad..
+        ///   Looks up a localized string similar to Gestiona los entrenamientos de tus clientes: qué ejercicios realizar, cuántas series y repeticiones. Añade un vídeo para demostrar la realización del ejercicio..
         /// </summary>
         public static string Text_LandingPage_Feature1_Text {
             get {
@@ -1050,7 +1050,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dónde y cuando quieras.
+        ///   Looks up a localized string similar to Gestiona entrenamientos.
         /// </summary>
         public static string Text_LandingPage_Feature1_Title {
             get {
@@ -1059,7 +1059,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Define planes de entrenamiento adaptados a cada cliente, indicando instrucciones para cada ejercicio, cantidad de series, repeticiones y descansos..
+        ///   Looks up a localized string similar to MiEntreno funciona desde cualquier dispositivo con conexión a internet. Permite que tu cliente revise la rutina asignada o los detalles de un ejercicio concreto desde cualquier lugar, visualizándose de una forma amigable y adaptada al dispositivo..
         /// </summary>
         public static string Text_LandingPage_Feature2_Text {
             get {
@@ -1068,7 +1068,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A gusto del consumidor.
+        ///   Looks up a localized string similar to Desde cualquier lugar, en cualquier momento.
         /// </summary>
         public static string Text_LandingPage_Feature2_Title {
             get {
@@ -1077,7 +1077,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Consulta el historial de entrenamientos para ver la evolución del cliente. Mantén informes de estado periódicos. Recibe comentarios que te ayuden a ajustarte a sus necesidades..
+        ///   Looks up a localized string similar to Consulta el historial de entrenamientos para ver la evolución del cliente. Recibe feedback inmediato tras la realización de cada rutina; para poder adaptarte mejor a sus capacidades y sus necesidades..
         /// </summary>
         public static string Text_LandingPage_Feature3_Text {
             get {
@@ -1095,7 +1095,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¡Mientreno está en constante desarrollo! Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras..
+        ///   Looks up a localized string similar to Mientreno está en constante desarrollo. Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras..
         /// </summary>
         public static string Text_LandingPage_Feature4_Text {
             get {
@@ -1104,7 +1104,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¡Y mucho más!.
+        ///   Looks up a localized string similar to Siempre a mejor.
         /// </summary>
         public static string Text_LandingPage_Feature4_Title {
             get {
@@ -1113,7 +1113,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mientreno te permite gestionar el progreso físico de tus clientes de forma sencilla y eficaz..
+        ///   Looks up a localized string similar to Mientreno te permite gestionar los entrenamientos físicos de tus clientes de forma sencilla y eficaz..
         /// </summary>
         public static string Text_LandingPage_Text {
             get {
@@ -1140,7 +1140,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Por cuestiones fiscales, si eres autónomo o empresa, debes &lt;a href=&quot;/Contact&quot;&gt;ponterte en contacto con nosotros&lt;/a&gt; previamente..
+        ///   Looks up a localized string similar to Por cuestiones fiscales, si eres autónomo o empresa, debes &lt;a href=&quot;/Contact&quot;&gt;ponerte en contacto con nosotros&lt;/a&gt; previamente..
         /// </summary>
         public static string Text_Pricing_AvisoAutonomos {
             get {

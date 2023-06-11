@@ -35,7 +35,7 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 1.8rem;
-	min-height: 60vh;
+	min-height: 70vh;
 }
 
 .feature:nth-child(even) {
