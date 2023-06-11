@@ -64,6 +64,10 @@ public class LoginModel : PageModel
 		
 		if (res.Succeeded) return Redirect(ReturnUrl ?? "/Index");
 		
+		if (res.RequiresTwoFactor) return RedirectToPage("/LoginChallenge", new { ReturnUrl,
+			RememberMe = Form.Recordar
+		});
+		
 		MensajeError = AppStrings.errorInvalidCredentials;
 		return Page();
 	}

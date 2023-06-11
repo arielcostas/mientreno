@@ -512,4 +512,19 @@
   <data name="Text_Dashboard_AlumnoFeedback" xml:space="preserve">
 	  <value>Valoración del alumno</value>
   </data>
+  <data name="Page_MfaSetup" xml:space="preserve">
+	  <value>Configurar MFA</value>
+  </data>
+  <data name="Doing_VerifyIdentity" xml:space="preserve">
+	  <value>Comprobando que eres tú</value>
+  </data>
+  <data name="Input_MfaCode" xml:space="preserve">
+	  <value>Código del autenticador</value>
+  </data>
+  <data name="Input_RememberDevice" xml:space="preserve">
+	  <value>Recordar este dispositivo</value>
+  </data>
+  <data name="Error_InvalidMfaCode" xml:space="preserve">
+	  <value>Código de autenticador inválido</value>
+  </data>
 </root>

@@ -1,0 +1,42 @@
+﻿@page
+@{
+	ViewData["Title"] = AppStrings.Page_MfaSetup;
+}
+@using Microsoft.IdentityModel.Tokens
+@model MfaSetupModel
+
+<main id="main-dialogue">
+	<h1>@AppStrings.Page_MfaSetup</h1>
+	
+	<p>
+		Estás a punto de configurar la autenticación de doble factor para tu cuenta. Cada vez que inicies 
+		sesión, se te pedirá un código de verificación adicional. Este código (llamado TOTP) se genera en
+		tu teléfono móvil usando una aplicación de autenticación como Aegis o Google Authenticator.
+	</p>
+	
+	<strong>Escanea el código QR a continuación</strong>
+	
+	<div class="qr-code">
+		@Html.Raw(Model.QrCodeSvg)
+	</div>
+	
+	<p>
+		Si no puedes escanear el código QR, puedes introducir el siguiente código manualmente:
+		<code>@Model.SharedKey</code>
+	</p>
+	
+	<p>
+		A continuación, introduce un código generado por la aplicación de autenticación para verificar que
+		la configuración es correcta.
+	</p>
+	
+	<form method="post" id="form">
+		<div class="form-group">
+			<label asp-for="Form.Code">@AppStrings.Input_Password</label>
+			<input asp-for="Form.Code" type="password" autocomplete="current-password" class="form-control"/>
+		</div>
+		
+		<button class="button button-primary" type="submit">@AppStrings.Action_Login</button>
+	</form>
+
+</main>

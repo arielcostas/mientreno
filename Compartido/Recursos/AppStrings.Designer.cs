@@ -528,11 +528,29 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comprobando que eres tú.
+        /// </summary>
+        public static string Doing_VerifyIdentity {
+            get {
+                return ResourceManager.GetString("Doing_VerifyIdentity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ejercicios.
         /// </summary>
         public static string ejercicios {
             get {
                 return ResourceManager.GetString("ejercicios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código de autenticador inválido.
+        /// </summary>
+        public static string Error_InvalidMfaCode {
+            get {
+                return ResourceManager.GetString("Error_InvalidMfaCode", resourceCulture);
             }
         }
         
@@ -591,6 +609,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código del autenticador.
+        /// </summary>
+        public static string Input_MfaCode {
+            get {
+                return ResourceManager.GetString("Input_MfaCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nombre.
         /// </summary>
         public static string Input_Name {
@@ -614,6 +641,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string Input_PublishPlanUnableEditLater {
             get {
                 return ResourceManager.GetString("Input_PublishPlanUnableEditLater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recordar este dispositivo.
+        /// </summary>
+        public static string Input_RememberDevice {
+            get {
+                return ResourceManager.GetString("Input_RememberDevice", resourceCulture);
             }
         }
         
@@ -821,6 +857,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string Page_Login {
             get {
                 return ResourceManager.GetString("Page_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configurar MFA.
+        /// </summary>
+        public static string Page_MfaSetup {
+            get {
+                return ResourceManager.GetString("Page_MfaSetup", resourceCulture);
             }
         }
         
