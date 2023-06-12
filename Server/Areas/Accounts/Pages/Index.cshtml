@@ -4,25 +4,59 @@
 @model Mientreno.Server.Areas.Accounts.Pages.AccountIndexModel
 @{
 	ViewData["Title"] = AppStrings.Page_MyAccount;
+	var area = Model.Usuario is Alumno ? "Alumnos" : "Dashboard";
 }
 
-<main id="main-container">
+<main id="main-dialogue">
 	<h1>@AppStrings.hello, @Model.Usuario.Nombre</h1>
+	
+	<a asp-area="@area" asp-page="/Index">&lt; Atrás</a>
 
 	<h2>@AppStrings.Text_Dashboard_MyAccount_Title</h2>
-	
+
+	<form method="post">
+		<fieldset class="form-group-double">
+			<div class="form-group">
+				<label class="form-label">Nombre</label>
+				<input type="text" class="form-control form-control-filled" placeholder="Guillermino"/>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Apellidos</label>
+				<input type="text" class="form-control form-control-filled" placeholder="Gil Enamorado"/>
+			</div>
+		</fieldset>
+
+		<div class="form-group">
+			<label class="form-label">Correo electrónico</label>
+			<input type="email" class="form-control form-control-filled" placeholder="fulgencio@example.com"/>
+		</div>
+
+		<div class="form-group">
+			<label class="form-label">Foto de perfil</label>
+			<input type="file" class="form-control form-control-filled"/>
+		</div>
+	</form>
+
 	<h2>Métodos de autenticación</h2>
 	
+	<a asp-page="ChangePassword" asp-area="Accounts" class="link link-primary link-bold">
+		Cambiar contraseña
+	</a>
+
 	@if (Model.Usuario.TwoFactorEnabled)
 	{
 		<a asp-page="MfaDisable" asp-area="Accounts" class="link link-primary link-bold">
 			@AppStrings.Text_Accounts_DisableMfa
 		</a>
-	} else {
+	}
+	else
+	{
 		<a asp-page="MfaSetup" asp-area="Accounts" class="link link-primary link-bold">
 			@AppStrings.Text_Accounts_EnableMfa
 		</a>
 	}
+
+	<h2>Acciones</h2>
 
 	<a asp-page="/Logout" asp-area="" class="link link-primary link-bold">
 		@AppStrings.Action_Logout

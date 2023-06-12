@@ -53,11 +53,6 @@
 
 body {
 	background: var(--background);
-	
-	min-height: 100vh;
-	display: grid;
-	grid-template-rows: max-content auto max-content;
-	grid-template-columns: 1fr;
 }
 
 header, footer {
@@ -71,6 +66,10 @@ footer {
 
 h1 {
 	font-size: 2.5rem;
+}
+
+fieldset {
+	border: none;
 }
 
 .text-danger {
@@ -98,7 +97,7 @@ ul, ol {
 
 	color: var(--text-max);
 	
-	padding: calc(0.5rem + 2px) 1.5rem 0.5rem 1.5rem;
+	padding: calc(0.75rem + 2px) 1.5rem 0.75rem 1.5rem;
 	
 	border-top-left-radius: var(--corner);
 	border-top-right-radius: var(--corner);
@@ -118,6 +117,16 @@ ul, ol {
 
 .button-primary:hover {
 	background-color: var(--primary-darker);
+}
+
+.button-outline-primary {
+	background-color: var(--background-max);
+	border: 2px solid var(--primary);
+}
+
+.button-outline-primary:hover {
+	background-color: var(--primary);
+	color: var(--white);
 }
 
 .button-disabled, button[disabled="disabled"] {
@@ -248,7 +257,7 @@ form {
 	font-size: 1.1rem;
 	outline: none;
 
-	padding: calc(0.5rem + 2px) 1rem 0.5rem 1rem;
+	padding: calc(0.75rem + 2px) 1rem 0.75rem 1rem;
 
 	border-top-left-radius: var(--corner);
 	border-top-right-radius: var(--corner);

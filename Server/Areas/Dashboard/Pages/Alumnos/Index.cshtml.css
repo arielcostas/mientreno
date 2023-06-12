@@ -1,13 +1,4 @@
-﻿main {
-	width: 80%;
-	margin: 0 auto;
-}
-
-.grid {
-	margin-top: 2rem;
-}
-
-.alumno {
+﻿.alumno {
 	background-color: white;
 	display: flex;
 	flex-direction: column;

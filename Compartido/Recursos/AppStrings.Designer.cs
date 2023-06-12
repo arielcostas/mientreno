@@ -168,6 +168,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gestionar mi cuenta.
+        /// </summary>
+        public static string Action_ManageAccount {
+            get {
+                return ResourceManager.GetString("Action_ManageAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registrarse.
         /// </summary>
         public static string Action_Register {

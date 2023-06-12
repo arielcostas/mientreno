@@ -25,6 +25,7 @@ public class SubscribeModel : PageModel
 		_context = context;
 
 		StripePublishable = _configuration["Stripe:Publishable"]!;
+		StripePricingTable = _configuration["Stripe:PricingTable"]!;
 		StripeSubscriptionManager = string.Empty;
 		Entrenador = null!;
 	}
@@ -74,7 +75,6 @@ public class SubscribeModel : PageModel
 		var session = await sessionService.CreateAsync(sessionCreateOptions);
 
 		StripeSubscriptionManager = session.Url;
-		StripePricingTable = _configuration["Stripe:PricingTable"]!;
 
 		return Page();
 	}

@@ -34,7 +34,7 @@
 	}
 	else
 	{
-		<h2>@AppStrings.alumnos</h2>
+		<h1>@AppStrings.alumnos</h1>
 		<div class="alert alert-good" role="alert">
 			<strong class="alert-title">@AppStrings.dashboard_InviteCreated</strong>
 			<p>
@@ -60,7 +60,7 @@
 			<div class="alumno">
 				@{ var png = alumno.Id + ".png"; }
 				<img src="/Static/profile/@png" alt="Imagen de @alumno.NombreCompleto"/>
-				<h3>@alumno.NombreCompleto</h3>
+				<h2>@alumno.NombreCompleto</h2>
 				@{ var url = Url.Page("/Alumnos/Id/Index", new { id = alumno.Id }); }
 				<a href="@url" class="button button-primary">@AppStrings.Action_See</a>
 			</div>

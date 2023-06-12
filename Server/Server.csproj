@@ -46,7 +46,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AdditionalFiles Include="Areas\Accounts\Pages\Plan.cshtml" />
 	  <AdditionalFiles Include="Areas\Accounts\Pages\Shared\Footer.cshtml" />
 	  <AdditionalFiles Include="Areas\Alumnos\Pages\Index.cshtml" />
 	  <AdditionalFiles Include="Areas\Alumnos\Pages\Shared\Header.cshtml" />

@@ -45,38 +45,34 @@
 					</ul>
 				</div>
 			}
-		
-			<div class="form-group">
-				<div class="form-group-double">
-					<div class="form-group">
-						<label asp-for="Form.Nombre">@AppStrings.Input_Name</label>
-						<input asp-for="Form.Nombre" autocomplete="given-name" class="form-control"/>
-					</div>
 
-					<div class="form-group">
-						<label asp-for="Form.Apellidos">@AppStrings.Input_Surname</label>
-						<input asp-for="Form.Apellidos" autocomplete="family-name" class="form-control"/>
-					</div>
+			<fieldset class="form-group-double">
+				<div class="form-group">
+					<label asp-for="Form.Nombre">@AppStrings.Input_Name</label>
+					<input asp-for="Form.Nombre" placeholder="Fulgencio" autocomplete="given-name" class="form-control form-control-filled"/>
 				</div>
-				<span asp-validation-for="Form.Nombre" class="text-danger"></span>
-				<span asp-validation-for="Form.Apellidos" class="text-danger"></span>
-			</div>
+
+				<div class="form-group">
+					<label asp-for="Form.Apellidos">@AppStrings.Input_Surname</label>
+					<input asp-for="Form.Apellidos" placeholder="Abade Valdes" autocomplete="family-name" class="form-control form-control-filled"/>
+				</div>
+			</fieldset>
 
 			<div class="form-group">
 				<label asp-for="Form.Email">@AppStrings.Input_Email</label>
-				<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control"/>
+				<input asp-for="Form.Email" type="email" placeholder="fulgencio@example.com" autocomplete="email" class="form-control form-control-filled"/>
 				<span asp-validation-for="Form.Email" class="text-danger"></span>
 			</div>
 
 			<div class="form-group">
 				<label asp-for="Form.Contraseña">@AppStrings.Input_Password</label>
-				<input asp-for="Form.Contraseña" type="password" autocomplete="new-password" class="form-control"/>
+				<input asp-for="Form.Contraseña" type="password" autocomplete="new-password" class="form-control form-control-filled"/>
 				<span asp-validation-for="Form.Contraseña" class="text-danger"></span>
 			</div>
 
 			<div class="form-group">
 				<label asp-for="Form.ConfirmarContraseña">@AppStrings.confirmPassword</label>
-				<input asp-for="Form.ConfirmarContraseña" type="password" autocomplete="new-password" class="form-control"/>
+				<input asp-for="Form.ConfirmarContraseña" type="password" autocomplete="new-password" class="form-control form-control-filled"/>
 				<span asp-validation-for="Form.ConfirmarContraseña" class="text-danger"></span>
 			</div>
 
