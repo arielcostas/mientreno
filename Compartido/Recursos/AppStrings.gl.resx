@@ -159,7 +159,7 @@
 	  <value>Lín e acepto</value>
   </data>
   <data name="Alert_RegistrationDoneEmailSent_Text" xml:space="preserve">
-	  <value>Para confirmar a túa conta, enviámoste un correo-e. Por favor, revisa a túa bandexa de entrada.</value>
+	  <value>Para confirmar a túa conta, enviámoste un correo-e. Por favor, revisa a túa caixa de entrada.</value>
   </data>
   <data name="Page_Login" xml:space="preserve">
 	  <value>Conexión</value>
@@ -529,5 +529,29 @@
   </data>
   <data name="Text_ContactPrivacy" xml:space="preserve">
 	  <value>Os datos introducidos neste formulario enviaranse ao noso correo electrónico e non se almacenarán en ningunha base de datos. &lt;strong&gt;	Non comparta contrasinais nin información confidencial a través deste formulario.&lt;/strong&gt;</value>
+  </data>
+  <data name="Page_MyAccount" xml:space="preserve">
+	  <value>A miña conta</value>
+  </data>
+  <data name="Action_EnableMFA" xml:space="preserve">
+	  <value>Activar MFA</value>
+  </data>
+  <data name="Text_Accounts_EnableMfa" xml:space="preserve">
+	  <value>Activar a autenticación de dous factores</value>
+  </data>
+  <data name="Text_Accounts_DisableMfa" xml:space="preserve">
+	  <value>Desactivar a autenticación de dous factores</value>
+  </data>
+  <data name="Error_IncorrectPassword" xml:space="preserve">
+	  <value>Contrasinal incorrecto</value>
+  </data>
+  <data name="Action_DisableMFA" xml:space="preserve">
+	  <value>Desactivar MFA</value>
+  </data>
+  <data name="Page_MfaDisable" xml:space="preserve">
+	  <value>Desactivar MFA</value>
+  </data>
+  <data name="Alert_ValidationErrors_Title" xml:space="preserve">
+	  <value>Erros de validación</value>
   </data>
 </root>
