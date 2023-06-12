@@ -11,7 +11,7 @@
 		@if (Model.MaxInvitaciones >= 1)
 		{
 			<div class="title-with-action">
-				<h2>@AppStrings.alumnos</h2>
+				<h1>@AppStrings.alumnos</h1>
 				<form method="post" id="form-invite"></form>
 				<div class="form-inline">
 					<label for="Cantidad" form="form-invite">@AppStrings.Noun_Invite_Plural</label>
@@ -23,7 +23,7 @@
 		}
 		else
 		{
-			<h2>@AppStrings.alumnos</h2>
+			<h1>@AppStrings.alumnos</h1>
 			<div class="alert alert-bad" role="alert">
 				<strong class="alert-title">@AppStrings.Alert_CannotInviteQuotaExceeded_Title</strong>
 				<p>

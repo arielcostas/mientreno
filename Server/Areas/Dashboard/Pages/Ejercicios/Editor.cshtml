@@ -7,11 +7,11 @@
 <main id="main-container">
 	@if (Model.Editando)
 	{
-		<h2>@AppStrings.Doing_EditarEjercicio @Model.Form.Nombre</h2>
+		<h1>@AppStrings.Doing_EditarEjercicio @Model.Form.Nombre</h1>
 	}
 	else
 	{
-		<h2>@AppStrings.Doing_CrearEjercicio</h2>
+		<h1>@AppStrings.Doing_CrearEjercicio</h1>
 	}
 
 	<form method="post">

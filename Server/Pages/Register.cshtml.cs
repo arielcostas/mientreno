@@ -118,6 +118,25 @@ public class RegisterModel : PageModel
 		{
 			foreach (var error in result.Errors)
 			{
+				
+				if (error.Code == "DuplicateUserName")
+				{
+					ModelState.AddModelError(nameof(Form.Email), "Ya existe un usuario con ese email");
+					continue;
+				}
+				
+				if (error.Code == "DuplicateEmail")
+				{
+					ModelState.AddModelError(nameof(Form.Email), "Ya existe un usuario con ese email");
+					continue;
+				}
+				
+				if (error.Code is "PasswordRequiresDigit" or "PasswordRequiresLower" or "PasswordRequiresUpper" or "PasswordRequiresNonAlphanumeric")
+				{
+					ModelState.AddModelError(nameof(Form.Contraseña), "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial");
+					continue;
+				}
+				
 				ModelState.AddModelError(string.Empty, error.Description);
 			}
 

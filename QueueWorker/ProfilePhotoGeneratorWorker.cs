@@ -55,35 +55,59 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 	{
 		var bodyBytes = e.Body.ToArray();
 		var data = Serializador.Deserializar<NuevaFoto>(bodyBytes)!;
-		
-		_logger.LogInformation("Generating profile photo for {DataNombre} {DataApellidos}...", data.Nombre, data.Apellidos);
+
+		_logger.LogInformation("Generating profile photo for {DataNombre} {DataApellidos}...", data.Nombre,
+			data.Apellidos);
 
 		if (data == null)
 		{
 			_logger.LogError("Invalid message");
 			throw new Exception("Invalid message");
 		}
-		
+
 		var bmp = GenerarImagen($"{data.Nombre} {data.Apellidos}");
-		
-		_logger.LogInformation("Profile photo generated for {DataNombre} {DataApellidos}...", data.Nombre, data.Apellidos);
-
-		var pngOut = GetOutputStream($"{data.IdUsuario}.png");
+		_logger.LogInformation("Profile photo generated for {DataNombre} {DataApellidos}...", data.Nombre,
+			data.Apellidos);
 		_logger.LogInformation("Saving profile photo to {Path}...", _baseDir);
-		var png = bmp.Encode(SKEncodedImageFormat.Png, 90);
-		png.SaveTo(pngOut);
-		
-		_logger.LogInformation("Png profile photo saved for {DataNombre} {DataApellidos}...", data.Nombre, data.Apellidos);
 
-		var webpOut = GetOutputStream($"{data.IdUsuario}.webp");
-		var webp = bmp.Encode(SKEncodedImageFormat.Webp, 90);
-		webp.SaveTo(webpOut);
-		
-		_logger.LogInformation("Webp profile photo saved for {DataNombre} {DataApellidos}...", data.Nombre, data.Apellidos);
+		var png = Task.Run(() =>
+		{
+			var pngOut = GetOutputStream($"{data.IdUsuario}.png");
+			if (!pngOut.CanWrite)
+			{
+				throw new Exception("Can't write to PNG file");
+			}
+			
+			var png = bmp.Encode(SKEncodedImageFormat.Png, 90);
+			png.SaveTo(pngOut);
 
-		pngOut.Close();
-		webpOut.Close();
+			_logger.LogInformation("Png profile photo saved for {DataNombre} {DataApellidos}...", data.Nombre,
+				data.Apellidos);
+			
+			pngOut.Close();
+		});
+
+		var webp = Task.Run(() =>
+		{
+			var webpOut = GetOutputStream($"{data.IdUsuario}.webp");
+
+			if (!webpOut.CanWrite)
+			{
+				throw new Exception("Can't write to WEBP file");
+			}
+			
+			var webp = bmp.Encode(SKEncodedImageFormat.Webp, 90);
+			webp.SaveTo(webpOut);
+
+			_logger.LogInformation("Webp profile photo saved for {DataNombre} {DataApellidos}...", data.Nombre,
+				data.Apellidos);
+
+			webpOut.Close();
+		});
+		
+		Task.WaitAll(png, webp);
 		_channel?.BasicAck(e.DeliveryTag, false);
+		_logger.LogInformation("Acked");
 	}
 
 	public override Task StopAsync(CancellationToken cancellationToken)

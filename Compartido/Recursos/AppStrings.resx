@@ -551,4 +551,7 @@
   <data name="Page_MfaDisable" xml:space="preserve">
 	  <value>Desactivar MFA</value>
   </data>
+  <data name="Alert_ValidationErrors_Title" xml:space="preserve">
+	  <value>Errores de validación</value>
+  </data>
 </root>

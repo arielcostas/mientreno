@@ -330,6 +330,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Errores de validación.
+        /// </summary>
+        public static string Alert_ValidationErrors_Title {
+            get {
+                return ResourceManager.GetString("Alert_ValidationErrors_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ¿Ya tienes cuenta? Inicia sesión..
         /// </summary>
         public static string alreadyHaveAccountLogin {

@@ -33,6 +33,19 @@
 	else
 	{
 		<form method="post">
+			@if (Model.ModelState.ErrorCount > 0)
+			{
+				<div class="alert alert-bad">
+					<strong>@AppStrings.Alert_ValidationErrors_Title</strong>
+					<ul>
+						@foreach (var error in Model.ModelState.Values.SelectMany(v => v.Errors))
+						{
+							<li>@error.ErrorMessage</li>
+						}
+					</ul>
+				</div>
+			}
+		
 			<div class="form-group">
 				<div class="form-group-double">
 					<div class="form-group">

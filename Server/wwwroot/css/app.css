@@ -7,6 +7,8 @@
 	font-size: 16px;
 	line-height: 1.5;
 	
+	accent-color: var(--primary);
+	
 	color: var(--text);
 
 	--text: #020617;
@@ -40,7 +42,7 @@
 
 ::selection {
 	background: var(--primary-darker);
-	color: var(--background);
+	color: var(--white);
 }
 
 * {
@@ -96,11 +98,12 @@ ul, ol {
 
 	color: var(--text-max);
 	
-	padding: 0.75rem;
+	padding: calc(0.5rem + 2px) 1.5rem 0.5rem 1.5rem;
 	
 	border-top-left-radius: var(--corner);
 	border-top-right-radius: var(--corner);
-	border: 2px solid transparent;
+	border: none;
+	border-bottom: 2px solid var(--black);
 	
 	transition: all 0.2s ease-in-out;
 }
@@ -111,7 +114,6 @@ ul, ol {
 
 .button-primary {
 	background-color: var(--primary);
-	border-bottom-color: var(--black);
 }
 
 .button-primary:hover {
@@ -120,7 +122,6 @@ ul, ol {
 
 .button-disabled, button[disabled="disabled"] {
 	background-color: var(--background-alt);
-	border-bottom-color: transparent;
 }
 
 .button-disabled:hover, button[disabled="disabled"]:hover {
@@ -213,7 +214,7 @@ ul, ol {
 form {
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
+	gap: 2rem;
 }
 
 .form-inline {
@@ -236,12 +237,30 @@ form {
 	gap: 1.8rem;
 }
 
-.form-control {
-	padding: 0.69rem;
-	border-radius: var(--corner);
-	border: 1px solid var(--text);
+.form-group > label {
 	font-size: 1.1rem;
+	font-weight: bold;
+	margin-bottom: 0;
+	line-height: 1.25;
 }
+
+.form-control {
+	font-size: 1.1rem;
+	outline: none;
+
+	padding: calc(0.5rem + 2px) 1rem 0.5rem 1rem;
+
+	border-top-left-radius: var(--corner);
+	border-top-right-radius: var(--corner);
+	
+	border: none;
+	border-bottom: 2px solid var(--black);
+}
+
+.form-control-filled {
+	background-color: var(--background-alt);
+}
+
 /*#endregion */
 
 /*#region Header */

@@ -13,7 +13,7 @@ hb.ConfigureServices((context, services) =>
 
 	services.AddSingleton(_ => new ConnectionFactory
 	{
-		Uri = new Uri(rabbitConnectionString),
+		Uri = new Uri(rabbitConnectionString)
 	}.CreateConnection());
 
 	#endregion
