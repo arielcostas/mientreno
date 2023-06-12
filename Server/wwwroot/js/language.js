@@ -3,7 +3,7 @@
  * @returns {void}
  */
 function onUserLanguageChange(e) {
-	document.cookie = `_lang=c=${e.target.value}|uic=${e.target.value};path=/;max-age=31536000;samesite=strict`;
+	document.cookie = `_lang=c=${e.target.value}|uic=${e.target.value};path=/;max-age=31536000;samesite=lax`;
 	location.reload();
 }
 
@@ -30,7 +30,7 @@ if (cookie) {
 	}
 	
 	// Set the cookie
-	document.cookie = `_lang=c=${footerLanguageSelector.value}|uic=${footerLanguageSelector.value};path=/;max-age=31536000;samesite=strict`;
+	document.cookie = `_lang=c=${footerLanguageSelector.value}|uic=${footerLanguageSelector.value};path=/;max-age=31536000;samesite=lax`;
 }
 
 if (footerLanguageSelector) {

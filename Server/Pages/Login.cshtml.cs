@@ -28,7 +28,8 @@ public class LoginModel : PageModel
 		if (usuario is not null)
 		{
 			var area = usuario is Alumno ? "Alumnos" : "Dashboard";
-			return Redirect($"/{area}");
+			ReturnUrl ??= $"/{area}";
+			return Redirect(ReturnUrl);
 		}
 
 		return Page();

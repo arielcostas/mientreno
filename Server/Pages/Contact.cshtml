@@ -37,7 +37,7 @@
 			}
 			else
 			{
-				<input asp-for="Form.Nombre" type="text" autocomplete="name" class="form-control"/>
+				<input asp-for="Form.Nombre" type="text" autocomplete="name" class="form-control form-control-filled"/>
 			}
 			<span asp-validation-for="Form.Nombre" class="text-danger"></span>
 		</div>
@@ -50,14 +50,14 @@
 			}
 			else
 			{
-				<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control"/>
+				<input asp-for="Form.Email" type="email" autocomplete="email" class="form-control form-control-filled"/>
 			}
 			<span asp-validation-for="Form.Email" class="text-danger"></span>
 		</div>
 
 		<div class="form-group">
 			<label asp-for="Form.Mensaje">@AppStrings.Input_Message</label>
-			<textarea asp-for="Form.Mensaje" class="form-control" rows="5"></textarea>
+			<textarea asp-for="Form.Mensaje" class="form-control form-control-filled" rows="5"></textarea>
 			<span asp-validation-for="Form.Mensaje" class="text-danger"></span>
 		</div>
 

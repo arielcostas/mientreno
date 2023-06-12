@@ -13,12 +13,12 @@
 
 		<div class="form-group">
 			<label asp-for="Form.Nombre">@AppStrings.Input_Name</label>
-			<input asp-for="Form.Nombre" class="form-control" disabled="@disabled"/>
+			<input asp-for="Form.Nombre" class="form-control form-control-filled" disabled="@disabled"/>
 		</div>
 
 		<div class="form-group">
 			<label asp-for="Form.Descripcion">@AppStrings.Input_Descripcion</label>
-			<textarea asp-for="Form.Descripcion" class="form-control" rows="5" disabled="@disabled"></textarea>
+			<textarea asp-for="Form.Descripcion" class="form-control form-control-filled" rows="5" disabled="@disabled"></textarea>
 		</div>
 
 		<hr/>
@@ -61,9 +61,9 @@
 							</optgroup>
 						}
 					</select>
-					<input asp-for="Form.EjerciciosPlan[i].Series" class="form-control" placeholder="Series" type="number" min="0" disabled="@disabled"/>
-					<input asp-for="Form.EjerciciosPlan[i].Repeticiones" class="form-control" placeholder="Reps." type="number" min="0" disabled="@disabled"/>
-					<input asp-for="Form.EjerciciosPlan[i].Minutos" class="form-control" placeholder="Min." type="number" min="0" disabled="@disabled"/>
+					<input asp-for="Form.EjerciciosPlan[i].Series" class="form-control form-control-filled" placeholder="Series" type="number" min="0" disabled="@disabled"/>
+					<input asp-for="Form.EjerciciosPlan[i].Repeticiones" class="form-control form-control-filled" placeholder="Reps." type="number" min="0" disabled="@disabled"/>
+					<input asp-for="Form.EjerciciosPlan[i].Minutos" class="form-control form-control-filled" placeholder="Min." type="number" min="0" disabled="@disabled"/>
 				</article>
 			}
 

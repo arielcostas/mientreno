@@ -22,9 +22,6 @@
 }
 else
 {
-	<environment include="@Environments.Development">
-		@Html.Raw(string.Join("<br />", User.Claims.Select(c => $"{c.Type} => {c.Value}"))) )
-	</environment>
 	<header>
 		<a asp-area="@area" asp-page="/Index">
 			<img src="~/isotipo.svg" alt="mientreno" id="isotipo"/>
