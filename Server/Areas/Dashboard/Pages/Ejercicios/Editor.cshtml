@@ -17,17 +17,17 @@
 	<form method="post">
 		<div class="form-group">
 			<label asp-for="Form.Nombre">@AppStrings.Input_Name</label>
-			<input asp-for="Form.Nombre" class="form-control"/>
+			<input asp-for="Form.Nombre" class="form-control form-control-filled"/>
 			<span asp-validation-for="Form.Nombre" class="text-danger"></span>
 		</div>
 		<div class="form-group">
 			<label asp-for="Form.Descripcion">@AppStrings.Input_Descripcion</label>
-			<textarea asp-for="Form.Descripcion" class="form-control" rows="5"></textarea>
+			<textarea asp-for="Form.Descripcion" class="form-control form-control-filled" rows="5"></textarea>
 			<span asp-validation-for="Form.Descripcion" class="text-danger"></span>
 		</div>
 		<div class="form-group">
-			<label asp-for="Form.UrlVideo">@AppStrings.Input_YoutubeVideoUrl</label>
-			<input asp-for="Form.UrlVideo" class="form-control"/>
+			<label asp-for="Form.UrlVideo">@AppStrings.Input_VideoUrl</label>
+			<input asp-for="Form.UrlVideo" class="form-control form-control-filled"/>
 			<span asp-validation-for="Form.UrlVideo" class="text-danger"></span>
 		</div>
 

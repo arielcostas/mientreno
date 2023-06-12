@@ -167,7 +167,7 @@
   <data name="theTermsAndConditions" xml:space="preserve">
 	  <value>os termos e condicións</value>
   </data>
-  <data name="Input_YoutubeVideoUrl" xml:space="preserve">
+  <data name="Input_VideoUrl" xml:space="preserve">
 	  <value>URL do vídeo de demostración (YouTube)</value>
   </data>
   <data name="Text_LandingPage_Title" xml:space="preserve">

@@ -735,11 +735,11 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL de vídeo demostrativo (YouTube).
+        ///   Looks up a localized string similar to URL de vídeo demostrativo.
         /// </summary>
-        public static string Input_YoutubeVideoUrl {
+        public static string Input_VideoUrl {
             get {
-                return ResourceManager.GetString("Input_YoutubeVideoUrl", resourceCulture);
+                return ResourceManager.GetString("Input_VideoUrl", resourceCulture);
             }
         }
         
