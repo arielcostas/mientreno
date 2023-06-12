@@ -168,7 +168,7 @@
 	  <value>os termos e condicións</value>
   </data>
   <data name="Input_VideoUrl" xml:space="preserve">
-	  <value>URL do vídeo de demostración (YouTube)</value>
+	  <value>URL do vídeo de demostración</value>
   </data>
   <data name="Text_LandingPage_Title" xml:space="preserve">
 	  <value>Unha nova forma de adestrar</value>
@@ -553,5 +553,8 @@
   </data>
   <data name="Alert_ValidationErrors_Title" xml:space="preserve">
 	  <value>Erros de validación</value>
+  </data>
+  <data name="Action_ManageAccount" xml:space="preserve">
+	  <value>Xestionar a miña conta</value>
   </data>
 </root>

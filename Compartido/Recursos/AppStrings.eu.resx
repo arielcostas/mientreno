@@ -554,4 +554,7 @@
   <data name="Alert_ValidationErrors_Title" xml:space="preserve">
 	  <value>baliozkotze akatsak</value>
   </data>
+  <data name="Action_ManageAccount" xml:space="preserve">
+	  <value>kudeatu nire kontua</value>
+  </data>
 </root>
