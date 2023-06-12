@@ -10,7 +10,7 @@
 
 		<form method="post" id="form-categoria"></form>
 		<div class="form-inline">
-			<label asp-for="NuevaCategoriaName" form="form-categoria">@AppStrings.nuevaCategoria</label>
+			<label asp-for="NuevaCategoriaName" form="form-categoria">@AppStrings.Action_CreateCategory</label>
 			<input asp-for="NuevaCategoriaName" form="form-categoria" class="form-control" placeholder="@AppStrings.Input_Name"/>
 			<input type="submit" class="button button-primary" value="+ @AppStrings.Action_Create" form="form-categoria">
 		</div>
@@ -18,7 +18,7 @@
 
 	@if (Model.Categorias.Count == 0)
 	{
-		<div class="alert alert-bad">
+		<div class="alert alert-bad" role="alert">
 			<strong class="alert-title">@AppStrings.noHayCategorias</strong>
 		</div>
 	}

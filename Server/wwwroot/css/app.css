@@ -55,11 +55,7 @@ footer {
 }
 
 h1 {
-	font-size: 4em;
-}
-
-h2 {
-	font-size: 2.5em;
+	font-size: 2.5rem;
 }
 
 .text-danger {
@@ -76,16 +72,6 @@ h2 {
 
 ul, ol {
 	padding-left: 1.5rem;
-}
-
-@media screen and (max-width: 1100px) {
-	h1 {
-		font-size: 2.5em;
-	}
-
-	h2 {
-		font-size: 2em;
-	}
 }
 /*#endregion */
 

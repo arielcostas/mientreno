@@ -56,7 +56,7 @@ public class LoginChallengeModel : PageModel
 		
 		if (user is null)
 		{
-			MensajeError = AppStrings.errorInvalidCredentials;
+			MensajeError = AppStrings.Error_IncorrectCredentials;
 			return Page();
 		}
 		
@@ -71,7 +71,7 @@ public class LoginChallengeModel : PageModel
 
 		if (res.Succeeded) return Redirect(ReturnUrl);
 		
-		MensajeError = AppStrings.Error_InvalidMfaCode;
+		MensajeError = AppStrings.Error_IncorrectMfaCode;
 		return Page();
 	}
 }

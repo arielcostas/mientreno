@@ -132,7 +132,7 @@
   <data name="Input_Email" xml:space="preserve">
     <value>Correo electrónico</value>
   </data>
-  <data name="errorInvalidCredentials" xml:space="preserve">
+  <data name="Error_IncorrectCredentials" xml:space="preserve">
     <value>Usuario o contraseña incorrectos</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
@@ -158,7 +158,7 @@
   <data name="iveReadAndAccept" xml:space="preserve">
 	  <value>He leído y acepto</value>
   </data>
-  <data name="registrationDoneEmailSent" xml:space="preserve">
+  <data name="Alert_RegistrationDoneEmailSent_Text" xml:space="preserve">
 	  <value>Para confirmar tu cuenta, te hemos enviado un correo electrónico. Por favor, revisa tu bandeja de entrada.</value>
   </data>
   <data name="Page_Login" xml:space="preserve">
@@ -269,7 +269,7 @@
   <data name="Doing_CrearEjercicio" xml:space="preserve">
 	  <value>Nuevo ejercicio</value>
   </data>
-  <data name="nuevaCategoria" xml:space="preserve">
+  <data name="Action_CreateCategory" xml:space="preserve">
 	  <value>Nueva categoría</value>
   </data>
   <data name="Action_Create" xml:space="preserve">
@@ -320,7 +320,7 @@
   <data name="dashboard_NoPlansCreated" xml:space="preserve">
 	  <value>No se ha creado ningún plan de entrenamiento (todavía).</value>
   </data>
-  <data name="trainingPlans" xml:space="preserve">
+  <data name="Noun_Rutina_Plural" xml:space="preserve">
 	  <value>Planes de entrenamiento</value>
   </data>
   <data name="cuestionarios" xml:space="preserve">
@@ -332,7 +332,7 @@
   <data name="availableSoon" xml:space="preserve">
 	  <value>Esta funcionalidad estará disponible próximamente.</value>
   </data>
-  <data name="plan" xml:space="preserve">
+  <data name="Noun_Plan_Singular" xml:space="preserve">
 	  <value>plan</value>
   </data>
   <data name="dashboard_NoCuestionariosCreated" xml:space="preserve">
@@ -524,10 +524,31 @@
   <data name="Input_RememberDevice" xml:space="preserve">
 	  <value>Recordar este dispositivo</value>
   </data>
-  <data name="Error_InvalidMfaCode" xml:space="preserve">
+  <data name="Error_IncorrectMfaCode" xml:space="preserve">
 	  <value>Código de autenticador inválido</value>
   </data>
   <data name="Text_ContactPrivacy" xml:space="preserve">
 	  <value>Los datos introducidos en este formulario serán enviados a nuestro correo electrónico y no serán almacenados en ninguna base de datos. &lt;strong&gt;	No comparta contraseñas o información sensible a través de este formulario.&lt;/strong&gt;</value>
+  </data>
+  <data name="Page_MyAccount" xml:space="preserve">
+	  <value>Mi cuenta</value>
+  </data>
+  <data name="Action_EnableMFA" xml:space="preserve">
+	  <value>Activar MFA</value>
+  </data>
+  <data name="Text_Accounts_EnableMfa" xml:space="preserve">
+	  <value>Activar autenticación de dos factores</value>
+  </data>
+  <data name="Text_Accounts_DisableMfa" xml:space="preserve">
+	  <value>Desactivar autenticación de dos factores</value>
+  </data>
+  <data name="Error_IncorrectPassword" xml:space="preserve">
+	  <value>Contraseña incorrecta</value>
+  </data>
+  <data name="Action_DisableMFA" xml:space="preserve">
+	  <value>Desactivar MFA</value>
+  </data>
+  <data name="Page_MfaDisable" xml:space="preserve">
+	  <value>Desactivar MFA</value>
   </data>
 </root>

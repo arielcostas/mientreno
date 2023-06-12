@@ -1,0 +1,25 @@
+﻿<footer>
+	<div class="form-inline">
+		<label for="footer-language-selector">@AppStrings.Noun_Language</label>
+		<select id="footer-language-selector" class="form-control" title="@AppStrings.Noun_Language">
+			<option value="es-ES">
+				@AppStrings.Noun_Language_Spanish
+			</option>
+			<option value="gl-ES">
+				@AppStrings.Noun_Language_Galician
+			</option>
+			<option value="ca-ES">
+				@AppStrings.Noun_Language_Catalan
+			</option>
+			<option value="eu-ES">
+				@AppStrings.Noun_Language_Basque
+			</option>
+		</select>
+	</div>
+	
+	<nav>
+		<a asp-area="" asp-page="/Terms" class="link link-bold link-inverted">@AppStrings.Page_Terms</a>
+		<a asp-area="" asp-page="/Pricing" class="link link-bold link-inverted">@AppStrings.Page_Pricing</a>
+		<a asp-area="" asp-page="/Contact" class="link link-bold link-inverted">@AppStrings.Page_Contact</a>
+	</nav>
+</footer>

@@ -18,20 +18,20 @@
 
 	@if (Model.Alumno.Cuestionarios.Count == 0)
 	{
-		<div class="alert alert-bad">
+		<div class="alert alert-bad" role="alert">
 			<strong class="alert-title">@AppStrings.dashboard_NoCuestionariosCreated</strong>
 			<p>@AppStrings.availableSoon</p>
 		</div>
 	}
 
 	<div class="title-with-action">
-		<h2>@AppStrings.trainingPlans</h2>
-		<a href="@Model.Id/Plan" class="button button-primary">+ @AppStrings.Action_Create @AppStrings.plan</a>
+		<h2>@AppStrings.Noun_Rutina_Plural</h2>
+		<a href="@Model.Id/Plan" class="button button-primary">+ @AppStrings.Action_Create @AppStrings.Noun_Plan_Singular</a>
 	</div>
 
 	@if (Model.Alumno.JornadasEntrenamientos.Count == 0)
 	{
-		<div class="alert alert-bad">
+		<div class="alert alert-bad" role="alert">
 			<strong class="alert-title">
 				@AppStrings.dashboard_NoPlansCreated
 			</strong>

@@ -18,8 +18,6 @@ hb.ConfigureServices((context, services) =>
 
 	#endregion
 
-	#region AzureCS
-
 	services.AddSingleton<IMailSender>(sp =>
 	{
 		var logger = sp.GetRequiredService<ILogger<IMailSender>>();
@@ -33,8 +31,6 @@ hb.ConfigureServices((context, services) =>
 
 		return new ScalewayMailSender(logger, emailFrom, secretKey, projectId);
 	});
-
-	#endregion
 	
 	services.AddSingleton(context.Configuration);
 

@@ -24,7 +24,7 @@
 		else
 		{
 			<h2>@AppStrings.alumnos</h2>
-			<div class="alert alert-bad">
+			<div class="alert alert-bad" role="alert">
 				<strong class="alert-title">@AppStrings.Alert_CannotInviteQuotaExceeded_Title</strong>
 				<p>
 					@AppStrings.Alert_CannotInviteQuotaExceeded_Text
@@ -35,7 +35,7 @@
 	else
 	{
 		<h2>@AppStrings.alumnos</h2>
-		<div class="alert alert-good">
+		<div class="alert alert-good" role="alert">
 			<strong class="alert-title">@AppStrings.dashboard_InviteCreated</strong>
 			<p>
 				@AppStrings.dashboard_ShareInviteLink
@@ -46,7 +46,7 @@
 
 	@if (Model.Alumnos.Length == 0)
 	{
-		<div class="alert alert-centre">
+		<div class="alert alert-centre" role="alert">
 			<strong class="alert-title">@AppStrings.Alert_NoAlumnos_Title</strong>
 			<p>
 				@AppStrings.Alert_NoAlumnos_Text

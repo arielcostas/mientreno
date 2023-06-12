@@ -80,6 +80,7 @@ public class ApplicationDatabaseContext : IdentityDbContext
 			.OnDelete(DeleteBehavior.NoAction);
 	}
 
+	public required DbSet<Usuario> Usuarios { get; set; }
 	public required DbSet<Entrenador> Entrenadores { get; set; }
 	public required DbSet<Alumno> Alumnos { get; set; }
 	public required DbSet<Invitacion> Invitaciones { get; set; }

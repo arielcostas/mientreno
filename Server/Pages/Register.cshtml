@@ -9,7 +9,7 @@
 
 	@if (Model.Invitacion is not null)
 	{
-		<div class="alert alert-good">
+		<div class="alert alert-good" role="alert">
 			<strong class="alert-title">@Model.Invitacion.Entrenador.Nombre @AppStrings.Alert_SignUpInvite_Title</strong>
 			<p>
 				@AppStrings.Alert_SignUpInvite_Text <strong>@Model.Invitacion.Entrenador.NombreCompleto.</strong>.
@@ -19,11 +19,11 @@
 
 	@if (Model.EmailSent)
 	{
-		<p>@AppStrings.registrationDoneEmailSent</p>
+		<p>@AppStrings.Alert_RegistrationDoneEmailSent_Text</p>
 	}
 	else if (Model.InviteError)
 	{
-		<div class="alert alert-bad">
+		<div class="alert alert-bad" role="alert">
 			<strong class="alert-title">@AppStrings.Alert_InviteInvalid_Title</strong>
 			<p>
 				@AppStrings.Alert_InviteInvalid_Text

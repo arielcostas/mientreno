@@ -132,7 +132,7 @@
   <data name="Input_Email" xml:space="preserve">
     <value>Correo-e</value>
   </data>
-  <data name="errorInvalidCredentials" xml:space="preserve">
+  <data name="Error_IncorrectCredentials" xml:space="preserve">
     <value>Usuario ou contrasinal incorrectos</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
@@ -158,7 +158,7 @@
   <data name="iveReadAndAccept" xml:space="preserve">
 	  <value>Lín e acepto</value>
   </data>
-  <data name="registrationDoneEmailSent" xml:space="preserve">
+  <data name="Alert_RegistrationDoneEmailSent_Text" xml:space="preserve">
 	  <value>Para confirmar a túa conta, enviámoste un correo-e. Por favor, revisa a túa bandexa de entrada.</value>
   </data>
   <data name="Page_Login" xml:space="preserve">
@@ -269,7 +269,7 @@
   <data name="Doing_CrearEjercicio" xml:space="preserve">
 	  <value>Novo exercicio</value>
   </data>
-  <data name="nuevaCategoria" xml:space="preserve">
+  <data name="Action_CreateCategory" xml:space="preserve">
 	  <value>Nova categoría</value>
   </data>
   <data name="Action_Create" xml:space="preserve">
@@ -320,7 +320,7 @@
   <data name="dashboard_NoPlansCreated" xml:space="preserve">
 	  <value>Non se creou (aínda) ningún plan de adestramento.</value>
   </data>
-  <data name="trainingPlans" xml:space="preserve">
+  <data name="Noun_Rutina_Plural" xml:space="preserve">
 	  <value>Plans de adestramento</value>
   </data>
   <data name="cuestionarios" xml:space="preserve">
@@ -332,7 +332,7 @@
   <data name="availableSoon" xml:space="preserve">
 	  <value>Esta funcionalidade estará dispoñible en breve.</value>
   </data>
-  <data name="plan" xml:space="preserve">
+  <data name="Noun_Plan_Singular" xml:space="preserve">
 	  <value>plan</value>
   </data>
   <data name="dashboard_NoCuestionariosCreated" xml:space="preserve">
@@ -524,7 +524,7 @@
   <data name="Input_RememberDevice" xml:space="preserve">
 	  <value>Lembrar este dispositivo</value>
   </data>
-  <data name="Error_InvalidMfaCode" xml:space="preserve">
+  <data name="Error_IncorrectMfaCode" xml:space="preserve">
 	  <value>Código de autenticador non válido</value>
   </data>
   <data name="Text_ContactPrivacy" xml:space="preserve">

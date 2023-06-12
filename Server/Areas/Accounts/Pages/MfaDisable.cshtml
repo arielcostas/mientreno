@@ -1,0 +1,25 @@
+﻿@page
+@{
+	ViewData["Title"] = AppStrings.Page_MfaDisable;
+}
+@using Microsoft.IdentityModel.Tokens
+@attribute [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
+@model MfaDisableModel
+
+<main id="main-dialogue">
+	<h1>@AppStrings.Page_MfaDisable</h1>
+
+	<p>
+		Introduce tu contraseña para desactivar la autenticación de doble factor.
+	</p>
+
+	<form method="post" id="form">
+		<div class="form-group">
+			<label asp-for="Password">@AppStrings.Input_Password</label>
+			<input asp-for="Password" type="password" autocomplete="current-password" class="form-control"/>
+			<span asp-validation-for="Password" class="text-danger"></span>
+		</div>
+
+		<button class="button button-primary" type="submit">@AppStrings.Action_DisableMFA</button>
+	</form>
+</main>

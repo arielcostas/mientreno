@@ -14,7 +14,7 @@
 
 	@if (Model.ContactoEnviado)
 	{
-		<div class="alert alert-good">
+		<div class="alert alert-good" role="alert">
 			<strong class="alert-title">@AppStrings.Alert_ContactSent_Title</strong>
 			@AppStrings.Alert_ContactSent_Text
 		</div>
@@ -23,7 +23,7 @@
 	<form method="post" id="form">
 		@if (Model.LoggedInPrefill)
 		{
-			<div class="alert alert-good">
+			<div class="alert alert-good" role="alert">
 				<strong class="alert-title">@AppStrings.Alert_ContactPreFilled_Title</strong>
 				@AppStrings.Alert_ContactPreFilled_Text
 			</div>

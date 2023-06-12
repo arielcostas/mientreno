@@ -51,7 +51,7 @@ public class LoginModel : PageModel
 		
 		if (user is null)
 		{
-			MensajeError = AppStrings.errorInvalidCredentials;
+			MensajeError = AppStrings.Error_IncorrectCredentials;
 			return Page();
 		}
 		
@@ -68,7 +68,7 @@ public class LoginModel : PageModel
 			RememberMe = Form.Recordar
 		});
 		
-		MensajeError = AppStrings.errorInvalidCredentials;
+		MensajeError = AppStrings.Error_IncorrectCredentials;
 		return Page();
 	}
 }

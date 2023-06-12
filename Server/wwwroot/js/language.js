@@ -20,7 +20,13 @@ if (cookie) {
 	let userLanguage = navigator.language || navigator.userLanguage;
 	
 	if (userLanguage) {
-		footerLanguageSelector.value = userLanguage;
+		footerLanguageSelector.childNodes.forEach((option) => {
+			if (option.value == null) return;
+			
+			if (option.value.startsWith(userLanguage)) {
+				footerLanguageSelector.value = option.value;
+			}
+		});
 	}
 	
 	// Set the cookie

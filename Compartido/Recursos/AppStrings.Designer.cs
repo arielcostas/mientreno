@@ -87,11 +87,38 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nueva categoría.
+        /// </summary>
+        public static string Action_CreateCategory {
+            get {
+                return ResourceManager.GetString("Action_CreateCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desactivar MFA.
+        /// </summary>
+        public static string Action_DisableMFA {
+            get {
+                return ResourceManager.GetString("Action_DisableMFA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editar.
         /// </summary>
         public static string Action_Edit {
             get {
                 return ResourceManager.GetString("Action_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activar MFA.
+        /// </summary>
+        public static string Action_EnableMFA {
+            get {
+                return ResourceManager.GetString("Action_EnableMFA", resourceCulture);
             }
         }
         
@@ -272,6 +299,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string Alert_NoAlumnos_Title {
             get {
                 return ResourceManager.GetString("Alert_NoAlumnos_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para confirmar tu cuenta, te hemos enviado un correo electrónico. Por favor, revisa tu bandeja de entrada..
+        /// </summary>
+        public static string Alert_RegistrationDoneEmailSent_Text {
+            get {
+                return ResourceManager.GetString("Alert_RegistrationDoneEmailSent_Text", resourceCulture);
             }
         }
         
@@ -546,20 +582,29 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Código de autenticador inválido.
+        ///   Looks up a localized string similar to Usuario o contraseña incorrectos.
         /// </summary>
-        public static string Error_InvalidMfaCode {
+        public static string Error_IncorrectCredentials {
             get {
-                return ResourceManager.GetString("Error_InvalidMfaCode", resourceCulture);
+                return ResourceManager.GetString("Error_IncorrectCredentials", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Usuario o contraseña incorrectos.
+        ///   Looks up a localized string similar to Código de autenticador inválido.
         /// </summary>
-        public static string errorInvalidCredentials {
+        public static string Error_IncorrectMfaCode {
             get {
-                return ResourceManager.GetString("errorInvalidCredentials", resourceCulture);
+                return ResourceManager.GetString("Error_IncorrectMfaCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña incorrecta.
+        /// </summary>
+        public static string Error_IncorrectPassword {
+            get {
+                return ResourceManager.GetString("Error_IncorrectPassword", resourceCulture);
             }
         }
         
@@ -825,11 +870,20 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nueva categoría.
+        ///   Looks up a localized string similar to plan.
         /// </summary>
-        public static string nuevaCategoria {
+        public static string Noun_Plan_Singular {
             get {
-                return ResourceManager.GetString("nuevaCategoria", resourceCulture);
+                return ResourceManager.GetString("Noun_Plan_Singular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planes de entrenamiento.
+        /// </summary>
+        public static string Noun_Rutina_Plural {
+            get {
+                return ResourceManager.GetString("Noun_Rutina_Plural", resourceCulture);
             }
         }
         
@@ -861,11 +915,29 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desactivar MFA.
+        /// </summary>
+        public static string Page_MfaDisable {
+            get {
+                return ResourceManager.GetString("Page_MfaDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configurar MFA.
         /// </summary>
         public static string Page_MfaSetup {
             get {
                 return ResourceManager.GetString("Page_MfaSetup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mi cuenta.
+        /// </summary>
+        public static string Page_MyAccount {
+            get {
+                return ResourceManager.GetString("Page_MyAccount", resourceCulture);
             }
         }
         
@@ -897,20 +969,20 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to plan.
+        ///   Looks up a localized string similar to Desactivar autenticación de dos factores.
         /// </summary>
-        public static string plan {
+        public static string Text_Accounts_DisableMfa {
             get {
-                return ResourceManager.GetString("plan", resourceCulture);
+                return ResourceManager.GetString("Text_Accounts_DisableMfa", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Para confirmar tu cuenta, te hemos enviado un correo electrónico. Por favor, revisa tu bandeja de entrada..
+        ///   Looks up a localized string similar to Activar autenticación de dos factores.
         /// </summary>
-        public static string registrationDoneEmailSent {
+        public static string Text_Accounts_EnableMfa {
             get {
-                return ResourceManager.GetString("registrationDoneEmailSent", resourceCulture);
+                return ResourceManager.GetString("Text_Accounts_EnableMfa", resourceCulture);
             }
         }
         
@@ -1208,15 +1280,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string theTermsAndConditions {
             get {
                 return ResourceManager.GetString("theTermsAndConditions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Planes de entrenamiento.
-        /// </summary>
-        public static string trainingPlans {
-            get {
-                return ResourceManager.GetString("trainingPlans", resourceCulture);
             }
         }
         
