@@ -2,25 +2,38 @@
 :root {
 	--font-sans: "Liberation Sans", 'Verdana Pro', 'Verdana', 'Helvetica Neue', Arial, Helvetica, 'Segoe UI', system-ui, sans-serif;
 	--font-mono: 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Lucida Console', Monaco, monospace;
+	
 	font-family: var(--font-sans);
 	font-size: 16px;
 	line-height: 1.5;
+	
+	color: var(--text);
 
-	--text: #03191F;
-	--black: #03191F;
-	--background: #FBF5F3;
-	--background-alt: #EBE5E3;
-	--background-max: #FFFFFF;
+	--text: #020617;
+	
+	--background: #e4e4e7;
+	--background-alt: #e7e5e4;
 
-	--error: #AC3931;
-
-	--primary: #00f000;
-	--primary-darker: #69f000;
+	--primary: #69f000;
+	--primary-darker: #00f000;
 	--primary-lighter: #a7ea72;
 
-	--warning: #f0f000;
+	--good: #4ade80;
+	--good-alt: #14532d;
 	
-	--corner: 0.15rem;
+	--warning: #fbbf24;
+	--warning-alt: #78350f;
+	
+	--bad: #f87171;
+	--bad-alt: #7f1d1d;
+	
+	--text-max: #03191F;
+	--background-max: #FFFFFF;
+	
+	--black: #03191F;
+	--white: #f8fafc;
+	
+	--corner: 0.25rem;
 
 	--shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
@@ -59,7 +72,7 @@ h1 {
 }
 
 .text-danger {
-	color: var(--error);
+	color: var(--bad);
 }
 
 .code {
@@ -77,14 +90,17 @@ ul, ol {
 
 /*#region Buttons */
 .button {
-	font-size: 1.1em;
+	font-size: 1.1rem;
 	font-weight: bold;
 	text-decoration: none;
 
-	padding: 0.69rem;
+	color: var(--text-max);
 	
-	border-radius: var(--corner);
-	border: 1px solid;
+	padding: 0.75rem;
+	
+	border-top-left-radius: var(--corner);
+	border-top-right-radius: var(--corner);
+	border: 2px solid transparent;
 	
 	transition: all 0.2s ease-in-out;
 }
@@ -95,8 +111,7 @@ ul, ol {
 
 .button-primary {
 	background-color: var(--primary);
-	border-color: var(--primary-darker);
-	color: var(--black);
+	border-bottom-color: var(--black);
 }
 
 .button-primary:hover {
@@ -105,8 +120,7 @@ ul, ol {
 
 .button-disabled, button[disabled="disabled"] {
 	background-color: var(--background-alt);
-	border-color: transparent;
-	color: var(--black);
+	border-bottom-color: transparent;
 }
 
 .button-disabled:hover, button[disabled="disabled"]:hover {
@@ -373,25 +387,32 @@ main {
 
 /*#region Alerts */
 .alert {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 1rem;
+	padding: 0.5rem 1rem;
+	font-size: 1.05rem;
+	
 	border-radius: var(--corner);
-	font-size: 1.1em;
+	border: 2px solid transparent;
 }
 
 .alert-title {
-	font-size: 1.2em;
+	font-size: 1.1em;
 	font-weight: bold;
+	display: block;
 }
 
 .alert-bad {
-	background-color: var(--error);
+	background-color: var(--bad);
+	border-color: var(--bad-alt);
+}
+
+.alert-warning {
+	background-color: var(--warning);
+	border-color: var(--warning-alt);
 }
 
 .alert-good {
-	background-color: var(--primary);
+	background-color: var(--good);
+	border-color: var(--good-alt);
 }
 
 .alert-centre {
@@ -408,17 +429,17 @@ main {
 }
 
 .badge-good {
-	background-color: var(--primary);
-	color: var(--black);
+	background-color: var(--good);
+	color: var(--text-max);
 }
 
 .badge-warning {
 	background-color: var(--warning);
-	color: var(--black);
+	color: var(--text-max);
 }
 
 .badge-bad {
-	background-color: var(--error);
+	background-color: var(--bad);
 	color: var(--background-max);
 }
 

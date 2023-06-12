@@ -35,9 +35,9 @@ meter::-webkit-meter-bar {
 }
 
 meter::-webkit-meter-optimum-value {
-	background: var(--primary);
+	background: var(--good);
 }
 
 meter::-webkit-meter-suboptimum-value {
-	background: var(--error);
+	background: var(--bad);
 }

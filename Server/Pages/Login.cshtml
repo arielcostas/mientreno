@@ -8,11 +8,12 @@
 <main id="main-dialogue">
 	<h1>@AppStrings.Page_Login</h1>
 
-	@if (!Model.MensajeError.IsNullOrEmpty())
+	@if (Model.ModelState.ErrorCount > 0)
 	{
-		<p class="text-danger">
-			@Model.MensajeError
-		</p>
+		<div class="alert alert-bad">
+			<strong class="alert-title">Hubo un error</strong>
+			@Model.ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).FirstOrDefault()
+		</div>
 	}
 
 	<form method="post" id="form">
