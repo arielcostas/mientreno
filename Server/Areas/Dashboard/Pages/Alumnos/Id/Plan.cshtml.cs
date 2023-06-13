@@ -10,7 +10,6 @@ using Mientreno.Server.Extensions;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages.Alumnos.Id;
 
-[Authorize(Roles = Entrenador.RoleName)]
 public class PlanEditorModel : EntrenadorPageModel
 {
 	public PlanEditorModel(UserManager<Usuario> userManager, ApplicationDatabaseContext databaseContext) : base(

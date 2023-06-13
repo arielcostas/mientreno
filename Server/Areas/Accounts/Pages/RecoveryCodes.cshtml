@@ -1,6 +1,6 @@
 ﻿@page
 @{
-	ViewData["Title"] = AppStrings.Page_MfaDisable;
+	ViewData["Title"] = AppStrings.Page_GenerateCodes;
 }
 @using Microsoft.IdentityModel.Tokens
 @attribute [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
@@ -11,28 +11,29 @@
 
 	@if (Model.Codes is not null)
 	{
-		<div class="alert alert-success">
-			<strong class="alert-title">Códigos generados</strong>
-			<ul>
-				@foreach (var codigo in Model.Codes)
-				{
-					<li>
-						@codigo
-					</li>
-				}
-			</ul>
-			<p>
-				Por favor, almacena estos códigos en un lugar seguro.
-				Una vez salgas de esta página, no podrás volver a verlos.
-			</p>
+		<div class="alert alert-good">
+			<strong class="alert-title">@AppStrings.Alert_RecoveryCodesGenerated_Title</strong>
+			@AppStrings.Alert_RecoveryCodesGenerated_Text
 		</div>
+
+		<code class="text-centre">
+			@Html.Raw(string.Join("<br />", Model.Codes))
+		</code>
+
+		<a class="button button-primary" asp-page="/Index" asp-area="Accounts">
+			@AppStrings.Action_Exit
+		</a>
 	}
 	else
 	{
 		<p>
+			@AppStrings.Text_Accounts_Accounts_RecoveryCodesAreFor
+		</p>
+
+		<p>
 			@AppStrings.Text_Accounts_EnterPasswordToRegenerateCodes
 		</p>
-		
+
 		<form method="post">
 			<div class="form-group">
 				<label asp-for="Password">@AppStrings.Input_Password</label>
@@ -40,7 +41,7 @@
 				<span asp-validation-for="Password" class="text-danger"></span>
 			</div>
 
-			<button class="button button-primary" type="submit">@AppStrings.Action_DisableMFA</button>
+			<button class="button button-primary" type="submit">@AppStrings.Action_GenerateCodes</button>
 		</form>
 	}
 </main>

@@ -7,6 +7,14 @@
 
 <main id="main-dialogue">
 	<h1>@AppStrings.Noun_Rutina_Plural</h1>
+	
+	@if (Model.ModelState.ErrorCount > 0)
+	{
+		<div class="alert alert-bad">
+			<strong class="alert-title">@AppStrings.Alert_ValidationErrors_Title</strong>
+			@Model.ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).FirstOrDefault()
+		</div>
+	}
 
 	@{ var disabled = !Model.Editable; }
 	<form method="POST">
@@ -39,7 +47,7 @@
 			@for (var i = 0; i < Model.Form.EjerciciosPlan.Length; i++)
 			{
 				<article class="ejercicio">
-					<select asp-for="Form.EjerciciosPlan[i].Ejercicio" class="form-control" title="Ejercicio" disabled="@disabled">
+					<select asp-for="Form.EjerciciosPlan[i].Ejercicio" class="form-control form-control-filled" title="Ejercicio" disabled="@disabled">
 						@foreach (var group in groupedByCategory)
 						{
 							<optgroup label="@group.Key!.Nombre">
@@ -70,7 +78,7 @@
 			@if (Model.Form.EjerciciosPlan.Length == 0)
 			{
 				<article class="ejercicio">
-					<select name="Form.EjerciciosPlan[0].Ejercicio" class="form-control" title="Ejercicio" disabled="@disabled">
+					<select name="Form.EjerciciosPlan[0].Ejercicio" class="form-control form-control-filled" title="Ejercicio" disabled="@disabled">
 						@foreach (var group in groupedByCategory)
 						{
 							<optgroup label="@group.Key!.Nombre">
@@ -81,9 +89,9 @@
 							</optgroup>
 						}
 					</select>
-					<input name="Form.EjerciciosPlan[0].Series" class="form-control" placeholder="Series" type="number" min="0" disabled="@disabled"/>
-					<input name="Form.EjerciciosPlan[0].Repeticiones" class="form-control" placeholder="Reps." type="number" min="0" disabled="@disabled"/>
-					<input name="Form.EjerciciosPlan[0].Minutos" class="form-control" placeholder="Min." type="number" min="0" disabled="@disabled"/>
+					<input name="Form.EjerciciosPlan[0].Series" class="form-control form-control-filled" placeholder="Series" type="number" min="0" disabled="@disabled"/>
+					<input name="Form.EjerciciosPlan[0].Repeticiones" class="form-control form-control-filled" placeholder="Reps." type="number" min="0" disabled="@disabled"/>
+					<input name="Form.EjerciciosPlan[0].Minutos" class="form-control form-control-filled" placeholder="Min." type="number" min="0" disabled="@disabled"/>
 				</article>
 			}
 		</div>

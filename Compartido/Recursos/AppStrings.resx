@@ -420,7 +420,7 @@
 	  <value>Sin nombre</value>
   </data>
   <data name="Text_Alumnos_ScheduledJornadas" xml:space="preserve">
-	  <value>Tus entrenamientos programados</value>
+	  <value>Entrenamientos programados</value>
   </data>
   <data name="Text_Alumnos_NoJornadasScheduled" xml:space="preserve">
 	  <value>No tienes entrenamientos programados. Si crees que se trata de un error, ponte en contacto con tu entrenador.</value>
@@ -565,5 +565,23 @@
   </data>
   <data name="Text_Accounts_EnterPasswordToRegenerateCodes" xml:space="preserve">
 	  <value>Introduce tu contraseña para regenerar tus códigos de recuperación.</value>
+  </data>
+  <data name="Alert_UnexpectedError_Title" xml:space="preserve">
+	  <value>Hubo un error</value>
+  </data>
+  <data name="Alert_RecoveryCodesGenerated_Title" xml:space="preserve">
+	  <value>Códigos generados</value>
+  </data>
+  <data name="Alert_RecoveryCodesGenerated_Text" xml:space="preserve">
+	  <value>Por favor, almacena estos códigos en un lugar seguro. Una vez salgas de esta página, no podrás volver a verlos.</value>
+  </data>
+  <data name="Text_Accounts_Accounts_RecoveryCodesAreFor" xml:space="preserve">
+	  <value>Los códigos de recuperación son necesarios si pierdes tu autenticador MFA. Si ya generaste códigos previamente, generarlos de nuevo invalidará los ya existentes.</value>
+  </data>
+  <data name="Action_GenerateCodes" xml:space="preserve">
+	  <value>Generar códigos</value>
+  </data>
+  <data name="Text_Accounts_GenerateRecoveryCodes" xml:space="preserve">
+	  <value>Regenerar códigos de recuperación</value>
   </data>
 </root>

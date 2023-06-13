@@ -1,6 +1,7 @@
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
 using Mientreno.QueueWorker.Mailing;
+using Mientreno.Server.Connectors.Mailing;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 

@@ -43,7 +43,7 @@ public class GenerateRecoveryCodesModel : UsuarioPageModel
 
 		return Page();
 	}
-	
+
 	[BindProperty] public string Password { get; set; } = string.Empty;
 	public List<string>? Codes { get; set; }
 }

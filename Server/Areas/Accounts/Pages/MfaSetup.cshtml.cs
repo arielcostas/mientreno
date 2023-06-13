@@ -95,7 +95,7 @@ public class MfaSetupModel : UsuarioPageModel
 			result.Append(sharedKey.AsSpan(currentPosition));
 		}
 
-		return result.ToString().ToLowerInvariant();
+		return result.ToString().ToUpperInvariant();
 	}
 }
 

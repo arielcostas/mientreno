@@ -1,7 +1,8 @@
 using System.Text.RegularExpressions;
 using Markdig;
+using Mientreno.Compartido.Mensajes;
 
-namespace Mientreno.QueueWorker.Mailing;
+namespace Mientreno.Server.Connectors.Mailing;
 
 /// <summary>
 /// It generates an <see cref="Email">Email</see> with the email message to be sent according to the template and the language.
@@ -52,7 +53,7 @@ public partial class EmailTemplate
 
 		return (subject, plain, html);
 	}
-
+	
 	[GeneratedRegex("^#\\s?")]
 	private static partial Regex MyRegex();
 

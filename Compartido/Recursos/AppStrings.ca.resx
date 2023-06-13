@@ -420,7 +420,7 @@
 	  <value>Sense nom</value>
   </data>
   <data name="Text_Alumnos_ScheduledJornadas" xml:space="preserve">
-	  <value>Els teus entrenaments programats</value>
+	  <value>Entrenaments programats</value>
   </data>
   <data name="Text_Alumnos_NoJornadasScheduled" xml:space="preserve">
 	  <value>No teniu entrenaments programats. Si creus que és un error, posa't en contacte amb el teu entrenador.</value>

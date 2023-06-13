@@ -420,7 +420,7 @@
 	  <value>Sen nome</value>
   </data>
   <data name="Text_Alumnos_ScheduledJornadas" xml:space="preserve">
-	  <value>Os teus adestramentos programados</value>
+	  <value>Adestramentos programados</value>
   </data>
   <data name="Text_Alumnos_NoJornadasScheduled" xml:space="preserve">
 	  <value>Non tes ningún adestramento programado. Se cres que se trata dun erro, ponte en contacto co teu adestrador.</value>

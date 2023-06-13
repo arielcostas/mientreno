@@ -132,6 +132,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generar códigos.
+        /// </summary>
+        public static string Action_GenerateCodes {
+            get {
+                return ResourceManager.GetString("Action_GenerateCodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invitar.
         /// </summary>
         public static string Action_Invite {
@@ -312,6 +321,24 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Por favor, almacena estos códigos en un lugar seguro. Una vez salgas de esta página, no podrás volver a verlos..
+        /// </summary>
+        public static string Alert_RecoveryCodesGenerated_Text {
+            get {
+                return ResourceManager.GetString("Alert_RecoveryCodesGenerated_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Códigos generados.
+        /// </summary>
+        public static string Alert_RecoveryCodesGenerated_Title {
+            get {
+                return ResourceManager.GetString("Alert_RecoveryCodesGenerated_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Para confirmar tu cuenta, te hemos enviado un correo electrónico. Por favor, revisa tu bandeja de entrada..
         /// </summary>
         public static string Alert_RegistrationDoneEmailSent_Text {
@@ -335,6 +362,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string Alert_SignUpInvite_Title {
             get {
                 return ResourceManager.GetString("Alert_SignUpInvite_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hubo un error.
+        /// </summary>
+        public static string Alert_UnexpectedError_Title {
+            get {
+                return ResourceManager.GetString("Alert_UnexpectedError_Title", resourceCulture);
             }
         }
         
@@ -996,6 +1032,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Los códigos de recuperación son necesarios si pierdes tu autenticador MFA. Si ya generaste códigos previamente, generarlos de nuevo invalidará los ya existentes..
+        /// </summary>
+        public static string Text_Accounts_Accounts_RecoveryCodesAreFor {
+            get {
+                return ResourceManager.GetString("Text_Accounts_Accounts_RecoveryCodesAreFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Desactivar autenticación de dos factores.
         /// </summary>
         public static string Text_Accounts_DisableMfa {
@@ -1028,6 +1073,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string Text_Accounts_EnterPasswordToRegenerateCodes {
             get {
                 return ResourceManager.GetString("Text_Accounts_EnterPasswordToRegenerateCodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regenerar códigos de recuperación.
+        /// </summary>
+        public static string Text_Accounts_GenerateRecoveryCodes {
+            get {
+                return ResourceManager.GetString("Text_Accounts_GenerateRecoveryCodes", resourceCulture);
             }
         }
         
@@ -1086,7 +1140,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tus entrenamientos programados.
+        ///   Looks up a localized string similar to Entrenamientos programados.
         /// </summary>
         public static string Text_Alumnos_ScheduledJornadas {
             get {

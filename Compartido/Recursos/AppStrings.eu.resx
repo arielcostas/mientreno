@@ -420,7 +420,7 @@
 	  <value>Izenik gabe</value>
   </data>
   <data name="Text_Alumnos_ScheduledJornadas" xml:space="preserve">
-	  <value>Zure programatutako entrenamenduak</value>
+	  <value>Programatutako entrenamenduak</value>
   </data>
   <data name="Text_Alumnos_NoJornadasScheduled" xml:space="preserve">
 	  <value>Ez duzu programatutako entrenamendurik. Hau akats bat dela uste baduzu, jarri harremanetan zure entrenatzailearekin.</value>

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using Mientreno.Server.Data.Models;
 
 namespace Mientreno.Server.Areas.Dashboard.Services;
 
+[Authorize(Roles = Entrenador.RoleName)]
 public class EntrenadorPageModel : PageModel
 {
 	protected readonly UserManager<Usuario> UserManager;

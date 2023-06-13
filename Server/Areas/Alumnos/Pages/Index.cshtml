@@ -10,9 +10,13 @@
 <main id="main-container">
 	<h1>@AppStrings.hello, @Model.Alumno.Nombre</h1>
 
-	<h3>@AppStrings.Text_Dashboard_MyAccount_Title</h3>
+	<h3>👤 @AppStrings.Text_Dashboard_MyAccount_Title</h3>
 
-	<a asp-page="/Logout" asp-area="" class="link link-primary link-bold">
+	<a asp-page="/Index" asp-area="Accounts" class="link link-primary link-bold">
+		@AppStrings.Action_ManageAccount
+	</a>
+
+	<a asp-page="/Logout" asp-area="Accounts" class="link link-bad link-bold">
 		@AppStrings.Action_Logout
 	</a>
 
@@ -30,41 +34,25 @@
 		<p>@AppStrings.Text_Alumnos_NoJornadasScheduled</p>
 	}
 
-	<ul>
-		@foreach (var jornada in entrenamientosPublicados)
+	<section id="section-planes">
+		@foreach (var rutina in entrenamientosPublicados)
 		{
-			var badgeColour = jornada.Estado switch
-			{
-				EstadoRutina.Borrador => "bad",
-				EstadoRutina.Publicada => "warning",
-				EstadoRutina.EnCurso => "warning",
-				EstadoRutina.Finalizada => "good",
-				EstadoRutina.Evaluada => "good",
-				_ => "bad"
-				};
-
-			var badgeText = jornada.Estado switch {
-				EstadoRutina.Borrador => AppStrings.Noun_EstadoRutina_Borrador,
-				EstadoRutina.Publicada => AppStrings.Noun_EstadoRutina_Publicada,
-				EstadoRutina.EnCurso => AppStrings.Noun_EstadoRutina_EnCurso,
-				EstadoRutina.Finalizada => AppStrings.Noun_EstadoRutina_Finalizada,
-				EstadoRutina.Evaluada => AppStrings.Noun_EstadoRutina_Evaluada,
-				_ => throw new ArgumentOutOfRangeException()
-				};
-
-			<li>
-				<span class="badge badge-@badgeColour">@badgeText</span>
+			<a href="Alumnos/Plan?p=@rutina.Id" class="link">
+				<span class="badge badge-@rutina.BadgeColour">@rutina.BadgeText</span>
 				-
-				<a class="link link-text"
-				   href="Alumnos/Plan?p=@jornada.Id">
-					@if (jornada.Nombre.IsNullOrWhiteSpace())
+				<span class="link link-text">
+					@if (rutina.Nombre.IsNullOrWhiteSpace())
 					{
 						<i>@AppStrings.Noun_JornadaEntrenamiento_NoName</i>
 					}
 
-					@jornada.Nombre
-				</a >
-			</li>
+					@rutina.Nombre
+				</span>
+				-
+				<span class="link link-text">
+					@rutina.UltimaFecha.ToString("dd MMMM yyyy', ' HH:mm")
+				</span>
+			</a>
 		}
-	</ul>
+	</section>
 </main>

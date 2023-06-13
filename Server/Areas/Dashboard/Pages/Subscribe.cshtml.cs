@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido;
+using Mientreno.Server.Areas.Dashboard.Services;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
 using Stripe;
@@ -11,14 +12,14 @@ using Stripe.BillingPortal;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages;
 
-public class SubscribeModel : PageModel
+public class SubscribeModel : EntrenadorPageModel
 {
 	private readonly ApplicationDatabaseContext _context;
 	private readonly IConfiguration _configuration;
 	private readonly UserManager<Usuario> _userManager;
 
 	public SubscribeModel(ApplicationDatabaseContext context, IConfiguration configuration,
-		UserManager<Usuario> userManager)
+		UserManager<Usuario> userManager) : base(userManager, context)
 	{
 		_configuration = configuration;
 		_userManager = userManager;
@@ -37,18 +38,14 @@ public class SubscribeModel : PageModel
 
 	public async Task<IActionResult> OnGet()
 	{
-		var usuario = (await _userManager.GetUserAsync(User))!;
-
-		Entrenador = _context.Entrenadores
-			.Include(e => e.Suscripcion)
-			.FirstOrDefault(e => e.Id == usuario.Id)!;
-
+		LoadEntrenador();
+		
 		if (Entrenador.Suscripcion.CustomerId.IsNullOrEmpty())
 		{
 			var customerCreateOptions = new CustomerCreateOptions
 			{
-				Email = usuario.Email,
-				Name = usuario.Nombre,
+				Email = Entrenador.Email,
+				Name = Entrenador.Nombre,
 				PreferredLocales = new List<string> { Idiomas.Castellano },
 			};
 			

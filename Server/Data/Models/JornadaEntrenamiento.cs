@@ -1,4 +1,5 @@
-﻿using Mientreno.Server.Extensions;
+﻿using Mientreno.Compartido.Recursos;
+using Mientreno.Server.Extensions;
 
 namespace Mientreno.Server.Data.Models;
 
@@ -28,6 +29,47 @@ public class JornadaEntrenamiento
 		if (FechaFinRealizacion is not null) return EstadoRutina.Finalizada;
 		if (FechaInicioRealizacion is not null) return EstadoRutina.EnCurso;
 		return FechaPublicacion is not null ? EstadoRutina.Publicada : EstadoRutina.Borrador;
+	}
+	
+	public string BadgeColour => GetBadgeColour();
+
+	private string GetBadgeColour()
+	{
+		return Estado switch
+		{
+			EstadoRutina.Borrador => "bad",
+			EstadoRutina.Publicada => "warning",
+			EstadoRutina.EnCurso => "warning",
+			EstadoRutina.Finalizada => "good",
+			EstadoRutina.Evaluada => "good",
+			_ => "bad"
+		};
+	}
+	
+	public string BadgeText => GetBadgeText();
+
+	private string GetBadgeText()
+	{
+		return Estado switch
+		{
+			EstadoRutina.Borrador => AppStrings.Noun_EstadoRutina_Borrador,
+			EstadoRutina.Publicada => AppStrings.Noun_EstadoRutina_Publicada,
+			EstadoRutina.EnCurso => AppStrings.Noun_EstadoRutina_EnCurso,
+			EstadoRutina.Finalizada => AppStrings.Noun_EstadoRutina_Finalizada,
+			EstadoRutina.Evaluada => AppStrings.Noun_EstadoRutina_Evaluada,
+			_ => throw new ArgumentOutOfRangeException()
+		};
+	}
+	
+	public DateTime UltimaFecha => GetUltimaFecha();
+
+	private DateTime GetUltimaFecha()
+	{
+		return FechaEvalucion ??
+		       FechaFinRealizacion ??
+		       FechaInicioRealizacion ??
+		       FechaPublicacion ??
+		       FechaCreacion;
 	}
 }
 

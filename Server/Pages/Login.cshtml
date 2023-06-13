@@ -11,7 +11,7 @@
 	@if (Model.ModelState.ErrorCount > 0)
 	{
 		<div class="alert alert-bad">
-			<strong class="alert-title">Hubo un error</strong>
+			<strong class="alert-title">@AppStrings.Alert_UnexpectedError_Title</strong>
 			@Model.ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).FirstOrDefault()
 		</div>
 	}

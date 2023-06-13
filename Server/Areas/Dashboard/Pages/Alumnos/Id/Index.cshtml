@@ -10,7 +10,7 @@
 	<h1>
 		@Model.Alumno.NombreCompleto
 	</h1>
-
+	<!--
 	<div class="title-with-action">
 		<h2>@AppStrings.cuestionarios</h2>
 		<a href="#" class="button button-disabled">+ @AppStrings.Action_Create @AppStrings.cuestionario</a>
@@ -22,7 +22,7 @@
 			<strong class="alert-title">@AppStrings.dashboard_NoCuestionariosCreated</strong>
 			<p>@AppStrings.availableSoon</p>
 		</div>
-	}
+	}-->
 
 	<div class="title-with-action">
 		<h2>@AppStrings.Noun_Rutina_Plural</h2>
@@ -38,40 +38,25 @@
 		</div>
 	}
 
-	<section>
+	<section id="section-planes">
 		@foreach (var rutina in Model.Alumno.JornadasEntrenamientos.OrderBy(r => r.Estado))
 		{
-			var badgeColour = rutina.Estado switch
-			{
-				EstadoRutina.Borrador => "bad",
-				EstadoRutina.Publicada => "warning",
-				EstadoRutina.EnCurso => "warning",
-				EstadoRutina.Finalizada => "good",
-				EstadoRutina.Evaluada => "good",
-				_ => "bad"
-				};
-
-			var badgeText = rutina.Estado switch {
-				EstadoRutina.Borrador => AppStrings.Noun_EstadoRutina_Borrador,
-				EstadoRutina.Publicada => AppStrings.Noun_EstadoRutina_Publicada,
-				EstadoRutina.EnCurso => AppStrings.Noun_EstadoRutina_EnCurso,
-				EstadoRutina.Finalizada => AppStrings.Noun_EstadoRutina_Finalizada,
-				EstadoRutina.Evaluada => AppStrings.Noun_EstadoRutina_Evaluada,
-				_ => throw new ArgumentOutOfRangeException()
-				};
-			<li>
-				<span class="badge badge-@badgeColour">@badgeText</span>
+			<a href="@Model.Id/Plan?p=@rutina.Id" class="link">
+				<span class="badge badge-@rutina.BadgeColour">@rutina.BadgeText</span>
 				-
-				<a class="link link-text"
-				   href="@Model.Id/Plan?p=@rutina.Id">
+				<span class="link link-text">
 					@if (rutina.Nombre.IsNullOrWhiteSpace())
 					{
 						<i>@AppStrings.Noun_JornadaEntrenamiento_NoName</i>
 					}
 
 					@rutina.Nombre
-				</a >
-			</li>
+				</span>
+				-
+				<span class="link link-text">
+					@rutina.UltimaFecha.ToString("dd MMMM yyyy', ' HH:mm")
+				</span>
+			</a>
 		}
 	</section>
 </main>

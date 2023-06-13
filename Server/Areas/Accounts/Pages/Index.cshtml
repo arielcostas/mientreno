@@ -8,10 +8,12 @@
 
 <main id="main-dialogue">
 	<h1>@AppStrings.hello, @Model.Usuario.Nombre</h1>
-	
-	<a asp-area="@area" asp-page="/Index">&lt; Atrás</a>
 
-	<h2>@AppStrings.Text_Dashboard_MyAccount_Title</h2>
+	<a asp-area="@area" asp-page="/Index" class="link link-bold link-text">
+		&lt; Atrás
+	</a>
+	<!--
+	<h2>👤 @AppStrings.Text_Dashboard_MyAccount_Title</h2>
 
 	<form method="post">
 		<fieldset class="form-group-double">
@@ -34,16 +36,21 @@
 			<label class="form-label">Foto de perfil</label>
 			<input type="file" class="form-control form-control-filled"/>
 		</div>
-	</form>
+	</form>-->
 
 	<h2>Métodos de autenticación</h2>
-	
+
+	<!--
 	<a asp-page="ChangePassword" asp-area="Accounts" class="link link-primary link-bold">
 		Cambiar contraseña
-	</a>
+	</a>-->
 
 	@if (Model.Usuario.TwoFactorEnabled)
 	{
+		<a asp-page="RecoveryCodes" asp-area="Accounts" class="link link-primary link-bold">
+			@AppStrings.Text_Accounts_GenerateRecoveryCodes
+		</a>
+		
 		<a asp-page="MfaDisable" asp-area="Accounts" class="link link-primary link-bold">
 			@AppStrings.Text_Accounts_DisableMfa
 		</a>
@@ -57,7 +64,7 @@
 
 	<h2>Acciones</h2>
 
-	<a asp-page="/Logout" asp-area="" class="link link-primary link-bold">
+	<a asp-page="/Logout" asp-area="Accounts" class="link link-bad link-bold">
 		@AppStrings.Action_Logout
 	</a>
 

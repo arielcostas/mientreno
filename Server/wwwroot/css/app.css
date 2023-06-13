@@ -60,11 +60,6 @@ body {
 	flex-direction: column;
 }
 
-main {
-	flex-grow: 1;
-	flex-shrink: 0;
-}
-
 header, footer {
 	flex-grow: 0;
 	flex-shrink: 0;
@@ -223,6 +218,15 @@ ul, ol {
 	color: #fff;
 }
 
+.link-bad {
+	color: var(--bad);
+}
+
+.link-bad::selection {
+	background: var(--bad);
+	color: #fff;
+}
+
 .link-external::after {
 	content: "↗";
 	font-size: 0.8em;
@@ -346,6 +350,9 @@ header nav:has(img) img {
 main {
 	display: flex;
 	flex-direction: column;
+
+	flex-grow: 1;
+	flex-shrink: 0;
 }
 
 #main-dialogue {
@@ -354,7 +361,7 @@ main {
 	margin: 3rem auto;
 	width: 42rem;
 	border-radius: 0.5rem;
-
+	
 	gap: 1.5rem;
 
 	box-shadow: var(--shadow);
@@ -369,7 +376,7 @@ main {
 
 #main-invisible-dialogue {
 	margin: 3rem auto;
-	width: 42rem;
+	width: min(42rem, 80vw);
 
 	gap: 1.5rem;
 }
@@ -460,7 +467,7 @@ main {
 	border-color: var(--good-alt);
 }
 
-.alert-centre {
+.text-centre {
 	text-align: center;
 }
 /*#endregion */
