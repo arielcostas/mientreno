@@ -89,8 +89,12 @@ public static class Startup
 
 	public static void SetupAccessControl(this WebApplicationBuilder builder)
 	{
-		builder.Services.AddIdentity<Usuario, IdentityRole>(options => { options.SignIn.RequireConfirmedAccount = true; })
+		builder.Services.AddIdentity<Usuario, IdentityRole>(options =>
+			{
+				options.SignIn.RequireConfirmedAccount = true;
+			})
 			.AddDefaultTokenProviders()
+			.AddApiEndpoints()
 			.AddEntityFrameworkStores<ApplicationDatabaseContext>();
 
 		builder.Services.ConfigureApplicationCookie(options =>

@@ -64,7 +64,7 @@ app.UseAuthorization();
 app.UseRequestLocalization();
 app.UseStaticFiles();
 
-app.UseFileServer(new FileServerOptions()
+app.UseFileServer(new FileServerOptions
 {
 	RequestPath = "/Static",
 	FileProvider = new PhysicalFileProvider(
@@ -75,5 +75,7 @@ app.UseFileServer(new FileServerOptions()
 
 app.MapRazorPages();
 app.MapControllers();
+
+app.MapGroup("/api/Identity").MapIdentityApi<Usuario>();
 
 app.Run();
