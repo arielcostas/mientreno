@@ -94,7 +94,6 @@ public static class Startup
 				options.SignIn.RequireConfirmedAccount = true;
 			})
 			.AddDefaultTokenProviders()
-			.AddApiEndpoints()
 			.AddEntityFrameworkStores<ApplicationDatabaseContext>();
 
 		builder.Services.ConfigureApplicationCookie(options =>

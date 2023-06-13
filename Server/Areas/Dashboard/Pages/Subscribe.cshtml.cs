@@ -28,12 +28,10 @@ public class SubscribeModel : EntrenadorPageModel
 		StripePublishable = _configuration["Stripe:Publishable"]!;
 		StripePricingTable = _configuration["Stripe:PricingTable"]!;
 		StripeSubscriptionManager = string.Empty;
-		Entrenador = null!;
 	}
 
 	public string StripePublishable { get; set; }
 	public string StripeSubscriptionManager { get; set; }
-	public Entrenador Entrenador { get; set; }
 	public string StripePricingTable { get; set; }
 
 	public async Task<IActionResult> OnGet()

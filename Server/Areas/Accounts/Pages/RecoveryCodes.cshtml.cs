@@ -18,7 +18,7 @@ public class GenerateRecoveryCodesModel : UsuarioPageModel
 	{
 	}
 	
-	public async Task<IActionResult> OnGetAsync()
+	public IActionResult OnGetAsync()
 	{
 		LoadUsuario();
 

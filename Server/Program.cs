@@ -77,6 +77,4 @@ app.UseFileServer(new FileServerOptions
 app.MapRazorPages();
 app.MapControllers();
 
-app.MapGroup("/api/Identity").MapIdentityApi<Usuario>();
-
 app.Run();
