@@ -15,7 +15,7 @@ sería:
 }
 ```
 
-### Correo electrónico (QueueWorker)
+### Scaleway (Server)
 
 Datos de Scaleway.
 
@@ -29,7 +29,7 @@ Datos de Scaleway.
 }
 ```
 
-### RabbitMQ (Server y QueueWorker)
+### RabbitMQ (Server)
 
 ```json5
 {
@@ -37,7 +37,7 @@ Datos de Scaleway.
 }
 ```
 
-### Guardado de imágenes local (Server y QueueWorker)
+### Guardado de imágenes local (Server)
 
 ```json5
 {
@@ -53,6 +53,19 @@ Datos de Scaleway.
 		"Publishable": "sk_test_51N0V4dKk3b9U3IGl6anM7TsSjZLMJTdmyjgKo7Ucn83XKMkJKIhnX29sQ1F8BwERf2oColu165b9oWGBJazYjo0w00NjffAixa",
 		"Secret": "sk_test_51N0V4dKk3b9U3IGl6anM7TsSjZLMJTdmyjgKo7Ucn83XKMkJKIhnX29sQ1F8BwERf2oColu165b9oWGBJazYjo0w00NjffAixa",
 		"Webhook": ""
+	}
+}
+```
+
+### Workers
+
+Si ejecutar o no los workers de fondo que corren en segundo plano.
+
+```json5
+{
+	"Workers": {
+		"RunProfileGenerator": true,
+		"RunEmailSender": true
 	}
 }
 ```

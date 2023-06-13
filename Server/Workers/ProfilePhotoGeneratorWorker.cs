@@ -2,77 +2,49 @@ using System.Security.Cryptography;
 using System.Text;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
-using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
+using Mientreno.Server.Connectors.Queue;
 using SkiaSharp;
 
-namespace Mientreno.QueueWorker;
+namespace Mientreno.Server.Workers;
 
 public class ProfilePhotoGeneratorWorker : BackgroundService
 {
 	private readonly ILogger<ProfilePhotoGeneratorWorker> _logger;
 	private readonly string _baseDir;
 
-	private readonly IConnection _connection;
-	private IModel? _channel;
+	private readonly IQueueConsumer<NuevaFoto> _consumer;
 
-	public ProfilePhotoGeneratorWorker(ILogger<ProfilePhotoGeneratorWorker> logger, IConnection rabbitConnection,
+	public ProfilePhotoGeneratorWorker(ILogger<ProfilePhotoGeneratorWorker> logger, IQueueConsumer<NuevaFoto> consumer,
 		IConfiguration configuration)
 	{
 		_logger = logger;
-
-		_connection = rabbitConnection;
+		_consumer = consumer;
 
 		_baseDir = configuration["FileBase"] ?? throw new Exception("FileBase not found");
 		_baseDir = Path.Combine(_baseDir.Trim(), "profile");
 		Directory.CreateDirectory(_baseDir);
 	}
 
-	public override async Task StartAsync(CancellationToken cancellationToken)
-	{
-		_logger.LogInformation("Profile photo generation worker...");
-
-		_channel = _connection.CreateModel();
-
-		_channel.ExchangeDeclare("mientreno", ExchangeType.Direct, true, false);
-		_channel.QueueDeclare(Constantes.ColaGenerarFotoPerfil, true, false, false);
-		_channel.QueueBind(Constantes.ColaGenerarFotoPerfil, "mientreno", Constantes.ColaGenerarFotoPerfil);
-
-		await base.StartAsync(cancellationToken);
-	}
-
 	protected override Task ExecuteAsync(CancellationToken stoppingToken)
 	{
-		return Task.Run(() =>
-		{
-			var consumer = new EventingBasicConsumer(_channel);
-			consumer.Received += OnReceived;
-			_channel.BasicConsume(Constantes.ColaGenerarFotoPerfil, false, consumer);
-		}, stoppingToken);
+		_consumer.Listen(Constantes.ColaGenerarFotoPerfil, OnGenerar);
+		
+		return Task.CompletedTask;
 	}
 
-	private void OnReceived(object? sender, BasicDeliverEventArgs e)
+	private void OnGenerar(NuevaFoto input)
 	{
-		var bodyBytes = e.Body.ToArray();
-		var data = Serializador.Deserializar<NuevaFoto>(bodyBytes)!;
+		_logger.LogInformation("Generating profile photo for {DataNombre} {DataApellidos}...", input.Nombre,
+			input.Apellidos);
 
-		_logger.LogInformation("Generating profile photo for {DataNombre} {DataApellidos}...", data.Nombre,
-			data.Apellidos);
-
-		if (data == null)
-		{
-			_logger.LogError("Invalid message");
-			throw new Exception("Invalid message");
-		}
-
-		var bmp = GenerarImagen($"{data.Nombre} {data.Apellidos}");
-		_logger.LogInformation("Profile photo generated for {DataNombre} {DataApellidos}...", data.Nombre,
-			data.Apellidos);
+		var bmp = GenerarImagen($"{input.Nombre} {input.Apellidos}");
+		_logger.LogInformation("Profile photo generated for {DataNombre} {DataApellidos}...", input.Nombre,
+			input.Apellidos);
 		_logger.LogInformation("Saving profile photo to {Path}...", _baseDir);
 
 		var png = Task.Run(() =>
 		{
-			var pngOut = GetOutputStream($"{data.IdUsuario}.png");
+			var pngOut = GetOutputStream($"{input.IdUsuario}.png");
 			if (!pngOut.CanWrite)
 			{
 				throw new Exception("Can't write to PNG file");
@@ -81,15 +53,15 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 			var png = bmp.Encode(SKEncodedImageFormat.Png, 90);
 			png.SaveTo(pngOut);
 
-			_logger.LogInformation("Png profile photo saved for {DataNombre} {DataApellidos}...", data.Nombre,
-				data.Apellidos);
+			_logger.LogInformation("Png profile photo saved for {DataNombre} {DataApellidos}...", input.Nombre,
+				input.Apellidos);
 			
 			pngOut.Close();
 		});
 
 		var webp = Task.Run(() =>
 		{
-			var webpOut = GetOutputStream($"{data.IdUsuario}.webp");
+			var webpOut = GetOutputStream($"{input.IdUsuario}.webp");
 
 			if (!webpOut.CanWrite)
 			{
@@ -99,23 +71,13 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 			var webp = bmp.Encode(SKEncodedImageFormat.Webp, 90);
 			webp.SaveTo(webpOut);
 
-			_logger.LogInformation("Webp profile photo saved for {DataNombre} {DataApellidos}...", data.Nombre,
-				data.Apellidos);
+			_logger.LogInformation("Webp profile photo saved for {DataNombre} {DataApellidos}...", input.Nombre,
+				input.Apellidos);
 
 			webpOut.Close();
 		});
 		
 		Task.WaitAll(png, webp);
-		_channel?.BasicAck(e.DeliveryTag, false);
-		_logger.LogInformation("Acked");
-	}
-
-	public override Task StopAsync(CancellationToken cancellationToken)
-	{
-		_logger.LogInformation("Stopping profile photo generator...");
-		_channel?.Close();
-		_logger.LogInformation("Profile photo generator stopped...");
-		return base.StopAsync(cancellationToken);
 	}
 
 	/// <summary>
@@ -176,7 +138,7 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 		return !(background.Red * 0.299 + background.Green * 0.587 + background.Blue * 0.114 > 186);
 	}
 
-	private Stream GetOutputStream(string name)
+	private FileStream GetOutputStream(string name)
 	{
 		return File.OpenWrite(
 			Path.Combine(_baseDir, name)
