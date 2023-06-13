@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
+using Mientreno.Server.Connectors.Queue;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service.Queue;
 using Stripe;
 
 namespace Mientreno.Server.Controllers;

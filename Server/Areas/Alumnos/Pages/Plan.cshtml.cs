@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mientreno.Server.Areas.Alumnos.Services;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service;
+using Mientreno.Server.Extensions;
 
 namespace Mientreno.Server.Areas.Alumnos.Pages;
 

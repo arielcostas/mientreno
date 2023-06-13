@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Mientreno.Server.Areas.Dashboard.Services;
+using Mientreno.Server.Business;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service;
 using Stripe;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages.Alumnos;

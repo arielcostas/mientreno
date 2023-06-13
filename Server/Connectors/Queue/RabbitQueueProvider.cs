@@ -1,7 +1,7 @@
 using Mientreno.Compartido.Mensajes;
 using RabbitMQ.Client;
 
-namespace Mientreno.Server.Service.Queue;
+namespace Mientreno.Server.Connectors.Queue;
 
 public class RabbitQueueProvider : IQueueProvider
 {

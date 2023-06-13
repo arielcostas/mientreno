@@ -1,15 +1,14 @@
 #region Imports
 
 using System.Globalization;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Mientreno.Compartido;
+using Mientreno.Server.Connectors.Queue;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service.Queue;
 using RabbitMQ.Client;
 using Stripe;
 

@@ -1,6 +1,6 @@
 ﻿using Mientreno.Server.Data.Models;
 
-namespace Mientreno.Server.Service;
+namespace Mientreno.Server.Business;
 
 public class SubscriptionRestrictions
 {

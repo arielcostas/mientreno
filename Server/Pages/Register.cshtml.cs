@@ -9,11 +9,10 @@ using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
 using Mientreno.Compartido.Recursos;
+using Mientreno.Server.Business;
+using Mientreno.Server.Connectors.Queue;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service;
-using Mientreno.Server.Service.Queue;
-using Stripe;
 
 namespace Mientreno.Server.Pages;
 

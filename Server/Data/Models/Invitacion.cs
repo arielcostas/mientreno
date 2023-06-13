@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Mientreno.Server.Service;
+using Mientreno.Server.Extensions;
 
 namespace Mientreno.Server.Data.Models;
 

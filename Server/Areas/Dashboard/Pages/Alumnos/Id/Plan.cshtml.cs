@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Mientreno.Server.Areas.Dashboard.Services;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
-using Mientreno.Server.Service;
+using Mientreno.Server.Extensions;
 
 namespace Mientreno.Server.Areas.Dashboard.Pages.Alumnos.Id;
 
