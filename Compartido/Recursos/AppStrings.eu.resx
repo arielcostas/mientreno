@@ -557,4 +557,13 @@
   <data name="Action_ManageAccount" xml:space="preserve">
 	  <value>kudeatu nire kontua</value>
   </data>
+  <data name="Page_GenerateCodes" xml:space="preserve">
+	  <value>berreskuratzeko kodeak</value>
+  </data>
+  <data name="Text_Accounts_EnterPasswordToDisableMfa" xml:space="preserve">
+	  <value>Sartu pasahitza bi faktoreko autentifikazioa desgaitzeko.</value>
+  </data>
+  <data name="Text_Accounts_EnterPasswordToRegenerateCodes" xml:space="preserve">
+	  <value>Sartu pasahitza berreskuratzeko kodeak birsortzeko.</value>
+  </data>
 </root>

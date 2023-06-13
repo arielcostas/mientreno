@@ -557,4 +557,13 @@
   <data name="Action_ManageAccount" xml:space="preserve">
 	  <value>Xestionar a miña conta</value>
   </data>
+  <data name="Page_GenerateCodes" xml:space="preserve">
+	  <value>Códigos de recuperación</value>
+  </data>
+  <data name="Text_Accounts_EnterPasswordToDisableMfa" xml:space="preserve">
+	  <value>Introduce o teu contrasinal para desactivar a autenticación de dous factores.</value>
+  </data>
+  <data name="Text_Accounts_EnterPasswordToRegenerateCodes" xml:space="preserve">
+	  <value>Introduce o teu contrasinal para rexenerar os teus códigos de recuperación.</value>
+  </data>
 </root>

@@ -557,4 +557,13 @@
   <data name="Action_ManageAccount" xml:space="preserve">
 	  <value>Gestionar el meu compte</value>
   </data>
+  <data name="Page_GenerateCodes" xml:space="preserve">
+	  <value>Codis de recuperació</value>
+  </data>
+  <data name="Text_Accounts_EnterPasswordToDisableMfa" xml:space="preserve">
+	  <value>Introduïu la contrasenya per desactivar l'autenticació de doble factor.</value>
+  </data>
+  <data name="Text_Accounts_EnterPasswordToRegenerateCodes" xml:space="preserve">
+	  <value>Introduïu la contrasenya per regenerar els codis de recuperació.</value>
+  </data>
 </root>
