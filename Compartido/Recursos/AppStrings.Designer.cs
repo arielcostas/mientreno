@@ -915,6 +915,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Códigos de recuperación.
+        /// </summary>
+        public static string Page_GenerateCodes {
+            get {
+                return ResourceManager.GetString("Page_GenerateCodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inicio.
         /// </summary>
         public static string Page_Landing {
@@ -1001,6 +1010,24 @@ namespace Mientreno.Compartido.Recursos {
         public static string Text_Accounts_EnableMfa {
             get {
                 return ResourceManager.GetString("Text_Accounts_EnableMfa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce tu contraseña para desactivar la autenticación de doble factor..
+        /// </summary>
+        public static string Text_Accounts_EnterPasswordToDisableMfa {
+            get {
+                return ResourceManager.GetString("Text_Accounts_EnterPasswordToDisableMfa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce tu contraseña para regenerar tus códigos de recuperación..
+        /// </summary>
+        public static string Text_Accounts_EnterPasswordToRegenerateCodes {
+            get {
+                return ResourceManager.GetString("Text_Accounts_EnterPasswordToRegenerateCodes", resourceCulture);
             }
         }
         

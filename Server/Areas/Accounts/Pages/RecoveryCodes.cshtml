@@ -1,0 +1,46 @@
+﻿@page
+@{
+	ViewData["Title"] = AppStrings.Page_MfaDisable;
+}
+@using Microsoft.IdentityModel.Tokens
+@attribute [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
+@model GenerateRecoveryCodesModel
+
+<main id="main-dialogue">
+	<h1>@AppStrings.Page_GenerateCodes</h1>
+
+	@if (Model.Codes is not null)
+	{
+		<div class="alert alert-success">
+			<strong class="alert-title">Códigos generados</strong>
+			<ul>
+				@foreach (var codigo in Model.Codes)
+				{
+					<li>
+						@codigo
+					</li>
+				}
+			</ul>
+			<p>
+				Por favor, almacena estos códigos en un lugar seguro.
+				Una vez salgas de esta página, no podrás volver a verlos.
+			</p>
+		</div>
+	}
+	else
+	{
+		<p>
+			@AppStrings.Text_Accounts_EnterPasswordToRegenerateCodes
+		</p>
+		
+		<form method="post">
+			<div class="form-group">
+				<label asp-for="Password">@AppStrings.Input_Password</label>
+				<input asp-for="Password" type="password" autocomplete="current-password" class="form-control"/>
+				<span asp-validation-for="Password" class="text-danger"></span>
+			</div>
+
+			<button class="button button-primary" type="submit">@AppStrings.Action_DisableMFA</button>
+		</form>
+	}
+</main>

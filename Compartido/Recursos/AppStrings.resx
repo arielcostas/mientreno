@@ -557,4 +557,13 @@
   <data name="Action_ManageAccount" xml:space="preserve">
 	  <value>Gestionar mi cuenta</value>
   </data>
+  <data name="Page_GenerateCodes" xml:space="preserve">
+	  <value>Códigos de recuperación</value>
+  </data>
+  <data name="Text_Accounts_EnterPasswordToDisableMfa" xml:space="preserve">
+	  <value>Introduce tu contraseña para desactivar la autenticación de doble factor.</value>
+  </data>
+  <data name="Text_Accounts_EnterPasswordToRegenerateCodes" xml:space="preserve">
+	  <value>Introduce tu contraseña para regenerar tus códigos de recuperación.</value>
+  </data>
 </root>

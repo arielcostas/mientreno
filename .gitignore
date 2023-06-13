@@ -256,4 +256,6 @@ FodyWeavers.xsd
 .idea/
 .vscode/
 
-*.sln.DotSettings.*
+*.DotSettings.user
+*.csproj.user
+global.json
