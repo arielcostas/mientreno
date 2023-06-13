@@ -527,7 +527,7 @@
   <data name="Error_IncorrectMfaCode" xml:space="preserve">
 	  <value>Autentifikatzaile-kode baliogabea</value>
   </data>
-  <data name="Text_ContactPrivacy" xml:space="preserve">
+  <data name="Text_Contact_Privacy" xml:space="preserve">
 	  <value>Inprimaki honetan sartutako datuak gure posta elektronikora bidaliko dira eta ez dira inongo datu-basetan gordeko. &lt;strong&gt;	Ez partekatu pasahitzak edo informazio sentikorra formulario honen bidez.&lt;/strong&gt;</value>
   </data>
   <data name="Page_MyAccount" xml:space="preserve">

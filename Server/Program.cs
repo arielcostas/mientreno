@@ -60,6 +60,7 @@ else
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStatusCodePagesWithReExecute("/Error", "?code={0}");
 
 app.UseRequestLocalization();
 app.UseStaticFiles();

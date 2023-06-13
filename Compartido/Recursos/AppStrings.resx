@@ -527,7 +527,7 @@
   <data name="Error_IncorrectMfaCode" xml:space="preserve">
 	  <value>Código de autenticador inválido</value>
   </data>
-  <data name="Text_ContactPrivacy" xml:space="preserve">
+  <data name="Text_Contact_Privacy" xml:space="preserve">
 	  <value>Los datos introducidos en este formulario serán enviados a nuestro correo electrónico y no serán almacenados en ninguna base de datos. &lt;strong&gt;	No comparta contraseñas o información sensible a través de este formulario.&lt;/strong&gt;</value>
   </data>
   <data name="Page_MyAccount" xml:space="preserve">
@@ -583,5 +583,14 @@
   </data>
   <data name="Text_Accounts_GenerateRecoveryCodes" xml:space="preserve">
 	  <value>Regenerar códigos de recuperación</value>
+  </data>
+  <data name="Text_Accounts_IfYouLostMfaCode" xml:space="preserve">
+	  <value>Si perdiste tu autenticador, puedes utilizar uno de tus códigos de recuperación. Si no tienes códigos de recuperación, &lt;a href="/Contact" class="link link-primary link-bold"&gt;ponte en contacto con nosotros&lt;/a&gt;.</value>
+  </data>
+  <data name="Text_Contact_Methods" xml:space="preserve">
+	  <value>Puedes contactar con nosotros a través de nuestro correo electrónico: &lt;a href="mailto:hola@mientreno.app" class="link link-primary link-bold"&gt;hola@mientreno.app&lt;/a&gt;. Alternativamente, puedes contactar con nosotros a través del siguiente formulario de contacto (respondemos en 1-2 días):</value>
+  </data>
+  <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
+	  <value>Acceso prioritario a soporte técnico</value>
   </data>
 </root>

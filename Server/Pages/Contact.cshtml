@@ -8,8 +8,7 @@
 	<h1>@AppStrings.Page_Contact</h1>
 
 	<p>
-		Puedes contactar con nosotros a través de nuestro correo electrónico: <a href="mailto:hola@mientreno.app">hola@mientreno.app</a>.
-		Alternativamente, puedes contactar con nosotros a través del siguiente formulario de contacto (respondemos en 1-2 días):
+		@Html.Raw(AppStrings.Text_Contact_Methods)
 	</p>
 
 	@if (Model.ContactoEnviado)
@@ -64,7 +63,7 @@
 		<button class="button button-primary" type="submit">@AppStrings.Action_Contact</button>
 
 		<small>
-			@Html.Raw(@AppStrings.Text_ContactPrivacy)
+			@Html.Raw(@AppStrings.Text_Contact_Privacy)
 		</small>
 	</form>
 </main>

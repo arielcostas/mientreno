@@ -527,7 +527,7 @@
   <data name="Error_IncorrectMfaCode" xml:space="preserve">
 	  <value>Código de autenticador non válido</value>
   </data>
-  <data name="Text_ContactPrivacy" xml:space="preserve">
+  <data name="Text_Contact_Privacy" xml:space="preserve">
 	  <value>Os datos introducidos neste formulario enviaranse ao noso correo electrónico e non se almacenarán en ningunha base de datos. &lt;strong&gt;	Non comparta contrasinais nin información confidencial a través deste formulario.&lt;/strong&gt;</value>
   </data>
   <data name="Page_MyAccount" xml:space="preserve">

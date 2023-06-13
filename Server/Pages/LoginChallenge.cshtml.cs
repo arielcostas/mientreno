@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.VisualBasic;
 using Mientreno.Compartido.Recursos;
 using Mientreno.Server.Data.Models;
 
@@ -59,16 +60,18 @@ public class LoginChallengeModel : PageModel
 			MensajeError = AppStrings.Error_IncorrectCredentials;
 			return Page();
 		}
-		
+
 		var res = await _signInManager.TwoFactorAuthenticatorSignInAsync(
 			code,
 			rememberMe,
 			Form.RememberDevice
 		);
-
+		
 		var area = usuario is Alumno ? "Alumnos" : "Dashboard";
 		ReturnUrl ??= Url.Content($"/{area}");
+		if (res.Succeeded) return Redirect(ReturnUrl);
 
+		res = await _signInManager.TwoFactorRecoveryCodeSignInAsync(code);
 		if (res.Succeeded) return Redirect(ReturnUrl);
 		
 		MensajeError = AppStrings.Error_IncorrectMfaCode;

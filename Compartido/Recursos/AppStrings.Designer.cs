@@ -1086,6 +1086,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Si perdiste tu autenticador, puedes utilizar uno de tus códigos de recuperación. Si no tienes códigos de recuperación, &lt;a href=&quot;/Contact&quot; class=&quot;link link-primary link-bold&quot;&gt;ponte en contacto con nosotros&lt;/a&gt;..
+        /// </summary>
+        public static string Text_Accounts_IfYouLostMfaCode {
+            get {
+                return ResourceManager.GetString("Text_Accounts_IfYouLostMfaCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Comentarios para tu entrenador.
         /// </summary>
         public static string Text_Alumnos_FeedbackComments {
@@ -1149,11 +1158,20 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Puedes contactar con nosotros a través de nuestro correo electrónico: &lt;a href=&quot;mailto:hola@mientreno.app&quot; class=&quot;link link-primary link-bold&quot;&gt;hola@mientreno.app&lt;/a&gt;. Alternativamente, puedes contactar con nosotros a través del siguiente formulario de contacto (respondemos en 1-2 días):.
+        /// </summary>
+        public static string Text_Contact_Methods {
+            get {
+                return ResourceManager.GetString("Text_Contact_Methods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Los datos introducidos en este formulario serán enviados a nuestro correo electrónico y no serán almacenados en ninguna base de datos. &lt;strong&gt;	No comparta contraseñas o información sensible a través de este formulario.&lt;/strong&gt;.
         /// </summary>
-        public static string Text_ContactPrivacy {
+        public static string Text_Contact_Privacy {
             get {
-                return ResourceManager.GetString("Text_ContactPrivacy", resourceCulture);
+                return ResourceManager.GetString("Text_Contact_Privacy", resourceCulture);
             }
         }
         
@@ -1352,6 +1370,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string Text_Pricing_MonthlyAndAnnuallyAvailable {
             get {
                 return ResourceManager.GetString("Text_Pricing_MonthlyAndAnnuallyAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acceso prioritario a soporte técnico.
+        /// </summary>
+        public static string Text_Pricing_PrioritySupport {
+            get {
+                return ResourceManager.GetString("Text_Pricing_PrioritySupport", resourceCulture);
             }
         }
         

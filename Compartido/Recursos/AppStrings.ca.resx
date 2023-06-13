@@ -527,7 +527,7 @@
   <data name="Error_IncorrectMfaCode" xml:space="preserve">
 	  <value>Codi d'autenticador invàlid</value>
   </data>
-  <data name="Text_ContactPrivacy" xml:space="preserve">
+  <data name="Text_Contact_Privacy" xml:space="preserve">
 	  <value>Les dades introduïdes en aquest formulari seran enviades al nostre correu electrònic i no seran emmagatzemades a cap base de dades. &lt;strong&gt;	No compartiu contrasenyes o informació sensible a través d'aquest formulari.&lt;/strong&gt;</value>
   </data>
   <data name="Page_MyAccount" xml:space="preserve">
