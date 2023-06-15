@@ -118,479 +118,479 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="alreadyHaveAccountLogin" xml:space="preserve">
-    <value>Ja tens compte? Inicia sessió.</value>
+    <value>Already have an account? Please log in.</value>
   </data>
   <data name="confirmPassword" xml:space="preserve">
-    <value>Confirmar contrasenya</value>
+    <value>Confirm password</value>
   </data>
   <data name="Action_Login" xml:space="preserve">
-    <value>Iniciar sessió</value>
+    <value>Login</value>
   </data>
   <data name="Action_Register" xml:space="preserve">
-    <value>Registrar-se</value>
+    <value>Register</value>
   </data>
   <data name="Input_Email" xml:space="preserve">
-    <value>Correu electrònic</value>
+    <value>E-mail address</value>
   </data>
   <data name="Error_IncorrectCredentials" xml:space="preserve">
-    <value>Usuari o contrasenya incorrectes</value>
+    <value>Incorrect username or password</value>
     <comment>Error lanzado cuando el usuario o contraseña no son válidos para iniciar sesión.</comment>
   </data>
   <data name="Input_Name" xml:space="preserve">
-    <value>Nom</value>
+    <value>Name</value>
     <comment>Nombre real de una persona (no confundir con username)</comment>
   </data>
   <data name="newHereRegister" xml:space="preserve">
-    <value>Nou per aquí? Regístrate.</value>
+    <value>New around here? Register.</value>
     <comment>En la página de inicio de sesión, cuando el usuario no tiene cuenta, para ir a la página de registro.</comment>
   </data>
   <data name="Input_Password" xml:space="preserve">
-    <value>Contrasenya</value>
+    <value>Password</value>
   </data>
   <data name="Page_Register" xml:space="preserve">
-    <value>Registre</value>
+    <value>Registration</value>
     <comment>Título de la página de registro</comment>
   </data>
   <data name="Input_Surname" xml:space="preserve">
-	  <value>Cognom(s)</value>
+	  <value>Last name(s)</value>
 	  <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
   </data>
   <data name="iveReadAndAccept" xml:space="preserve">
-	  <value>He llegit i accepto</value>
+	  <value>I have read and accept</value>
   </data>
   <data name="Alert_RegistrationDoneEmailSent_Text" xml:space="preserve">
-	  <value>Per confirmar el vostre compte, us hem enviat un correu electrònic. Reviseu la vostra safata d'entrada.</value>
+	  <value>To confirm your account, we have sent you an email. Please check your inbox.</value>
   </data>
   <data name="Page_Login" xml:space="preserve">
-	  <value>Inici de sessió</value>
+	  <value>Login</value>
   </data>
   <data name="theTermsAndConditions" xml:space="preserve">
-	  <value>els Termes i condicions</value>
+	  <value>terms and conditions</value>
   </data>
   <data name="Input_VideoUrl" xml:space="preserve">
-	  <value>URL de vídeo demostratiu (YouTube)</value>
+	  <value>Demonstration video URL</value>
   </data>
   <data name="Text_LandingPage_Title" xml:space="preserve">
-	  <value>Una nova manera d'entrenar</value>
+	  <value>A new way to train</value>
   </data>
   <data name="Text_LandingPage_Text" xml:space="preserve">
-	  <value>Entretant et permet gestionar els entrenaments físics dels teus clients de manera senzilla i eficaç.</value>
+	  <value>Mientreno allows you to manage your clients' physical training in a simple and efficient way.</value>
   </data>
   <data name="CallToAction_SignUpNow" xml:space="preserve">
-	  <value>Registra't ja!</value>
+	  <value>Register now!</value>
   </data>
   <data name="CallToAction_OrLogIn" xml:space="preserve">
-	  <value>o inicia sessió</value>
+	  <value>or log in</value>
   </data>
   <data name="Input_RememberMe" xml:space="preserve">
-	  <value>Mantenir sessió iniciada</value>
+	  <value>Maintain logged-in session</value>
   </data>
   <data name="hello" xml:space="preserve">
-	  <value>Hola</value>
+	  <value>Hello</value>
   </data>
   <data name="Text_LandingPage_Feature1_Title" xml:space="preserve">
-	  <value>Gestiona entrenaments</value>
+	  <value>Manage training sessions</value>
   </data>
   <data name="Text_LandingPage_Feature2_Title" xml:space="preserve">
-	  <value>Des de qualsevol lloc, en qualsevol moment</value>
+	  <value>From anywhere, at any time</value>
   </data>
   <data name="Text_LandingPage_Feature3_Title" xml:space="preserve">
-	  <value>Historial d'entrenaments</value>
+	  <value>Training history</value>
   </data>
   <data name="Text_LandingPage_Feature4_Title" xml:space="preserve">
-	  <value>Sempre millor</value>
+	  <value>Always for the better</value>
   </data>
   <data name="Text_LandingPage_Feature1_Text" xml:space="preserve">
-	  <value>Gestiona els entrenaments dels teus clients: quins exercicis fer, quantes sèries i repeticions. Afegeix un vídeo per demostrar la realització de lexercici.</value>
+	  <value>Manage your clients' workouts: which exercises to perform, how many sets and reps. Add a video to demonstrate the performance of the exercise.</value>
   </data>
   <data name="Text_LandingPage_Feature2_Text" xml:space="preserve">
-	  <value>MiEntreno funciona des de qualsevol dispositiu amb connexió a internet. Permet que el teu client revisi la rutina assignada o els detalls d'un exercici concret des de qualsevol lloc, visualitzant-se de manera amigable i adaptada al dispositiu.</value>
+	  <value>MiEntreno works from any device with internet connection. It allows your client to review the assigned routine or the details of a specific exercise from anywhere, displayed in a friendly and adapted way to the device.</value>
   </data>
   <data name="Text_LandingPage_Feature3_Text" xml:space="preserve">
-	  <value>Consulteu l'historial d'entrenaments per veure l'evolució del client. Rep feedback immediat després de la realització de cada rutina; per poder adaptar-te millor a les seves capacitats i necessitats.</value>
+	  <value>Consult the training history to see the client's evolution. Receive immediate feedback after the completion of each routine; so you can better adapt to your client's capabilities and needs.</value>
   </data>
   <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
-	  <value>Mentrestant està en constant desenvolupament. Amb el temps, aniràs obtenint accés a noves funcionalitats i millores.</value>
+	  <value>Mientreno is under constant development. Over time, you will gain access to new features and improvements.</value>
   </data>
   <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
-	  <value>La teva subscripció serà renovada automàticament el </value>
+	  <value>Your subscription will be automatically renewed on </value>
   </data>
   <data name="dashboard_SubscriptionWillEndAt" xml:space="preserve">
-	  <value>La teva subscripció no serà renovada, i finalitzarà el </value>
+	  <value>Your subscription will not be renewed, and will expire on </value>
   </data>
   <data name="dashboard_SubscribedToPlan" xml:space="preserve">
-	  <value>Estàs subscrit al pla </value>
+	  <value>You have an active subscription to the plan </value>
   </data>
   <data name="Text_Dashboard_MySuscripcion_Title" xml:space="preserve">
-	  <value>La meva subscripció</value>
+	  <value>My subscription</value>
   </data>
   <data name="Text_Dashboard_MyAlumnos_Title" xml:space="preserve">
-	  <value>Els meus alumnes</value>
+	  <value>My students</value>
   </data>
   <data name="dashboard" xml:space="preserve">
-	  <value>El meu tauler</value>
+	  <value>My board</value>
   </data>
   <data name="alumnos" xml:space="preserve">
-	  <value>Alumnes</value>
+	  <value>Students</value>
   </data>
   <data name="ejercicios" xml:space="preserve">
-	  <value>Exercicis</value>
+	  <value>Exercises</value>
   </data>
   <data name="Alert_AccountConfirmed_Title" xml:space="preserve">
-	  <value>Compte confirmat</value>
+	  <value>Account confirmed</value>
   </data>
   <data name="Alert_AccountConfirmed_Text" xml:space="preserve">
-	  <value>El teu compte ha estat confirmat. Ja podeu iniciar sessió i començar a utilitzar MiEntreno.</value>
+	  <value>Your account has been confirmed. You can now log in and start using MyTrainer.</value>
   </data>
   <data name="Validation_Name_Required" xml:space="preserve">
-	  <value>Has d'introduir el teu nom</value>
+	  <value>You must enter your name</value>
   </data>
   <data name="Validation_Surname_Required" xml:space="preserve">
-	  <value>Has d'introduir els teus cognoms</value>
+	  <value>You must enter your last name</value>
   </data>
   <data name="Validation_Email_Required" xml:space="preserve">
-	  <value>Has d'introduir el teu correu electrònic</value>
+	  <value>You must enter your email address</value>
   </data>
   <data name="Validation_Password_Required" xml:space="preserve">
-	  <value>Heu d'introduir la contrasenya</value>
+	  <value>You must enter the password</value>
   </data>
   <data name="Validation_PasswordConfirmation_Required" xml:space="preserve">
-	  <value>Heu de confirmar la contrasenya</value>
+	  <value>You must confirm the password</value>
   </data>
   <data name="Validation_Password_DontMatch" xml:space="preserve">
-	  <value>Les contrasenyes no coincideixen</value>
+	  <value>Passwords do not match</value>
   </data>
   <data name="Validation_Tos_Unchecked" xml:space="preserve">
-	  <value>Has d'acceptar els termes i les condicions</value>
+	  <value>You must accept the terms and conditions</value>
   </data>
   <data name="noHayCategorias" xml:space="preserve">
-	  <value>No hi ha cap categoria creada</value>
+	  <value>No category created</value>
   </data>
   <data name="Doing_CrearEjercicio" xml:space="preserve">
-	  <value>Nou exercici</value>
+	  <value>New exercise</value>
   </data>
   <data name="Action_CreateCategory" xml:space="preserve">
-	  <value>Nova categoria</value>
+	  <value>New category</value>
   </data>
   <data name="Action_Create" xml:space="preserve">
-	  <value>Crear</value>
+	  <value>Create</value>
   </data>
   <data name="Input_Descripcion" xml:space="preserve">
-	  <value>Descripció</value>
+	  <value>Description</value>
   </data>
   <data name="dificultad" xml:space="preserve">
-	  <value>Dificultat</value>
+	  <value>Difficulty</value>
   </data>
   <data name="Page_Pricing" xml:space="preserve">
-	  <value>Plans i tarifes</value>
+	  <value>Plans and rates</value>
   </data>
   <data name="Page_Terms" xml:space="preserve">
-	  <value>Informació legal</value>
+	  <value>Legal information</value>
   </data>
   <data name="masDetalles" xml:space="preserve">
-	  <value>Més detalls</value>
+	  <value>More details</value>
   </data>
   <data name="goToDashboard" xml:space="preserve">
-	  <value>Anar al meu tauler</value>
+	  <value>Go to my dashboard</value>
   </data>
   <data name="Text_Dashboard_SubscriptionConfirmed_Title" xml:space="preserve">
-	  <value>La teva subscripció va ser confirmada</value>
+	  <value>Your subscription was confirmed</value>
   </data>
   <data name="Text_Dashboard_SubscriptionConfirmed_Text" xml:space="preserve">
-	  <value>La vostra subscripció ha estat confirmada correctament. A continuació, pots anar al teu tauler i començar a treballar amb MiEntreno.</value>
+	  <value>Your subscription has been successfully confirmed. You can now go to your dashboard and start working with MyTrainer.</value>
   </data>
   <data name="dashboard_NotSubscribedToPlan" xml:space="preserve">
-	  <value>No tens una subscripció activa.</value>
+	  <value>You do not have an active subscription.</value>
   </data>
   <data name="dashboard_WeUseStripe" xml:space="preserve">
-	  <value>Utilitzem Stripe per processar els pagaments de manera segura. Pots administrar la teva subscripció a la teva</value>
+	  <value>We use Stripe to process payments securely. You can manage your subscription in your</value>
   </data>
   <data name="dashboard_StripeClientPanel" xml:space="preserve">
-	  <value>panell de control de client de Stripe</value>
+	  <value>Stripe customer control panel</value>
   </data>
   <data name="dashboard_GetInTouch" xml:space="preserve">
-	  <value>posa't en contacte amb nosaltres</value>
+	  <value>get in touch with us</value>
   </data>
   <data name="dashboard_ProblemWithStripe" xml:space="preserve">
-	  <value>Si tinguessis algun problema amb la teva subscripció, si us plau</value>
+	  <value>If you experience any problems with your subscription, please</value>
   </data>
   <data name="dashboard_AlumnosOutOf" xml:space="preserve">
-	  <value>alumnes d'un total de</value>
+	  <value>students out of a total of</value>
   </data>
   <data name="dashboard_NoPlansCreated" xml:space="preserve">
-	  <value>No s'ha creat cap pla d'entrenament (encara).</value>
+	  <value>No training plan has been created (yet).</value>
   </data>
   <data name="Noun_Rutina_Plural" xml:space="preserve">
-	  <value>Plans d´entrenament</value>
+	  <value>Training plans</value>
   </data>
   <data name="cuestionarios" xml:space="preserve">
-	  <value>Qüestionaris</value>
+	  <value>Questionnaires</value>
   </data>
   <data name="cuestionario" xml:space="preserve">
-	  <value>qüestionari</value>
+	  <value>questionnaire</value>
   </data>
   <data name="availableSoon" xml:space="preserve">
-	  <value>Aquesta funcionalitat estarà disponible properament.</value>
+	  <value>This functionality will be available soon.</value>
   </data>
   <data name="Noun_Plan_Singular" xml:space="preserve">
-	  <value>pla</value>
+	  <value>plan</value>
   </data>
   <data name="dashboard_NoCuestionariosCreated" xml:space="preserve">
-	  <value>No s'ha creat cap qüestionari (encara).</value>
+	  <value>No questionnaire has been created (yet).</value>
   </data>
   <data name="Noun_Invite_Plural" xml:space="preserve">
-	  <value>Invitacions</value>
+	  <value>Invitations</value>
   </data>
   <data name="Action_Invite" xml:space="preserve">
-	  <value>Convidar</value>
+	  <value>Invite</value>
   </data>
   <data name="dashboard_ShareInviteLink" xml:space="preserve">
-	  <value>Comparteix el següent enllaç amb el teu(s) alumne(s):</value>
+	  <value>Share the following link with your student(s):</value>
   </data>
   <data name="dashboard_InviteCreated" xml:space="preserve">
-	  <value>Invitació creada</value>
+	  <value>Invitation created</value>
   </data>
   <data name="Action_See" xml:space="preserve">
-	  <value>Veure</value>
+	  <value>See</value>
   </data>
   <data name="Alert_NoAlumnos_Title" xml:space="preserve">
-	  <value>No tens alumnes</value>
+	  <value>You have no students</value>
   </data>
   <data name="Alert_NoAlumnos_Text" xml:space="preserve">
-	  <value>Convida els teus alumnes a unir-se a tu generant una invitació a la part superior dreta.</value>
+	  <value>Invite your students to join you by generating an invitation at the top right.</value>
   </data>
   <data name="Alert_SignUpInvite_Title" xml:space="preserve">
-	  <value>t'ha convidat a entrenar</value>
+	  <value>has invited you to train</value>
   </data>
   <data name="Alert_SignUpInvite_Text" xml:space="preserve">
-	  <value>T'estàs registrant com a Alumne de</value>
+	  <value>You are registering as an Alumni of</value>
   </data>
   <data name="Page_Contact" xml:space="preserve">
-	  <value>Contacte</value>
+	  <value>Contact</value>
   </data>
   <data name="Action_Contact" xml:space="preserve">
-	  <value>Contactar</value>
+	  <value>Contact</value>
   </data>
   <data name="Input_Message" xml:space="preserve">
-	  <value>Missatge</value>
+	  <value>Message</value>
   </data>
   <data name="Alert_ContactSent_Title" xml:space="preserve">
-	  <value>El teu missatge s'ha enviat</value>
+	  <value>Your message has been sent</value>
   </data>
   <data name="Alert_ContactSent_Text" xml:space="preserve">
-	  <value>Has contactat amb èxit amb l'equip de MiEntreno. Et contestarem com més aviat millor.</value>
+	  <value>You have successfully contacted the MiEntreno team. We will get back to you as soon as possible.</value>
   </data>
   <data name="Doing_EditarEjercicio" xml:space="preserve">
-	  <value>Editant exercici</value>
+	  <value>Editing exercise</value>
   </data>
   <data name="Action_Edit" xml:space="preserve">
-	  <value>Edita</value>
+	  <value>Edit</value>
   </data>
   <data name="Text_LandingPage_WannaKnowMore" xml:space="preserve">
-	  <value>En vols saber més? Tens cap dubte?</value>
+	  <value>Do you want to know more? Do you have any questions?</value>
   </data>
   <data name="Text_LandingPage_ContactUsQuestions" xml:space="preserve">
-	  <value>Fes-nos arribar les teves consultes, i les resoldrem com més aviat millor.</value>
+	  <value>Send us your questions, and we will solve them as soon as possible.</value>
   </data>
   <data name="CallToAction_Contact" xml:space="preserve">
-	  <value>Contacta amb nosaltres</value>
+	  <value>Contact with us</value>
   </data>
   <data name="Page_Landing" xml:space="preserve">
-	  <value>Inici</value>
+	  <value>Home</value>
   </data>
   <data name="Input_PublishPlanUnableEditLater" xml:space="preserve">
-	  <value>Publicar pla (no es podrà modificar més tard)</value>
+	  <value>Publish plan (cannot be changed later)</value>
   </data>
   <data name="Noun_EstadoRutina_Publicada" xml:space="preserve">
-	  <value>Publicat</value>
+	  <value>Published</value>
   </data>
   <data name="Noun_EstadoRutina_Borrador" xml:space="preserve">
-	  <value>Esborrany</value>
+	  <value>Draft</value>
   </data>
   <data name="Noun_EstadoRutina_EnCurso" xml:space="preserve">
-	  <value>En curs</value>
+	  <value>Ongoing</value>
   </data>
   <data name="Noun_EstadoRutina_Finalizada" xml:space="preserve">
-	  <value>Finalitzat</value>
+	  <value>Completed</value>
   </data>
   <data name="Noun_EstadoRutina_Evaluada" xml:space="preserve">
-	  <value>Avaluat</value>
+	  <value>Evaluated</value>
   </data>
   <data name="Noun_JornadaEntrenamiento_NoName" xml:space="preserve">
-	  <value>Sense nom</value>
+	  <value>No name</value>
   </data>
   <data name="Text_Alumnos_ScheduledJornadas" xml:space="preserve">
-	  <value>Entrenaments programats</value>
+	  <value>Scheduled training</value>
   </data>
   <data name="Text_Alumnos_NoJornadasScheduled" xml:space="preserve">
-	  <value>No teniu entrenaments programats. Si creus que és un error, posa't en contacte amb el teu entrenador.</value>
+	  <value>You have no scheduled workouts. If you think this is an error, please contact your trainer.</value>
   </data>
   <data name="Action_Add" xml:space="preserve">
-	  <value>Afegir</value>
+	  <value>Add</value>
   </data>
   <data name="Action_Save" xml:space="preserve">
-	  <value>Desa</value>
+	  <value>Save</value>
   </data>
   <data name="Action_Manage" xml:space="preserve">
-	  <value>Gestionar</value>
+	  <value>Manage</value>
   </data>
   <data name="Alert_CannotInviteQuotaExceeded_Title" xml:space="preserve">
-	  <value>No es poden convidar més alumnes</value>
+	  <value>No more students can be invited</value>
   </data>
   <data name="Alert_CannotInviteQuotaExceeded_Text" xml:space="preserve">
-	  <value>Sembla que heu excedit la vostra quota d'alumnes. Si vols convidar-ne a més, considera canviar-te a un pla superior.</value>
+	  <value>It looks like you have exceeded your quota of students. If you want to invite more, consider upgrading to a higher plan.</value>
   </data>
   <data name="Alert_InviteInvalid_Title" xml:space="preserve">
-	  <value>Invitació invàlida</value>
+	  <value>Invalid invitation</value>
   </data>
   <data name="Alert_InviteInvalid_Text" xml:space="preserve">
-	  <value>La invitació no és vàlida, perquè no existeix, ha caducat, o el teu entrenador no pot convidar més alumnes en aquests moments.</value>
+	  <value>The invitation is not valid, because it does not exist, it has expired, or your coach cannot invite any more students at this time.</value>
   </data>
   <data name="Alert_ContactPreFilled_Title" xml:space="preserve">
-	  <value>Tens la sessió iniciada</value>
+	  <value>You are logged in</value>
   </data>
   <data name="Alert_ContactPreFilled_Text" xml:space="preserve">
-	  <value>Les teves dades de contacte van ser cobertes automàticament perquè tens la sessió iniciada. Si el vostre pla inclou suport prioritari, aquest es tindrà en compte.</value>
+	  <value>Your contact details were automatically covered because you are logged in. If your plan includes priority support, this will be taken into account.</value>
   </data>
   <data name="Action_Logout" xml:space="preserve">
-	  <value>Tancar sessió</value>
+	  <value>Log off</value>
   </data>
   <data name="Text_Dashboard_MyAccount_Title" xml:space="preserve">
-	  <value>El meu compte</value>
+	  <value>My account</value>
   </data>
   <data name="Text_Pricing_SubscriptionNeeded" xml:space="preserve">
-	  <value>Per gestionar entrenaments utilitzant MiEntreno cal una subscripció. Comptem amb diversos plans perquè pugueu triar el que millor s'adapti a les vostres necessitats. Per subscriure't, has de registrar-te a MiEntreno, i un cop iniciis sessió per primera vegada, podràs triar el pla que prefereixis.</value>
+	  <value>To manage workouts using MyTrainer, a subscription is required. We have several plans, so you can choose the one that best suits your needs. To subscribe, you must register at MiEntreno, and once you log in for the first time, you will be able to choose the plan you prefer.</value>
   </data>
   <data name="Text_Pricing_TrainUpToPeople" xml:space="preserve">
-	  <value>Entrena fins a {0} persones</value>
+	  <value>Train up to {0} people</value>
   </data>
   <data name="Text_Pricing_FreeForAlumnos" xml:space="preserve">
-	  <value>Si sou un alumne d'un entrenador, no necessiteu una subscripció, i MiEntreno serà totalment gratuït per a tu.</value>
+	  <value>If you are a trainer's student, you don't need a subscription, and MyTrainer will be totally free for you.</value>
   </data>
   <data name="Text_Pricing_Free14DayTrial" xml:space="preserve">
-	  <value>Amb les noves subscripcions s'inclou un període de prova de 14 dies, després dels quals es renovarà automàticament la subscripció, tret que es cancel·li abans que finalitzi el període de prova.</value>
+	  <value>A 14-day trial period is included with new subscriptions, after which the subscription will automatically renew unless cancelled before the end of the trial period.</value>
   </data>
   <data name="Text_Pricing_MonthlyAndAnnuallyAvailable" xml:space="preserve">
-	  <value>Per a cada pla, es pot triar entre una subscripció mensual o anual. La subscripció anual té un descompte equivalent a dos mesos de franc. Si s'escull la subscripció anual, es cobrarà l'import total de la subscripció a l'inici del període de subscripció.</value>
+	  <value>For each plan, you can choose between a monthly or annual subscription. The annual subscription has a discount equivalent to two free months. If the annual subscription is chosen, the full amount of the subscription will be charged at the beginning of the subscription period.</value>
   </data>
   <data name="Text_Pricing_AvisoAutonomos" xml:space="preserve">
-	  <value>Per qüestions fiscals, si ets autònom o empresa, has de &lt;a href="/Contact"&gt;posar-te en contacte amb nosaltres&lt;/a&gt; prèviament.</value>
+	  <value>For tax reasons, if you are self-employed or a company, you should contact us at &lt;a href="/Contact"&gt;&lt;/a&gt; beforehand.</value>
   </data>
   <data name="Noun_Language_Spanish" xml:space="preserve">
-	  <value>Espanyol</value>
+	  <value>Spanish</value>
   </data>
   <data name="Noun_Language_Galician" xml:space="preserve">
-	  <value>Gallec</value>
+	  <value>Gallego</value>
   </data>
   <data name="Noun_Language_Catalan" xml:space="preserve">
-	  <value>Català</value>
+	  <value>Catalan</value>
   </data>
   <data name="Noun_Language_Basque" xml:space="preserve">
-	  <value>Euskera</value>
+	  <value>Basque</value>
   </data>
   <data name="Noun_Language" xml:space="preserve">
-	  <value>Idioma</value>
+	  <value>Language</value>
   </data>
   <data name="Text_Alumnos_FeedbackComments" xml:space="preserve">
-	  <value>Comentaris per al teu entrenador</value>
+	  <value>Comments for your trainer</value>
   </data>
   <data name="Text_Alumnos_FeedbackScore" xml:space="preserve">
-	  <value>Puntuació general</value>
+	  <value>Overall score</value>
   </data>
   <data name="Text_Alumnos_Plan_ReviewedAt" xml:space="preserve">
-	  <value>Avaluat el</value>
+	  <value>Evaluated the</value>
   </data>
   <data name="Text_Alumnos_Plan_StartedAt" xml:space="preserve">
-	  <value>Començat fa</value>
+	  <value>Begun</value>
   </data>
   <data name="Text_Alumnos_Plan_DoneAt" xml:space="preserve">
-	  <value>Realitzat fa</value>
+	  <value>Performed as of</value>
   </data>
   <data name="Action_Exit" xml:space="preserve">
-	  <value>Sortir</value>
+	  <value>Exit</value>
   </data>
   <data name="Text_Dashboard_AlumnoFeedback" xml:space="preserve">
-	  <value>Valoració de l'alumne</value>
+	  <value>Student assessment</value>
   </data>
   <data name="Page_MfaSetup" xml:space="preserve">
-	  <value>Configurar MFA</value>
+	  <value>Configure MFA</value>
   </data>
   <data name="Doing_VerifyIdentity" xml:space="preserve">
-	  <value>Comprovar que ets tu</value>
+	  <value>Checking that it's you</value>
   </data>
   <data name="Input_MfaCode" xml:space="preserve">
-	  <value>Codi de l'autenticador</value>
+	  <value>Authenticator code</value>
   </data>
   <data name="Input_RememberDevice" xml:space="preserve">
-	  <value>Recordar aquest dispositiu</value>
+	  <value>Remember this device</value>
   </data>
   <data name="Error_IncorrectMfaCode" xml:space="preserve">
-	  <value>Codi d'autenticador invàlid</value>
+	  <value>Invalid authenticator code</value>
   </data>
   <data name="Text_Contact_Privacy" xml:space="preserve">
-	  <value>Les dades introduïdes en aquest formulari seran enviades al nostre correu electrònic i no seran emmagatzemades a cap base de dades. &lt;strong&gt;	No compartiu contrasenyes o informació sensible a través d'aquest formulari.&lt;/strong&gt;</value>
+	  <value>The data entered in this form will be sent to our email address and will not be stored in any database. &lt;strong&gt;	Do not share passwords or sensitive information through this form.&lt;/strong&gt;</value>
   </data>
   <data name="Page_MyAccount" xml:space="preserve">
-	  <value>El meu compte</value>
+	  <value>My account</value>
   </data>
   <data name="Action_EnableMFA" xml:space="preserve">
-	  <value>Activar MFA</value>
+	  <value>Activate MFA</value>
   </data>
   <data name="Text_Accounts_EnableMfa" xml:space="preserve">
-	  <value>Activar autenticació de dos factors</value>
+	  <value>Enable two-factor authentication</value>
   </data>
   <data name="Text_Accounts_DisableMfa" xml:space="preserve">
-	  <value>Desactivar autenticació de dos factors</value>
+	  <value>Disable two-factor authentication</value>
   </data>
   <data name="Error_IncorrectPassword" xml:space="preserve">
-	  <value>Contrasenya incorrecta</value>
+	  <value>Incorrect password</value>
   </data>
   <data name="Action_DisableMFA" xml:space="preserve">
-	  <value>Desactivar MFA</value>
+	  <value>Deactivate MFA</value>
   </data>
   <data name="Page_MfaDisable" xml:space="preserve">
-	  <value>Desactivar MFA</value>
+	  <value>Deactivate MFA</value>
   </data>
   <data name="Alert_ValidationErrors_Title" xml:space="preserve">
-	  <value>Errors de validació</value>
+	  <value>Validation errors</value>
   </data>
   <data name="Action_ManageAccount" xml:space="preserve">
-	  <value>Gestionar el meu compte</value>
+	  <value>Manage my account</value>
   </data>
   <data name="Page_GenerateCodes" xml:space="preserve">
-	  <value>Codis de recuperació</value>
+	  <value>Recovery codes</value>
   </data>
   <data name="Text_Accounts_EnterPasswordToDisableMfa" xml:space="preserve">
-	  <value>Introduïu la contrasenya per desactivar l'autenticació de doble factor.</value>
+	  <value>Enter your password to disable two-factor authentication.</value>
   </data>
   <data name="Text_Accounts_EnterPasswordToRegenerateCodes" xml:space="preserve">
-	  <value>Introduïu la contrasenya per regenerar els codis de recuperació.</value>
+	  <value>Enter your password to regenerate your recovery codes.</value>
   </data>
   <data name="Alert_UnexpectedError_Title" xml:space="preserve">
-	  <value>Hi va haver un error</value>
+	  <value>There was an error</value>
   </data>
   <data name="Alert_RecoveryCodesGenerated_Title" xml:space="preserve">
-	  <value>Codis generats</value>
+	  <value>Generated codes</value>
   </data>
   <data name="Alert_RecoveryCodesGenerated_Text" xml:space="preserve">
-	  <value>Si us plau, emmagatzema aquests codis en un lloc segur. Un cop surtis d'aquesta pàgina, no els podràs tornar a veure.</value>
+	  <value>Please store these codes in a safe place. Once you leave this page, you will not be able to see them again.</value>
   </data>
   <data name="Text_Accounts_Accounts_RecoveryCodesAreFor" xml:space="preserve">
-	  <value>Els codis de recuperació són necessaris si perds el teu autenticador MFA. Si ja vas generar codis prèviament, generar-los de nou invalidarà els ja existents.</value>
+	  <value>Recovery codes are required if you lose your MFA authenticator. If you have previously generated codes, generating them again will invalidate the existing ones.</value>
   </data>
   <data name="Action_GenerateCodes" xml:space="preserve">
-	  <value>Generar codis</value>
+	  <value>Generate codes</value>
   </data>
   <data name="Text_Accounts_GenerateRecoveryCodes" xml:space="preserve">
-	  <value>Regenerar codis de recuperació</value>
+	  <value>Regenerate recovery codes</value>
   </data>
   <data name="Text_Accounts_IfYouLostMfaCode" xml:space="preserve">
-	  <value>Si vas perdre l'autenticador, pots fer servir un dels teus codis de recuperació. Si no tens codis de recuperació, &lt;a href="/Contact" class="link link-primary link-bold"&gt;posa't en contacte amb nosaltres&lt;/a&gt;.</value>
+	  <value>If you lost your authenticator, you can use one of your recovery codes. If you do not have recovery codes, &lt;a href="/Contact" class="link link-primary link-bold"&gt;contact us at&lt;/a&gt;.</value>
   </data>
   <data name="Text_Contact_Methods" xml:space="preserve">
-	  <value>Pots contactar amb nosaltres a través del nostre correu electrònic: &lt;a href="mailto:hola@mientreno.app" class="link link-primary link-bold"&gt;hola@mientreno.app&lt;/a&gt;. Alternativament, pots contactar amb nosaltres a través del següent formulari de contacte (responem en 1-2 dies):</value>
+	  <value>You can contact us through our email: &lt;a href="mailto:hola@mientreno.app" class="link link-primary link-bold"&gt;hola@mientreno.app&lt;/a&gt;. Alternatively, you can contact us via the contact form below (we respond within 1-2 days):</value>
   </data>
   <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
-	  <value>Accés prioritari a suport tècnic</value>
+	  <value>Priority access to technical support</value>
   </data>
 </root>

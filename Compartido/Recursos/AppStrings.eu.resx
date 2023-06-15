@@ -566,4 +566,31 @@
   <data name="Text_Accounts_EnterPasswordToRegenerateCodes" xml:space="preserve">
 	  <value>Sartu pasahitza berreskuratzeko kodeak birsortzeko.</value>
   </data>
+  <data name="Alert_UnexpectedError_Title" xml:space="preserve">
+	  <value>Akats bat egon zen</value>
+  </data>
+  <data name="Alert_RecoveryCodesGenerated_Title" xml:space="preserve">
+	  <value>sortutako kodeak</value>
+  </data>
+  <data name="Alert_RecoveryCodesGenerated_Text" xml:space="preserve">
+	  <value>Mesedez, gorde kode hauek leku seguru batean. Orrialde honetatik irten ondoren, ezin izango dituzu berriro ikusi.</value>
+  </data>
+  <data name="Text_Accounts_Accounts_RecoveryCodesAreFor" xml:space="preserve">
+	  <value>Berreskuratzeko kodeak beharrezkoak dira zure MFA autentifikatzailea galtzen baduzu. Lehenago kodeak sortu badituzu, berriro sortzeak lehendik zeudenak baliogabetuko ditu.</value>
+  </data>
+  <data name="Action_GenerateCodes" xml:space="preserve">
+	  <value>kodeak sortu</value>
+  </data>
+  <data name="Text_Accounts_GenerateRecoveryCodes" xml:space="preserve">
+	  <value>Birsortu berreskuratzeko kodeak</value>
+  </data>
+  <data name="Text_Accounts_IfYouLostMfaCode" xml:space="preserve">
+	  <value>Zure autentifikatzailea galdu baduzu, berreskuratzeko kodeetako bat erabil dezakezu. Berreskuratzeko koderik ez baduzu, &lt;a href="/Contact" class="link link-primary link-bold"&gt;jarri gurekin harremanetan&lt;/a&gt;.</value>
+  </data>
+  <data name="Text_Contact_Methods" xml:space="preserve">
+	  <value>Gurekin harremanetan jar zaitezke gure posta elektronikoaren bidez: &lt;a href="mailto:hola@mientreno.app" class="link link-primary link-bold"&gt;hola@mientreno.app&lt;/a&gt;. Bestela, gurekin harremanetan jar zaitezke hurrengo harremanetarako formularioaren bidez (1-2 egun barru erantzuten dugu):</value>
+  </data>
+  <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
+	  <value>Laguntza teknikorako lehentasunezko sarbidea</value>
+  </data>
 </root>

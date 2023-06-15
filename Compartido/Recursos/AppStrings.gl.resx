@@ -566,4 +566,31 @@
   <data name="Text_Accounts_EnterPasswordToRegenerateCodes" xml:space="preserve">
 	  <value>Introduce o teu contrasinal para rexenerar os teus códigos de recuperación.</value>
   </data>
+  <data name="Alert_UnexpectedError_Title" xml:space="preserve">
+	  <value>Houbo un erro</value>
+  </data>
+  <data name="Alert_RecoveryCodesGenerated_Title" xml:space="preserve">
+	  <value>Códigos xerados</value>
+  </data>
+  <data name="Alert_RecoveryCodesGenerated_Text" xml:space="preserve">
+	  <value>Garda estes códigos nun lugar seguro. Unha vez que abandones esta páxina, non poderás velos de novo.</value>
+  </data>
+  <data name="Text_Accounts_Accounts_RecoveryCodesAreFor" xml:space="preserve">
+	  <value>Os códigos de recuperación son necesarios se perde o seu autenticador MFA. Se xa xeraches códigos anteriormente, xeralos de novo invalidará os existentes.</value>
+  </data>
+  <data name="Action_GenerateCodes" xml:space="preserve">
+	  <value>Xerar códigos</value>
+  </data>
+  <data name="Text_Accounts_GenerateRecoveryCodes" xml:space="preserve">
+	  <value>Rexenerar códigos de recuperación</value>
+  </data>
+  <data name="Text_Accounts_IfYouLostMfaCode" xml:space="preserve">
+	  <value>Se perdeches o teu autenticador, podes usar un dos teus códigos de recuperación. Se non tes códigos de recuperación, &lt;a href="/Contact" class="link link-primary link-bold"&gt;ponte en contacto connosco&lt;/a&gt;.</value>
+  </data>
+  <data name="Text_Contact_Methods" xml:space="preserve">
+	  <value>Podes contactar connosco a través do noso correo electrónico: &lt;a href="mailto:hola@mientreno.app" class="link link-primary link-bold"&gt;hola@mientreno.app&lt;/a&gt;. Alternativamente, podes contactar connosco a través do seguinte formulario de contacto (respondemos en 1-2 días):</value>
+  </data>
+  <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
+	  <value>Acceso prioritario ao soporte técnico</value>
+  </data>
 </root>
