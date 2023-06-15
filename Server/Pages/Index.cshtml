@@ -3,13 +3,13 @@
 	ViewData["Title"] = @AppStrings.Page_Landing;
 }
 
-<div id="landing">
+<main id="landing">
 	<div id="hero">
 		<h1>@AppStrings.Text_LandingPage_Title</h1>
 
 		<p>@AppStrings.Text_LandingPage_Text</p>
 
-		<div class="row">
+		<div class="inline">
 			<a class="button button-primary button-large" asp-page="/Register">@AppStrings.CallToAction_SignUpNow</a>
 			<a class="link link-inverted" asp-page="/Login">@AppStrings.CallToAction_OrLogIn</a>
 		</div>
@@ -50,4 +50,4 @@
 
 		<a asp-page="Contact" class="button button-large button-primary">@AppStrings.CallToAction_Contact</a>
 	</div>
-</div>
+</main>

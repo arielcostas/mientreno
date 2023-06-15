@@ -1,19 +1,9 @@
 ﻿h1 {
-	font-size: 4em;
+	font-size: 3.5em;
 }
 
 h2 {
 	font-size: 2.5em;
-}
-
-@media screen and (max-width: 1100px) {
-	h1 {
-		font-size: 2.5em;
-	}
-
-	h2 {
-		font-size: 2em;
-	}
 }
 
 #landing {
@@ -35,15 +25,14 @@ h2 {
 	padding-bottom: min(12rem, 15vh);;
 }
 
-#hero p {
-	font-size: 1.5em;
-	font-weight: lighter;
+#landing p {
+	font-size: 1.35em;
+	color: var(--white);
 }
 
 .feature p,
 #contact p {
-	font-size: 1.2em;
-	width: 65%;
+	width: min(75%, 60ch);
 }
 
 #hero, .feature, #contact {
@@ -59,14 +48,8 @@ h2 {
 .feature:nth-child(even) {
 	background: rgba(255, 255, 255, 0.2);
 	text-align: right;
-	color: #fff;
+	color: var(--white);
 	align-items: end;
-}
-
-.row {
-	display: flex;
-	align-items: center;
-	gap: 2rem;
 }
 
 #contact {
@@ -100,42 +83,4 @@ h2 {
 
 #feature-4 {
 	background-image: url('img/landing-feat4.webp'), linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
-}
-
-@media screen and (max-width: 768px) {
-	#landing {
-		max-width: 100vw;
-		overflow: hidden;
-	}
-	
-	#topbar {
-		flex-direction: column;
-		padding: 0;
-		align-items: center;
-		justify-content: center;
-		height: 5rem;
-	}
-	
-	#hero {
-		padding: 0 2rem;
-		padding-top: 5rem;
-		padding-bottom: 5rem;
-	}
-	
-	.row {
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-	
-	.feature {
-		padding: 4rem 2rem;
-	}
-	
-	.feature p {
-		width: 90%;
-	}
-	
-	p {
-		font-weight: 500;
-	}
 }

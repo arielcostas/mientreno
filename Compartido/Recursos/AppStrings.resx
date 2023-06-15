@@ -315,7 +315,7 @@
 	  <value>Si tuvieras algún problema con tu suscripción, por favor</value>
   </data>
   <data name="dashboard_AlumnosOutOf" xml:space="preserve">
-	  <value>alumnos de un total de</value>
+	  <value>Tienes registrados {0} alumnos de los {1} que permite tu suscripción.</value>
   </data>
   <data name="dashboard_NoPlansCreated" xml:space="preserve">
 	  <value>No se ha creado ningún plan de entrenamiento (todavía).</value>

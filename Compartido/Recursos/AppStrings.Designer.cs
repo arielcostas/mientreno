@@ -474,7 +474,7 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to alumnos de un total de.
+        ///   Looks up a localized string similar to Tienes registrados {0} alumnos de los {1} que permite tu suscripción..
         /// </summary>
         public static string dashboard_AlumnosOutOf {
             get {
@@ -902,6 +902,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string Noun_Language_Catalan {
             get {
                 return ResourceManager.GetString("Noun_Language_Catalan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inglés.
+        /// </summary>
+        public static string Noun_Language_English {
+            get {
+                return ResourceManager.GetString("Noun_Language_English", resourceCulture);
             }
         }
         

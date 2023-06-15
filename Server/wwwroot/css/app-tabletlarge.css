@@ -1,0 +1,23 @@
+﻿/*#region Header */
+header {
+	flex-direction: column;
+	height: auto;
+	justify-content: center;
+	padding: 1rem 0;
+	gap: 1.2rem;
+}
+/*#endregion */
+
+/*#region Footer*/
+footer {
+	flex-direction: column;
+	height: auto;
+	justify-content: center;
+	padding: calc(5 * var(--unit)) 0;
+	gap: calc(6 * var(--unit));
+}
+
+footer nav {
+	align-items: center;
+}
+/*#endregion */

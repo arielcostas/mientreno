@@ -1,6 +1,7 @@
 ﻿@page
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using System.Globalization
+@using Humanizer
 @model DashboardModel
 @{
 	ViewData["Title"] = "Dashboard";
@@ -8,14 +9,16 @@
 
 <main id="main-invisible">
 	<h1>@AppStrings.dashboard</h1>
-	<div class="card-holder">
+	<div class="grid grid-3">
 		<div class="card" id="card-alumnos">
 			<h2>🎽 @AppStrings.Text_Dashboard_MyAlumnos_Title</h2>
-			<p>@Model.Alumnos @AppStrings.dashboard_AlumnosOutOf @Model.MaxAlumnos</p>
-			<a asp-page="/Alumnos/Index" class="link link-primary link-bold">
-				@AppStrings.Action_Manage @AppStrings.alumnos
-			</a>
-			<meter value="@Model.Alumnos" min="0" max="@Model.MaxAlumnos" high="@(Model.MaxAlumnos * 0.9)"> </meter>
+			<div class="card-content">
+				<p>@AppStrings.dashboard_AlumnosOutOf.FormatWith(Model.Alumnos, Model.MaxAlumnos)</p>
+				<a asp-page="/Alumnos/Index" class="link link-primary link-bold">
+					@AppStrings.Action_Manage @AppStrings.alumnos
+				</a>
+				<meter value="@Model.Alumnos" min="0" max="@Model.MaxAlumnos" high="@(Model.MaxAlumnos * 0.9)"> </meter>
+			</div>
 		</div>
 
 		<div class="card" id="card-suscripcion">
@@ -58,7 +61,7 @@
 				<a asp-page="/Index" asp-area="Accounts" class="link link-primary link-bold">
 					@AppStrings.Action_ManageAccount
 				</a>
-				
+
 				<a asp-page="/Logout" asp-area="Accounts" class="link link-bad link-bold">
 					@AppStrings.Action_Logout
 				</a>

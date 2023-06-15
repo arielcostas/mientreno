@@ -1,0 +1,19 @@
+﻿/*#region Landing page*/
+#landing {
+	max-width: 100vw;
+	overflow: hidden;
+}
+
+#landing #hero {
+	padding: 5rem 2rem;
+}
+
+.feature {
+	padding: 4rem 2rem;
+}
+
+.feature p {
+	width: 90%;
+	color: var(--white);
+}
+/*#endregion*/

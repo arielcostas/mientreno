@@ -57,7 +57,7 @@
 	<div class="grid grid-3">
 		@foreach (var alumno in Model.Alumnos)
 		{
-			<div class="alumno">
+			<div class="card alumno">
 				@{ var png = alumno.Id + ".png"; }
 				<img src="/Static/profile/@png" alt="Imagen de @alumno.NombreCompleto"/>
 				<h2>@alumno.NombreCompleto</h2>

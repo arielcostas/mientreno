@@ -82,7 +82,7 @@
 				<input asp-for="Form.AceptoTerminos" type="checkbox" class="form-check-input"/>
 				<label asp-for="Form.AceptoTerminos">
 					@AppStrings.iveReadAndAccept
-					<a asp-page="/Terms" class="link link-primary link-bold">@AppStrings.theTermsAndConditions</a>.
+					<a asp-page="/Terms" class="link link-primary link-bold" target="_blank">@AppStrings.theTermsAndConditions</a>.
 				</label>
 				<span asp-validation-for="Form.AceptoTerminos" class="text-danger"></span>
 			</div>

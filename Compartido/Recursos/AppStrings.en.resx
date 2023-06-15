@@ -593,4 +593,7 @@
   <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
 	  <value>Priority access to technical support</value>
   </data>
+  <data name="Noun_Language_English" xml:space="preserve">
+	  <value>English</value>
+  </data>
 </root>

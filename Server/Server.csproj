@@ -48,5 +48,14 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="Areas\Accounts\Pages\Shared\Footer.cshtml" />
+	  <_ContentIncludedByDefault Remove="Areas\Accounts\Pages\Shared\Header.cshtml" />
+	  <_ContentIncludedByDefault Remove="Areas\Accounts\Pages\Shared\_LayoutOLD.cshtml" />
+	  <_ContentIncludedByDefault Remove="Areas\Alumnos\Pages\Shared\Footer.cshtml" />
+	  <_ContentIncludedByDefault Remove="Areas\Alumnos\Pages\Shared\Header.cshtml" />
+	  <_ContentIncludedByDefault Remove="Areas\Alumnos\Pages\Shared\_Layout.cshtml" />
+	</ItemGroup>
 </Project>
 

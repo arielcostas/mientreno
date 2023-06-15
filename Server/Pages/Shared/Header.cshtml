@@ -7,33 +7,25 @@
 	var area = usuario is Alumno ? "Alumnos" : "Dashboard";
 }
 
-@if (usuario is null)
-{
-	<header>
-		<a asp-area="" asp-page="/Index">
-			<img src="~/isotipo.svg" alt="mientreno" id="isotipo"/>
-		</a>
+<header>
+	<a asp-area="@area" asp-page="/Index" class="header-brand">
+		<img src="~/logo.svg" alt="mientreno" id="isotipo"/>
+	</a>
 
-		<nav>
+	<nav>
+		@if (usuario is null)
+		{
 			<a asp-area="" asp-page="/Login" class="link link-inverted link-nav">@AppStrings.Action_Login</a>
 			<a asp-area="" asp-page="/Register" class="link link-inverted link-bold link-nav">@AppStrings.Action_Register</a>
-		</nav>
-	</header>
-}
-else
-{
-	<header>
-		<a asp-area="@area" asp-page="/Index">
-			<img src="~/isotipo.svg" alt="mientreno" id="isotipo"/>
-		</a>
-
-		<nav>
-			<a asp-page="/Index" asp-area="@area" class="link-badge">
+		}
+		else
+		{
+			<a asp-page="/Index" asp-area="@area" class="link-user">
 				@{ var png = usuario.Id + ".png"; }
 				<img src="/Static/profile/@png" alt="profile"/>
 				@AppStrings.hello, @usuario.Nombre
 			</a>
-		</nav>
+		}
+	</nav>
 
-	</header>
-}
+</header>

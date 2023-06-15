@@ -12,14 +12,23 @@
 
 	<link rel="stylesheet" href="~/css/app.css" asp-append-version="true"/>
 	<link rel="stylesheet" href="~/Server.styles.css" asp-append-version="true"/>
+	
+	<link rel="stylesheet" media="screen and (max-width: 1280px)" href="~/css/app-desktopsmall.css" asp-append-version="true"/>
+	<link rel="stylesheet" media="screen and (max-width: 1024px)" href="~/css/app-tabletlarge.css" asp-append-version="true"/>
+	<link rel="stylesheet" media="screen and (max-width: 768px)" href="~/css/app-tabletsmall.css" asp-append-version="true"/>
+	<link rel="stylesheet" media="screen and (max-width: 640px)" href="~/css/app-mobile.css" asp-append-version="true"/>
 
 	<link rel="manifest" href="~/manifest.json"/>
 	<link rel="icon" href="~/logo.svg"/>
+	
+	@await RenderSectionAsync("HeaderExtras", required: false)
 </head>
 <body>
 @await Html.PartialAsync("Header")
 
 @RenderBody()
+
+<div id="body-separator"></div>
 
 @await Html.PartialAsync("Footer")
 @await RenderSectionAsync("Scripts", required: false)

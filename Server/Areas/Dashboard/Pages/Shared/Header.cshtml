@@ -5,13 +5,13 @@
 @{ var usuario = UManager.GetUserAsync(User).Result!; }
 
 <header>
-	<a asp-area="Dashboard" asp-page="/Index">
-		<img src="~/isotipo.svg" alt="mientreno" id="isotipo"/>
+	<a asp-area="Dashboard" asp-page="/Index" class="header-brand">
+		<img src="~/logo.svg" alt="mientreno" id="isotipo"/>
 	</a>
 
 	<nav>
 		<a asp-area="Dashboard" asp-page="/Index" class="link link-inverted link-nav link-bold">
-			🏠@AppStrings.dashboard
+			🏠 @AppStrings.dashboard
 		</a>
 		<a asp-area="Dashboard" asp-page="/Alumnos/Index" class="link link-inverted link-nav link-bold">
 			🎽 @AppStrings.alumnos
@@ -22,7 +22,7 @@
 	</nav>
 
 	<nav>
-		<a asp-page="/Index" asp-area="Dashboard" class="link-badge">
+		<a asp-page="/Index" asp-area="Dashboard" class="link-user">
 			@{ var png = usuario.Id + ".png"; }
 			<img src="/Static/profile/@png" alt="profile"/>
 			@AppStrings.hello, @usuario.Nombre
