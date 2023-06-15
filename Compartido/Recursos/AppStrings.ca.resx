@@ -488,6 +488,9 @@
   <data name="Noun_Language_Basque" xml:space="preserve">
 	  <value>Euskera</value>
   </data>
+  <data name="Noun_Language_English" xml:space="preserve">
+	  <value>Anglès</value>
+  </data>
   <data name="Noun_Language" xml:space="preserve">
 	  <value>Idioma</value>
   </data>

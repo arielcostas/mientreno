@@ -23,4 +23,5 @@ public sealed class Idiomas
 	public const string Gallego = "gl";
 	public const string Catalán = "ca";
 	public const string Euskera = "eu";
+	public const string Inglés = "en";
 }

@@ -69,6 +69,7 @@ public static class Startup
 				new CultureInfo(Idiomas.Gallego),
 				new CultureInfo(Idiomas.Catalán),
 				new CultureInfo(Idiomas.Euskera),
+				new CultureInfo(Idiomas.Inglés)
 			};
 
 			options.DefaultRequestCulture = new RequestCulture(Idiomas.Castellano);
