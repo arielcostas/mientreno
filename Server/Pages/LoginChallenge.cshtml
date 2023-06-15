@@ -23,11 +23,11 @@
 	<form method="post" id="form">
 		<div class="form-group">
 			<label asp-for="Form.Code">@AppStrings.Input_MfaCode</label>
-			<input asp-for="Form.Code" type="text" class="form-control" placeholder="123 456"/>
+			<input asp-for="Form.Code" type="text" class="form-control" placeholder="123 456" required/>
 		</div>
 
 		<div class="form-check">
-			<input asp-for="Form.RememberDevice" type="checkbox" class="form-check-input"/>
+			<input asp-for="Form.RememberDevice" type="checkbox" class="form-check-input" />
 			<label asp-for="Form.RememberDevice">
 				@AppStrings.Input_RememberDevice
 			</label>

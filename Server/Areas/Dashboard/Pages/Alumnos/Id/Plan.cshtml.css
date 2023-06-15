@@ -8,4 +8,5 @@ article.ejercicio {
 	display: grid;
 	grid-template-columns: 44% 18% 18% 18%;
 	gap: 0.25rem;
+	margin-bottom: 0.25rem;
 }

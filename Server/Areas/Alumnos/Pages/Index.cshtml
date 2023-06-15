@@ -37,7 +37,7 @@
 	<section id="section-planes">
 		@foreach (var rutina in entrenamientosPublicados)
 		{
-			<a href="Alumnos/Plan?p=@rutina.Id" class="link">
+			<a href="Alumnos/Plan?p=@rutina.Id" class="link link-no-underline">
 				<span class="badge badge-@rutina.BadgeColour">@rutina.BadgeText</span>
 				-
 				<span class="link link-text">
@@ -47,9 +47,7 @@
 					}
 
 					@rutina.Nombre
-				</span>
-				-
-				<span class="link link-text">
+					-
 					@rutina.UltimaFecha.ToString("dd MMMM yyyy', ' HH:mm")
 				</span>
 			</a>

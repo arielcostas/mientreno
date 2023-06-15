@@ -2,47 +2,50 @@
 :root {
 	--font-sans: -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
 	--font-mono: 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Lucida Console', Monaco, monospace;
-	
+
 	font-family: var(--font-sans);
 	font-size: 16px;
 	line-height: 1.5;
-	
+
 	color: var(--text);
 
 	--unit: 0.25rem;
 	--media-tablet-large: 900px;
 	--media-tablet-small: 768px;
-	
+
 	--text: #020617;
 	--background: #e4e4e7;
 	--background-alt: #e7e5e4;
 
-	--primary: #69f000;
-	--primary-darker: #00f000;
-	--primary-lighter: #a7ea72;
+	--primary: hsl(94deg, 100%, 40%);
+	--primary-dark: hsl(94deg, 100%, 20%);
+	--primary-light: hsl(94deg, 100%, 80%);
 
-	--good: #4ade80;
-	--good-alt: #14532d;
-	
-	--warning: #fbbf24;
-	--warning-alt: #78350f;
-	
-	--bad: #f87171;
-	--bad-alt: #7f1d1d;
-	
-	--text-max: #03191F;
+	--good: hsl(94deg, 100%, 40%);
+	--good-darker: hsl(94deg, 100%, 20%);
+	--good-lighter: hsl(94deg, 100%, 80%);
+
+	--warning: hsl(43, 100%, 50%);
+	--warning-darker: hsl(43, 100%, 30%);
+	--warning-ligher: hsl(43, 100%, 70%);
+
+	--bad: hsl(4, 100%, 40%);
+	--bad-darker: hsl(4, 100%, 20%);
+	--bad-ligher: hsl(4, 100%, 80%);
+
 	--background-max: #FFFFFF;
-	
+
 	--black: #03191F;
 	--white: #f8fafc;
-	
-	--corner: 0.25rem;
+
+	--corner: 0.15rem;
 
 	--shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+	--inset-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 ::selection {
-	background: var(--primary-darker);
+	background: var(--primary-dark);
 	color: var(--white);
 }
 
@@ -56,7 +59,7 @@ body {
 	background: var(--background);
 	min-height: 100vh;
 	color: var(--text);
-	
+
 	display: flex;
 	flex-direction: column;
 }
@@ -81,6 +84,7 @@ fieldset {
 p {
 	color: var(--text);
 	font-weight: 500;
+	hyphens: auto;
 }
 
 textarea {
@@ -103,6 +107,7 @@ textarea {
 ul, ol {
 	padding-left: 1.5rem;
 }
+
 /*#endregion */
 
 /*#region Buttons */
@@ -111,17 +116,16 @@ ul, ol {
 	font-weight: bold;
 	text-decoration: none;
 
-	color: var(--text-max);
-	
+	color: var(--text);
+
 	padding: calc(0.75rem + 2px) 1.5rem 0.75rem 1.5rem;
-	
-	border-top-left-radius: var(--corner);
-	border-top-right-radius: var(--corner);
+
 	border: none;
-	border-bottom: 2px solid var(--black);
-	
+	border-radius: var(--corner);
+	box-shadow: var(--inset-shadow);
+
 	transition: all 0.2s ease-in-out;
-	
+
 	user-select: none;
 }
 
@@ -134,7 +138,7 @@ ul, ol {
 }
 
 .button-primary:hover {
-	background-color: var(--primary-darker);
+	background-color: var(--primary-dark);
 }
 
 .button-outline-primary {
@@ -163,6 +167,7 @@ ul, ol {
 .button-text-end {
 	text-align: end;
 }
+
 /*#endregion */
 
 /*#region Links */
@@ -183,6 +188,10 @@ ul, ol {
 
 .link-bold {
 	font-weight: bold;
+}
+
+.link-no-underline, .link-no-underline:hover {
+	text-decoration: none;
 }
 
 .link-nav {
@@ -210,7 +219,7 @@ ul, ol {
 
 .link-text::selection {
 	background: var(--text);
-	color: #fff;
+	color: var(--background-max);
 }
 
 .link-inverted {
@@ -218,8 +227,8 @@ ul, ol {
 }
 
 .link-inverted::selection {
-	background: #fff;
-	color: #222;
+	background: var(--background-max);
+	color: var(--text);
 }
 
 .link-primary {
@@ -228,7 +237,7 @@ ul, ol {
 
 .link-primary::selection {
 	background: var(--primary);
-	color: #fff;
+	color: var(--background-max);
 }
 
 .link-bad {
@@ -245,6 +254,7 @@ ul, ol {
 	font-size: 0.8em;
 	vertical-align: super;
 }
+
 /*#endregion */
 
 /*#region Forms */
@@ -252,6 +262,11 @@ form {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+	font-size: 1.1rem;
+}
+
+.form a {
+	font-size: 1.1rem;
 }
 
 .form-inline {
@@ -259,7 +274,7 @@ form {
 	flex-direction: row;
 	align-items: center;
 	gap: 0.75rem;
-	
+
 }
 
 .form-group {
@@ -277,31 +292,42 @@ form {
 .form-group > label {
 	font-size: 1.1rem;
 	font-weight: bold;
-	margin-bottom: 0;
+	margin-bottom: 2px;
+	margin-left: 2px;
 	line-height: 1.25;
 }
 
 .form-control {
 	font-size: 1.1rem;
-	outline: none;
 
 	padding: calc(0.75rem + 2px) 1rem 0.75rem 1rem;
 	transition: 0.2s ease-in-out;
-	transition-property: border-color, background-color;
+	transition-property: border-color, background-color, outline-color, outline-width;
 
-	border-top-left-radius: var(--corner);
-	border-top-right-radius: var(--corner);
-	
+	border-radius: var(--corner);
 	border: none;
-	border-bottom: 2px solid var(--black);
+
+	box-shadow: var(--inset-shadow);
 }
 
 .form-control:focus {
-	border-bottom-color: var(--primary);
+	outline: 1px solid var(--primary-dark);
 }
 
 .form-control-filled {
 	background-color: var(--background-alt);
+}
+
+.form-check {
+	font-size: 1.1rem;
+}
+
+.form-check > input {
+	margin-right: 0.5rem;
+	width: 1.1rem;
+	height: 1.1rem;
+	transform: translateY(2px);
+	accent-color: var(--primary-dark);
 }
 
 /*#endregion */
@@ -345,6 +371,7 @@ header nav:has(img) img {
 .header-brand {
 	line-height: 1;
 }
+
 /*#endregion */
 
 /*#region Mains */
@@ -361,7 +388,7 @@ main {
 	margin: 3rem auto;
 	width: 42rem;
 	border-radius: 0.5rem;
-	
+
 	gap: 1.5rem;
 
 	box-shadow: var(--shadow);
@@ -401,7 +428,7 @@ main {
 	margin: 3rem auto;
 	width: 70vw;
 	border-radius: var(--corner);
-	
+
 	gap: 1.5rem;
 }
 
@@ -416,6 +443,7 @@ main {
 	align-items: baseline;
 	justify-content: space-between;
 }
+
 /*#endregion */
 
 /*#region Grid & cards */
@@ -453,13 +481,14 @@ main {
 	justify-content: space-between;
 	gap: 1rem;
 }
+
 /*#endregion */
 
 /*#region Alerts */
 .alert {
 	padding: 0.5rem 1rem;
 	font-size: 1.05rem;
-	
+
 	border-radius: var(--corner);
 	border: 2px solid transparent;
 }
@@ -471,23 +500,27 @@ main {
 }
 
 .alert-bad {
-	background-color: var(--bad);
-	border-color: var(--bad-alt);
+	background-color: var(--bad-ligher);
+	border-color: var(--bad-darker);
+	color: var(--bad);
 }
 
 .alert-warning {
-	background-color: var(--warning);
-	border-color: var(--warning-alt);
+	background-color: var(--warning-ligher);
+	border-color: var(--warning-darker);
+	color: var(--warning);
 }
 
 .alert-good {
-	background-color: var(--good);
-	border-color: var(--good-alt);
+	background-color: var(--good-lighter);
+	border-color: var(--good-darker);
+	color: var(--good);
 }
 
 .text-centre {
 	text-align: center;
 }
+
 /*#endregion */
 
 /*#region Badges */
@@ -501,12 +534,12 @@ main {
 
 .badge-good {
 	background-color: var(--good);
-	color: var(--text-max);
+	color: var(--text);
 }
 
 .badge-warning {
 	background-color: var(--warning);
-	color: var(--text-max);
+	color: var(--text);
 }
 
 .badge-bad {
@@ -528,7 +561,7 @@ footer {
 
 	padding: 0 12vw;
 	background: #131313;
-	
+
 	color: var(--background-max);
 }
 
@@ -536,8 +569,9 @@ footer nav {
 	display: flex;
 	flex-direction: column;
 	align-items: end;
-	
+
 	font-size: 1.1rem;
 	gap: 0.4rem;
 }
+
 /*#endregion */

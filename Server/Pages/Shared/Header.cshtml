@@ -4,7 +4,14 @@
 
 @{
 	var usuario = UserManager.GetUserAsync(User).Result;
-	var area = usuario is Alumno ? "Alumnos" : "Dashboard";
+	var area = usuario switch
+	{
+		Alumno => "Alumnos",
+		Entrenador => "Dashboard",
+		null => "",
+		_ => usuario is Alumno ? "Alumnos" : "Dashboard"
+		};
+
 }
 
 <header>

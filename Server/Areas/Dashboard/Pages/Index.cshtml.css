@@ -1,4 +1,5 @@
-﻿meter {
+﻿
+meter {
 	width: 100%;
 	height: 1.2rem;
 }
@@ -9,7 +10,7 @@ meter::-webkit-meter-bar {
 }
 
 meter::-webkit-meter-optimum-value {
-	background: var(--good);
+	background: var(--primary);
 }
 
 meter::-webkit-meter-suboptimum-value {
