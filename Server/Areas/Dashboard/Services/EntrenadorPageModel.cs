@@ -25,7 +25,6 @@ public class EntrenadorPageModel : PageModel
 	public Entrenador Entrenador;
 
 	protected void LoadEntrenador(
-		bool? includeSuscripcion = true,
 		bool? includeCategorias = false
 	)
 	{
@@ -34,11 +33,6 @@ public class EntrenadorPageModel : PageModel
 		var user = UserManager.GetUserAsync(User).Result!;
 
 		var ent = DatabaseContext.Entrenadores as IQueryable<Entrenador>;
-
-		if (includeSuscripcion == true)
-		{
-			ent = ent.Include(e => e.Suscripcion);
-		}
 
 		if (includeCategorias == true)
 		{

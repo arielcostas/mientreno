@@ -35,7 +35,6 @@ public class PlanEditorModel : EntrenadorPageModel
 	public async Task<IActionResult> OnGetAsync()
 	{
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 
 		var alumno = await DatabaseContext.Alumnos
 			.Include(a => a.JornadasEntrenamientos)
@@ -106,7 +105,6 @@ public class PlanEditorModel : EntrenadorPageModel
 		if (!ModelState.IsValid) return Page();
 
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 
 		if (PlanId.IsNullOrWhiteSpace()) return BadRequest();
 		

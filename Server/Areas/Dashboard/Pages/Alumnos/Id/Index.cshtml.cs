@@ -25,7 +25,6 @@ public class SingleAlumnoModel : EntrenadorPageModel
 	public async Task<IActionResult> OnGetAsync()
 	{
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 
 		Console.WriteLine(Id);
 

@@ -25,11 +25,6 @@ public class Entrenador : Usuario
 {
 	public const string RoleName = "Entrenador";
 
-	public Suscripcion Suscripcion { get; set; } = new()
-	{
-		Estado = EstadoSuscripcion.NoSuscrito
-	};
-	
 	public List<Alumno> Alumnos { get; set; } = new();
 
 	public List<Ejercicio> Ejercicios { get; set; } = new();

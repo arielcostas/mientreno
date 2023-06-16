@@ -502,19 +502,19 @@ main {
 .alert-bad {
 	background-color: var(--bad-ligher);
 	border-color: var(--bad-darker);
-	color: var(--bad);
+	color: var(--bad-darker);
 }
 
 .alert-warning {
 	background-color: var(--warning-ligher);
 	border-color: var(--warning-darker);
-	color: var(--warning);
+	color: var(--warning-darker);
 }
 
 .alert-good {
 	background-color: var(--good-lighter);
 	border-color: var(--good-darker);
-	color: var(--good);
+	color: var(--good-darker);
 }
 
 .text-centre {

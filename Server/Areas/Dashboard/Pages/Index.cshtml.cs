@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mientreno.Server.Areas.Dashboard.Services;
-using Mientreno.Server.Business;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
 
@@ -22,10 +20,8 @@ public class DashboardModel : EntrenadorPageModel
 	public IActionResult OnGet()
 	{
 		LoadEntrenador();
-		if (!Entrenador.Suscripcion.Operativa) return RedirectToPage("/Subscribe");
 		
 		Alumnos = DatabaseContext.Alumnos.Count(a => a.Entrenador == Entrenador);
-		MaxAlumnos = SubscriptionRestrictions.MaxAlumnosPerEntrenador(Entrenador.Suscripcion.Plan);
 		
 		return Page();
 	}

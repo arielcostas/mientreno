@@ -57,10 +57,7 @@ public class ApplicationDatabaseContext : IdentityDbContext
 		// Invitación del entrenador a un futuro alumno.
 		entrenador.HasMany<Invitacion>(e => e.Invitaciones)
 			.WithOne(i => i.Entrenador);
-
-		// Entrenador tiene suscripción
-		entrenador.OwnsOne(e => e.Suscripcion);
-
+		
 		// Alumno tiene rutinas
 		var alumno = modelBuilder.Entity<Alumno>();
 		alumno.HasMany<JornadaEntrenamiento>(a => a.JornadasEntrenamientos)

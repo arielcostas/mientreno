@@ -9,7 +9,6 @@ using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
 using Mientreno.Compartido.Recursos;
-using Mientreno.Server.Business;
 using Mientreno.Server.Connectors.Queue;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
@@ -158,11 +157,7 @@ public class RegisterModel : PageModel
 
 		if (invitacion is null || !invitacion.Usable) return null;
 
-		var maxSubs = SubscriptionRestrictions.MaxAlumnosPerEntrenador(invitacion.Entrenador.Suscripcion.Plan);
-		var currentSubs = await _databaseContext.Alumnos
-			.CountAsync(a => a.Entrenador.Id == invitacion.Entrenador.Id);
-
-		return currentSubs + 1 >= maxSubs ? null : invitacion;
+		return invitacion;
 	}
 
 	private Entrenador NewEntrenador()
@@ -175,15 +170,7 @@ public class RegisterModel : PageModel
 
 			UserName = Form.Email,
 			Email = Form.Email,
-			UltimosTosAceptados = Constantes.VersionTos,
-			Suscripcion = new Suscripcion
-			{
-				Estado = EstadoSuscripcion.NoSuscrito,
-				CustomerId = string.Empty,
-				FechaInicio = DateTime.Now,
-				FechaFin = DateTime.Now,
-				RenovacionAutomatica = false
-			}
+			UltimosTosAceptados = Constantes.VersionTos
 		};
 	}
 

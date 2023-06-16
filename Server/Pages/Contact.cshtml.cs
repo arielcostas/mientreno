@@ -4,10 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
-using Mientreno.Server.Business;
 using Mientreno.Server.Connectors.Queue;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
@@ -57,22 +55,11 @@ public class ContactModel : PageModel
 		var email = Form.Email;
 
 		var user = _userManager.GetUserAsync(User).Result;
-		var priority = false;
 
 		if (user != null)
 		{
 			nombre = user.Nombre;
 			email = user.Email!;
-
-			if (user is Entrenador)
-			{
-				var plan = _databaseContext.Entrenadores
-					.Include(e => e.Suscripcion)
-					.Where(e => e.Id == user.Id)
-					.Select(e => e.Suscripcion.Plan)
-					.FirstOrDefault();
-				priority = SubscriptionRestrictions.PrioritySupport(plan);
-			}
 		}
 		
 		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
@@ -84,7 +71,7 @@ public class ContactModel : PageModel
 			NombreDestinatario = "Equipo de MiEntreno",
 			DireccionDestinatario = "hola@mientreno.app",
 			Plantila = Constantes.FormContacto,
-			Parametros = new[] { nombre, email, Form.Mensaje, culture.DisplayName, priority.ToString() },
+			Parametros = new[] { nombre, email, Form.Mensaje, culture.DisplayName },
 			ResponderA = email
 		});
 		
