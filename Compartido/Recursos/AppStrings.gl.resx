@@ -315,7 +315,7 @@
 	  <value>Se tes algún problema coa túa subscrición, por favor</value>
   </data>
   <data name="dashboard_AlumnosOutOf" xml:space="preserve">
-	  <value>alumnos dun total de</value>
+	  <value>Rexistraches {0} alumnos dos {1} que permite a túa subscrición.</value>
   </data>
   <data name="dashboard_NoPlansCreated" xml:space="preserve">
 	  <value>Non se creou (aínda) ningún plan de adestramento.</value>

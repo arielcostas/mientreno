@@ -315,7 +315,7 @@
 	  <value>Zure harpidetzarekin arazoren bat baduzu, mesedez</value>
   </data>
   <data name="dashboard_AlumnosOutOf" xml:space="preserve">
-	  <value>ikasle guztira</value>
+	  <value>Zure harpidetzak ahalbidetzen duen {1} {0} ikasle erregistratu dituzu.</value>
   </data>
   <data name="dashboard_NoPlansCreated" xml:space="preserve">
 	  <value>Ez da prestakuntza planik sortu (oraindik).</value>
