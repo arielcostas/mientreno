@@ -1,0 +1,31 @@
+﻿@page
+@{
+	ViewData["Title"] = AppStrings.Doing_PasswordRecovery;
+}
+@attribute [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
+@model ForgetModel
+
+<main id="main-dialogue">
+	<h1>@AppStrings.Doing_PasswordRecovery</h1>
+
+	@if (Model.MensajeEnviado)
+	{
+		<div class="alert alert-good">
+			<strong class="alert-title">@AppStrings.Alert_PasswordRecoverySent_Title</strong>
+			<p>@AppStrings.Alert_PasswordRecoverySent_Text</p>
+		</div>
+	}
+	else
+	{
+		<form method="post" id="form">
+			<div class="form-group">
+				<label asp-for="Form.Email">@AppStrings.Input_Email</label>
+				<input asp-for="Form.Email" type="email" class="form-control form-control-filled" placeholder="joseluis@gmail.com" required/>
+				<span asp-validation-for="Form.Email" class="text-danger"></span>
+			</div>
+
+			<button class="button button-primary" type="submit">@AppStrings.Action_Send</button>
+		</form>
+	}
+
+</main>

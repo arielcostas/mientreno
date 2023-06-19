@@ -120,7 +120,7 @@
   <data name="alreadyHaveAccountLogin" xml:space="preserve">
     <value>Ja tens compte? Inicia sessió.</value>
   </data>
-  <data name="confirmPassword" xml:space="preserve">
+  <data name="Input_ConfirmPassword" xml:space="preserve">
     <value>Confirmar contrasenya</value>
   </data>
   <data name="Action_Login" xml:space="preserve">

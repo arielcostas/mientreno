@@ -70,7 +70,7 @@ public class ContactModel : PageModel
 			Idioma = Idiomas.Castellano,
 			NombreDestinatario = "Equipo de MiEntreno",
 			DireccionDestinatario = "hola@mientreno.app",
-			Plantila = Constantes.FormContacto,
+			Plantila = Constantes.EmailFormContacto,
 			Parametros = new[] { nombre, email, Form.Mensaje, culture.DisplayName },
 			ResponderA = email
 		});

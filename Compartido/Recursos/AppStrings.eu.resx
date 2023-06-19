@@ -120,7 +120,7 @@
   <data name="alreadyHaveAccountLogin" xml:space="preserve">
     <value>Kontu bat al duzu dagoeneko? Saioa hasi.</value>
   </data>
-  <data name="confirmPassword" xml:space="preserve">
+  <data name="Input_ConfirmPassword" xml:space="preserve">
     <value>pasahitza baieztatu</value>
   </data>
   <data name="Action_Login" xml:space="preserve">

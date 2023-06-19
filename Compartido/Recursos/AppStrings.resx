@@ -120,7 +120,7 @@
   <data name="alreadyHaveAccountLogin" xml:space="preserve">
     <value>¿Ya tienes cuenta? Inicia sesión.</value>
   </data>
-  <data name="confirmPassword" xml:space="preserve">
+  <data name="Input_ConfirmPassword" xml:space="preserve">
     <value>Confirmar contraseña</value>
   </data>
   <data name="Action_Login" xml:space="preserve">
@@ -595,5 +595,26 @@
   </data>
   <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
 	  <value>Acceso prioritario a soporte técnico</value>
+  </data>
+  <data name="Action_Send" xml:space="preserve">
+	  <value>Enviar</value>
+  </data>
+  <data name="Doing_PasswordRecovery" xml:space="preserve">
+	  <value>Recuperación de contraseña</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Title" xml:space="preserve">
+	  <value>Enlace de reinicio enviado</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Text" xml:space="preserve">
+	  <value>Si hay un usuario con la dirección de correo electrónico que nos facilitaste, recibirás un enlace con el que podrás restablecer tu contraseña.</value>
+  </data>
+  <data name="Doing_SetPassword" xml:space="preserve">
+	  <value>Estableciendo tu contraseña</value>
+  </data>
+  <data name="Error_InvalidResetToken" xml:space="preserve">
+	  <value>Código de restablecimiento incorrecto</value>
+  </data>
+  <data name="Validation_Password_Weak" xml:space="preserve">
+	  <value>La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial</value>
   </data>
 </root>

@@ -213,6 +213,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enviar.
+        /// </summary>
+        public static string Action_Send {
+            get {
+                return ResourceManager.GetString("Action_Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tu cuenta ha sido confirmada. Ya puedes iniciar sesión y empezar a utilizar MiEntreno..
         /// </summary>
         public static string Alert_AccountConfirmed_Text {
@@ -317,6 +326,24 @@ namespace Mientreno.Compartido.Recursos {
         public static string Alert_NoAlumnos_Title {
             get {
                 return ResourceManager.GetString("Alert_NoAlumnos_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Si hay un usuario con la dirección de correo electrónico que nos facilitaste, recibirás un enlace con el que podrás restablecer tu contraseña..
+        /// </summary>
+        public static string Alert_PasswordRecoverySent_Text {
+            get {
+                return ResourceManager.GetString("Alert_PasswordRecoverySent_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enlace de reinicio enviado.
+        /// </summary>
+        public static string Alert_PasswordRecoverySent_Title {
+            get {
+                return ResourceManager.GetString("Alert_PasswordRecoverySent_Title", resourceCulture);
             }
         }
         
@@ -434,15 +461,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string CallToAction_SignUpNow {
             get {
                 return ResourceManager.GetString("CallToAction_SignUpNow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Confirmar contraseña.
-        /// </summary>
-        public static string confirmPassword {
-            get {
-                return ResourceManager.GetString("confirmPassword", resourceCulture);
             }
         }
         
@@ -618,6 +636,24 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recuperación de contraseña.
+        /// </summary>
+        public static string Doing_PasswordRecovery {
+            get {
+                return ResourceManager.GetString("Doing_PasswordRecovery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estableciendo tu contraseña.
+        /// </summary>
+        public static string Doing_SetPassword {
+            get {
+                return ResourceManager.GetString("Doing_SetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Comprobando que eres tú.
         /// </summary>
         public static string Doing_VerifyIdentity {
@@ -663,6 +699,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código de restablecimiento incorrecto.
+        /// </summary>
+        public static string Error_InvalidResetToken {
+            get {
+                return ResourceManager.GetString("Error_InvalidResetToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ir a mi tablero.
         /// </summary>
         public static string goToDashboard {
@@ -677,6 +722,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string hello {
             get {
                 return ResourceManager.GetString("hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmar contraseña.
+        /// </summary>
+        public static string Input_ConfirmPassword {
+            get {
+                return ResourceManager.GetString("Input_ConfirmPassword", resourceCulture);
             }
         }
         
@@ -1451,6 +1505,15 @@ namespace Mientreno.Compartido.Recursos {
         public static string Validation_Password_Required {
             get {
                 return ResourceManager.GetString("Validation_Password_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.
+        /// </summary>
+        public static string Validation_Password_Weak {
+            get {
+                return ResourceManager.GetString("Validation_Password_Weak", resourceCulture);
             }
         }
         
