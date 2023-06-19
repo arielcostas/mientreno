@@ -34,7 +34,7 @@
 	<form method="post" id="form">
 		<div class="form-group">
 			<label asp-for="Form.Code">@AppStrings.Input_MfaCode</label>
-			<input asp-for="Form.Code" type="password" autocomplete="one-time-code" class="form-control"/>
+			<input asp-for="Form.Code" type="password" autocomplete="one-time-code" class="form-control form-control-filled"/>
 		</div>
 		
 		<button class="button button-primary" type="submit">@AppStrings.Action_EnableMFA</button>
