@@ -1,4 +1,7 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
+@using Mientreno.Server.Data.Models
+@inject SignInManager<Usuario> SignInManager
 @{
 	ViewData["Title"] = @AppStrings.Page_Landing;
 }
@@ -9,13 +12,21 @@
 
 		<p>@AppStrings.Text_LandingPage_Text</p>
 
-		<div class="inline">
-			<a class="button button-primary button-large" asp-page="/Register">@AppStrings.CallToAction_SignUpNow</a>
-			<a class="link link-inverted" asp-page="/Login">@AppStrings.CallToAction_OrLogIn</a>
-		</div>
+		@if (SignInManager.IsSignedIn(User))
+		{
+			<div class="inline">
+				<a class="button button-primary button-large" asp-page="/Login">@AppStrings.CallToAction_GoToDashboard</a>
+			</div>
+		}
+		else
+		{
+			<div class="inline">
+				<a class="button button-primary button-large" asp-page="/Register">@AppStrings.CallToAction_SignUpNow</a>
+				<a class="link link-inverted" asp-page="/Login">@AppStrings.CallToAction_OrLogIn</a>
+			</div>
+		}
 	</section>
 	<section id="features">
-
 		<article id="feature-1" class="feature">
 			<h2>@AppStrings.Text_LandingPage_Feature1_Title</h2>
 

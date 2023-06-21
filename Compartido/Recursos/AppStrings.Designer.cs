@@ -447,6 +447,15 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ir a mi tablero.
+        /// </summary>
+        public static string CallToAction_GoToDashboard {
+            get {
+                return ResourceManager.GetString("CallToAction_GoToDashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to o inicia sesión.
         /// </summary>
         public static string CallToAction_OrLogIn {
@@ -704,15 +713,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string Error_InvalidResetToken {
             get {
                 return ResourceManager.GetString("Error_InvalidResetToken", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ir a mi tablero.
-        /// </summary>
-        public static string goToDashboard {
-            get {
-                return ResourceManager.GetString("goToDashboard", resourceCulture);
             }
         }
         

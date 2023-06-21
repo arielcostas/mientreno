@@ -33,7 +33,7 @@
 /* List bullet */
 #prices article ul ::marker {
 	content: " ✔ ";
-	color: var(--primary-dark);
+	color: var(--primary-darker);
 }
 
 #prices article:not(#plan-destacado) {

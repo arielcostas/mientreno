@@ -10,16 +10,6 @@
 <main id="main-invisible">
 	<h1>@AppStrings.dashboard</h1>
 	<div class="grid grid-3">
-		<div class="card" id="card-alumnos">
-			<h2>🎽 @AppStrings.Text_Dashboard_MyAlumnos_Title</h2>
-			<div class="card-content">
-				<p>@AppStrings.dashboard_AlumnosOutOf.FormatWith(Model.Alumnos, Model.MaxAlumnos)</p>
-				<a asp-page="/Alumnos/Index" class="link link-primary link-bold">
-					@AppStrings.Action_Manage @AppStrings.alumnos
-				</a>
-				<meter value="@Model.Alumnos" min="0" max="@Model.MaxAlumnos" high="@(Model.MaxAlumnos * 0.9)"> </meter>
-			</div>
-		</div>
 		
 		<div class="card" id="card-entrenador">
 			<h2>👤 @AppStrings.Text_Dashboard_MyAccount_Title</h2>

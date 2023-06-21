@@ -290,7 +290,7 @@
   <data name="masDetalles" xml:space="preserve">
 	  <value>Més detalls</value>
   </data>
-  <data name="goToDashboard" xml:space="preserve">
+  <data name="CallToAction_GoToDashboard" xml:space="preserve">
 	  <value>Anar al meu tauler</value>
   </data>
   <data name="Text_Dashboard_SubscriptionConfirmed_Title" xml:space="preserve">
