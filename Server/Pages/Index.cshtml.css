@@ -1,37 +1,22 @@
 ﻿h1 {
-	font-size: 3.5em;
+	font-size: 4em;
+	color: var(--white);
 }
 
-h2 {
-	font-size: 2.5em;
+h1~p, h2 {
+	font-size: 2rem;
+	color: var(--white);
 }
 
 #landing {
 	font-size: 18px;
 }
 
-#hero {
-	background-image: url("img/landing-main.webp"), linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
-	background-blend-mode: overlay;
-	background-size: cover;
-	background-position: bottom;
-	background-repeat: no-repeat;
-}
-
-#landing > #hero {
-	background-color: rgba(255, 255, 255, 0.2);
-	gap: 1.8rem;
-	padding-top: min(12rem, 15vh);
-	padding-bottom: min(12rem, 15vh);;
-}
-
-#landing p {
-	font-size: 1.35em;
-	color: var(--white);
-}
-
 .feature p,
 #contact p {
+	font-size: 1.35em;
+	color: var(--white);
+
 	width: min(75%, 60ch);
 }
 
@@ -59,6 +44,20 @@ h2 {
 	padding-bottom: 0;
 	min-height: unset;
 	background-color: #131313;
+}
+
+#hero {
+	background-image: url("img/landing-main.webp"), linear-gradient(to bottom, rgba(0, 200, 0, 0.8), rgba(0, 200, 0, 0.4));
+	background-blend-mode: multiply;
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+
+	text-align: center;
+
+	gap: 3rem;
+	padding-top: min(12rem, 15vh);
+	padding-bottom: min(12rem, 15vh);;
 }
 
 #contact p {
