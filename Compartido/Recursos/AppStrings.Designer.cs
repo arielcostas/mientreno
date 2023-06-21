@@ -240,24 +240,6 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parece que has excedido tu cuota de alumnos. Si quieres invitar a más, considera cambiarte a un plan superior..
-        /// </summary>
-        public static string Alert_CannotInviteQuotaExceeded_Text {
-            get {
-                return ResourceManager.GetString("Alert_CannotInviteQuotaExceeded_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No se pueden invitar más alumnos.
-        /// </summary>
-        public static string Alert_CannotInviteQuotaExceeded_Title {
-            get {
-                return ResourceManager.GetString("Alert_CannotInviteQuotaExceeded_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Tus datos de contacto fueron cubiertos automáticamente porque tienes la sesión iniciada. Si tu plan incluye soporte prioritario, este se tendrá en cuenta..
         /// </summary>
         public static string Alert_ContactPreFilled_Text {
@@ -501,24 +483,6 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tienes registrados {0} alumnos de los {1} que permite tu suscripción..
-        /// </summary>
-        public static string dashboard_AlumnosOutOf {
-            get {
-                return ResourceManager.GetString("dashboard_AlumnosOutOf", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ponte en contacto con nosotros.
-        /// </summary>
-        public static string dashboard_GetInTouch {
-            get {
-                return ResourceManager.GetString("dashboard_GetInTouch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Invitación creada.
         /// </summary>
         public static string dashboard_InviteCreated {
@@ -546,74 +510,11 @@ namespace Mientreno.Compartido.Recursos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No tienes una suscripción activa..
-        /// </summary>
-        public static string dashboard_NotSubscribedToPlan {
-            get {
-                return ResourceManager.GetString("dashboard_NotSubscribedToPlan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Si tuvieras algún problema con tu suscripción, por favor.
-        /// </summary>
-        public static string dashboard_ProblemWithStripe {
-            get {
-                return ResourceManager.GetString("dashboard_ProblemWithStripe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Comparte el siguiente enlace con tu(s) alumno(s):.
         /// </summary>
         public static string dashboard_ShareInviteLink {
             get {
                 return ResourceManager.GetString("dashboard_ShareInviteLink", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to panel de control de cliente de Stripe.
-        /// </summary>
-        public static string dashboard_StripeClientPanel {
-            get {
-                return ResourceManager.GetString("dashboard_StripeClientPanel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tienes una suscripción activa al plan .
-        /// </summary>
-        public static string dashboard_SubscribedToPlan {
-            get {
-                return ResourceManager.GetString("dashboard_SubscribedToPlan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tu suscripción será renovada automáticamente el .
-        /// </summary>
-        public static string dashboard_SubscriptionWillBeRenewedAt {
-            get {
-                return ResourceManager.GetString("dashboard_SubscriptionWillBeRenewedAt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tu suscrpción no será renovada, y finalizará el .
-        /// </summary>
-        public static string dashboard_SubscriptionWillEndAt {
-            get {
-                return ResourceManager.GetString("dashboard_SubscriptionWillEndAt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Utilizamos Stripe para procesar los pagos de forma segura. Puedes administrar tu suscripción en tu.
-        /// </summary>
-        public static string dashboard_WeUseStripe {
-            get {
-                return ResourceManager.GetString("dashboard_WeUseStripe", resourceCulture);
             }
         }
         
@@ -1253,24 +1154,6 @@ namespace Mientreno.Compartido.Recursos {
         public static string Text_Dashboard_MyAccount_Title {
             get {
                 return ResourceManager.GetString("Text_Dashboard_MyAccount_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mis alumnos.
-        /// </summary>
-        public static string Text_Dashboard_MyAlumnos_Title {
-            get {
-                return ResourceManager.GetString("Text_Dashboard_MyAlumnos_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mi suscripción.
-        /// </summary>
-        public static string Text_Dashboard_MySuscripcion_Title {
-            get {
-                return ResourceManager.GetString("Text_Dashboard_MySuscripcion_Title", resourceCulture);
             }
         }
         

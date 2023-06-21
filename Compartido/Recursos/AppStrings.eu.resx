@@ -212,21 +212,6 @@
   <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
 	  <value>Etengabeko garapenean dagoen bitartean. Denborarekin, eginbide eta hobekuntza berrietarako sarbidea izango duzu.</value>
   </data>
-  <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
-	  <value>Zure harpidetza automatikoki berrituko da </value>
-  </data>
-  <data name="dashboard_SubscriptionWillEndAt" xml:space="preserve">
-	  <value>Zure harpidetza ez da berrituko, eta </value>
-  </data>
-  <data name="dashboard_SubscribedToPlan" xml:space="preserve">
-	  <value>Planera harpidetuta zaude </value>
-  </data>
-  <data name="Text_Dashboard_MySuscripcion_Title" xml:space="preserve">
-	  <value>nire harpidetza</value>
-  </data>
-  <data name="Text_Dashboard_MyAlumnos_Title" xml:space="preserve">
-	  <value>Nire ikasleak</value>
-  </data>
   <data name="dashboard" xml:space="preserve">
 	  <value>nire taula</value>
   </data>
@@ -298,24 +283,6 @@
   </data>
   <data name="Text_Dashboard_SubscriptionConfirmed_Text" xml:space="preserve">
 	  <value>Zure harpidetza behar bezala berretsi da. Ondoren, zure panelera joan eta MyTraining-ekin lanean has zaitezke.</value>
-  </data>
-  <data name="dashboard_NotSubscribedToPlan" xml:space="preserve">
-	  <value>Ez duzu harpidetza aktiborik.</value>
-  </data>
-  <data name="dashboard_WeUseStripe" xml:space="preserve">
-	  <value>Stripe erabiltzen dugu ordainketak modu seguruan prozesatzeko. Zure harpidetza kudea dezakezu zure</value>
-  </data>
-  <data name="dashboard_StripeClientPanel" xml:space="preserve">
-	  <value>stripe bezeroen panela</value>
-  </data>
-  <data name="dashboard_GetInTouch" xml:space="preserve">
-	  <value>Jarri gurekin harremanetan</value>
-  </data>
-  <data name="dashboard_ProblemWithStripe" xml:space="preserve">
-	  <value>Zure harpidetzarekin arazoren bat baduzu, mesedez</value>
-  </data>
-  <data name="dashboard_AlumnosOutOf" xml:space="preserve">
-	  <value>Zure harpidetzak ahalbidetzen duen {1} {0} ikasle erregistratu dituzu.</value>
   </data>
   <data name="dashboard_NoPlansCreated" xml:space="preserve">
 	  <value>Ez da prestakuntza planik sortu (oraindik).</value>
@@ -433,12 +400,6 @@
   </data>
   <data name="Action_Manage" xml:space="preserve">
 	  <value>Kudeatu</value>
-  </data>
-  <data name="Alert_CannotInviteQuotaExceeded_Title" xml:space="preserve">
-	  <value>Ezin da ikasle gehiago gonbidatu</value>
-  </data>
-  <data name="Alert_CannotInviteQuotaExceeded_Text" xml:space="preserve">
-	  <value>Ikasleen kuota gainditu duzula dirudi. Gehiago gonbidatu nahi badituzu, kontuan hartu goragoko plan batera igotzea.</value>
   </data>
   <data name="Alert_InviteInvalid_Title" xml:space="preserve">
 	  <value>gonbidapen baliogabea</value>

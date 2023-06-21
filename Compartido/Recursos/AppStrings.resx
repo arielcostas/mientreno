@@ -212,21 +212,6 @@
   <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
 	  <value>Mientreno está en constante desarrollo. Con el tiempo, irás obteniendo acceso a nuevas funcionalidades y mejoras.</value>
   </data>
-  <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
-	  <value>Tu suscripción será renovada automáticamente el </value>
-  </data>
-  <data name="dashboard_SubscriptionWillEndAt" xml:space="preserve">
-	  <value>Tu suscrpción no será renovada, y finalizará el </value>
-  </data>
-  <data name="dashboard_SubscribedToPlan" xml:space="preserve">
-	  <value>Tienes una suscripción activa al plan </value>
-  </data>
-  <data name="Text_Dashboard_MySuscripcion_Title" xml:space="preserve">
-	  <value>Mi suscripción</value>
-  </data>
-  <data name="Text_Dashboard_MyAlumnos_Title" xml:space="preserve">
-	  <value>Mis alumnos</value>
-  </data>
   <data name="dashboard" xml:space="preserve">
 	  <value>Mi tablero</value>
   </data>
@@ -298,24 +283,6 @@
   </data>
   <data name="Text_Dashboard_SubscriptionConfirmed_Text" xml:space="preserve">
 	  <value>Tu suscripción ha sido confirmada correctamente. A continuación, puedes ir a tu tablero y empezar a trabajar con MiEntreno.</value>
-  </data>
-  <data name="dashboard_NotSubscribedToPlan" xml:space="preserve">
-	  <value>No tienes una suscripción activa.</value>
-  </data>
-  <data name="dashboard_WeUseStripe" xml:space="preserve">
-	  <value>Utilizamos Stripe para procesar los pagos de forma segura. Puedes administrar tu suscripción en tu</value>
-  </data>
-  <data name="dashboard_StripeClientPanel" xml:space="preserve">
-	  <value>panel de control de cliente de Stripe</value>
-  </data>
-  <data name="dashboard_GetInTouch" xml:space="preserve">
-	  <value>ponte en contacto con nosotros</value>
-  </data>
-  <data name="dashboard_ProblemWithStripe" xml:space="preserve">
-	  <value>Si tuvieras algún problema con tu suscripción, por favor</value>
-  </data>
-  <data name="dashboard_AlumnosOutOf" xml:space="preserve">
-	  <value>Tienes registrados {0} alumnos de los {1} que permite tu suscripción.</value>
   </data>
   <data name="dashboard_NoPlansCreated" xml:space="preserve">
 	  <value>No se ha creado ningún plan de entrenamiento (todavía).</value>
@@ -433,12 +400,6 @@
   </data>
   <data name="Action_Manage" xml:space="preserve">
 	  <value>Gestionar</value>
-  </data>
-  <data name="Alert_CannotInviteQuotaExceeded_Title" xml:space="preserve">
-	  <value>No se pueden invitar más alumnos</value>
-  </data>
-  <data name="Alert_CannotInviteQuotaExceeded_Text" xml:space="preserve">
-	  <value>Parece que has excedido tu cuota de alumnos. Si quieres invitar a más, considera cambiarte a un plan superior.</value>
   </data>
   <data name="Alert_InviteInvalid_Title" xml:space="preserve">
 	  <value>Invitación inválida</value>

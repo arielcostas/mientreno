@@ -212,21 +212,6 @@
   <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
 	  <value>Mentrestant està en constant desenvolupament. Amb el temps, aniràs obtenint accés a noves funcionalitats i millores.</value>
   </data>
-  <data name="dashboard_SubscriptionWillBeRenewedAt" xml:space="preserve">
-	  <value>La teva subscripció serà renovada automàticament el </value>
-  </data>
-  <data name="dashboard_SubscriptionWillEndAt" xml:space="preserve">
-	  <value>La teva subscripció no serà renovada, i finalitzarà el </value>
-  </data>
-  <data name="dashboard_SubscribedToPlan" xml:space="preserve">
-	  <value>Estàs subscrit al pla </value>
-  </data>
-  <data name="Text_Dashboard_MySuscripcion_Title" xml:space="preserve">
-	  <value>La meva subscripció</value>
-  </data>
-  <data name="Text_Dashboard_MyAlumnos_Title" xml:space="preserve">
-	  <value>Els meus alumnes</value>
-  </data>
   <data name="dashboard" xml:space="preserve">
 	  <value>El meu tauler</value>
   </data>
@@ -298,24 +283,6 @@
   </data>
   <data name="Text_Dashboard_SubscriptionConfirmed_Text" xml:space="preserve">
 	  <value>La vostra subscripció ha estat confirmada correctament. A continuació, pots anar al teu tauler i començar a treballar amb MiEntreno.</value>
-  </data>
-  <data name="dashboard_NotSubscribedToPlan" xml:space="preserve">
-	  <value>No tens una subscripció activa.</value>
-  </data>
-  <data name="dashboard_WeUseStripe" xml:space="preserve">
-	  <value>Utilitzem Stripe per processar els pagaments de manera segura. Pots administrar la teva subscripció a la teva</value>
-  </data>
-  <data name="dashboard_StripeClientPanel" xml:space="preserve">
-	  <value>panell de control de client de Stripe</value>
-  </data>
-  <data name="dashboard_GetInTouch" xml:space="preserve">
-	  <value>posa't en contacte amb nosaltres</value>
-  </data>
-  <data name="dashboard_ProblemWithStripe" xml:space="preserve">
-	  <value>Si tinguessis algun problema amb la teva subscripció, si us plau</value>
-  </data>
-  <data name="dashboard_AlumnosOutOf" xml:space="preserve">
-	  <value>Tens registrats {0} alumnes dels {1} que permet la teva subscripció.</value>
   </data>
   <data name="dashboard_NoPlansCreated" xml:space="preserve">
 	  <value>No s'ha creat cap pla d'entrenament (encara).</value>
@@ -433,12 +400,6 @@
   </data>
   <data name="Action_Manage" xml:space="preserve">
 	  <value>Gestionar</value>
-  </data>
-  <data name="Alert_CannotInviteQuotaExceeded_Title" xml:space="preserve">
-	  <value>No es poden convidar més alumnes</value>
-  </data>
-  <data name="Alert_CannotInviteQuotaExceeded_Text" xml:space="preserve">
-	  <value>Sembla que heu excedit la vostra quota d'alumnes. Si vols convidar-ne a més, considera canviar-te a un pla superior.</value>
   </data>
   <data name="Alert_InviteInvalid_Title" xml:space="preserve">
 	  <value>Invitació invàlida</value>
