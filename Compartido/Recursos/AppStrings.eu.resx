@@ -557,4 +557,25 @@
   <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
 	  <value>Laguntza teknikorako lehentasunezko sarbidea</value>
   </data>
+  <data name="Action_Send" xml:space="preserve">
+	  <value>Bidali</value>
+  </data>
+  <data name="Doing_PasswordRecovery" xml:space="preserve">
+	  <value>Pasahitza berreskuratzea</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Title" xml:space="preserve">
+	  <value>berrezarri esteka bidali da</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Text" xml:space="preserve">
+	  <value>Eman duzun helbide elektronikoa duen erabiltzaile bat badago, pasahitza berrezartzeko esteka bat jasoko duzu.</value>
+  </data>
+  <data name="Doing_SetPassword" xml:space="preserve">
+	  <value>Zure pasahitza ezartzen</value>
+  </data>
+  <data name="Error_InvalidResetToken" xml:space="preserve">
+	  <value>Berrezarri kodea okerra</value>
+  </data>
+  <data name="Validation_Password_Weak" xml:space="preserve">
+	  <value>Pasahitzak gutxienez 8 karaktere izan behar ditu, maiuskula bat, minuskula bat, zenbaki bat eta karaktere berezi bat</value>
+  </data>
 </root>

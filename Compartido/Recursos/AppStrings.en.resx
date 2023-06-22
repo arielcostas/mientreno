@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="alreadyHaveAccountLogin" xml:space="preserve">
-    <value>Already have an account? Please log in.</value>
+    <value>Already have an account? Log in.</value>
   </data>
   <data name="Input_ConfirmPassword" xml:space="preserve">
     <value>Confirm password</value>
   </data>
   <data name="Action_Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Sign in</value>
   </data>
   <data name="Action_Register" xml:space="preserve">
-    <value>Register</value>
+    <value>Sign Up</value>
   </data>
   <data name="Input_Email" xml:space="preserve">
-    <value>E-mail address</value>
+    <value>E-mail</value>
   </data>
   <data name="Error_IncorrectCredentials" xml:space="preserve">
     <value>Incorrect username or password</value>
@@ -152,38 +152,38 @@
     <comment>Título de la página de registro</comment>
   </data>
   <data name="Input_Surname" xml:space="preserve">
-	  <value>Last name(s)</value>
+	  <value>Surname(s)</value>
 	  <comment>Apellidos (plural) en lenguas de España; apellido (singular) donde solo se tiene uno.</comment>
   </data>
   <data name="iveReadAndAccept" xml:space="preserve">
 	  <value>I have read and accept</value>
   </data>
   <data name="Alert_RegistrationDoneEmailSent_Text" xml:space="preserve">
-	  <value>To confirm your account, we have sent you an email. Please check your inbox.</value>
+	  <value>To confirm your account, we've emailed you. Please check your inbox.</value>
   </data>
   <data name="Page_Login" xml:space="preserve">
-	  <value>Login</value>
+	  <value>Sign in</value>
   </data>
   <data name="theTermsAndConditions" xml:space="preserve">
-	  <value>terms and conditions</value>
+	  <value>the terms and conditions</value>
   </data>
   <data name="Input_VideoUrl" xml:space="preserve">
 	  <value>Demonstration video URL</value>
   </data>
   <data name="Text_LandingPage_Title" xml:space="preserve">
-	  <value>A new way to train</value>
+	  <value>A new way of coaching</value>
   </data>
   <data name="Text_LandingPage_Text" xml:space="preserve">
-	  <value>Mientreno allows you to manage your clients' physical training in a simple and efficient way.</value>
+	  <value>MiEntreno allows you to manage your clients' physical training in a simple and efficient way.</value>
   </data>
   <data name="CallToAction_SignUpNow" xml:space="preserve">
-	  <value>Register now!</value>
+	  <value>Sign up now!</value>
   </data>
   <data name="CallToAction_OrLogIn" xml:space="preserve">
 	  <value>or log in</value>
   </data>
   <data name="Input_RememberMe" xml:space="preserve">
-	  <value>Maintain logged-in session</value>
+	  <value>Keep me signed in</value>
   </data>
   <data name="hello" xml:space="preserve">
 	  <value>Hello</value>
@@ -192,28 +192,28 @@
 	  <value>Manage training sessions</value>
   </data>
   <data name="Text_LandingPage_Feature2_Title" xml:space="preserve">
-	  <value>From anywhere, at any time</value>
+	  <value>Anywhere, anytime</value>
   </data>
   <data name="Text_LandingPage_Feature3_Title" xml:space="preserve">
 	  <value>Training history</value>
   </data>
   <data name="Text_LandingPage_Feature4_Title" xml:space="preserve">
-	  <value>Always for the better</value>
+	  <value>Always improving</value>
   </data>
   <data name="Text_LandingPage_Feature1_Text" xml:space="preserve">
-	  <value>Manage your clients' workouts: which exercises to perform, how many sets and reps. Add a video to demonstrate the performance of the exercise.</value>
+	  <value>Manage your clients' workouts: what exercises to perform, how many sets and reps. Add a video to demonstrate the proper performance of the exercise.</value>
   </data>
   <data name="Text_LandingPage_Feature2_Text" xml:space="preserve">
-	  <value>MiEntreno works from any device with internet connection. It allows your client to review the assigned routine or the details of a specific exercise from anywhere, displayed in a friendly and adapted way to the device.</value>
+	  <value>MiEntreno works from any device with an internet connection. It allows your client to review the assigned routine or the details of a specific exercise anywhere, displayed in a friendly way adapted to the device.</value>
   </data>
   <data name="Text_LandingPage_Feature3_Text" xml:space="preserve">
-	  <value>Consult the training history to see the client's evolution. Receive immediate feedback after the completion of each routine; so you can better adapt to your client's capabilities and needs.</value>
+	  <value>Check the training history to see the client's evolution. Receive immediate feedback after the completion of each routine; so you can better adapt to your client's capabilities and needs.</value>
   </data>
   <data name="Text_LandingPage_Feature4_Text" xml:space="preserve">
 	  <value>Mientreno is under constant development. Over time, you will gain access to new features and improvements.</value>
   </data>
   <data name="dashboard" xml:space="preserve">
-	  <value>My board</value>
+	  <value>My dashboard</value>
   </data>
   <data name="alumnos" xml:space="preserve">
 	  <value>Students</value>
@@ -225,19 +225,19 @@
 	  <value>Account confirmed</value>
   </data>
   <data name="Alert_AccountConfirmed_Text" xml:space="preserve">
-	  <value>Your account has been confirmed. You can now log in and start using MyTrainer.</value>
+	  <value>Your account has been confirmed. You can now log in and start using MiEntreno.</value>
   </data>
   <data name="Validation_Name_Required" xml:space="preserve">
 	  <value>You must enter your name</value>
   </data>
   <data name="Validation_Surname_Required" xml:space="preserve">
-	  <value>You must enter your last name</value>
+	  <value>You must enter your surname</value>
   </data>
   <data name="Validation_Email_Required" xml:space="preserve">
 	  <value>You must enter your email address</value>
   </data>
   <data name="Validation_Password_Required" xml:space="preserve">
-	  <value>You must enter the password</value>
+	  <value>You must enter a password</value>
   </data>
   <data name="Validation_PasswordConfirmation_Required" xml:space="preserve">
 	  <value>You must confirm the password</value>
@@ -557,7 +557,25 @@
   <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
 	  <value>Priority access to technical support</value>
   </data>
-  <data name="Noun_Language_English" xml:space="preserve">
-	  <value>English</value>
+  <data name="Action_Send" xml:space="preserve">
+	  <value>Send to</value>
+  </data>
+  <data name="Doing_PasswordRecovery" xml:space="preserve">
+	  <value>Password recovery</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Title" xml:space="preserve">
+	  <value>Reset link sent</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Text" xml:space="preserve">
+	  <value>If there is a user with the e-mail address you provided, you will receive a link to reset your password.</value>
+  </data>
+  <data name="Doing_SetPassword" xml:space="preserve">
+	  <value>Setting your password</value>
+  </data>
+  <data name="Error_InvalidResetToken" xml:space="preserve">
+	  <value>Incorrect reset code</value>
+  </data>
+  <data name="Validation_Password_Weak" xml:space="preserve">
+	  <value>The password must have at least 8 characters, one uppercase, one lowercase, one number and one special character.</value>
   </data>
 </root>

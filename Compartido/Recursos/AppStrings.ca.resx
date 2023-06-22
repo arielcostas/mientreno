@@ -557,4 +557,25 @@
   <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
 	  <value>Accés prioritari a suport tècnic</value>
   </data>
+  <data name="Action_Send" xml:space="preserve">
+	  <value>Enviar</value>
+  </data>
+  <data name="Doing_PasswordRecovery" xml:space="preserve">
+	  <value>Recuperació de contrasenya</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Title" xml:space="preserve">
+	  <value>Enllaç de reinici enviat</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Text" xml:space="preserve">
+	  <value>Si hi ha un usuari amb l'adreça de correu electrònic que ens vas facilitar, rebràs un enllaç amb què podràs restablir la contrasenya.</value>
+  </data>
+  <data name="Doing_SetPassword" xml:space="preserve">
+	  <value>Establint la contrasenya</value>
+  </data>
+  <data name="Error_InvalidResetToken" xml:space="preserve">
+	  <value>Codi de restabliment incorrecte</value>
+  </data>
+  <data name="Validation_Password_Weak" xml:space="preserve">
+	  <value>La contrasenya ha de tenir almenys 8 caràcters, una majúscula, una minúscula, un número i un caràcter especial</value>
+  </data>
 </root>

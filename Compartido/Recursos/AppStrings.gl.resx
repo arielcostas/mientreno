@@ -557,4 +557,25 @@
   <data name="Text_Pricing_PrioritySupport" xml:space="preserve">
 	  <value>Acceso prioritario ao soporte técnico</value>
   </data>
+  <data name="Action_Send" xml:space="preserve">
+	  <value>Enviar</value>
+  </data>
+  <data name="Doing_PasswordRecovery" xml:space="preserve">
+	  <value>Recuperación de contrasinal</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Title" xml:space="preserve">
+	  <value>Enviouse a ligazón de restablecemento</value>
+  </data>
+  <data name="Alert_PasswordRecoverySent_Text" xml:space="preserve">
+	  <value>Se hai un usuario co enderezo de correo-e que proporcionaches, recibirás unha ligazón coa que poderás restablecer o teu contrasinal.</value>
+  </data>
+  <data name="Doing_SetPassword" xml:space="preserve">
+	  <value>Establecendo o teu contrasinal</value>
+  </data>
+  <data name="Error_InvalidResetToken" xml:space="preserve">
+	  <value>Código de restablecemento incorrecto</value>
+  </data>
+  <data name="Validation_Password_Weak" xml:space="preserve">
+	  <value>O contrasinal debe ter polo menos 8 caracteres, unha maiúscula, unha minúscula, un número e un carácter especial</value>
+  </data>
 </root>
