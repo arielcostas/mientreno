@@ -1,5 +1,15 @@
 # Mientreno
 
+Código fuente del proyecto final de ciclo superior DAM de Ariel Costas Guerrero. Presentado y evaluado en junio de 2023. A continuación se incluye el código fuente de la implementación (parcial) realizada.
+
+Cualquier clave API (para entornos de prueba prueba) que se pudiera haber incluído en este repositorio fue rotada antes de publicar este repositorio. Sin embargo, se decidió no alterar el historial de Git para preservarlo "tal cual" se hizo.
+
+*Texto original del README preservado debajo*
+
+---
+
+# Mientreno
+
 Controla fácilmente tus entrenamientos.
 
 ## Configuración de apps (appsettings.json, user-secrets...)
@@ -50,8 +60,8 @@ Datos de Scaleway.
 ```json5
 {
 	"Stripe": {
-		"Publishable": "sk_test_51N0V4dKk3b9U3IGl6anM7TsSjZLMJTdmyjgKo7Ucn83XKMkJKIhnX29sQ1F8BwERf2oColu165b9oWGBJazYjo0w00NjffAixa",
-		"Secret": "sk_test_51N0V4dKk3b9U3IGl6anM7TsSjZLMJTdmyjgKo7Ucn83XKMkJKIhnX29sQ1F8BwERf2oColu165b9oWGBJazYjo0w00NjffAixa",
+		"Publishable": "",
+		"Secret": "",
 		"Webhook": ""
 	}
 }
