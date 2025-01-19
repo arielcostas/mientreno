@@ -2,8 +2,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Mientreno.Compartido;
-using Mientreno.QueueWorker;
-using Mientreno.QueueWorker.Mailing;
+using Mientreno.Server.Connectors.Mailing;
 using Mientreno.Server.Connectors.Queue;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
@@ -37,15 +36,17 @@ public static class Startup
 		builder.Services.AddHostedService<MailQueueWorker>();
 	}
 
-	public static void AddRabbitMq(this WebApplicationBuilder builder)
+	public static async Task AddRabbitMq(this WebApplicationBuilder builder)
 	{
 		var rabbitConnectionString = builder.Configuration.GetConnectionString("RabbitMQ") ??
 		                             throw new Exception("RabbitMQ Connection String not set");
 
-		builder.Services.AddSingleton(_ => new ConnectionFactory
+		var rabbitConnectionFactory = await new ConnectionFactory
 		{
 			Uri = new Uri(rabbitConnectionString),
-		}.CreateConnection());
+		}.CreateConnectionAsync();
+		
+		builder.Services.AddSingleton(_ => rabbitConnectionFactory);
 
 		builder.Services.AddSingleton<IQueueProvider>(sp =>
 		{

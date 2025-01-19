@@ -1,6 +1,4 @@
-using System.Net.Http.Json;
-
-namespace Mientreno.QueueWorker.Mailing;
+namespace Mientreno.Server.Connectors.Mailing;
 
 public sealed class ScalewayMailSender : IMailSender
 {

@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Mientreno.Compartido;
-using Mientreno.QueueWorker;
-using Mientreno.QueueWorker.Mailing;
 using Mientreno.Server;
 using Mientreno.Server.Connectors.Queue;
 using Mientreno.Server.Data;
@@ -33,7 +31,7 @@ builder.Services.AddDbContextPool<ApplicationDatabaseContext>(options =>
 
 builder.SetupLocalisation();
 builder.SetupAccessControl();
-builder.AddRabbitMq();
+await builder.AddRabbitMq();
 
 var runProfileGenerator = builder.Configuration.GetValue<bool?>("Workers:RunProfileGenerator") ?? true;
 

@@ -1,0 +1,19 @@
+﻿services:
+  rabbitmq:
+    image: rabbitmq:4.0.5-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "admin"
+  mailpit:
+    image: axllent/mailpit:v1.21.8
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  rabbitmq_data: {}

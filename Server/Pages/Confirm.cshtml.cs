@@ -38,10 +38,10 @@ public class ConfirmModel : PageModel
 
 		var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
 		var culture = rqf?.RequestCulture.Culture ?? CultureInfo.CurrentCulture;
-		
+
 		var roles = await _userManager.GetRolesAsync(usuario);
 
-		_queueProvider.Enqueue(Constantes.ColaEmails, new Email()
+		await _queueProvider.Enqueue(Constantes.ColaEmails, new Email
 		{
 			Idioma = culture.TwoLetterISOLanguageName,
 			NombreDestinatario = $"{usuario.Nombre} {usuario.Apellidos}",
@@ -49,18 +49,16 @@ public class ConfirmModel : PageModel
 			Plantila = roles.Contains(Entrenador.RoleName)
 				? Constantes.EmailBienvenida
 				: Constantes.EmailBienvenidaAlumno,
-			Parametros = new[] { usuario.Nombre }
+			Parametros = [usuario.Nombre]
 		});
-		
-		_queueProvider.Enqueue(Constantes.ColaGenerarFotoPerfil, new NuevaFoto()
+
+		await _queueProvider.Enqueue(Constantes.ColaGenerarFotoPerfil, new NuevaFoto()
 		{
 			Nombre = usuario.Nombre,
 			Apellidos = usuario.Apellidos,
 			IdUsuario = usuario.Id
 		});
 
-		return result.Succeeded ?
-			Page() :
-			RedirectToPage("/Error");
+		return result.Succeeded ? Page() : RedirectToPage("/Error");
 	}
 }

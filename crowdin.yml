@@ -1,7 +1,0 @@
-files:
-  - source: /Compartido/Recursos/AppStrings.resx
-    translation: /Compartido/Recursos/AppStrings.%two_letters_code%.resx
-  - source: /Server/EmailTemplates/**/default.md
-    translation: /Server/EmailTemplates/**/%two_letters_code%.md
-  - source: /Compartido/TermsService/v1.es.md
-    translation: /Compartido/TermsService/v1.%two_letters_code%.md

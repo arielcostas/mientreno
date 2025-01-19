@@ -6,21 +6,25 @@ namespace Mientreno.Server.Connectors.Queue;
 
 public class RabbitQueueConsumer<T> : IQueueConsumer<T> where T : Mensaje
 {
-	private readonly IModel _channel;
+	private readonly IConnection _connection;
+	private IChannel? _channel = null;
 	
 	public RabbitQueueConsumer(IConnection connection)
 	{
-		_channel = connection.CreateModel();
+		_connection = connection;
+		
 	}
 	
-	public void Listen(string queueName, Action<T> callback)
+	public async Task Listen(string queueName, Action<T> callback)
 	{
-		_channel.ExchangeDeclare("mientreno", ExchangeType.Direct, true, false);
-		_channel.QueueDeclare(queueName, true, false, false);
-		_channel.QueueBind(queueName, "mientreno", queueName);
+		if (_channel == null) _channel = await _connection.CreateChannelAsync();
 		
-		var consumer = new EventingBasicConsumer(_channel);
-		consumer.Received += (sender, e) =>
+		await _channel.ExchangeDeclareAsync("mientreno", ExchangeType.Direct, true, false);
+		await _channel.QueueDeclareAsync(queueName, true, false, false);
+		await _channel.QueueBindAsync(queueName, "mientreno", queueName);
+		
+		var consumer = new AsyncEventingBasicConsumer(_channel);
+		consumer.ReceivedAsync += async (sender, e) =>
 		{
 			var bodyBytes = e.Body.ToArray();
 			var data = Serializador.Deserializar<T>(bodyBytes);
@@ -29,9 +33,9 @@ public class RabbitQueueConsumer<T> : IQueueConsumer<T> where T : Mensaje
 			
 			callback(data);
 			
-			_channel.BasicAck(e.DeliveryTag, false);
+			await _channel.BasicAckAsync(e.DeliveryTag, false);
 		};
 		
-		_channel.BasicConsume(queueName, false, consumer);
+		await _channel.BasicConsumeAsync(queueName, false, consumer);
 	}
 }

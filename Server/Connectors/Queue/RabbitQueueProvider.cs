@@ -5,19 +5,22 @@ namespace Mientreno.Server.Connectors.Queue;
 
 public class RabbitQueueProvider : IQueueProvider
 {
-	private readonly IModel _channel;
+	private readonly IConnection _connection;
+	private IChannel? _channel = null;
 
 	public RabbitQueueProvider(IConnection connection)
 	{
-		_channel = connection.CreateModel();
+		_connection = connection;
 	}
 
-	public void Enqueue<T>(string queueName, T message) where T : Mensaje
+	public async Task Enqueue<T>(string queueName, T message) where T : Mensaje
 	{
-		_channel.QueueDeclare(queueName, true, false, false, null);
+		if (_channel == null) _channel = await _connection.CreateChannelAsync();
+		
+		await _channel.QueueDeclareAsync(queueName, true, false, false);
 
 		var body = Serializador.Serializar(message);
 
-		_channel.BasicPublish("", queueName, null, body);
+		await _channel.BasicPublishAsync("", queueName, true, body);
 	}
 }
