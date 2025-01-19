@@ -16,6 +16,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+        <PackageReference Include="MailKit" Version="4.9.0" />
+        
 		<PackageReference Include="Markdig" Version="0.40.0" />
 		<PackageReference Include="SkiaSharp" Version="3.116.1" />
 		<PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.116.1" 

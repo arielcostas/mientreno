@@ -1,7 +1,9 @@
 using System.Globalization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 using Mientreno.Compartido;
+using Mientreno.Server.Configuration;
 using Mientreno.Server.Connectors.Mailing;
 using Mientreno.Server.Connectors.Queue;
 using Mientreno.Server.Data;
@@ -15,22 +17,18 @@ public static class Startup
 {
 	public static void ConditionallyAddEmail(this WebApplicationBuilder builder)
 	{
-		var runMailQueue = builder.Configuration.GetValue<bool?>("Workers:RunEmailSender") ?? true;
-		if (!runMailQueue) return;
-
+		var executeMailSender = builder.Configuration.GetValue<bool?>("Workers:EmailSender") ?? false;
+		if (!executeMailSender) return;
+		
+		builder.Services.Configure<SmtpConfiguration>(builder.Configuration.GetSection("Smtp"));
+		
 		builder.Services.AddSingleton<IMailSender>(sp =>
 		{
 			var logger = sp.GetRequiredService<ILogger<IMailSender>>();
 
-			var emailFrom = builder.Configuration.GetValue<string>("EmailFrom") ??
-			                throw new Exception("EmailFrom not set");
+			var configuration = sp.GetRequiredService<IOptions<SmtpConfiguration>>();
 
-			var secretKey = builder.Configuration["Scaleway:SecretKey"] ??
-			                throw new Exception("ScalewayProjectId not set");
-			var projectId = builder.Configuration["Scaleway:ProjectId"] ??
-			                throw new Exception("ScalewayProjectId not set");
-
-			return new ScalewayMailSender(logger, emailFrom, secretKey, projectId);
+			return new MailkitMailSender(logger, configuration);
 		});
 
 		builder.Services.AddHostedService<MailQueueWorker>();
