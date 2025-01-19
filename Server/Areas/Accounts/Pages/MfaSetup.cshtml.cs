@@ -3,7 +3,6 @@ using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Mientreno.Server.Areas.Accounts.Services;
-using Mientreno.Server.Areas.Dashboard.Services;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;
 using Net.Codecrete.QrCodeGenerator;

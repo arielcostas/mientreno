@@ -1,103 +1,40 @@
 # Mientreno
 
-Código fuente del proyecto final de ciclo superior DAM de Ariel Costas Guerrero. Presentado y evaluado en junio de 2023. A continuación se incluye el código fuente de la implementación (parcial) realizada.
-
-Cualquier clave API (para entornos de prueba prueba) que se pudiera haber incluído en este repositorio fue rotada antes de publicar este repositorio. Sin embargo, se decidió no alterar el historial de Git para preservarlo "tal cual" se hizo.
-
-*Texto original del README preservado debajo*
-
----
-
-# Mientreno
-
 Controla fácilmente tus entrenamientos.
 
-## Configuración de apps (appsettings.json, user-secrets...)
+## Historia
 
-### Base de datos (Server)
+Este proyecto fue desarrollado por Ariel Costas Guerrero como proyecto final de ciclo superior de Desarrollo de
+Aplicaciones Multiplataforma (DAM) en el IES A Pinguela, Monforte de Lemos, Lugo. El proyecto fue presentado y evaluado
+en junio de 2023.
+En enero de 2025 decidió reabrir el proyecto, actualizarlo a .NET 8 y empezar a trabajar en mejoras y nuevas
+funcionalidades.
 
-En la configuración del programa, añadir una Connection String con nombre `Database`. Por ejemplo, en un `secrets.json`
-sería:
+## Arquitectura
 
-```json5
-{
-	"ConnectionStrings:Database": "Data Source=EJEMPLO;Initial Catalog=Mientreno;Integrated Security=True; Trust Server Certificate=True"
-}
-```
+El proyecto está implementado en .NET 8 y utiliza una arquitectura monolítica, con planes para separar algunos
+componentes (como los "workers" de generación de perfiles y envío de correos). Para la base de datos se utiliza MySQL.
+Para la comunicación entre servicios se utiliza RabbitMQ con el SDK oficial (se planea cambiar a MassTransit en el
+futuro). Para el almacenamiento de imágenes se utiliza el sistema de archivos local (se planea cambiar a Azure Blob y
+S3-compatible en el futuro).
 
-### Scaleway (Server)
+## Desarrollo local
 
-Datos de Scaleway.
+Para ejecutar el proyecto en local, se necesita tener instalado .NET 8 y Docker, con soporte para Docker Compose. Se
+ejecuta el comando `docker compose up -d` en la raíz del proyecto para levantar la base de datos, el servidor RabbitMQ
+y el servidor de email (para desarrollo). Luego se ejecuta el proyecto con `dotnet run --project Server`.
 
-```json5
-{
-  "Scaleway": {
-    "AccessKey": "",
-    "SecretKey": "",
-    "ProjectId": ""
-  }
-}
-```
+## Contribuciones
 
-### RabbitMQ (Server)
+Las contribuciones son bienvenidas. Por favor, crea un fork del proyecto, haz tus cambios y abre un pull request. Si
+quieres abrir un issue, por favor, asegúrate de que no esté ya abierto.
 
-```json5
-{
-	"ConnectionStrings:RabbitMQ": "amqp://guest:guest@localhost:5672/"
-}
-```
+## Licencia
 
-### Guardado de imágenes local (Server)
+Este proyecto está bajo la licencia GNU Affero General Public License v3.0. Puedes leer la licencia en el archivo LICENSE
+que se incluye en el proyecto. Esencialmente, puedes usar, modificar y distribuir el proyecto como quieras, pero si
+lo distribuyes o alojas como servicio de red (el caso de uso principal de este proyecto), debes hacer públicos los
+cambios que hagas al código fuente así como el código original.
 
-```json5
-{
-	"FileBase": "C:\\Users\\you\\Desktop\\MientrenoPics"
-}
-```
-
-### Procesador de pagos (Server)
-
-```json5
-{
-	"Stripe": {
-		"Publishable": "",
-		"Secret": "",
-		"Webhook": ""
-	}
-}
-```
-
-### Workers
-
-Si ejecutar o no los workers de fondo que corren en segundo plano.
-
-```json5
-{
-	"Workers": {
-		"RunProfileGenerator": true,
-		"RunEmailSender": true
-	}
-}
-```
-
-## Desarrollo
-
-### Base de datos de desarrollo
-
-Ejecutar con:
-
-```sh
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=abc1234." -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
-```
-
-### Cadena de conexión
-
-```
-Server=localhost;Database=Mientreno;User Id=sa;Password=abc1234.;Trust Server Certificate=True;
-```
-
-### Migraciones
-
-```sh
-dotnet ef database update --project Server
-```
+Este software se ofrece tal cual, sin garantías de ningún tipo. El autor no se hace responsable de ningún daño que pueda
+causar el uso de este software. Si usas este software, aceptas estos términos.

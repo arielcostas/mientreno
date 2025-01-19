@@ -1,24 +1,11 @@
-#region Imports
-
-using System.Globalization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
-using Mientreno.Compartido;
 using Mientreno.Server;
-using Mientreno.Server.Connectors.Queue;
 using Mientreno.Server.Data;
-using Mientreno.Server.Data.Models;
 using Mientreno.Server.Workers;
-using RabbitMQ.Client;
-using Stripe;
-
-#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 var devel = builder.Environment.IsDevelopment();
-StripeConfiguration.ApiKey = builder.Configuration["Stripe:Secret"];
 
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
@@ -26,18 +13,24 @@ builder.Services.AddProblemDetails();
 builder.Services.AddRazorPages();
 builder.Services.AddDbContextPool<ApplicationDatabaseContext>(options =>
 {
-	options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
+    var connectionString = builder.Configuration.GetConnectionString("Database");
+    if (string.IsNullOrWhiteSpace(connectionString))
+    {
+        throw new Exception("Connection string Database not set");
+    }
+
+    options.UseMySQL(connectionString);
 });
 
 builder.SetupLocalisation();
 builder.SetupAccessControl();
 await builder.AddRabbitMq();
 
-var runProfileGenerator = builder.Configuration.GetValue<bool?>("Workers:RunProfileGenerator") ?? true;
+var runProfileGenerator = builder.Configuration.GetValue<bool?>("Workers:ProfileImageGenerator") ?? true;
 
 if (runProfileGenerator)
 {
-	builder.Services.AddHostedService<ProfilePhotoGeneratorWorker>();
+    builder.Services.AddHostedService<ProfilePhotoGeneratorWorker>();
 }
 
 builder.ConditionallyAddProfileGenerator();
@@ -47,13 +40,13 @@ var app = builder.Build();
 
 app.UseExceptionHandler();
 
-if (app.Environment.IsDevelopment())
+if (devel)
 {
-	app.UseDeveloperExceptionPage();
+    app.UseDeveloperExceptionPage();
 }
 else
 {
-	app.UseForwardedHeaders();
+    app.UseForwardedHeaders();
 }
 
 app.UseAuthentication();
@@ -65,11 +58,11 @@ app.UseStaticFiles();
 
 app.UseFileServer(new FileServerOptions
 {
-	RequestPath = "/Static",
-	FileProvider = new PhysicalFileProvider(
-		builder.Configuration["FileBase"] ?? throw new Exception("FileBase not set")
-	),
-	EnableDirectoryBrowsing = devel,
+    RequestPath = "/Static",
+    FileProvider = new PhysicalFileProvider(
+        builder.Configuration["FileBase"] ?? throw new Exception("FileBase not set")
+    ),
+    EnableDirectoryBrowsing = devel,
 });
 
 app.MapRazorPages();

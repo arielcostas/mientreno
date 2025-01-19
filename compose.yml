@@ -1,4 +1,13 @@
 ﻿services:
+  mysql:
+    image: mysql:9.1.0
+    ports:
+      - "3360:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mientreno
   rabbitmq:
     image: rabbitmq:4.0.5-management
     ports:
@@ -7,8 +16,8 @@
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     environment:
-      RABBITMQ_DEFAULT_USER: "admin"
-      RABBITMQ_DEFAULT_PASS: "admin"
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
   mailpit:
     image: axllent/mailpit:v1.21.8
     ports:
@@ -16,4 +25,5 @@
       - "8025:8025"
 
 volumes:
-  rabbitmq_data: {}
+  mysql_data:
+  rabbitmq_data:

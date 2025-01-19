@@ -1,61 +1,60 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using MySql.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Mientreno.Server.Migrations
+namespace Mientreno.Server.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CorramosUnTupidoVelo : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AlterDatabase()
+                .Annotation("MySQL:Charset", "utf8mb4");
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Name = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Tipo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FechaAlta = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    FechaEliminacion = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UltimosTosAceptados = table.Column<long>(type: "bigint", nullable: true),
-                    EntrenadorId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    Suscripcion_Estado = table.Column<int>(type: "int", nullable: true),
-                    Suscripcion_CustomerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Suscripcion_Plan = table.Column<int>(type: "int", nullable: true),
-                    Suscripcion_FechaInicio = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Suscripcion_FechaFin = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Suscripcion_RenovacionAutomatica = table.Column<bool>(type: "bit", nullable: true),
-                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Tipo = table.Column<string>(type: "varchar(13)", maxLength: 13, nullable: false),
+                    Nombre = table.Column<string>(type: "longtext", nullable: true),
+                    Apellidos = table.Column<string>(type: "longtext", nullable: true),
+                    FechaAlta = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    FechaEliminacion = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    UltimosTosAceptados = table.Column<uint>(type: "int unsigned", nullable: true),
+                    EntrenadorId = table.Column<string>(type: "varchar(255)", nullable: true),
+                    UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    PasswordHash = table.Column<string>(type: "longtext", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "longtext", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "longtext", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetime", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     AccessFailedCount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -67,17 +66,18 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    RoleId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    ClaimType = table.Column<string>(type: "longtext", nullable: true),
+                    ClaimValue = table.Column<string>(type: "longtext", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -88,17 +88,18 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    ClaimType = table.Column<string>(type: "longtext", nullable: true),
+                    ClaimValue = table.Column<string>(type: "longtext", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -109,16 +110,17 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    LoginProvider = table.Column<string>(type: "varchar(255)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "varchar(255)", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "longtext", nullable: true),
+                    UserId = table.Column<string>(type: "varchar(255)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -129,14 +131,15 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    RoleId = table.Column<string>(type: "varchar(255)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -153,16 +156,17 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Name = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Value = table.Column<string>(type: "longtext", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -173,16 +177,17 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "Categorias",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Nombre = table.Column<string>(type: "longtext", nullable: false),
+                    OwnerId = table.Column<string>(type: "varchar(255)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -193,35 +198,36 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "Cuestionarios",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AlumnoId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechaFormalizacion = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Edad = table.Column<byte>(type: "tinyint", nullable: false),
-                    AlturaCm = table.Column<byte>(type: "tinyint", nullable: false),
-                    MasaKilogramos = table.Column<float>(type: "real", nullable: false),
-                    FrecuenciaCardiacaReposo = table.Column<byte>(type: "tinyint", nullable: false),
-                    Habitos_Profesion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
+                    AlumnoId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    FechaFormalizacion = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    Edad = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    AlturaCm = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    MasaKilogramos = table.Column<float>(type: "float", nullable: false),
+                    FrecuenciaCardiacaReposo = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Habitos_Profesion = table.Column<string>(type: "longtext", nullable: false),
                     Habitos_Fumador = table.Column<int>(type: "int", nullable: false),
                     Habitos_Bebedor = table.Column<int>(type: "int", nullable: false),
-                    Habitos_OtrasDrogas = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Habitos_OtrasDrogas = table.Column<string>(type: "longtext", nullable: false),
                     Habitos_Deporte = table.Column<int>(type: "int", nullable: false),
-                    Habitos_Sueño = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Perimetros_PectoralInspiracion = table.Column<byte>(type: "tinyint", nullable: false),
-                    Perimetros_PectoralExpiracion = table.Column<byte>(type: "tinyint", nullable: false),
-                    Perimetros_AbdominalXifoides = table.Column<byte>(type: "tinyint", nullable: false),
-                    Perimetros_AbdominalOmbligo = table.Column<byte>(type: "tinyint", nullable: false),
-                    Perimetros_Cintura = table.Column<byte>(type: "tinyint", nullable: false),
-                    Perimetros_Cadera = table.Column<byte>(type: "tinyint", nullable: false),
-                    Perimetros_CuadricepsMaximo = table.Column<byte>(type: "tinyint", nullable: false),
-                    Perimetros_CuadricepsMinimo = table.Column<byte>(type: "tinyint", nullable: false),
-                    Perimetros_Gastrocnemio = table.Column<byte>(type: "tinyint", nullable: false)
+                    Habitos_Sueño = table.Column<string>(type: "longtext", nullable: false),
+                    Perimetros_PectoralInspiracion = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Perimetros_PectoralExpiracion = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Perimetros_AbdominalXifoides = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Perimetros_AbdominalOmbligo = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Perimetros_Cintura = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Perimetros_Cadera = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Perimetros_CuadricepsMaximo = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Perimetros_CuadricepsMinimo = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Perimetros_Gastrocnemio = table.Column<byte>(type: "tinyint unsigned", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -232,17 +238,18 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "Invitaciones",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    EntrenadorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Usos = table.Column<byte>(type: "tinyint", nullable: false),
-                    MaximoUsos = table.Column<byte>(type: "tinyint", nullable: false),
-                    FechaExpiracion = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
+                    EntrenadorId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Usos = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    MaximoUsos = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    FechaExpiracion = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -253,23 +260,24 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "JornadaEntrenamiento",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ClienteAsignadoId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechaPublicacion = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    FechaInicioRealizacion = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    FechaFinRealizacion = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    FechaEvalucion = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Valoracion = table.Column<byte>(type: "tinyint", nullable: true),
-                    Comentario = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Nombre = table.Column<string>(type: "longtext", nullable: false),
+                    Descripcion = table.Column<string>(type: "longtext", nullable: false),
+                    ClienteAsignadoId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    FechaPublicacion = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    FechaInicioRealizacion = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    FechaFinRealizacion = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    FechaEvalucion = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    Valoracion = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Comentario = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -280,20 +288,21 @@ namespace Mientreno.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "Ejercicios",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    VideoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Nombre = table.Column<string>(type: "longtext", nullable: false),
+                    Descripcion = table.Column<string>(type: "longtext", nullable: false),
+                    VideoUrl = table.Column<string>(type: "longtext", nullable: true),
+                    OwnerId = table.Column<string>(type: "varchar(255)", nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: true),
-                    Dificultad = table.Column<byte>(type: "tinyint", nullable: false)
+                    Dificultad = table.Column<byte>(type: "tinyint unsigned", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -309,15 +318,16 @@ namespace Mientreno.Server.Migrations
                         column: x => x.CategoriaId,
                         principalTable: "Categorias",
                         principalColumn: "Id");
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "EjercicioProgramado",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    JornadaId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    JornadaId = table.Column<string>(type: "varchar(255)", nullable: false),
                     EjercicioId = table.Column<int>(type: "int", nullable: false),
                     Series = table.Column<int>(type: "int", nullable: true),
                     Repeticiones = table.Column<int>(type: "int", nullable: true),
@@ -337,7 +347,8 @@ namespace Mientreno.Server.Migrations
                         principalTable: "JornadaEntrenamiento",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -348,8 +359,7 @@ namespace Mientreno.Server.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true,
-                filter: "[NormalizedName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -380,8 +390,7 @@ namespace Mientreno.Server.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Categorias_OwnerId",
