@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
 using Mientreno.Compartido.Recursos;
@@ -85,7 +84,7 @@ public class RegisterModel : PageModel
 		}
 
 		Usuario nuevo;
-		if (InvitacionCode.IsNullOrEmpty())
+		if (string.IsNullOrEmpty(InvitacionCode))
 		{
 			nuevo = NewEntrenador();
 		}

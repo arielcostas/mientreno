@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mientreno.Server.Areas.Accounts.Services;
 using Mientreno.Server.Data;
 using Mientreno.Server.Data.Models;

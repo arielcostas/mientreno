@@ -111,23 +111,27 @@ public class ProfilePhotoGeneratorWorker : BackgroundService
 		canvas.DrawCircle(250, 250, 250, bgPaint);
 
 		// Crea el texto
-		var textPaint = new SKPaint()
+		var font = new SKFont(SKTypeface.FromFamilyName("monospace"), 220)
 		{
-			Typeface = SKTypeface.FromFamilyName("monospace"),
-			Color = UseWhiteContrast(fondo) ? SKColors.White : SKColors.Black,
-			TextSize = 220,
-			TextAlign = SKTextAlign.Center,
-			FakeBoldText = true
+			Embolden = true
 		};
 
+		var paint = new SKPaint()
+		{
+			Color = UseWhiteContrast(fondo) ? SKColors.White : SKColors.Black,
+			IsAntialias = true
+		};
+		
 		var inicialesChars = nombreCompleto.Trim().Split(" ", 2).Select(part => part[0]);
 		var iniciales = string.Join("", inicialesChars);
 
 		canvas.DrawText(
 			iniciales,
 			250,
-			250 + (textPaint.TextSize / 2) - (textPaint.TextSize / 10),
-			textPaint
+			250 + (font.Size / 2) - (font.Size / 10),
+			SKTextAlign.Center,
+			font,
+			paint
 		);
 
 		return bmp;

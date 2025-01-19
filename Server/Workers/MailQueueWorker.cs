@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore.Metadata;
 using Mientreno.Compartido;
 using Mientreno.Compartido.Mensajes;
 using Mientreno.Server.Connectors.Mailing;
